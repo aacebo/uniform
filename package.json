@@ -1,15 +1,33 @@
 {
-  "name": "uniform",
-  "version": "0.0.0",
+  "name": "@uniform/uniform",
+  "version": "0.0.1-rc.0",
+  "private": false,
+  "license": "MIT",
+  "author": {
+    "email": "aacebowork@gmail.com",
+    "name": "Alexander Acebo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pappacurds/uniform"
+  },
   "scripts": {
+    "clean": "rimraf dist",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:demo": "ng serve demo",
+    "build:demo": "ng build demo",
+    "test:demo": "ng test demo",
+    "lint:demo": "ng lint demo",
+    "build:components": "npm run clean && ng build components",
+    "test:components": "ng test components",
+    "lint:components": "ng lint components",
+    "publish:components": "npm publish dist/components --access public"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
