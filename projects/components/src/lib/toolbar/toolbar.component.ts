@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { UniColor } from '../core';
 
 @Component({
   selector: 'uni-toolbar',
@@ -6,4 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniToolbarComponent {}
+export class UniToolbarComponent {
+  @Input() color?: UniColor;
+}
