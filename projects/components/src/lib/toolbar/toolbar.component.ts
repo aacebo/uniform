@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { UniColor } from '../core';
+import { UniColor } from '../core/enums';
 
 @Component({
   selector: 'uni-toolbar',

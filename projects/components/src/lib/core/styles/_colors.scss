@@ -1,0 +1,20 @@
+$uni-theme-colors: (
+  'primary': #0b81cf,
+  'secondary': #6b6969,
+  'success': #218115,
+  'warning': #e49e07,
+  'danger': #a72222
+);
+
+$uni-colors: (
+  'white': #ffffff,
+  'black': #000000
+);
+
+@function uni-theme-color($key) {
+  @return map-get($uni-theme-colors, $key);
+}
+
+@function uni-color($key) {
+  @return map-get($uni-colors, $key);
+}
