@@ -9,14 +9,14 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   styleUrls: ['./sidenav.component.scss'],
   host: {
     class: 'uni-sidenav',
-    '[class.side]': 'mode === "side"',
     '[class.over]': 'mode === "over"',
-    '[class.start]': 'position === "start"',
-    '[class.end]': 'position === "end"'
+    '[class.end]': 'position === "end"',
+    '[class.closed]': 'open === false',
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniSidenavComponent {
   @Input() position = UniSidenavPosition.Start;
   @Input() mode = UniSidenavMode.Side;
+  @Input() open = true;
 }

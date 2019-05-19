@@ -1,8 +1,8 @@
-<uni-toolbar color="primary">
+<uni-toolbar color="primary" (click)="$toggle.next(!$toggle.value)">
   inside the toolbar
 </uni-toolbar>
 
 <uni-sidenav-container>
-  <uni-sidenav>test sidenav</uni-sidenav>
+  <uni-sidenav position="start" [open]="$toggle | async">test sidenav</uni-sidenav>
   <uni-sidenav-content>content</uni-sidenav-content>
 </uni-sidenav-container>

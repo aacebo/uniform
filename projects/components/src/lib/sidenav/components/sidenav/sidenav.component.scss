@@ -1,0 +1,22 @@
+@import '../../../core/styles/animations';
+
+:host {
+  display: block;
+  position: absolute;
+  overflow-y: auto;
+  z-index: 2;
+  transition-duration: $uni-animation-duraction;
+  transition-timing-function: $uni-animation-timing-function;
+
+  &.end {
+    right: 0;
+
+    &.closed {
+      transform: translateX(100%);
+    }
+  }
+
+  &.closed {
+    transform: translateX(-100%);
+  }
+}

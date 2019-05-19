@@ -1,3 +1,10 @@
+@import '../../../core/styles/animations';
+
 :host {
-  flex: 1 1 auto;
+  display: block;
+  position: relative;
+  overflow: auto;
+  z-index: 1;
+  transition-duration: $uni-animation-duraction;
+  transition-timing-function: $uni-animation-timing-function;
 }
