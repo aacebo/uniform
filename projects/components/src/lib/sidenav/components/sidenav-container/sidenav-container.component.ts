@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ContentChild } from '@angular/core';
+
+import { UniSidenavComponent } from '../sidenav/sidenav.component';
 
 @Component({
   selector: 'uni-sidenav-container',
@@ -9,4 +11,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniSidenavContainerComponent {}
+export class UniSidenavContainerComponent {
+  @ContentChild(UniSidenavComponent) sidenav: UniSidenavComponent;
+}

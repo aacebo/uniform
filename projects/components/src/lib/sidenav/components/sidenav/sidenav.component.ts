@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ElementRef } from '@angular/core';
 
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
@@ -19,4 +19,6 @@ export class UniSidenavComponent {
   @Input() position = UniSidenavPosition.Start;
   @Input() mode = UniSidenavMode.Side;
   @Input() open = true;
+
+  constructor(readonly el: ElementRef) {}
 }

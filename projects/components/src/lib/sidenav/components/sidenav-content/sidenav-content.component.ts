@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, forwardRef } from '@angular/core';
+
+import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-container.component';
 
 @Component({
   selector: 'uni-sidenav-content',
@@ -9,4 +11,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniSidenavContentComponent {}
+export class UniSidenavContentComponent {
+  constructor(
+    @Inject(forwardRef(() => UniSidenavContainerComponent))
+    private readonly container: UniSidenavContainerComponent,
+  ) {
+    console.log(this.container.sidenav.el.nativeElement.clientWidth);
+  }
+}
