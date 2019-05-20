@@ -7,15 +7,14 @@ import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-conta
   templateUrl: './sidenav-content.component.html',
   styleUrls: ['./sidenav-content.component.scss'],
   host: {
-    class: 'uni-sidenav-content'
+    class: 'uni-sidenav-content',
+    '[style.margin-left.px]': 'container.sidenav.open ? container.sidenav.el.nativeElement.clientWidth : 0'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniSidenavContentComponent {
   constructor(
     @Inject(forwardRef(() => UniSidenavContainerComponent))
-    private readonly container: UniSidenavContainerComponent,
-  ) {
-    console.log(this.container.sidenav.el.nativeElement.clientWidth);
-  }
+    readonly container: UniSidenavContainerComponent,
+  ) {}
 }
