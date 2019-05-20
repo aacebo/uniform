@@ -7,28 +7,5 @@
               0 6px 10px 0 rgba(0, 0, 0, 0.14),
               0 1px 18px 0 rgba(0, 0, 0, 0.12);
 
-  &.primary {
-    color: uni-color('white');
-    background-color: uni-theme-color('primary');
-  }
-
-  &.secondary {
-    color: uni-color('white');
-    background-color: uni-theme-color('secondary');
-  }
-
-  &.success {
-    color: uni-color('white');
-    background-color: uni-theme-color('success');
-  }
-
-  &.warning {
-    color: uni-color('black');
-    background-color: uni-theme-color('warning');
-  }
-
-  &.danger {
-    color: uni-color('white');
-    background-color: uni-theme-color('danger');
-  }
+  @include uni-colors;
 }

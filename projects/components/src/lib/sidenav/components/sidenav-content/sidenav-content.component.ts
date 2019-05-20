@@ -15,22 +15,26 @@ import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-conta
 })
 export class UniSidenavContentComponent {
   get marginLeft() {
-    return this.open && this.position === 'start' ? this.width : 0;
+    return this.open && this.position === 'start' && this.mode === 'side' ? this.width : 0;
   }
 
   get marginRight() {
-    return this.open && this.position === 'end' ? this.width : 0;
+    return this.open && this.position === 'end' && this.mode === 'side' ? this.width : 0;
   }
 
-  get open() {
+  private get open() {
     return this.container.sidenav.open;
   }
 
-  get position() {
+  private get mode() {
+    return this.container.sidenav.mode;
+  }
+
+  private get position() {
     return this.container.sidenav.position;
   }
 
-  get width() {
+  private get width() {
     return +this.container.sidenav.el.nativeElement.clientWidth;
   }
 

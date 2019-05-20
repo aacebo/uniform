@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ContentChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ContentChild, Output, EventEmitter } from '@angular/core';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 
@@ -9,8 +9,13 @@ import { UniSidenavComponent } from '../sidenav/sidenav.component';
   host: {
     class: 'uni-sidenav-container'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class UniSidenavContainerComponent {
   @ContentChild(UniSidenavComponent) sidenav: UniSidenavComponent;
+  @Output() backdropClicked = new EventEmitter<void>();
+
+  get showBackdrop() {
+    return this.sidenav.mode === 'over' && this.sidenav.open;
+  }
 }

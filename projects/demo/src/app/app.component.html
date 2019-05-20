@@ -1,8 +1,14 @@
-<uni-toolbar color="primary" (click)="$toggle.next(!$toggle.value)">
-  inside the toolbar
-</uni-toolbar>
-
-<uni-sidenav-container>
-  <uni-sidenav position="start" [open]="$toggle | async">test sidenav</uni-sidenav>
-  <uni-sidenav-content>content</uni-sidenav-content>
+<uni-sidenav-container (backdropClicked)="$toggle.next(false)">
+  <uni-sidenav position="start"
+               mode="side"
+               color="secondary"
+               [open]="$toggle | async">
+    test sidenav
+  </uni-sidenav>
+  <uni-sidenav-content>
+    <uni-toolbar color="primary"
+                 (click)="$toggle.next(!$toggle.value)">
+      inside the toolbar
+    </uni-toolbar>
+  </uni-sidenav-content>
 </uni-sidenav-container>

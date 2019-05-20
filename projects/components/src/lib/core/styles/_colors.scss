@@ -18,3 +18,30 @@ $uni-colors: (
 @function uni-color($key) {
   @return map-get($uni-colors, $key);
 }
+
+@mixin uni-colors {
+  &.primary {
+    color: uni-color('white');
+    background-color: uni-theme-color('primary');
+  }
+
+  &.secondary {
+    color: uni-color('white');
+    background-color: uni-theme-color('secondary');
+  }
+
+  &.success {
+    color: uni-color('white');
+    background-color: uni-theme-color('success');
+  }
+
+  &.warning {
+    color: uni-color('black');
+    background-color: uni-theme-color('warning');
+  }
+
+  &.danger {
+    color: uni-color('white');
+    background-color: uni-theme-color('danger');
+  }
+}

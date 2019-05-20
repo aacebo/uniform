@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { UniColor } from '../core/enums';
+import { UNI_COLORS } from '../core/constants';
 
 @Component({
   selector: 'uni-toolbar',
@@ -8,11 +9,7 @@ import { UniColor } from '../core/enums';
   styleUrls: ['./toolbar.component.scss'],
   host: {
     class: 'uni-toolbar',
-    '[class.primary]': 'color === "primary"',
-    '[class.secondary]': 'color === "secondary"',
-    '[class.success]': 'color === "success"',
-    '[class.warning]': 'color === "warning"',
-    '[class.danger]': 'color === "danger"'
+    ...UNI_COLORS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
