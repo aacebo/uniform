@@ -5,6 +5,7 @@ import {
   UniToolbarModule,
   UniSidenavModule,
   UniIconModule,
+  UniIconService,
 } from '@uniform/components';
 
 import { AppComponent } from './app.component';
@@ -22,4 +23,8 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private readonly iconService: UniIconService) {
+    this.iconService.registry('mdi');
+  }
+}

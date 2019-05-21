@@ -41,6 +41,7 @@
       "trace"
     ],
     "no-empty": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-inferrable-types": [
       true,
       "ignore-params"

@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { UniIconService } from './icon.service';
 
 @Component({
   selector: 'uni-icon',
@@ -6,4 +8,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniIconComponent {}
+export class UniIconComponent {
+  @Input() icon: string;
+
+  constructor(readonly iconService: UniIconService) {}
+}
