@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
+  UniButtonModule,
   UniToolbarModule,
   UniSidenavModule,
   UniIconModule,
@@ -16,6 +17,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+
+    UniButtonModule,
     UniToolbarModule,
     UniSidenavModule,
     UniIconModule
