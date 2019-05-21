@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { UniToolbarModule, UniSidenavModule } from '@uniform/components';
+import {
+  UniToolbarModule,
+  UniSidenavModule,
+  UniIconModule,
+} from '@uniform/components';
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +16,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     UniToolbarModule,
-    UniSidenavModule
+    UniSidenavModule,
+    UniIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,5 +7,5 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  readonly $toggle = new BehaviorSubject(true);
+  readonly $toggle = new BehaviorSubject(false);
 }
