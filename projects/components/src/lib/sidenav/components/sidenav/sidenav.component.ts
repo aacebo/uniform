@@ -6,7 +6,9 @@ import { UniColor } from '../../../core/enums';
 import { UNI_COLORS } from '../../../core/constants';
 
 @Component({
+  moduleId: module.id,
   selector: 'uni-sidenav',
+  exportAs: 'uniSidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
   host: {

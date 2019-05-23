@@ -6,11 +6,14 @@
     test sidenav
   </uni-sidenav>
   <uni-sidenav-content>
-    <uni-toolbar color="primary"
-                 (click)="$toggle.next(!$toggle.value)">
-      <uni-icon icon="mdi-menu"></uni-icon>
-      inside the toolbar
-      <button uni-button>test button</button>
+    <uni-toolbar color="primary">
+      <button uni-icon-button
+              (click)="$toggle.next(!$toggle.value)">
+        <uni-icon icon="mdi-menu"></uni-icon>
+      </button>
+      <div class="uni-toolbar-title">inside the toolbar</div>
     </uni-toolbar>
+    <button color="primary" uni-button disabled>test button</button>
+    <button color="danger" uni-outline-button>test outline button</button>
   </uni-sidenav-content>
 </uni-sidenav-container>

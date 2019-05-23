@@ -3,7 +3,9 @@ import { Component, ChangeDetectionStrategy, ContentChild, Output, EventEmitter 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'uni-sidenav-container',
+  exportAs: 'uniSidenavContainer',
   templateUrl: './sidenav-container.component.html',
   styleUrls: ['./sidenav-container.component.scss'],
   host: {
