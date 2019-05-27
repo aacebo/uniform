@@ -11,7 +11,7 @@
               (click)="$toggle.next(!$toggle.value)">
         <uni-icon icon="mdi-menu"></uni-icon>
       </button>
-      <div class="uni-toolbar-title">inside the toolbar</div>
+      <div class="uni-toolbar-title">@uniform</div>
     </uni-toolbar>
     <button color="primary"
             uni-button
@@ -23,7 +23,13 @@
             uni-outline-button
             uniTooltip="testtesttttttt"
             uniTooltipPosition="right">
-      test outline button
+      tooltip example
+    </button>
+    <button color="primary"
+            uni-outline-button
+            uniPopover="testing popover"
+            uniPopoverPosition="top">
+      popover example
     </button>
   </uni-sidenav-content>
 </uni-sidenav-container>

@@ -8,7 +8,8 @@ $uni-theme-colors: (
 
 $uni-colors: (
   'white': #ffffff,
-  'black': #000000
+  'black': #000000,
+  'grey': #6c757d
 );
 
 @function uni-theme-color($key) {

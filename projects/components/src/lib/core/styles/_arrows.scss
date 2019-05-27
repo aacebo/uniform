@@ -1,6 +1,7 @@
 @import './colors';
 
 $uni-arrow-color: rgba(uni-color('black'), 0.8);
+$uni-arrow-color-popover: rgba(uni-color('grey'), 1);
 $uni-arrow-size: 7px;
 $uni-arrow-distance: 3px;
 
@@ -14,6 +15,10 @@ $uni-arrow-distance: 3px;
     border-left: $uni-arrow-size solid transparent;
     border-right: $uni-arrow-size solid transparent;
     border-bottom: $uni-arrow-size solid $uni-arrow-color;
+
+    &.popover {
+      border-bottom: $uni-arrow-size solid $uni-arrow-color-popover;
+    }
   }
 
   &.bottom {
@@ -23,6 +28,10 @@ $uni-arrow-distance: 3px;
     border-left: $uni-arrow-size solid transparent;
     border-right: $uni-arrow-size solid transparent;
     border-top: $uni-arrow-size solid $uni-arrow-color;
+
+    &.popover {
+      border-top: $uni-arrow-size solid $uni-arrow-color-popover;
+    }
   }
 
   &.left {
@@ -32,6 +41,10 @@ $uni-arrow-distance: 3px;
     border-top: $uni-arrow-size solid transparent;
     border-bottom: $uni-arrow-size solid transparent;
     border-right: $uni-arrow-size solid $uni-arrow-color;
+
+    &.popover {
+      border-right: $uni-arrow-size solid $uni-arrow-color-popover;
+    }
   }
 
   &.right {
@@ -41,5 +54,9 @@ $uni-arrow-distance: 3px;
     border-top: $uni-arrow-size solid transparent;
     border-bottom: $uni-arrow-size solid transparent;
     border-left: $uni-arrow-size solid $uni-arrow-color;
+
+    &.popover {
+      border-left: $uni-arrow-size solid $uni-arrow-color-popover;
+    }
   }
 }
