@@ -8,6 +8,7 @@ import {
   UniIconModule,
   UniIconService,
   UniTooltipModule,
+  UniPopoverModule
 } from '@uniform/components';
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { AppComponent } from './app.component';
     UniSidenavModule,
     UniIconModule,
     UniTooltipModule,
+    UniPopoverModule
   ],
   providers: [],
   bootstrap: [AppComponent]

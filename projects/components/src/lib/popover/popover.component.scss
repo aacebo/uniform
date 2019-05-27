@@ -1,0 +1,33 @@
+@import '../core/styles/animations';
+@import '../core/styles/colors';
+@import '../core/styles/arrows';
+
+$uni-popover-margin: 10px;
+$uni-popover-bg-color: rgba(uni-color('black'), 0.8);
+$uni-popover-color: uni-color('white');
+
+:host {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: $uni-popover-bg-color;
+  color: $uni-popover-color;
+  transition-duration: $uni-animation-duraction;
+  transition-timing-function: $uni-animation-timing-function;
+
+  &.top {
+    margin-bottom: $uni-popover-margin;
+  }
+
+  &.bottom {
+    margin-top: $uni-popover-margin;
+  }
+
+  &.left {
+    margin-right: $uni-popover-margin;
+  }
+
+  &.right {
+    margin-left: $uni-popover-margin;
+  }
+}
