@@ -1,4 +1,33 @@
+@import '../core/styles/animations';
+@import '../core/styles/colors';
+@import '../core/styles/arrows';
+
+$uni-tooltip-margin: 10px;
+$uni-tooltip-bg-color: rgba(uni-color('black'), 0.8);
+$uni-tooltip-color: uni-color('white');
+
 :host {
-  background-color: black;
-  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: $uni-tooltip-bg-color;
+  color: $uni-tooltip-color;
+  transition-duration: $uni-animation-duraction;
+  transition-timing-function: $uni-animation-timing-function;
+
+  &.top {
+    margin-bottom: $uni-tooltip-margin;
+  }
+
+  &.bottom {
+    margin-top: $uni-tooltip-margin;
+  }
+
+  &.left {
+    margin-right: $uni-tooltip-margin;
+  }
+
+  &.right {
+    margin-left: $uni-tooltip-margin;
+  }
 }

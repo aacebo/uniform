@@ -1,0 +1,45 @@
+@import './colors';
+
+$uni-arrow-color: rgba(uni-color('black'), 0.8);
+$uni-arrow-size: 7px;
+$uni-arrow-distance: 3px;
+
+.uni-arrow {
+  position: absolute;
+
+  &.top {
+    left: 50%;
+    top: $uni-arrow-distance;
+    transform: translateX(-50%);
+    border-left: $uni-arrow-size solid transparent;
+    border-right: $uni-arrow-size solid transparent;
+    border-bottom: $uni-arrow-size solid $uni-arrow-color;
+  }
+
+  &.bottom {
+    left: 50%;
+    bottom: $uni-arrow-distance;
+    transform: translateX(-50%);
+    border-left: $uni-arrow-size solid transparent;
+    border-right: $uni-arrow-size solid transparent;
+    border-top: $uni-arrow-size solid $uni-arrow-color;
+  }
+
+  &.left {
+    left: $uni-arrow-distance;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: $uni-arrow-size solid transparent;
+    border-bottom: $uni-arrow-size solid transparent;
+    border-right: $uni-arrow-size solid $uni-arrow-color;
+  }
+
+  &.right {
+    right: $uni-arrow-distance;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: $uni-arrow-size solid transparent;
+    border-bottom: $uni-arrow-size solid transparent;
+    border-left: $uni-arrow-size solid $uni-arrow-color;
+  }
+}
