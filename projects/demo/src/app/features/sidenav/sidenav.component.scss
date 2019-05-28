@@ -1,0 +1,20 @@
+uni-sidenav-container {
+  height: 100%;
+}
+
+.sidenav-list {
+  .sidenav-item {
+    margin: 10px 20px;
+    opacity: 0.7;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

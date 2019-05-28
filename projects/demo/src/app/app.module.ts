@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import {
   UniButtonModule,
   UniToolbarModule,
-  UniSidenavModule,
   UniIconModule,
-  UniIconService,
-  UniTooltipModule,
-  UniPopoverModule
+  UniIconService
 } from '@uniform/components';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SidenavModule } from './features/sidenav';
+import { ToolbarModule } from './features/toolbar';
 
 @NgModule({
   declarations: [
@@ -20,12 +20,13 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
 
+    AppRoutingModule,
+    SidenavModule,
+    ToolbarModule,
+
     UniButtonModule,
     UniToolbarModule,
-    UniSidenavModule,
-    UniIconModule,
-    UniTooltipModule,
-    UniPopoverModule
+    UniIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

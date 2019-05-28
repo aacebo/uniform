@@ -9,7 +9,7 @@ import { UNI_POSITIONS } from '../core/constants';
   templateUrl: './popover.component.html',
   styleUrls: ['./popover.component.scss'],
   host: {
-    class: 'uni-tooltip',
+    class: 'uni-popover',
     ...UNI_POSITIONS,
     '[class.top]': 'top',
     '[class.bottom]': 'bottom',

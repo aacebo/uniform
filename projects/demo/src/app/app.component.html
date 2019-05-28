@@ -1,35 +1,7 @@
-<uni-sidenav-container (backdropClicked)="$toggle.next(false)">
-  <uni-sidenav position="start"
-               mode="over"
-               color="secondary"
-               [open]="$toggle | async">
-    test sidenav
-  </uni-sidenav>
-  <uni-sidenav-content>
-    <uni-toolbar color="primary">
-      <button uni-icon-button
-              (click)="$toggle.next(!$toggle.value)">
-        <uni-icon icon="mdi-menu"></uni-icon>
-      </button>
-      <div class="uni-toolbar-title">@uniform</div>
-    </uni-toolbar>
-    <button color="primary"
-            uni-button
-            uniTooltip="poop"
-            uniTooltipPosition="bottom">
-      test button
-    </button>
-    <button color="danger"
-            uni-outline-button
-            uniTooltip="testtesttttttt"
-            uniTooltipPosition="right">
-      tooltip example
-    </button>
-    <button color="primary"
-            uni-outline-button
-            uniPopover="testing popover"
-            uniPopoverPosition="top">
-      popover example
-    </button>
-  </uni-sidenav-content>
-</uni-sidenav-container>
+<app-sidenav [items]="sidenavItems"
+             [open]="$toggle | async"
+             (backdropClicked)="$toggle.next(false)">
+  <app-toolbar title="/components/button" (toggle)="$toggle.next(!$toggle.value)">
+  </app-toolbar>
+  <router-outlet></router-outlet>
+</app-sidenav>

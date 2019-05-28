@@ -9,3 +9,4 @@ export * from './lib/icon';
 export * from './lib/button';
 export * from './lib/tooltip';
 export * from './lib/popover';
+export * from './lib/card';
