@@ -20,10 +20,7 @@
     ],
     "paths": {
       "@uniform/components": [
-        "dist/components"
-      ],
-      "@uniform/components/*": [
-        "dist/components/*"
+        "./dist/components"
       ]
     }
   }
