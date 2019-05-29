@@ -6,6 +6,7 @@ import { UniCardFooterComponent } from './components/card-footer/card-footer.com
 import { UniCardHeaderComponent } from './components/card-header/card-header.component';
 import { UniCardSubtitleComponent } from './components/card-subtitle/card-subtitle.component';
 import { UniCardTitleComponent } from './components/card-title/card-title.component';
+import { UniCardContentComponent } from './components/card-content/card-content.component';
 import { UniCardAvatarDirective } from './directives/card-avatar/card-avatar.directive';
 
 const declarations = [
@@ -14,6 +15,7 @@ const declarations = [
   UniCardHeaderComponent,
   UniCardSubtitleComponent,
   UniCardTitleComponent,
+  UniCardContentComponent,
   UniCardAvatarDirective
 ];
 

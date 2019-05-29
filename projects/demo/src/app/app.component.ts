@@ -11,6 +11,7 @@ import { ISidenavItem } from './features/sidenav';
 export class AppComponent {
   readonly $toggle = new BehaviorSubject(false);
   readonly sidenavItems: ISidenavItem[] = [
+    { text: 'Card', route: '/components/card' },
     { text: 'Button', route: '/components/button' },
     { text: 'Icon', route: '/components/icon' },
     { text: 'Toolbar', route: '/components/toolbar' },
