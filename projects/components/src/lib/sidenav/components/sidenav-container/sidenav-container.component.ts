@@ -14,7 +14,7 @@ import { UniSidenavComponent } from '../sidenav/sidenav.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class UniSidenavContainerComponent {
-  @ContentChild(UniSidenavComponent) sidenav: UniSidenavComponent;
+  @ContentChild(UniSidenavComponent, { static: true }) sidenav: UniSidenavComponent;
   @Output() backdropClicked = new EventEmitter<void>();
 
   get showBackdrop() {
