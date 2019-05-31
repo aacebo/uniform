@@ -1,4 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+
+import { UniTabComponent } from '../tab/tab.component';
+import { UniColor } from '../../../core/enums';
 
 @Component({
   moduleId: module.id,
@@ -11,4 +14,28 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniTabGroupComponent {}
+export class UniTabGroupComponent implements AfterContentInit {
+  @Input() active = 0;
+  @Input() color = UniColor.Secondary;
+
+  @ContentChildren(UniTabComponent) tabs: QueryList<UniTabComponent>;
+
+  ngAfterContentInit() {
+    this.setActive();
+  }
+
+  select(index: number) {
+    this.active = index;
+    this.setActive();
+  }
+
+  private setActive() {
+    this.tabs.forEach((tab, i) => {
+      tab.active = false;
+
+      if (i === +this.active) {
+        tab.active = true;
+      }
+    });
+  }
+}

@@ -46,3 +46,47 @@ $uni-colors: (
     background-color: uni-theme-color('danger');
   }
 }
+
+@mixin uni-colors-text {
+  &.primary {
+    color: uni-theme-color('primary');
+  }
+
+  &.secondary {
+    color: uni-theme-color('secondary');
+  }
+
+  &.success {
+    color: uni-theme-color('success');
+  }
+
+  &.warning {
+    color: uni-theme-color('warning');
+  }
+
+  &.danger {
+    color: uni-theme-color('danger');
+  }
+}
+
+@mixin uni-colors-background {
+  &.primary {
+    background-color: uni-theme-color('primary');
+  }
+
+  &.secondary {
+    background-color: uni-theme-color('secondary');
+  }
+
+  &.success {
+    background-color: uni-theme-color('success');
+  }
+
+  &.warning {
+    background-color: uni-theme-color('warning');
+  }
+
+  &.danger {
+    background-color: uni-theme-color('danger');
+  }
+}

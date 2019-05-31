@@ -1,0 +1,38 @@
+@import '../../../core/styles/colors';
+@import '../../../core/styles/animations';
+
+:host {
+  padding: 15px 25px;
+  cursor: pointer;
+  color: uni-color('black');
+  opacity: 0.5;
+  transition-duration: $uni-animation-duraction;
+  transition-timing-function: $uni-animation-timing-function;
+
+  @include uni-colors-text;
+
+  &.active {
+    opacity: 1;
+    border-bottom: 2px solid uni-color('black');
+
+    &.primary {
+      border-bottom-color: uni-theme-color('primary');
+    }
+
+    &.secondary {
+      border-bottom-color: uni-theme-color('secondary');
+    }
+
+    &.success {
+      border-bottom-color: uni-theme-color('success');
+    }
+
+    &.warning {
+      border-bottom-color: uni-theme-color('warning');
+    }
+
+    &.danger {
+      border-bottom-color: uni-theme-color('danger');
+    }
+  }
+}

@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChild } from '@angular/core';
+
+import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 
 @Component({
   moduleId: module.id,
@@ -7,8 +9,15 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
   host: {
-    class: 'uni-tab'
+    class: 'uni-tab',
+    '[class.active]': 'active'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniTabComponent {}
+export class UniTabComponent {
+  @Input() label?: string;
+
+  @ContentChild(UniTabLabelComponent, { static: true }) uniLabel?: UniTabLabelComponent;
+
+  active = false;
+}

@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy, Input, ElementRef } from '@angular/
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
 import { UniColor } from '../../../core/enums';
-import { UNI_COLORS } from '../../../core/constants';
+import { UNI_HOST_COLORS } from '../../../core/constants';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +16,7 @@ import { UNI_COLORS } from '../../../core/constants';
     '[class.over]': 'mode === "over"',
     '[class.end]': 'position === "end"',
     '[class.closed]': 'open === false',
-    ...UNI_COLORS,
+    ...UNI_HOST_COLORS,
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
