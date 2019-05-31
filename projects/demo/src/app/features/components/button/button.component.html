@@ -1,12 +1,21 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
     <uni-card>
+      <uni-card-header>
+        <uni-card-title>Button</uni-card-title>
+      </uni-card-header>
+
       <uni-card-content>
         <div *ngFor="let color of colors">
           <button uni-button
-                  uni-outline
                   [color]="color">
             Button
+          </button>
+
+          <button uni-button
+                  [color]="color"
+                  disabled>
+            Disabled Button
           </button>
 
           <button uni-outline-button
@@ -14,13 +23,51 @@
             Outline Button
           </button>
 
+          <button uni-outline-button
+                  [color]="color"
+                  disabled>
+            Disabled Outline Button
+          </button>
+        </div>
+      </uni-card-content>
+    </uni-card>
+
+    <uni-card>
+      <uni-card-header>
+        <uni-card-title>Icon Button</uni-card-title>
+      </uni-card-header>
+
+      <uni-card-content>
+        <div *ngFor="let color of colors">
           <button uni-icon-button
                   [color]="color">
             <uni-icon icon="mdi-home"></uni-icon>
           </button>
 
+          <button uni-icon-button
+                  [color]="color"
+                  disabled>
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+        </div>
+      </uni-card-content>
+    </uni-card>
+
+    <uni-card>
+      <uni-card-header>
+        <uni-card-title>Fab</uni-card-title>
+      </uni-card-header>
+
+      <uni-card-content>
+        <div *ngFor="let color of colors">
           <button uni-fab
                   [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+
+          <button uni-fab
+                  [color]="color"
+                  disabled>
             <uni-icon icon="mdi-home"></uni-icon>
           </button>
 
@@ -29,8 +76,30 @@
             <uni-icon icon="mdi-home"></uni-icon>
           </button>
 
+          <button uni-outline-fab
+                  [color]="color"
+                  disabled>
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+        </div>
+      </uni-card-content>
+    </uni-card>
+
+    <uni-card>
+      <uni-card-header>
+        <uni-card-title>Mini Fab</uni-card-title>
+      </uni-card-header>
+
+      <uni-card-content>
+        <div *ngFor="let color of colors">
           <button uni-mini-fab
                   [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+
+          <button uni-mini-fab
+                  [color]="color"
+                  disabled>
             <uni-icon icon="mdi-home"></uni-icon>
           </button>
 
@@ -38,12 +107,14 @@
                   [color]="color">
             <uni-icon icon="mdi-home"></uni-icon>
           </button>
+
+          <button uni-outline-mini-fab
+                  [color]="color"
+                  disabled>
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
         </div>
       </uni-card-content>
     </uni-card>
-  </uni-tab>
-
-  <uni-tab label="API">
-    api content
   </uni-tab>
 </uni-tab-group>

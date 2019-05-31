@@ -13,13 +13,13 @@
   transition-duration: $uni-animation-duraction;
   transition-timing-function: $uni-animation-timing-function;
 
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
   &.uni-button {
     @include uni-colors;
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
 
     &:hover {
       filter: brightness(1.2);
@@ -52,11 +52,6 @@
     border-radius: 100%;
     padding: 0;
     color: $uni-color;
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
 
     &:hover {
       filter: brightness(1.2);

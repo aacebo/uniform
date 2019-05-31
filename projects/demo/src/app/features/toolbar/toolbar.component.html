@@ -3,5 +3,9 @@
           (click)="toggle.emit()">
     <uni-icon icon="mdi-menu"></uni-icon>
   </button>
-  <div class="uni-toolbar-title">@uniform{{ title }}</div>
+  <div class="uni-toolbar-title">{{ toolbarService.$title | async }}</div>
+  <div class="uni-toolbar-spacer"></div>
+  <button uni-icon-button>
+    <uni-icon icon="mdi-github-circle"></uni-icon>
+  </button>
 </uni-toolbar>

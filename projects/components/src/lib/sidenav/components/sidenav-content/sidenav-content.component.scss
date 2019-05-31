@@ -5,6 +5,7 @@
   position: relative;
   overflow: auto;
   z-index: 1;
+  height: 100%;
   transition-duration: $uni-animation-duraction;
   transition-timing-function: $uni-animation-timing-function;
 }
