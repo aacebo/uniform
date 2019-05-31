@@ -8,6 +8,6 @@ export class AppRoutingResolver implements Resolve<void> {
   constructor(private readonly toolbarService: ToolbarService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    this.toolbarService.$title.next(`@uniform/components/${route.routeConfig.path}`);
+    this.toolbarService.setTitle(route.routeConfig.path);
   }
 }

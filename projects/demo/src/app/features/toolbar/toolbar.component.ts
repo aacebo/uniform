@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
+import { environment } from '../../../environments/environment';
 import { ToolbarService } from './toolbar.service';
 
 @Component({
@@ -13,4 +14,23 @@ export class ToolbarComponent {
   @Output() toggle = new EventEmitter<void>();
 
   constructor(readonly toolbarService: ToolbarService) {}
+
+  github() {
+    window.open(environment.github.repository, '_blank');
+  }
+
+  component() {
+    if (this.toolbarService.component) {
+      window.open(`${environment.github.components}/${this.toolbarService.component}`, '_blank');
+    } else {
+      window.open(environment.github.components, '_blank');
+    }
+  }
+
+  documentation() {
+    const comp = this.toolbarService.component;
+    window.open(
+      `${environment.github.components}/${comp}/${comp}.md`
+    );
+  }
 }
