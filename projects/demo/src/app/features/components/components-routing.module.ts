@@ -8,6 +8,11 @@ const routes: Routes = [
     path: 'button',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./button/button.module').then(m => m.ButtonModule)
+  },
+  {
+    path: 'card',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./card/card.module').then(m => m.CardModule)
   }
 ];
 

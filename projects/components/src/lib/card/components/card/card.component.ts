@@ -1,4 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { UNI_HOST_COLORS } from '../../../core/constants';
+import { UniColor } from '../../../core/enums';
 
 @Component({
   moduleId: module.id,
@@ -7,8 +10,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   host: {
-    class: 'uni-card'
+    class: 'uni-card',
+    ...UNI_HOST_COLORS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniCardComponent {}
+export class UniCardComponent {
+  @Input() color?: UniColor;
+}

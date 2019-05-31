@@ -2,7 +2,8 @@
   <uni-sidenav position="start"
                mode="over"
                color="secondary"
-               [open]="open">
+               [open]="open"
+               (closed)="backdropClicked.emit()">
     <div class="sidenav-list">
       <div class="sidenav-item"
            *ngFor="let item of items"

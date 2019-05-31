@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
@@ -26,5 +26,13 @@ export class UniSidenavComponent {
   @Input() open = true;
   @Input() color?: UniColor;
 
+  @Output() closed = new EventEmitter<void>();
+
   constructor(readonly el: ElementRef) {}
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.open = false;
+    this.closed.emit();
+  }
 }

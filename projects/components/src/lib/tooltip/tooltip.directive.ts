@@ -79,7 +79,7 @@ export class UniTooltipDirective implements OnInit {
     }
   }
 
-  @HostListener('mouseout')
+  @HostListener('mouseleave')
   hide() {
     this.overlayRef.detach();
   }
