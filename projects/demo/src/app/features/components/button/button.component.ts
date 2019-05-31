@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { UniColor } from '@uniform/components';
 
 @Component({
   selector: 'app-button',
@@ -6,4 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonComponent {}
+export class ButtonComponent {
+  readonly colors: string[] = Object.values(UniColor);
+}

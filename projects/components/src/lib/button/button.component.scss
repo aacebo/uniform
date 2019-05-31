@@ -1,38 +1,6 @@
 @import '../core/styles/colors';
 @import '../core/styles/animations';
-
-@mixin uni-outline-button($color) {
-  $uni-theme-color: uni-theme-color($color);
-  $uni-white: uni-color('white');
-
-  border-color: $uni-theme-color;
-  background-color: $uni-white;
-  color: $uni-theme-color;
-
-  &:hover {
-    background-color: $uni-theme-color;
-    color: $uni-white;
-
-    &:disabled {
-      background-color: $uni-white;
-      color: $uni-theme-color;
-    }
-  }
-}
-
-@mixin uni-icon-button($color) {
-  $uni-theme-color: uni-theme-color($color);
-
-  color: $uni-theme-color;
-
-  &:hover {
-    background-color: rgba($uni-theme-color, 0.25);
-
-    &:disabled {
-      background-color: transparent;
-    }
-  }
-}
+@import './button';
 
 :host {
   padding: 10px 20px;
@@ -62,20 +30,67 @@
     }
   }
 
-  &.uni-fab {
-
+  &.uni-fab,
+  &.uni-outline-fab {
+    height: 50px;
+    width: 50px;
   }
 
-  &.uni-mini-fab {
+  &.uni-mini-fab,
+  &.uni-outline-mini-fab,
+  &.uni-icon-button {
+    height: 40px;
+    width: 40px;
+  }
 
+  &.uni-fab,
+  &.uni-mini-fab,
+  &.uni-outline-fab,
+  &.uni-outline-mini-fab {
+    $uni-color: uni-color('white');
+
+    border-radius: 100%;
+    padding: 0;
+    color: $uni-color;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    &:hover {
+      filter: brightness(1.2);
+
+      &:disabled {
+        filter: none;
+      }
+    }
+
+    &.primary {
+      @include uni-fab('primary');
+    }
+
+    &.secondary {
+      @include uni-fab('secondary');
+    }
+
+    &.success {
+      @include uni-fab('success');
+    }
+
+    &.warning {
+      @include uni-fab('warning');
+    }
+
+    &.danger {
+      @include uni-fab('danger');
+    }
   }
 
   &.uni-icon-button {
     $uni-color: uni-color('white');
 
     border-radius: 100%;
-    height: 40px;
-    width: 40px;
     padding: 0;
     background-color: transparent;
     color: $uni-color;
@@ -109,7 +124,9 @@
     }
   }
 
-  &.uni-outline-button {
+  &.uni-outline-button,
+  &.uni-outline-fab,
+  &.uni-outline-mini-fab {
     &.primary {
       @include uni-outline-button('primary');
     }

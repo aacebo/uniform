@@ -2,28 +2,43 @@
   <uni-tab label="Examples">
     <uni-card>
       <uni-card-content>
-        <uni-tab-group>
-          <uni-tab label="HTML">
-            <button uni-button
-                    color="primary">
-              Button
-            </button>
+        <div *ngFor="let color of colors">
+          <button uni-button
+                  uni-outline
+                  [color]="color">
+            Button
+          </button>
 
-            <button uni-outline-button
-                    color="primary">
-              Outline Button
-            </button>
+          <button uni-outline-button
+                  [color]="color">
+            Outline Button
+          </button>
 
-            <button uni-icon-button
-                    color="primary">
-              <uni-icon icon="mdi-home"></uni-icon>
-            </button>
-          </uni-tab>
+          <button uni-icon-button
+                  [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
 
-          <uni-tab label="< >">
+          <button uni-fab
+                  [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
 
-          </uni-tab>
-        </uni-tab-group>
+          <button uni-outline-fab
+                  [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+
+          <button uni-mini-fab
+                  [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+
+          <button uni-outline-mini-fab
+                  [color]="color">
+            <uni-icon icon="mdi-home"></uni-icon>
+          </button>
+        </div>
       </uni-card-content>
     </uni-card>
   </uni-tab>
