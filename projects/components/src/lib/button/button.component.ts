@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ElementRef, Input } from '@angular/core';
 
-import { UNI_COLORS } from '../core/constants/colors.constant';
+import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
 import { UniColor } from '../core/enums';
 
 const UNI_BUTTON_HOST_ATTRIBUTES = [
@@ -20,7 +20,7 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   host: {
-    ...UNI_COLORS
+    ...UNI_HOST_COLORS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })

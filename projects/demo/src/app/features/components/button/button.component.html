@@ -1,13 +1,34 @@
 <uni-tab-group color="primary">
-  <uni-tab label="Overview">
-    overview content
+  <uni-tab label="Examples">
+    <uni-card>
+      <uni-card-content>
+        <uni-tab-group>
+          <uni-tab label="HTML">
+            <button uni-button
+                    color="primary">
+              Button
+            </button>
+
+            <button uni-outline-button
+                    color="primary">
+              Outline Button
+            </button>
+
+            <button uni-icon-button
+                    color="primary">
+              <uni-icon icon="mdi-home"></uni-icon>
+            </button>
+          </uni-tab>
+
+          <uni-tab label="< >">
+
+          </uni-tab>
+        </uni-tab-group>
+      </uni-card-content>
+    </uni-card>
   </uni-tab>
 
   <uni-tab label="API">
     api content
-  </uni-tab>
-
-  <uni-tab label="Examples">
-    examples content
   </uni-tab>
 </uni-tab-group>
