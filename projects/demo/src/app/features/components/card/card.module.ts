@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UniCardModule, UniTabModule, UniButtonModule } from '@uniform/components';
 
@@ -7,7 +7,7 @@ import { CardRoutingModule } from './card-routing.module';
 
 @NgModule({
   declarations: [CardComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
     CardRoutingModule,

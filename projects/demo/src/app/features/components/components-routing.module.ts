@@ -13,6 +13,21 @@ const routes: Routes = [
     path: 'card',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./card/card.module').then(m => m.CardModule)
+  },
+  {
+    path: 'icon',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./icon/icon.module').then(m => m.IconModule)
+  },
+  {
+    path: 'toolbar',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./toolbar/toolbar.module').then(m => m.ToolbarModule)
+  },
+  {
+    path: 'tooltip',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./tooltip/tooltip.module').then(m => m.TooltipModule)
   }
 ];
 

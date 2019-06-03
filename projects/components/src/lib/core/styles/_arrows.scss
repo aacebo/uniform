@@ -1,6 +1,6 @@
 @import './colors';
 
-$uni-arrow-color: rgba(uni-color('black'), 0.8);
+$uni-arrow-color: uni-color('black');
 $uni-arrow-color-popover: rgba(uni-color('grey'), 1);
 $uni-arrow-size: 7px;
 $uni-arrow-distance: 3px;

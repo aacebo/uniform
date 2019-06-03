@@ -3,12 +3,12 @@
 @import '../core/styles/arrows';
 
 $uni-tooltip-margin: 10px;
-$uni-tooltip-bg-color: rgba(uni-color('black'), 0.8);
+$uni-tooltip-bg-color: uni-color('black');
 $uni-tooltip-color: uni-color('white');
 
 :host {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 12px;
   background-color: $uni-tooltip-bg-color;
   color: $uni-tooltip-color;
