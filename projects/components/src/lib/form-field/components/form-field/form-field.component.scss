@@ -1,0 +1,34 @@
+@import '../../../core/styles/colors';
+
+$uni-form-field-border-color: #a5a1a1;
+
+:host {
+  display: inline-block;
+  border: 2px solid $uni-form-field-border-color;
+  border-radius: 25px;
+  padding: 10px 20px;
+
+  &:focus, &:hover {
+    border-color: uni-theme-color('secondary');
+
+    &.primary {
+      border-color: uni-theme-color('primary');
+    }
+
+    &.secondary {
+      border-color: uni-theme-color('secondary');
+    }
+
+    &.success {
+      border-color: uni-theme-color('success');
+    }
+
+    &.warning {
+      border-color: uni-theme-color('warning');
+    }
+
+    &.danger {
+      border-color: uni-theme-color('danger');
+    }
+  }
+}

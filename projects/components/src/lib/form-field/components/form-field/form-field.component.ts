@@ -1,4 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { UniColor } from '../../../core/enums';
+import { UNI_HOST_COLORS } from '../../../core/constants';
 
 @Component({
   moduleId: module.id,
@@ -7,8 +10,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss'],
   host: {
-    class: 'uni-form-field'
+    class: 'uni-form-field',
+    ...UNI_HOST_COLORS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniFormFieldComponent {}
+export class UniFormFieldComponent {
+  @Input() color?: UniColor;
+}

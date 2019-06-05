@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
+import { UniFormControlBase } from '../../../form-field';
+
 @Component({
   moduleId: module.id,
   selector: 'uni-select',
@@ -11,4 +13,4 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniSelectComponent {}
+export class UniSelectComponent extends UniFormControlBase {}
