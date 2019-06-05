@@ -1,1 +1,7 @@
-{{ placeholder }}
+<div class="uni-select-text">
+  {{ value ? value : placeholder }}
+</div>
+
+<div class="uni-select-icon">
+  {{ (open | async) ? '&#x25B2;' : '&#x25BC;' }}
+</div>

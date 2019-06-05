@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -11,4 +11,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniOptionComponent {}
+export class UniOptionComponent {
+  @Input() value?: any;
+}

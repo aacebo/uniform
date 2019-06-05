@@ -1,0 +1,20 @@
+@import '../../../core/styles/colors';
+
+:host {
+  display: flex;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  .uni-select-text {
+    flex: 1 1 auto;
+    user-select: none;
+  }
+
+  .uni-select-icon {
+    font-size: 12px;
+    margin: auto;
+    margin-left: 5px;
+    color: uni-color('grey');
+    user-select: none;
+  }
+}

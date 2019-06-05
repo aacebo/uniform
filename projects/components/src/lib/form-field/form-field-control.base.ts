@@ -1,12 +1,14 @@
 import { Optional, Self, Input } from '@angular/core';
-import { NgForm, NgControl } from '@angular/forms';
+import { NgForm, NgControl, FormControl } from '@angular/forms';
 
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 
-export class UniFormControlBase {
+export class UniFormFieldControlBase {
   @Input() placeholder?: string;
+  @Input() value?: any;
   @Input() required?: boolean;
   @Input() disabled?: boolean;
+  @Input() formControl = new FormControl();
 
   constructor(
     @Optional() public uniFormField: UniFormFieldComponent,

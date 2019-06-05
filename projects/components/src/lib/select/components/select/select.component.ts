@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Overlay } from '@angular/cdk/overlay';
+import { BehaviorSubject } from 'rxjs';
 
-import { UniFormControlBase } from '../../../form-field';
+import { UniFormFieldControlBase } from '../../../form-field';
 
 @Component({
   moduleId: module.id,
@@ -9,8 +11,11 @@ import { UniFormControlBase } from '../../../form-field';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   host: {
-    class: 'uni-select'
+    class: 'uni-select',
+    '(click)': 'open.next(!open.value)'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniSelectComponent extends UniFormControlBase {}
+export class UniSelectComponent extends UniFormFieldControlBase {
+  readonly open = new BehaviorSubject(false);
+}

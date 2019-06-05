@@ -1,2 +1,2 @@
 export { UniFormFieldModule } from './form-field.module';
-export { UniFormControlBase } from './form-control.base';
+export { UniFormFieldControlBase } from './form-field-control.base';
