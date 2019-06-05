@@ -1,4 +1,4 @@
-import { Directive, OnInit, Input, HostListener, ElementRef } from '@angular/core';
+import { Directive, OnInit, Input, ElementRef } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 
@@ -10,7 +10,13 @@ type xType = 'center' | 'start' | 'end';
 type yType = 'center' | 'top' | 'bottom';
 
 @Directive({
-  selector: '[uniPopover]'
+  selector: '[uniPopover]',
+  exportAs: 'uniPopover',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()',
+    '(click)': 'onClick()'
+  }
 })
 export class UniPopoverDirective implements OnInit {
   @Input('uniPopover') text: string;
@@ -78,21 +84,18 @@ export class UniPopoverDirective implements OnInit {
     });
   }
 
-  @HostListener('mouseenter')
   onMouseEnter() {
     if (this.trigger === UniPopoverTrigger.Hover) {
       this.show();
     }
   }
 
-  @HostListener('mouseout')
-  onMouseOut() {
+  onMouseLeave() {
     if (this.trigger === UniPopoverTrigger.Hover) {
       this.hide();
     }
   }
 
-  @HostListener('click')
   onClick() {
     if (this.trigger === UniPopoverTrigger.Click) {
       if (this.overlayRef.hasAttached()) {

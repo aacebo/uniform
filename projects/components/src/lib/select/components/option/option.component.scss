@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  padding: 10px 0;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}

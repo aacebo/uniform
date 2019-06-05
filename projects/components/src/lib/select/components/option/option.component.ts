@@ -7,10 +7,20 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   templateUrl: './option.component.html',
   styleUrls: ['./option.component.scss'],
   host: {
-    class: 'uni-option'
+    class: 'uni-option',
+    '[class.disabled]': 'disabled'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniOptionComponent {
   @Input() value?: any;
+  @Input() disabled?: boolean;
+
+  select() {
+
+  }
+
+  deselect() {
+
+  }
 }

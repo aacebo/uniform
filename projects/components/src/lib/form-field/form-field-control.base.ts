@@ -1,4 +1,4 @@
-import { Optional, Self, Input } from '@angular/core';
+import { Optional, Self, Input, ElementRef } from '@angular/core';
 import { NgForm, NgControl, FormControl } from '@angular/forms';
 
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
@@ -10,9 +10,28 @@ export class UniFormFieldControlBase {
   @Input() disabled?: boolean;
   @Input() formControl = new FormControl();
 
+  onChange: (v: any) => void = () => {};
+  onTouch = () => {};
+
   constructor(
-    @Optional() public uniFormField: UniFormFieldComponent,
-    @Optional() public ngForm: NgForm,
-    @Optional() @Self() public ngControl: NgControl,
-  ) {}
+    readonly el: ElementRef,
+    @Optional() readonly uniFormField: UniFormFieldComponent,
+    @Optional() readonly ngForm: NgForm,
+    @Optional() @Self() readonly ngControl: NgControl,
+  ) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
+  }
+
+  writeValue(value: any) {
+  }
+
+  registerOnChange(fn: (v: any) => void) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => {}) {
+    this.onTouch = fn;
+  }
 }

@@ -1,4 +1,4 @@
-import { Directive, Input, HostListener, OnInit, ElementRef } from '@angular/core';
+import { Directive, Input, OnInit, ElementRef } from '@angular/core';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 
@@ -10,7 +10,11 @@ type yType = 'center' | 'top' | 'bottom';
 
 @Directive({
   selector: '[uniTooltip]',
-  exportAs: 'uniTooltip'
+  exportAs: 'uniTooltip',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()'
+  }
 })
 export class UniTooltipDirective implements OnInit {
   @Input('uniTooltip') text: string;
@@ -69,8 +73,7 @@ export class UniTooltipDirective implements OnInit {
     });
   }
 
-  @HostListener('mouseenter')
-  show() {
+  onMouseEnter() {
     if (!this.disabled && !this.overlayRef.hasAttached()) {
       const portal = new ComponentPortal(UniTooltipComponent);
       const ref = this.overlayRef.attach(portal);
@@ -79,8 +82,7 @@ export class UniTooltipDirective implements OnInit {
     }
   }
 
-  @HostListener('mouseleave')
-  hide() {
+  onMouseLeave() {
     this.overlayRef.detach();
   }
 }

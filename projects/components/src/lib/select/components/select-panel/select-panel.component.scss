@@ -1,0 +1,10 @@
+@import '../../../core/styles/colors';
+
+:host {
+  display: block;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0 10px;
+  background-color: uni-color('white');
+  box-shadow: 1px 5px 11px 3px rgba(0,0,0,.34)
+}

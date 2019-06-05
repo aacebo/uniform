@@ -1,7 +1,32 @@
-<div class="uni-select-text">
-  {{ value ? value : placeholder }}
+<div
+  class="uni-select-trigger"
+  cdk-overlay-origin
+  #origin="cdkOverlayOrigin"
+  #trigger
+  (click)="toggle()">
+  <div class="uni-select-text">
+    <div class="uni-select-placeholder">{{ placeholder }}</div>
+    <div class="uni-select-value">{{ value }}</div>
+  </div>
+
+  <div class="uni-select-icon">
+    {{ (opened | async) ? '&#x25B2;' : '&#x25BC;' }}
+  </div>
 </div>
 
-<div class="uni-select-icon">
-  {{ (open | async) ? '&#x25B2;' : '&#x25BC;' }}
-</div>
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="opened | async"
+  [cdkConnectedOverlayPositions]="positions"
+  [cdkConnectedOverlayMinWidth]="minWidth"
+  [cdkConnectedOverlayOffsetY]="50"
+  (backdropClick)="close()"
+  (detach)="close()">
+  <uni-select-panel [ngClass]="panelClass">
+    <ng-content select="uni-option"></ng-content>
+  </uni-select-panel>
+</ng-template>
