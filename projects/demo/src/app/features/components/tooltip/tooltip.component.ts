@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { UniTooltipPosition } from '@uniform/components';
 
 @Component({
   selector: 'app-tooltip',
@@ -6,4 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./tooltip.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TooltipComponent {}
+export class TooltipComponent {
+  position = UniTooltipPosition.Bottom;
+}

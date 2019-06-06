@@ -1,22 +1,47 @@
 import { Optional, Self, Input, ElementRef } from '@angular/core';
-import { NgForm, NgControl, FormControl } from '@angular/forms';
+import { NgForm, NgControl, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 
-export class UniFormFieldControlBase {
-  @Input() placeholder?: string;
-  @Input() value?: any;
-  @Input() required?: boolean;
-  @Input() disabled?: boolean;
-  @Input() formControl = new FormControl();
+export class UniFormFieldControlBase<T> implements ControlValueAccessor {
+  @Input()
+  get value() { return this._value; }
+  set value(v: T) {
+    this._value = v;
+    this._onChange(v);
+  }
+  private _value?: T;
 
-  onChange: (v: any) => void = () => {};
-  onTouch = () => {};
+  @Input()
+  get placeholder() { return this._placeholder; }
+  set placeholder(v: string) {
+    this._placeholder = v;
+  }
+  private _placeholder?: string;
+
+  @Input()
+  get required() { return this._required; }
+  set required(v: boolean) {
+    this._required = coerceBooleanProperty(v);
+  }
+  private _required?: boolean;
+
+  @Input()
+  get disabled() { return this._disabled; }
+  set disabled(v: boolean) {
+    this._disabled = coerceBooleanProperty(v);
+  }
+  private _disabled?: boolean;
+
+  _onChange: (v: any) => void = () => {};
+  _onTouch = () => {};
 
   constructor(
     readonly el: ElementRef,
     @Optional() readonly uniFormField: UniFormFieldComponent,
     @Optional() readonly ngForm: NgForm,
+    @Optional() readonly ngFormGroup: FormGroupDirective,
     @Optional() @Self() readonly ngControl: NgControl,
   ) {
     if (this.ngControl) {
@@ -24,14 +49,15 @@ export class UniFormFieldControlBase {
     }
   }
 
-  writeValue(value: any) {
+  writeValue(v: any) {
+    this.value = v;
   }
 
   registerOnChange(fn: (v: any) => void) {
-    this.onChange = fn;
+    this._onChange = fn;
   }
 
   registerOnTouched(fn: () => {}) {
-    this.onTouch = fn;
+    this._onTouch = fn;
   }
 }

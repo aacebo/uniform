@@ -5,8 +5,8 @@
   #trigger
   (click)="toggle()">
   <div class="uni-select-text">
-    <div class="uni-select-placeholder">{{ placeholder }}</div>
-    <div class="uni-select-value">{{ value }}</div>
+    <div *ngIf="!selected" class="uni-select-placeholder">{{ placeholder }}</div>
+    <div *ngIf="selected" class="uni-select-value">{{ selected }}</div>
   </div>
 
   <div class="uni-select-icon">

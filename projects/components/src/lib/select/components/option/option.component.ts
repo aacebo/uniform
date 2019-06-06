@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+
+import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
 
 @Component({
   moduleId: module.id,
@@ -8,19 +10,39 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   styleUrls: ['./option.component.scss'],
   host: {
     class: 'uni-option',
-    '[class.disabled]': 'disabled'
+    '[class.disabled]': 'disabled',
+    '(click)': 'selected ? deselect() : select()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniOptionComponent {
   @Input() value?: any;
-  @Input() disabled?: boolean;
+  @Input() disabled = false;
+  @Input() selected = false;
+
+  @Output() selectionChanged = new EventEmitter<IUniOptionSelectedEvent>();
+
+  get content() {
+    return this._el.nativeElement.textContent;
+  }
+
+  constructor(private readonly _el: ElementRef<HTMLElement>) {}
 
   select() {
-
+    if (!this.disabled) {
+      this.selected = true;
+      this.emitChanged();
+    }
   }
 
   deselect() {
+    if (!this.disabled) {
+      this.selected = false;
+      this.emitChanged();
+    }
+  }
 
+  private emitChanged() {
+    this.selectionChanged.emit({ source: this });
   }
 }

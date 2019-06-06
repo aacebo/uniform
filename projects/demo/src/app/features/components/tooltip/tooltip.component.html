@@ -7,9 +7,12 @@
 
       <uni-card-content>
         <uni-form-field color="primary">
-          <uni-select placeholder="Tooltip Position...">
-            <uni-option [disabled]="true">test option</uni-option>
-            <uni-option>test option 2</uni-option>
+          <uni-select placeholder="Tooltip Position..."
+                      [(ngModel)]="position">
+            <uni-option>top</uni-option>
+            <uni-option>bottom</uni-option>
+            <uni-option>left</uni-option>
+            <uni-option>right</uni-option>
           </uni-select>
         </uni-form-field>
 
