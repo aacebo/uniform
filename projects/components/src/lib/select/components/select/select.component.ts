@@ -39,9 +39,8 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniSelectComponent extends UniFormFieldControlBase<string | string[]> implements AfterContentInit, OnDestroy {
+export class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
   @Input() panelClass = 'uni-select-panel';
-  @Input() multiple = false;
 
   @ViewChild('trigger', { static: false }) trigger: ElementRef<HTMLElement>;
   @ViewChild(UniSelectPanelComponent, { static: false }) panel: UniSelectPanelComponent;
@@ -77,24 +76,7 @@ export class UniSelectComponent extends UniFormFieldControlBase<string | string[
   }
 
   ngAfterContentInit() {
-    for (const option of this.options.toArray()) {
-      const value = option.value || option.content;
-
-      if (this.multiple && Array.isArray(this.value)) {
-        if (this.value.indexOf(value) > -1) {
-          option.select();
-        }
-      } else {
-        if (value === this.value) {
-          option.select();
-        }
-      }
-    }
-
-    this.selectionModel = new SelectionModel<UniOptionComponent>(
-      this.multiple,
-      this.options.filter(o => o.selected)
-    );
+    this.selectionModel = new SelectionModel<UniOptionComponent>(false);
 
     this.optionSelectionChanged = this.options.changes.pipe(
       startWith(this.options),
@@ -103,17 +85,31 @@ export class UniSelectComponent extends UniFormFieldControlBase<string | string[
 
     this.optionSelectionChanged.pipe(takeUntil(this._destroy))
                                .subscribe(e => {
-      this.writeValue(e.source);
+      if (e.source.selected) {
+        this.select(e.source);
+      }
 
-      if (!this.multiple && this.opened.value) {
+      if (this.opened.value) {
         this.close();
       }
     });
+
+    this.initOptions();
   }
 
   ngOnDestroy() {
     this._destroy.next();
     this._destroy.complete();
+  }
+
+  writeValue(value: string) {
+    if (value !== this.value) {
+      this.value = value;
+
+      if (this.options) {
+        this.initOptions();
+      }
+    }
   }
 
   toggle() {
@@ -124,27 +120,34 @@ export class UniSelectComponent extends UniFormFieldControlBase<string | string[
     this.opened.next(false);
   }
 
-  writeValue(v: UniOptionComponent | UniOptionComponent[]) {
-    if (v && this.optionValue(v) !== this.value) {
-      this.select(v);
-    }
-  }
+  private select(v: UniOptionComponent) {
+    const options = this.options.toArray();
 
-  private select(v: UniOptionComponent | UniOptionComponent[]) {
-    if (Array.isArray(v)) {
-      this.selectionModel.clear();
-
-      for (const value of v) {
-        this.selectionModel.select(value);
-      }
-    } else {
-      this.selectionModel.select(v);
-    }
-
+    this.selectionModel.select(v);
     this.value = this.optionValue(v);
+
+    for (const option of options) {
+      if (option !== v) {
+        option.deselect();
+      }
+    }
   }
 
-  private optionValue(v: UniOptionComponent | UniOptionComponent[]) {
-    return Array.isArray(v) ? v.map(o => o.value || o.content) : (v.value || v.content);
+  private initOptions() {
+    for (const option of this.options.toArray()) {
+      const value = this.optionValue(option);
+
+      if (!option.color) {
+        option.color = this.uniFormField.color;
+      }
+
+      if (value === this.value) {
+        option.select();
+      }
+    }
+  }
+
+  private optionValue(v: UniOptionComponent) {
+    return v.value || v.content;
   }
 }

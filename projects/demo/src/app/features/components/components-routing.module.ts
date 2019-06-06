@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'tooltip',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./tooltip/tooltip.module').then(m => m.TooltipModule)
+  },
+  {
+    path: 'popover',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./popover/popover.module').then(m => m.PopoverModule)
   }
 ];
 

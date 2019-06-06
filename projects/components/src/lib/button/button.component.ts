@@ -30,14 +30,14 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
 export class UniButtonComponent {
   @Input() color?: UniColor;
 
-  private get element(): HTMLElement {
+  private get _element() {
     return this.el.nativeElement;
   }
 
-  constructor(private readonly el: ElementRef) {
+  constructor(private readonly el: ElementRef<HTMLElement>) {
     for (const attr of UNI_BUTTON_HOST_ATTRIBUTES) {
-      if (this.element.hasAttribute(attr)) {
-        this.element.classList.add(attr);
+      if (this._element.hasAttribute(attr)) {
+        this._element.classList.add(attr);
       }
     }
   }

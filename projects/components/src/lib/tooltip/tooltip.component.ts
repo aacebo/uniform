@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
+import { UniArrowPosition } from '../core/arrow';
 import { UniTooltipPosition } from './tooltip-position.enum';
 import { UNI_POSITIONS } from '../core/constants';
 
@@ -10,11 +11,7 @@ import { UNI_POSITIONS } from '../core/constants';
   styleUrls: ['./tooltip.component.scss'],
   host: {
     class: 'uni-tooltip',
-    ...UNI_POSITIONS,
-    '[class.top]': 'top',
-    '[class.bottom]': 'bottom',
-    '[class.left]': 'left',
-    '[class.right]': 'right'
+    ...UNI_POSITIONS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -36,5 +33,12 @@ export class UniTooltipComponent {
 
   get right() {
     return this.position === UniTooltipPosition.Right;
+  }
+
+  get arrowPosition() {
+    return this.position === UniTooltipPosition.Top ? UniArrowPosition.Bottom :
+           this.position === UniTooltipPosition.Bottom ? UniArrowPosition.Top :
+           this.position === UniTooltipPosition.Left ? UniArrowPosition.Right :
+           UniArrowPosition.Left;
   }
 }

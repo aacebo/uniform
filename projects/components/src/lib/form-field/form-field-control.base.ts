@@ -5,11 +5,10 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 
 export class UniFormFieldControlBase<T> implements ControlValueAccessor {
-  @Input()
   get value() { return this._value; }
   set value(v: T) {
     this._value = v;
-    this._onChange(v);
+    this.onChange(v);
   }
   private _value?: T;
 
@@ -34,8 +33,8 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
   }
   private _disabled?: boolean;
 
-  _onChange: (v: any) => void = () => {};
-  _onTouch = () => {};
+  onChange: (v: any) => void = () => {};
+  onTouch = () => {};
 
   constructor(
     readonly el: ElementRef,
@@ -44,18 +43,18 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
     @Optional() readonly ngFormGroup: FormGroupDirective
   ) {}
 
-  writeValue(value: any) {
+  writeValue(value: T) {
     if (value !== this.value) {
       this.value = value;
     }
   }
 
   registerOnChange(fn: (v: any) => void) {
-    this._onChange = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: () => {}) {
-    this._onTouch = fn;
+    this.onTouch = fn;
   }
 
   setDisabledState(disabled: boolean) {

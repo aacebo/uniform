@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
+import { UniArrowPosition } from '../core/arrow';
 import { UniPopoverPosition } from './popover-position.enum';
 import { UNI_POSITIONS } from '../core/constants';
 
@@ -10,11 +11,7 @@ import { UNI_POSITIONS } from '../core/constants';
   styleUrls: ['./popover.component.scss'],
   host: {
     class: 'uni-popover',
-    ...UNI_POSITIONS,
-    '[class.top]': 'top',
-    '[class.bottom]': 'bottom',
-    '[class.left]': 'left',
-    '[class.right]': 'right'
+    ...UNI_POSITIONS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -36,5 +33,12 @@ export class UniPopoverComponent {
 
   get right() {
     return this.position === UniPopoverPosition.Right;
+  }
+
+  get arrowPosition() {
+    return this.position === UniPopoverPosition.Top ? UniArrowPosition.Bottom :
+           this.position === UniPopoverPosition.Bottom ? UniArrowPosition.Top :
+           this.position === UniPopoverPosition.Left ? UniArrowPosition.Right :
+           UniArrowPosition.Left;
   }
 }

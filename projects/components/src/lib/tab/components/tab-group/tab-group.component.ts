@@ -21,15 +21,15 @@ export class UniTabGroupComponent implements AfterContentInit {
   @ContentChildren(UniTabComponent) tabs: QueryList<UniTabComponent>;
 
   ngAfterContentInit() {
-    this.setActive();
+    this._setActive();
   }
 
   select(index: number) {
     this.active = index;
-    this.setActive();
+    this._setActive();
   }
 
-  private setActive() {
+  private _setActive() {
     this.tabs.forEach((tab, i) => {
       tab.active = false;
 

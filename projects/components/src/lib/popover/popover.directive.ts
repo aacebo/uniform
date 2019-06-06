@@ -24,12 +24,12 @@ export class UniPopoverDirective implements OnInit {
   @Input('uniPopoverPosition') position = UniPopoverPosition.Top;
   @Input('uniPopoverTrigger') trigger = UniPopoverTrigger.Click;
   @Input('uniPopoverPanelClass') panelClass = 'uni-popover-panel';
-  @Input('uniPopoverHasBackdrop') hasBackdrop = false;
-  @Input('uniPopoverBackdropClass') backdropClass?: string;
+  @Input('uniPopoverHasBackdrop') hasBackdrop = true;
+  @Input('uniPopoverBackdropClass') backdropClass = 'cdk-overlay-transparent-backdrop';
 
-  private overlayRef: OverlayRef;
+  private _overlayRef: OverlayRef;
 
-  private get origin() {
+  private get _origin() {
     let originX: xType = 'center';
     let originY: yType = 'top';
     let overlayX: xType = 'center';
@@ -59,63 +59,68 @@ export class UniPopoverDirective implements OnInit {
     };
   }
 
+
+  private get _positionStrategy() {
+    return this._overlay
+               .position()
+               .flexibleConnectedTo(this._el)
+               .withFlexibleDimensions(false)
+               .withViewportMargin(8)
+               .withPositions([this._origin]);
+  }
+
   constructor(
-    private readonly overlay: Overlay,
-    private readonly el: ElementRef
+    private readonly _overlay: Overlay,
+    private readonly _el: ElementRef
   ) {}
 
   ngOnInit() {
-    const positionStrategy = this.overlay
-      .position()
-      .flexibleConnectedTo(this.el)
-      .withFlexibleDimensions(false)
-      .withViewportMargin(8)
-      .withPositions([this.origin]);
-
-    this.overlayRef = this.overlay.create({
+    const positionStrategy = this._positionStrategy;
+    this._overlayRef = this._overlay.create({
       positionStrategy,
       panelClass: this.panelClass,
       hasBackdrop: this.hasBackdrop,
       backdropClass: this.backdropClass
     });
 
-    this.overlayRef.backdropClick().subscribe(() => {
-      this.hide();
+    this._overlayRef.backdropClick().subscribe(() => {
+      this._hide();
     });
   }
 
   onMouseEnter() {
     if (this.trigger === UniPopoverTrigger.Hover) {
-      this.show();
+      this._show();
     }
   }
 
   onMouseLeave() {
     if (this.trigger === UniPopoverTrigger.Hover) {
-      this.hide();
+      this._hide();
     }
   }
 
   onClick() {
     if (this.trigger === UniPopoverTrigger.Click) {
-      if (this.overlayRef.hasAttached()) {
-        this.hide();
+      if (this._overlayRef.hasAttached()) {
+        this._hide();
       } else {
-        this.show();
+        this._show();
       }
     }
   }
 
-  private show() {
-    if (!this.disabled && !this.overlayRef.hasAttached()) {
+  private _show() {
+    if (!this.disabled && !this._overlayRef.hasAttached()) {
+      this._overlayRef.updatePositionStrategy(this._positionStrategy);
       const portal = new ComponentPortal(UniPopoverComponent);
-      const ref = this.overlayRef.attach(portal);
+      const ref = this._overlayRef.attach(portal);
       ref.instance.text = this.text;
       ref.instance.position = this.position;
     }
   }
 
-  private hide() {
-    this.overlayRef.detach();
+  private _hide() {
+    this._overlayRef.detach();
   }
 }

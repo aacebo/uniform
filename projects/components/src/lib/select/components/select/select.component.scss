@@ -11,6 +11,10 @@
       user-select: none;
     }
 
+    .uni-select-placeholder {
+      color: rgba(uni-color('black'), 0.5);
+    }
+
     .uni-select-icon {
       font-size: 12px;
       margin: auto;

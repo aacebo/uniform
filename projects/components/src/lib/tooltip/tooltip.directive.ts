@@ -54,7 +54,7 @@ export class UniTooltipDirective implements OnInit {
     };
   }
 
-  private get positionStrategy() {
+  private get _positionStrategy() {
     return this._overlay
                .position()
                .flexibleConnectedTo(this._el)
@@ -69,7 +69,7 @@ export class UniTooltipDirective implements OnInit {
   ) {}
 
   ngOnInit() {
-    const positionStrategy = this.positionStrategy;
+    const positionStrategy = this._positionStrategy;
     this._overlayRef = this._overlay.create({
       positionStrategy,
       panelClass: this.panelClass
@@ -78,7 +78,7 @@ export class UniTooltipDirective implements OnInit {
 
   onMouseEnter() {
     if (!this.disabled && !this._overlayRef.hasAttached()) {
-      this._overlayRef.updatePositionStrategy(this.positionStrategy);
+      this._overlayRef.updatePositionStrategy(this._positionStrategy);
       const portal = new ComponentPortal(UniTooltipComponent);
       const ref = this._overlayRef.attach(portal);
       ref.instance.text = this.text;

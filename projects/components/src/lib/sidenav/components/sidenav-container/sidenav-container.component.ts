@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ContentChild, Output, EventEmitter } from '@angular/core';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
+import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
 
 @Component({
   moduleId: module.id,
@@ -18,6 +19,6 @@ export class UniSidenavContainerComponent {
   @Output() backdropClicked = new EventEmitter<void>();
 
   get showBackdrop() {
-    return this.sidenav.mode === 'over' && this.sidenav.open;
+    return this.sidenav.mode === UniSidenavMode.Over && this.sidenav.open;
   }
 }

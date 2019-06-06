@@ -1,9 +1,15 @@
 @import '../../../core/styles/colors';
 
+$uni-option-border-radius: 10px;
+
 :host {
   display: block;
   padding: 10px;
   cursor: pointer;
+
+  &.selected {
+    @include uni-colors;
+  }
 
   &.disabled {
     cursor: default;
@@ -16,5 +22,15 @@
 
   &:hover {
     background-color: rgba(uni-color('black'), 0.15);
+  }
+
+  &:first-child {
+    border-top-left-radius: $uni-option-border-radius;
+    border-top-right-radius: $uni-option-border-radius;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $uni-option-border-radius;
+    border-bottom-right-radius: $uni-option-border-radius;
   }
 }

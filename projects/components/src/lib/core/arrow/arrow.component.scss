@@ -1,11 +1,11 @@
-@import './colors';
+@import '../styles/colors';
 
 $uni-arrow-color: uni-color('black');
 $uni-arrow-color-popover: rgba(uni-color('grey'), 1);
 $uni-arrow-size: 7px;
 $uni-arrow-distance: 3px;
 
-.uni-arrow {
+:host {
   position: absolute;
 
   &.top {

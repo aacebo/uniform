@@ -1,14 +1,16 @@
 @import '../core/styles/animations';
 @import '../core/styles/colors';
-@import '../core/styles/arrows';
 
 $uni-tooltip-margin: 10px;
+$uni-tooltip-border-radius: 6px;
 $uni-tooltip-bg-color: uni-color('black');
 $uni-tooltip-color: uni-color('white');
 
 :host {
+  max-width: 250px;
+  overflow-wrap: break-word;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: $uni-tooltip-border-radius;
   font-size: 12px;
   background-color: $uni-tooltip-bg-color;
   color: $uni-tooltip-color;

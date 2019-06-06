@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
+import { UniColor } from '../../../core/enums';
+import { UNI_HOST_COLORS } from '../../../core/constants';
 
 @Component({
   moduleId: module.id,
@@ -10,13 +12,16 @@ import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.
   styleUrls: ['./option.component.scss'],
   host: {
     class: 'uni-option',
+    ...UNI_HOST_COLORS,
     '[class.disabled]': 'disabled',
-    '(click)': 'selected ? deselect() : select()'
+    '[class.selected]': 'selected',
+    '(click)': 'select()'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniOptionComponent {
   @Input() value?: any;
+  @Input() color?: UniColor;
   @Input() disabled = false;
   @Input() selected = false;
 
@@ -29,20 +34,20 @@ export class UniOptionComponent {
   constructor(private readonly _el: ElementRef<HTMLElement>) {}
 
   select() {
-    if (!this.disabled) {
+    if (!this.disabled && !this.selected) {
       this.selected = true;
-      this.emitChanged();
+      this._emitChanged();
     }
   }
 
   deselect() {
-    if (!this.disabled) {
+    if (!this.disabled && this.selected) {
       this.selected = false;
-      this.emitChanged();
+      this._emitChanged();
     }
   }
 
-  private emitChanged() {
+  private _emitChanged() {
     this.selectionChanged.emit({ source: this });
   }
 }
