@@ -7,16 +7,17 @@
 
       <uni-card-content>
         <uni-form-field color="primary">
-          <uni-select placeholder="Tooltip Position..."
+          <uni-select placeholder="Position..."
                       [(ngModel)]="position">
-            <uni-option>top</uni-option>
-            <uni-option>bottom</uni-option>
-            <uni-option>left</uni-option>
-            <uni-option>right</uni-option>
+            <uni-option *ngFor="let pos of positions">
+              {{ pos }}
+            </uni-option>
           </uni-select>
         </uni-form-field>
 
         <button uni-button
+                [uniTooltip]="position + ' tooltip'"
+                [uniTooltipPosition]="position"
                 color="primary">
           Tooltip
         </button>

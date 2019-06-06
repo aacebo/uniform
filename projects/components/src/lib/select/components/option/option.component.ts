@@ -23,7 +23,7 @@ export class UniOptionComponent {
   @Output() selectionChanged = new EventEmitter<IUniOptionSelectedEvent>();
 
   get content() {
-    return this._el.nativeElement.textContent;
+    return this._el.nativeElement.textContent.trim();
   }
 
   constructor(private readonly _el: ElementRef<HTMLElement>) {}

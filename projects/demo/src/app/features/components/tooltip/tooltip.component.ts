@@ -8,5 +8,6 @@ import { UniTooltipPosition } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent {
-  position = UniTooltipPosition.Bottom;
+  readonly position = UniTooltipPosition.Top;
+  readonly positions = Object.values(UniTooltipPosition);
 }

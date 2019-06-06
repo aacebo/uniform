@@ -22,9 +22,9 @@ export class UniTooltipDirective implements OnInit {
   @Input('uniTooltipPosition') position = UniTooltipPosition.Top;
   @Input('uniTooltipPanelClass') panelClass = 'uni-tooltip-panel';
 
-  private overlayRef: OverlayRef;
+  private _overlayRef: OverlayRef;
 
-  private get origin() {
+  private get _origin() {
     let originX: xType = 'center';
     let originY: yType = 'top';
     let overlayX: xType = 'center';
@@ -54,35 +54,39 @@ export class UniTooltipDirective implements OnInit {
     };
   }
 
+  private get positionStrategy() {
+    return this._overlay
+               .position()
+               .flexibleConnectedTo(this._el)
+               .withFlexibleDimensions(false)
+               .withViewportMargin(8)
+               .withPositions([this._origin]);
+  }
+
   constructor(
-    private readonly overlay: Overlay,
-    private readonly el: ElementRef
+    private readonly _overlay: Overlay,
+    private readonly _el: ElementRef
   ) {}
 
   ngOnInit() {
-    const positionStrategy = this.overlay
-      .position()
-      .flexibleConnectedTo(this.el)
-      .withFlexibleDimensions(false)
-      .withViewportMargin(8)
-      .withPositions([this.origin]);
-
-    this.overlayRef = this.overlay.create({
+    const positionStrategy = this.positionStrategy;
+    this._overlayRef = this._overlay.create({
       positionStrategy,
       panelClass: this.panelClass
     });
   }
 
   onMouseEnter() {
-    if (!this.disabled && !this.overlayRef.hasAttached()) {
+    if (!this.disabled && !this._overlayRef.hasAttached()) {
+      this._overlayRef.updatePositionStrategy(this.positionStrategy);
       const portal = new ComponentPortal(UniTooltipComponent);
-      const ref = this.overlayRef.attach(portal);
+      const ref = this._overlayRef.attach(portal);
       ref.instance.text = this.text;
       ref.instance.position = this.position;
     }
   }
 
   onMouseLeave() {
-    this.overlayRef.detach();
+    this._overlayRef.detach();
   }
 }

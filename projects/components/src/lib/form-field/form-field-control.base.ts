@@ -1,5 +1,5 @@
-import { Optional, Self, Input, ElementRef } from '@angular/core';
-import { NgForm, NgControl, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
+import { Optional, Input, ElementRef } from '@angular/core';
+import { NgForm, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
@@ -41,16 +41,13 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
     readonly el: ElementRef,
     @Optional() readonly uniFormField: UniFormFieldComponent,
     @Optional() readonly ngForm: NgForm,
-    @Optional() readonly ngFormGroup: FormGroupDirective,
-    @Optional() @Self() readonly ngControl: NgControl,
-  ) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = this;
-    }
-  }
+    @Optional() readonly ngFormGroup: FormGroupDirective
+  ) {}
 
-  writeValue(v: any) {
-    this.value = v;
+  writeValue(value: any) {
+    if (value !== this.value) {
+      this.value = value;
+    }
   }
 
   registerOnChange(fn: (v: any) => void) {
@@ -59,5 +56,9 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
 
   registerOnTouched(fn: () => {}) {
     this._onTouch = fn;
+  }
+
+  setDisabledState(disabled: boolean) {
+    this.disabled = disabled;
   }
 }
