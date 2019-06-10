@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { UniArrowPosition } from '../core/arrow';
 import { UniTooltipPosition } from './tooltip-position.enum';
 import { UNI_POSITIONS } from '../core/constants';
 
@@ -33,12 +32,5 @@ export class UniTooltipComponent {
 
   get right() {
     return this.position === UniTooltipPosition.Right;
-  }
-
-  get arrowPosition() {
-    return this.position === UniTooltipPosition.Top ? UniArrowPosition.Bottom :
-           this.position === UniTooltipPosition.Bottom ? UniArrowPosition.Top :
-           this.position === UniTooltipPosition.Left ? UniArrowPosition.Right :
-           UniArrowPosition.Left;
   }
 }

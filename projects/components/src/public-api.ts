@@ -5,7 +5,6 @@
 // core
 export * from './lib/core/enums';
 export * from './lib/core/constants';
-export * from './lib/core/arrow';
 
 // overlays
 export * from './lib/tooltip';
