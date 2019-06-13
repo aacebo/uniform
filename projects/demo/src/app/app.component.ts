@@ -17,6 +17,7 @@ export class AppComponent {
     { text: 'Toolbar', route: '/components/toolbar' },
     { text: 'Sidenav', route: '/components/sidenav' },
     { text: 'Tooltip', route: '/components/tooltip' },
-    { text: 'Popover', route: '/components/popover' }
+    { text: 'Popover', route: '/components/popover' },
+    { text: 'Toast', route: '/components/toast' }
   ];
 }

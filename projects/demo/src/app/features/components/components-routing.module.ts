@@ -33,6 +33,11 @@ const routes: Routes = [
     path: 'popover',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./popover/popover.module').then(m => m.PopoverModule)
+  },
+  {
+    path: 'toast',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./toast/toast.module').then(m => m.ToastModule)
   }
 ];
 

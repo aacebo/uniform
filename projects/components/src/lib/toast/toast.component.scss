@@ -1,0 +1,39 @@
+@import '../core/styles/colors';
+
+:host {
+  display: flex;
+  padding: 15px 20px;
+  font-size: 12pt;
+  color: uni-color('white');
+  border-radius: 4px;
+  min-width: 200px;
+
+  .uni-toast-content {
+    flex: 1 1 auto;
+
+    .uni-toast-title {
+      font-size: 14pt;
+      font-weight: 550;
+    }
+  }
+
+  .uni-toast-icon {
+    margin: auto;
+  }
+
+  &.info {
+    background-color: uni-theme-color('primary');
+  }
+
+  &.success {
+    background-color: uni-theme-color('success');
+  }
+
+  &.warning {
+    background-color: uni-theme-color('warning');
+  }
+
+  &.danger {
+    background-color: uni-theme-color('danger');
+  }
+}

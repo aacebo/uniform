@@ -9,6 +9,7 @@ export * from './lib/core/constants';
 // overlays
 export * from './lib/tooltip';
 export * from './lib/popover';
+export * from './lib/toast';
 
 // form fields
 export * from './lib/form-field';

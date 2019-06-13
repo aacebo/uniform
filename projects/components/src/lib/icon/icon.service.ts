@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class UniIconService {
-  private _prefix: string;
+  private _prefix?: string;
 
   get prefix() {
     return this._prefix;

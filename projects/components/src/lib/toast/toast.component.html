@@ -1,0 +1,13 @@
+<span *ngIf="config?.icons && options"
+      [ngClass]="config?.icons[options?.type]">
+</span>
+
+<div class="uni-toast-content">
+  <div *ngIf="options.title"
+       class="uni-toast-title">
+    {{ options.title }}
+  </div>
+  <div class="uni-toast-message">
+    {{ options.message }}
+  </div>
+</div>

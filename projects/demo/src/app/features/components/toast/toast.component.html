@@ -1,0 +1,35 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <uni-card>
+      <uni-card-header>
+        <uni-card-title>Toast</uni-card-title>
+      </uni-card-header>
+
+      <uni-card-content>
+        <uni-form-field color="primary">
+          <uni-select placeholder="Type..."
+                      [(ngModel)]="type">
+            <uni-option *ngFor="let toastType of types">
+              {{ toastType }}
+            </uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <uni-form-field color="primary">
+          <uni-select placeholder="Position..."
+                      [(ngModel)]="position">
+            <uni-option *ngFor="let pos of positions">
+              {{ pos }}
+            </uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <button uni-button
+                color="primary"
+                (click)="open()">
+          Toast
+        </button>
+      </uni-card-content>
+    </uni-card>
+  </uni-tab>
+</uni-tab-group>
