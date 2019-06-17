@@ -1,12 +1,18 @@
 @import '../core/styles/colors';
+@import './toast';
+
+$uni-toast-outline: 20%;
 
 :host {
   display: flex;
+  visibility: hidden;
   padding: 15px 20px;
   font-size: 12pt;
   color: uni-color('white');
   border-radius: 4px;
   min-width: 200px;
+  animation: 0.5s uniFadeIn;
+  animation-fill-mode: both;
 
   .uni-toast-content {
     flex: 1 1 auto;
@@ -21,19 +27,39 @@
     margin: auto;
   }
 
+  &.dismissable {
+    cursor: pointer;
+  }
+
   &.info {
     background-color: uni-theme-color('primary');
+
+    &:hover {
+      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('primary'), $uni-toast-outline);
+    }
   }
 
   &.success {
     background-color: uni-theme-color('success');
+
+    &:hover {
+      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('success'), $uni-toast-outline);
+    }
   }
 
   &.warning {
     background-color: uni-theme-color('warning');
+
+    &:hover {
+      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('warning'), $uni-toast-outline);
+    }
   }
 
   &.danger {
     background-color: uni-theme-color('danger');
+
+    &:hover {
+      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('danger'), $uni-toast-outline);
+    }
   }
 }

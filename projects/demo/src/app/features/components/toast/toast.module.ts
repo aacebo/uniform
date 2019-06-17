@@ -17,7 +17,7 @@ import { ToastRoutingModule } from './toast-routing.module';
     UniCardModule,
     UniTabModule,
     UniButtonModule,
-    UniToastModule.forRoot(),
+    UniToastModule,
     UniFormFieldModule,
     UniSelectModule
   ]

@@ -7,4 +7,4 @@ export { IUniToastOptions } from './toast-options.interface';
 export { IUniToastConfig } from './toast-config.interface';
 export { UNI_TOAST_OPTIONS } from './toast-options.constant';
 export { UNI_TOAST_CONFIG, UNI_TOAST_DEFAULT_CONFIG } from './toast-config.constant';
-export { UniToastOverlayRef } from './toast-overlay-ref.class';
+export { UniToastRef } from './toast-ref.class';

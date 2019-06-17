@@ -8,7 +8,7 @@ import { UniToastType, UniToastPosition, UniToastService } from '@uniform/compon
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToastComponent {
-  readonly type = UniToastType.Info;
+  readonly type = UniToastType.Success;
   readonly types = Object.values(UniToastType);
   readonly position = UniToastPosition.TopRight;
   readonly positions = Object.values(UniToastPosition);
@@ -19,7 +19,6 @@ export class ToastComponent {
     this._uniToastService.open({
       title: 'Toast Title',
       message: `${this.type} toast`,
-      duration: 5000,
       type: this.type,
       position: this.position
     });
