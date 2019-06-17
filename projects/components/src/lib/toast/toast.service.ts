@@ -69,7 +69,11 @@ export class UniToastService {
       ref: toastRef
     };
 
-    toastRef.closed.pipe(take(1)).subscribe(() => this.remove(toast.id));
+    toastRef.closed.pipe(take(1)).subscribe(() => {
+      this.remove(toast.id);
+      this._updatePositions(toast.position);
+    });
+
     this._toasts.push(toast);
 
     return toast;
@@ -117,9 +121,24 @@ export class UniToastService {
     }
   }
 
+  private _getToastsByPosition(position: UniToastPosition) {
+    return this._toasts.filter(t => t.position === position)
+                       .sort((a, b) => a.id - b.id);
+  }
+
   private _getLatestByPosition(position: UniToastPosition) {
-    const toasts =  this._toasts.filter(t => t.position === position)
-                                .sort((a, b) => a.id - b.id);
+    const toasts =  this._getToastsByPosition(position);
     return toasts[toasts.length - 1];
+  }
+
+  private _updatePositions(position: UniToastPosition) {
+    const toasts =  this._getToastsByPosition(position);
+
+    for (let i = 0; i < toasts.length; i++) {
+      toasts[i].ref.updatePosition(this._getPositionStrategy(
+        toasts[i].position,
+        toasts[i - 1] ? toasts[i - 1].ref.position : undefined
+      ));
+    }
   }
 }
