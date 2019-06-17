@@ -4,8 +4,8 @@ import { UniToastPosition } from './toast-position.enum';
 export interface IUniToastOptions {
   message: string;
   type: UniToastType;
+  position: UniToastPosition;
   title?: string;
-  position?: UniToastPosition;
   duration?: number;
   dismissable?: boolean;
   panelClass?: string;

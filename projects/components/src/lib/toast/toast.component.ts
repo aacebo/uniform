@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, OnInit, OnDestroy } from '@angular/core';
 
 import { UNI_TOAST_OPTIONS } from './toast-options.constant';
 import { UNI_TOAST_CONFIG } from './toast-config.constant';
@@ -23,7 +23,9 @@ import { UniToastRef } from './toast-ref.class';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UniToastComponent implements OnInit {
+export class UniToastComponent implements OnInit, OnDestroy {
+  private _interval: NodeJS.Timer;
+
   constructor(
     @Inject(UNI_TOAST_CONFIG) readonly config: IUniToastConfig,
     @Inject(UNI_TOAST_OPTIONS) readonly options: IUniToastOptions,
@@ -32,9 +34,15 @@ export class UniToastComponent implements OnInit {
 
   ngOnInit() {
     if (this.options.duration) {
-      setTimeout(() => {
+      this._interval = setTimeout(() => {
         this._toastRef.dismiss();
       }, this.options.duration);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this._interval) {
+      clearTimeout(this._interval);
     }
   }
 

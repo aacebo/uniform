@@ -17,10 +17,6 @@ export class UniToastService {
   private _index = -1;
   private readonly _toasts: IUniToast[] = [];
 
-  get toasts() {
-    return this._toasts;
-  }
-
   private get _id() {
     this._index++;
     return this._index;
@@ -55,9 +51,11 @@ export class UniToastService {
   }
 
   private _create<T>(component: ComponentType<T>, options: IUniToastOptions): IUniToast<T> {
+    const latest = this._getLatestByPosition(options.position);
+    const position = latest ? latest.ref.position : undefined;
     const overlayRef = this._overlay.create({
       panelClass: options.panelClass,
-      positionStrategy: this._getPositionStrategy(options.position)
+      positionStrategy: this._getPositionStrategy(options.position, position)
     });
 
     const toastRef = new UniToastRef(overlayRef);
@@ -66,12 +64,13 @@ export class UniToastService {
     const toast: IUniToast<T> = {
       id: this._id,
       type: options.type,
+      position: options.position,
       component: instance,
       ref: toastRef
     };
 
     toastRef.closed.pipe(take(1)).subscribe(() => this.remove(toast.id));
-    this._toasts.unshift(toast);
+    this._toasts.push(toast);
 
     return toast;
   }
@@ -86,17 +85,41 @@ export class UniToastService {
     return new PortalInjector(null, tokens);
   }
 
-  private _getPositionStrategy(position = UniToastPosition.TopRight) {
+  private _getPositionStrategy(position: UniToastPosition, latest: ClientRect | DOMRect) {
     const pb = this._overlay.position().global();
 
     if (position === UniToastPosition.TopLeft) {
-      return pb.top(this._config.margin).left(this._config.margin);
+      return pb.top(this._getLatestMargin(position, latest)).left(`${this._config.margin}px`);
     } else if (position === UniToastPosition.TopRight) {
-      return pb.top(this._config.margin).right(this._config.margin);
+      return pb.top(this._getLatestMargin(position, latest)).right(`${this._config.margin}px`);
     } else if (position === UniToastPosition.BottomLeft) {
-      return pb.bottom(this._config.margin).left(this._config.margin);
+      if (!latest) {
+        return pb.bottom(this._getLatestMargin(position, latest)).left(`${this._config.margin}px`);
+      } else {
+        return pb.top(this._getLatestMargin(position, latest)).left(`${this._config.margin}px`);
+      }
     }
 
-    return pb.bottom(this._config.margin).right(this._config.margin);
+    if (!latest) {
+      return pb.bottom(this._getLatestMargin(position, latest)).right(`${this._config.margin}px`);
+    } else {
+      return pb.top(this._getLatestMargin(position, latest)).right(`${this._config.margin}px`);
+    }
+  }
+
+  private _getLatestMargin(position: UniToastPosition, latest?: ClientRect | DOMRect) {
+    const key: keyof ClientRect = (position === UniToastPosition.TopLeft || position === UniToastPosition.TopRight) ? 'bottom' : 'top';
+
+    if (key === 'bottom') {
+      return latest ? `${latest[key] + this._config.margin}px` : `${this._config.margin}px`;
+    } else {
+      return latest ? `${latest[key] - latest.height - this._config.margin}px` : `${this._config.margin}px`;
+    }
+  }
+
+  private _getLatestByPosition(position: UniToastPosition) {
+    const toasts =  this._toasts.filter(t => t.position === position)
+                                .sort((a, b) => a.id - b.id);
+    return toasts[toasts.length - 1];
   }
 }

@@ -6,5 +6,5 @@ export const UNI_TOAST_CONFIG = new InjectionToken<IUniToastConfig>('UNI_TOAST_C
 
 export const UNI_TOAST_DEFAULT_CONFIG: IUniToastConfig = {
   tapToDismiss: true,
-  margin: '10px'
+  margin: 10
 };
