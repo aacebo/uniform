@@ -9,8 +9,8 @@
     <div *ngIf="selected" class="uni-select-value">{{ selected }}</div>
   </div>
 
-  <div class="uni-select-icon">
-    {{ (opened | async) ? '&#x25B2;' : '&#x25BC;' }}
+  <div class="uni-select-icon"
+       [ngClass]="{ bottom: (opened | async) }">
   </div>
 </div>
 

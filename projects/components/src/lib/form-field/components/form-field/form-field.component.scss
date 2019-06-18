@@ -5,7 +5,7 @@ $uni-form-field-border-color: #a5a1a1;
 :host {
   display: inline-block;
   border: 2px solid $uni-form-field-border-color;
-  border-radius: 25px;
+  border-radius: 4px;
 
   &:focus, &:hover {
     border-color: uni-theme-color('secondary');
