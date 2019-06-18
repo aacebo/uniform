@@ -38,6 +38,11 @@ const routes: Routes = [
     path: 'toast',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./toast/toast.module').then(m => m.ToastModule)
+  },
+  {
+    path: 'select',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./select/select.module').then(m => m.SelectModule)
   }
 ];
 

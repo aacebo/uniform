@@ -18,6 +18,7 @@ export class AppComponent {
     { text: 'Sidenav', route: '/components/sidenav' },
     { text: 'Tooltip', route: '/components/tooltip' },
     { text: 'Popover', route: '/components/popover' },
-    { text: 'Toast', route: '/components/toast' }
+    { text: 'Toast', route: '/components/toast' },
+    { text: 'Select', route: '/components/select' }
   ];
 }
