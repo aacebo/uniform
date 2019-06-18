@@ -11,7 +11,7 @@
   border: 2px solid transparent;
   user-select: none;
   cursor: pointer;
-  transition-duration: $uni-animation-duraction;
+  transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
   &:disabled {

@@ -20,7 +20,8 @@ export class ToastComponent {
       title: 'Toast Title',
       message: `${this.type} toast`,
       type: this.type,
-      position: this.position
+      position: this.position,
+      duration: 5000
     });
   }
 }

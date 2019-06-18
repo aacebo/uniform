@@ -17,15 +17,15 @@ An Angular library that provides quality UI components
 | menu         | TBD   |                                               |      |
 | autocomplete | TBD   |                                               |      |
 | input        | TBD   |                                               |      |
-| select       | TBD   |                                               |      |
+| select       |       | [docs](./projects/components/select/select)   |      |
 | checkbox     | TBD   |                                               |      |
 | toggle       | TBD   |                                               |      |
-| card         | TBD   |                                               |      |
+| card         |       | [docs](./projects/components/card/card)       |      |
 | badge        | TBD   |                                               |      |
-| toastr       | TBD   |                                               |      |
+| toast        |       | [docs](./projects/components/toast/toast)     |      |
 | progress     | TBD   |                                               |      |
 | dialog       | TBD   |                                               |      |
-| tabs         | TBD   |                                               |      |
+| tabs         |       | [docs](./projects/components/tabs/tabs)       |      |
 
 ## Founders
 

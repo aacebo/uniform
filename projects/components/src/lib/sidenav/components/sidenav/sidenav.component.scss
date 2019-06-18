@@ -7,7 +7,7 @@
   height: 100%;
   overflow-y: auto;
   z-index: 2;
-  transition-duration: $uni-animation-duraction;
+  transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
   @include uni-colors;
