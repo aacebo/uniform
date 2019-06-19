@@ -7,16 +7,14 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
-  OnDestroy,
-  forwardRef
+  OnDestroy
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ConnectedPosition, CdkConnectedOverlay } from '@angular/cdk/overlay';
 import { SelectionModel } from '@angular/cdk/collections';
 import { BehaviorSubject, merge, Observable, Subject } from 'rxjs';
 import { mergeMap, startWith, takeUntil } from 'rxjs/operators';
 
-import { UniFormFieldControlBase } from '../../../form-field';
+import { UniFormFieldControlBase, uniFormFieldProvider } from '../../../form-field';
 import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
 import { UniOptionComponent } from '../option/option.component';
 import { UniSelectPanelComponent } from '../select-panel/select-panel.component';
@@ -27,13 +25,7 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   exportAs: 'uniSelect',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => UniSelectComponent),
-      multi: true
-    }
-  ],
+  providers: [uniFormFieldProvider(UniSelectComponent)],
   host: {
     class: 'uni-select'
   },

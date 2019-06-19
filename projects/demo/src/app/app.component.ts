@@ -19,6 +19,7 @@ export class AppComponent {
     { text: 'Tooltip', route: '/components/tooltip' },
     { text: 'Popover', route: '/components/popover' },
     { text: 'Toast', route: '/components/toast' },
-    { text: 'Select', route: '/components/select' }
+    { text: 'Select', route: '/components/select' },
+    { text: 'Input', route: '/components/input' }
   ];
 }

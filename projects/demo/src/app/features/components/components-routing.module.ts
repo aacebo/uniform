@@ -43,6 +43,11 @@ const routes: Routes = [
     path: 'select',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./select/select.module').then(m => m.SelectModule)
+  },
+  {
+    path: 'input',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./input/input.module').then(m => m.InputModule)
   }
 ];
 

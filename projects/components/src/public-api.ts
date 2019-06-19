@@ -14,6 +14,7 @@ export * from './lib/toast';
 // form fields
 export * from './lib/form-field';
 export * from './lib/select';
+export * from './lib/input';
 
 // misc
 export * from './lib/toolbar';
