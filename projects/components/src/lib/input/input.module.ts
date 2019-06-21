@@ -5,6 +5,7 @@ import { UniInputComponent } from './input.component';
 
 @NgModule({
   declarations: [UniInputComponent],
+  exports: [UniInputComponent],
   imports: [CommonModule]
 })
 export class UniInputModule { }
