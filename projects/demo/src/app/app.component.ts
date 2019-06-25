@@ -20,6 +20,8 @@ export class AppComponent {
     { text: 'Popover', route: '/components/popover' },
     { text: 'Toast', route: '/components/toast' },
     { text: 'Select', route: '/components/select' },
-    { text: 'Input', route: '/components/input' }
+    { text: 'Input', route: '/components/input' },
+    { text: 'Menu', route: '/components/menu' },
+    { text: 'Context Menu', route: '/components/context-menu' }
   ];
 }
