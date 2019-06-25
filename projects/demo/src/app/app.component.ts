@@ -22,6 +22,7 @@ export class AppComponent {
     { text: 'Select', route: '/components/select' },
     { text: 'Input', route: '/components/input' },
     { text: 'Menu', route: '/components/menu' },
-    { text: 'Context Menu', route: '/components/context-menu' }
+    { text: 'Context Menu', route: '/components/context-menu' },
+    { text: 'Dialog', route: '/components/dialog' }
   ];
 }

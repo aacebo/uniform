@@ -1,12 +1,15 @@
 @import '../../../core/styles/colors';
+@import '../../../form-field/form-field-control';
 
 :host {
   display: block;
 
   .uni-select-trigger {
     display: flex;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
+    background-color: $uni-form-control-bg;
+    border-radius: $uni-form-control-border-radius;
 
     .uni-select-text {
       flex: 1 1 auto;
@@ -14,7 +17,7 @@
     }
 
     .uni-select-placeholder {
-      color: rgba(uni-color('black'), 0.5);
+      color: $uni-form-control-placeholder;
     }
 
     .uni-select-icon {

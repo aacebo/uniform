@@ -1,33 +1,6 @@
-@import '../../../core/styles/colors';
-
-$uni-form-field-border-color: #a5a1a1;
+@import '../../form-field-control';
 
 :host {
   display: inline-block;
-  border: 2px solid $uni-form-field-border-color;
-  border-radius: 4px;
-
-  &:focus, &:hover {
-    border-color: uni-theme-color('secondary');
-
-    &.primary {
-      border-color: uni-theme-color('primary');
-    }
-
-    &.secondary {
-      border-color: uni-theme-color('secondary');
-    }
-
-    &.success {
-      border-color: uni-theme-color('success');
-    }
-
-    &.warning {
-      border-color: uni-theme-color('warning');
-    }
-
-    &.danger {
-      border-color: uni-theme-color('danger');
-    }
-  }
+  border-radius: $uni-form-control-border-radius;
 }

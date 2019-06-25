@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { UniColor } from '../../../core/enums';
-import { UNI_HOST_COLORS } from '../../../core/constants';
 
 @Component({
   moduleId: module.id,
@@ -10,8 +9,7 @@ import { UNI_HOST_COLORS } from '../../../core/constants';
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss'],
   host: {
-    class: 'uni-form-field',
-    ...UNI_HOST_COLORS
+    class: 'uni-form-field'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
