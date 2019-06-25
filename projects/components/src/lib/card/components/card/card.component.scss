@@ -1,4 +1,5 @@
 @import '../../../core/styles/colors';
+@import '../../../core/styles/box-shadow';
 
 :host {
   display: block;
@@ -6,7 +7,7 @@
   padding-top: 15px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 1px 5px 11px 3px rgba(0, 0, 0, 0.34);
+  box-shadow: $uni-shadow-6dp;
 
   @include uni-colors;
 }

@@ -1,6 +1,7 @@
 @import '../core/styles/animations';
 @import '../core/styles/colors';
 @import '../core/styles/arrow';
+@import '../core/styles/box-shadow';
 
 $uni-popover-margin: 10px;
 $uni-popover-border-radius: 6px;
@@ -14,11 +15,12 @@ $uni-popover-color: uni-color('black');
   overflow-wrap: break-word;
   border-radius: $uni-popover-border-radius;
   background-color: $uni-popover-bg-color;
+  box-shadow: $uni-shadow-16dp;
   color: $uni-popover-color;
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-arrow(uni-color('white'), uni-color('grey'));
+  @include uni-arrow(uni-color('white'), lighten(uni-color('grey'), 25%), 7px, 1px);
 
   &.top {
     margin-bottom: $uni-popover-margin;
