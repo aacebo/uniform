@@ -1,1 +1,5 @@
-{{ text }}
+<ng-container *ngTemplateOutlet="isString ? default : content"></ng-container>
+
+<ng-template #default>
+  {{ content }}
+</ng-template>

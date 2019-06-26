@@ -12,7 +12,7 @@
   </div>
   <div class="uni-toolbar-spacer"></div>
   <button uni-icon-button>
-    <uni-icon uniPopover="testtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
+    <uni-icon [uniPopover]="info"
               uniPopoverPosition="bottom left"
               icon="mdi-information-outline">
     </uni-icon>
@@ -32,3 +32,7 @@
         (click)="documentation()">
   <uni-icon icon="mdi-file-document"></uni-icon>
 </button>
+
+<ng-template #info>
+  <h3>Info</h3>
+</ng-template>

@@ -1,4 +1,4 @@
-import { Directive, OnInit, Input, ElementRef } from '@angular/core';
+import { Directive, OnInit, Input, ElementRef, TemplateRef } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 
@@ -16,7 +16,7 @@ import { UniPopoverTrigger } from './popover-trigger.enum';
   }
 })
 export class UniPopoverDirective implements OnInit {
-  @Input('uniPopover') text: string;
+  @Input('uniPopover') content: string | TemplateRef<any>;
   @Input('uniPopoverDisabled') disabled = false;
   @Input('uniPopoverPosition') position = UniPosition.Top;
   @Input('uniPopoverTrigger') trigger = UniPopoverTrigger.Click;
@@ -86,7 +86,7 @@ export class UniPopoverDirective implements OnInit {
       this._overlayRef.updatePositionStrategy(this._positionStrategy);
       const portal = new ComponentPortal(UniPopoverComponent);
       const ref = this._overlayRef.attach(portal);
-      ref.instance.text = this.text;
+      ref.instance.content = this.content;
       ref.instance.position = this.position;
     }
   }

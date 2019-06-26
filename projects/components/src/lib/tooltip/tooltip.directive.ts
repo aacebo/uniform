@@ -1,5 +1,5 @@
-import { Directive, Input, OnInit, ElementRef } from '@angular/core';
-import { OverlayRef, Overlay, ConnectedPosition } from '@angular/cdk/overlay';
+import { Directive, Input, OnInit, ElementRef, TemplateRef } from '@angular/core';
+import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 
 import { UniPosition, getUniPosition } from '../core/position';
@@ -14,7 +14,7 @@ import { UniTooltipComponent } from './tooltip.component';
   }
 })
 export class UniTooltipDirective implements OnInit {
-  @Input('uniTooltip') text: string;
+  @Input('uniTooltip') content: string | TemplateRef<any>;
   @Input('uniTooltipDisabled') disabled = false;
   @Input('uniTooltipPosition') position = UniPosition.Top;
   @Input('uniTooltipPanelClass') panelClass = 'uni-tooltip-panel';
@@ -49,7 +49,7 @@ export class UniTooltipDirective implements OnInit {
       this._overlayRef.updatePositionStrategy(this._positionStrategy);
       const portal = new ComponentPortal(UniTooltipComponent);
       const ref = this._overlayRef.attach(portal);
-      ref.instance.text = this.text;
+      ref.instance.content = this.content;
       ref.instance.position = this.position;
     }
   }

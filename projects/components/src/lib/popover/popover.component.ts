@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, TemplateRef } from '@angular/core';
 
 import { UNI_POSITIONS, UniPosition } from '../core/position';
 
@@ -14,8 +14,12 @@ import { UNI_POSITIONS, UniPosition } from '../core/position';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniPopoverComponent {
-  @Input() text: string;
+  @Input() content: string | TemplateRef<any>;
   @Input() position: UniPosition;
+
+  get isString() {
+    return typeof this.content === 'string';
+  }
 
   get top() {
     return this.position === UniPosition.Top;
