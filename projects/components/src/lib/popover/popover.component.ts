@@ -10,13 +10,14 @@ import { UNI_POSITIONS } from '../core/constants';
   styleUrls: ['./popover.component.scss'],
   host: {
     class: 'uni-popover',
-    ...UNI_POSITIONS,
+    ...UNI_POSITIONS
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniPopoverComponent {
   @Input() text: string;
   @Input() position: UniPopoverPosition;
+  @Input() title?: string;
 
   get top() {
     return this.position === UniPopoverPosition.Top;

@@ -3,6 +3,12 @@
 
 :host {
   display: block;
+  outline: none;
+  border-radius: $uni-form-control-border-radius;
+
+  &:focus {
+    box-shadow: $uni-form-control-outline;
+  }
 
   .uni-select-trigger {
     display: flex;

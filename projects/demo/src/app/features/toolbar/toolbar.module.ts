@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule } from '@uniform/components';
+import { UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule, UniPopoverModule } from '@uniform/components';
 
 import { ToolbarComponent } from './toolbar.component';
 import { ToolbarService } from './toolbar.service';
@@ -8,7 +8,7 @@ import { ToolbarService } from './toolbar.service';
 @NgModule({
   declarations: [ToolbarComponent],
   exports: [ToolbarComponent],
-  imports: [CommonModule, UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule],
+  imports: [CommonModule, UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule, UniPopoverModule],
   providers: [ToolbarService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

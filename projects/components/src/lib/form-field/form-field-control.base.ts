@@ -13,6 +13,14 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
   private _value?: T;
 
   @Input()
+  get tabIndex() { return this._tabIndex; }
+  set tabIndex(v: number) {
+    this._tabIndex = v;
+    this.el.nativeElement.tabIndex = this._tabIndex;
+  }
+  private _tabIndex?: number;
+
+  @Input()
   get placeholder() { return this._placeholder; }
   set placeholder(v: string) {
     this._placeholder = v;
@@ -41,7 +49,9 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
     @Optional() readonly uniFormField: UniFormFieldComponent,
     @Optional() readonly ngForm: NgForm,
     @Optional() readonly ngFormGroup: FormGroupDirective
-  ) {}
+  ) {
+    this.tabIndex = 0;
+  }
 
   writeValue(value: T) {
     if (value !== this.value) {

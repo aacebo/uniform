@@ -3,13 +3,13 @@
 @import '../core/styles/arrow';
 @import '../core/styles/box-shadow';
 
-$uni-popover-margin: 10px;
+$uni-popover-margin: 7px;
 $uni-popover-border-radius: 6px;
 $uni-popover-bg-color: uni-color('white');
 $uni-popover-color: uni-color('black');
+$uni-popover-title-bg-color: rgb(230, 235, 236);
 
 :host {
-  padding: 10px;
   font-size: 12px;
   max-width: 250px;
   overflow-wrap: break-word;
@@ -20,13 +20,18 @@ $uni-popover-color: uni-color('black');
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-arrow(uni-color('white'), lighten(uni-color('grey'), 25%), 7px, 1px);
+  @include uni-arrow(
+    uni-color('white'),
+    lighten(uni-color('grey'), 25%),
+    $uni-popover-margin,
+    1px
+  );
 
-  &.top {
+  &.top, &.top-left, &.top-right {
     margin-bottom: $uni-popover-margin;
   }
 
-  &.bottom {
+  &.bottom, &.bottom-left, &.bottom-right {
     margin-top: $uni-popover-margin;
   }
 
@@ -36,5 +41,18 @@ $uni-popover-color: uni-color('black');
 
   &.right {
     margin-left: $uni-popover-margin;
+  }
+
+  .uni-popover-title {
+    padding: 10px;
+    font-size: 11pt;
+    background-color: $uni-popover-title-bg-color;
+    border-top-left-radius: $uni-popover-border-radius;
+    border-top-right-radius: $uni-popover-border-radius;
+  }
+
+  .uni-popover-content {
+    padding: 10px;
+    background: transparent;
   }
 }

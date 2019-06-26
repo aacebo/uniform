@@ -21,11 +21,11 @@ $uni-tooltip-color: uni-color('white');
 
   @include uni-arrow(uni-color('black'), uni-color('black'));
 
-  &.top {
+  &.top, &.top-left, &.top-right {
     margin-bottom: $uni-tooltip-margin;
   }
 
-  &.bottom {
+  &.bottom, &.bottom-left, &.bottom-right {
     margin-top: $uni-tooltip-margin;
   }
 
