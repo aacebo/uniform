@@ -1,4 +1,4 @@
-export enum UniTooltipPosition {
+export enum UniPosition {
   Top = 'top',
   Bottom = 'bottom',
   Left = 'left',

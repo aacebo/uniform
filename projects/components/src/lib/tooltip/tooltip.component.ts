@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { UniTooltipPosition } from './tooltip-position.enum';
-import { UNI_POSITIONS } from '../core/constants';
+import { UNI_POSITIONS, UniPosition } from '../core/position';
 
 @Component({
   moduleId: module.id,
@@ -16,21 +15,21 @@ import { UNI_POSITIONS } from '../core/constants';
 })
 export class UniTooltipComponent {
   @Input() text: string;
-  @Input() position: UniTooltipPosition;
+  @Input() position: UniPosition;
 
   get top() {
-    return this.position === UniTooltipPosition.Top;
+    return this.position === UniPosition.Top;
   }
 
   get bottom() {
-    return this.position === UniTooltipPosition.Bottom;
+    return this.position === UniPosition.Bottom;
   }
 
   get left() {
-    return this.position === UniTooltipPosition.Left;
+    return this.position === UniPosition.Left;
   }
 
   get right() {
-    return this.position === UniTooltipPosition.Right;
+    return this.position === UniPosition.Right;
   }
 }

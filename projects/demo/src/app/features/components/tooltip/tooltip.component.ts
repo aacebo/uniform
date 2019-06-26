@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UniTooltipPosition } from '@uniform/components';
+import { UniPosition } from '@uniform/components';
 
 @Component({
   selector: 'app-tooltip',
@@ -8,6 +8,6 @@ import { UniTooltipPosition } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent {
-  readonly position = UniTooltipPosition.Top;
-  readonly positions = Object.values(UniTooltipPosition);
+  readonly position = UniPosition.Top;
+  readonly positions = Object.values(UniPosition);
 }

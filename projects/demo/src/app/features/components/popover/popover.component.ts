@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UniPopoverPosition } from '@uniform/components';
+import { UniPosition } from '@uniform/components';
 
 @Component({
   selector: 'app-popover',
@@ -8,6 +8,6 @@ import { UniPopoverPosition } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PopoverComponent {
-  readonly position = UniPopoverPosition.Top;
-  readonly positions = Object.values(UniPopoverPosition);
+  readonly position = UniPosition.Top;
+  readonly positions = Object.values(UniPosition);
 }

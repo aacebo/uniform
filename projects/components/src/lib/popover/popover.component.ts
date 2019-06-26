@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { UniPopoverPosition } from './popover-position.enum';
-import { UNI_POSITIONS } from '../core/constants';
+import { UNI_POSITIONS, UniPosition } from '../core/position';
 
 @Component({
   moduleId: module.id,
@@ -16,21 +15,21 @@ import { UNI_POSITIONS } from '../core/constants';
 })
 export class UniPopoverComponent {
   @Input() text: string;
-  @Input() position: UniPopoverPosition;
+  @Input() position: UniPosition;
 
   get top() {
-    return this.position === UniPopoverPosition.Top;
+    return this.position === UniPosition.Top;
   }
 
   get bottom() {
-    return this.position === UniPopoverPosition.Bottom;
+    return this.position === UniPosition.Bottom;
   }
 
   get left() {
-    return this.position === UniPopoverPosition.Left;
+    return this.position === UniPosition.Left;
   }
 
   get right() {
-    return this.position === UniPopoverPosition.Right;
+    return this.position === UniPosition.Right;
   }
 }
