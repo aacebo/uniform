@@ -21,12 +21,17 @@ export class UniTooltipDirective implements OnInit {
 
   private _overlayRef: OverlayRef;
 
+  private get _vertical() {
+    return this.position === UniPosition.Top ||
+           this.position === UniPosition.Bottom;
+  }
+
   private get _positionStrategy() {
     return this._overlay
                .position()
                .flexibleConnectedTo(this._el)
                .withFlexibleDimensions(true)
-               .withPush(false)
+               .withPush(this._vertical ? true : false)
                .withViewportMargin(8)
                .withPositions([getUniPosition(this.position)]);
   }
