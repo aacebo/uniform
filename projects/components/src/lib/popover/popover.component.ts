@@ -17,7 +17,6 @@ import { UNI_POSITIONS } from '../core/constants';
 export class UniPopoverComponent {
   @Input() text: string;
   @Input() position: UniPopoverPosition;
-  @Input() title?: string;
 
   get top() {
     return this.position === UniPopoverPosition.Top;

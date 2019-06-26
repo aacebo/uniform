@@ -21,7 +21,6 @@ const UNI_POPOVER_OFFSET = 15;
 })
 export class UniPopoverDirective implements OnInit {
   @Input('uniPopover') text: string;
-  @Input('uniPopoverTitle') title?: string;
   @Input('uniPopoverDisabled') disabled = false;
   @Input('uniPopoverPosition') position = UniPopoverPosition.Top;
   @Input('uniPopoverTrigger') trigger = UniPopoverTrigger.Click;
@@ -141,7 +140,6 @@ export class UniPopoverDirective implements OnInit {
       const ref = this._overlayRef.attach(portal);
       ref.instance.text = this.text;
       ref.instance.position = this.position;
-      ref.instance.title = this.title;
     }
   }
 
