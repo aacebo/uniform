@@ -1,9 +1,9 @@
 @import '../core/styles/animations';
 @import '../core/styles/colors';
 @import '../core/styles/arrow';
+@import '../core/styles/border-radius';
 
 $uni-tooltip-margin: 10px;
-$uni-tooltip-border-radius: 6px;
 $uni-tooltip-bg-color: uni-color('black');
 $uni-tooltip-color: uni-color('white');
 
@@ -11,7 +11,7 @@ $uni-tooltip-color: uni-color('white');
   max-width: 250px;
   overflow-wrap: break-word;
   padding: 10px;
-  border-radius: $uni-tooltip-border-radius;
+  border-radius: $uni-border-radius-sm;
   font-size: 12px;
   font-weight: 500;
   background-color: $uni-tooltip-bg-color;

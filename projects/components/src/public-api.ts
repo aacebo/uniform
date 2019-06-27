@@ -11,6 +11,7 @@ export * from './lib/core/position';
 export * from './lib/tooltip';
 export * from './lib/popover';
 export * from './lib/toast';
+export * from './lib/dialog';
 
 // form fields
 export * from './lib/form-field';

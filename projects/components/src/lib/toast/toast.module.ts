@@ -17,7 +17,7 @@ import { IUniToastConfig } from './toast-config.interface';
       provide: UNI_TOAST_CONFIG,
       useValue: UNI_TOAST_DEFAULT_CONFIG
     }
-  ],
+  ]
 })
 export class UniToastModule {
   static forRoot(config: IUniToastConfig): ModuleWithProviders<UniToastModule> {

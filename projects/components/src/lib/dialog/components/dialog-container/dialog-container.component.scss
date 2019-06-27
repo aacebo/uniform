@@ -1,11 +1,12 @@
 @import '../../../core/styles/colors';
-@import '../../../core/styles/box-shadow';
 @import '../../../core/styles/border-radius';
+@import '../../../core/styles/box-shadow';
 
 :host {
   display: block;
-  border-radius: $uni-border-radius-sm;
   width: 100%;
+  height: 100%;
   background-color: uni-color('white');
+  border-radius: $uni-border-radius-lg;
   box-shadow: $uni-shadow-16dp;
 }

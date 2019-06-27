@@ -2,9 +2,9 @@
 @import '../core/styles/colors';
 @import '../core/styles/arrow';
 @import '../core/styles/box-shadow';
+@import '../core/styles/border-radius';
 
 $uni-popover-margin: 10px;
-$uni-popover-border-radius: 6px;
 $uni-popover-bg-color: uni-color('white');
 $uni-popover-color: uni-color('black');
 $uni-popover-title-bg-color: rgb(230, 235, 236);
@@ -14,7 +14,7 @@ $uni-popover-title-bg-color: rgb(230, 235, 236);
   max-width: 250px;
   padding: 15px;
   overflow-wrap: break-word;
-  border-radius: $uni-popover-border-radius;
+  border-radius: $uni-border-radius-sm;
   background-color: $uni-popover-bg-color;
   box-shadow: $uni-shadow-8dp;
   color: $uni-popover-color;

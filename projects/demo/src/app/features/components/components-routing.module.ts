@@ -48,6 +48,11 @@ const routes: Routes = [
     path: 'input',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./input/input.module').then(m => m.InputModule)
+  },
+  {
+    path: 'dialog',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./dialog/dialog.module').then(m => m.DialogModule)
   }
 ];
 

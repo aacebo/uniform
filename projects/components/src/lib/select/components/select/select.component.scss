@@ -1,10 +1,11 @@
 @import '../../../core/styles/colors';
 @import '../../../form-field/form-field-control';
+@import '../../../core/styles/border-radius';
 
 :host {
   display: block;
   outline: none;
-  border-radius: $uni-form-control-border-radius;
+  border-radius: $uni-border-radius-sm;
 
   &:focus {
     box-shadow: $uni-form-control-outline;
@@ -15,7 +16,7 @@
     padding: 12px 20px;
     cursor: pointer;
     background-color: $uni-form-control-bg;
-    border-radius: $uni-form-control-border-radius;
+    border-radius: $uni-border-radius-sm;
 
     .uni-select-text {
       flex: 1 1 auto;

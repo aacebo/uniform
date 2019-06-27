@@ -1,7 +1,7 @@
 @import '../core/styles/colors';
+@import '../core/styles/border-radius';
 @import './toast';
 
-$uni-toast-border-radius: 4px;
 $uni-toast-outline: 20%;
 $uni-toast-progress-opacity: 0.8;
 $uni-toast-progress-darkness: 20%;
@@ -10,7 +10,7 @@ $uni-toast-progress-darkness: 20%;
   visibility: hidden;
   font-size: 12pt;
   color: uni-color('white');
-  border-radius: $uni-toast-border-radius;
+  border-radius: $uni-border-radius-sm;
   min-width: 200px;
   animation: 0.5s uniFadeIn;
   animation-fill-mode: both;
@@ -27,7 +27,7 @@ $uni-toast-progress-darkness: 20%;
 
   .uni-toast-progressbar {
     height: 5px;
-    border-bottom-left-radius: $uni-toast-border-radius;
+    border-bottom-left-radius: $uni-border-radius-sm;
   }
 
   &.dismissable {
