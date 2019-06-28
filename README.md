@@ -14,9 +14,10 @@ An Angular library that provides quality UI components
 | toolbar      |       | [docs](./projects/components/toolbar/toolbar) |      |
 | tooltip      |       | [docs](./projects/components/tooltip/tooltip) |      |
 | popover      |       | [docs](./projects/components/popover/popover) |      |
+| dialog       |       | [docs](./projects/components/dialog/dialog)   |      |
 | menu         | TBD   |                                               |      |
 | autocomplete | TBD   |                                               |      |
-| input        | TBD   |                                               |      |
+| input        |       | [docs](./projects/components/input/input)     |      |
 | select       |       | [docs](./projects/components/select/select)   |      |
 | checkbox     | TBD   |                                               |      |
 | toggle       | TBD   |                                               |      |
@@ -24,7 +25,6 @@ An Angular library that provides quality UI components
 | badge        | TBD   |                                               |      |
 | toast        |       | [docs](./projects/components/toast/toast)     |      |
 | progress     | TBD   |                                               |      |
-| dialog       | TBD   |                                               |      |
 | tabs         |       | [docs](./projects/components/tabs/tabs)       |      |
 
 ## Founders
