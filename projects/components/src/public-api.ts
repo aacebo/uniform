@@ -25,3 +25,4 @@ export * from './lib/icon';
 export * from './lib/button';
 export * from './lib/card';
 export * from './lib/tab';
+export * from './lib/progress';
