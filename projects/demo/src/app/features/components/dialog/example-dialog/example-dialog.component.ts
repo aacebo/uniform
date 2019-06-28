@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UniDialogRef } from '@uniform/components';
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { UNI_DIALOG_DATA } from '@uniform/components';
 
 @Component({
   selector: 'app-example-dialog',
@@ -8,9 +8,7 @@ import { UniDialogRef } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExampleDialogComponent {
-  constructor(private readonly _dialogRef: UniDialogRef) {}
-
-  close() {
-    this._dialogRef.dismiss();
-  }
+  constructor(
+    @Inject(UNI_DIALOG_DATA) readonly data: any,
+  ) {}
 }

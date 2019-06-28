@@ -1,25 +1,26 @@
-import { EventEmitter } from '@angular/core';
 import { OverlayRef } from '@angular/cdk/overlay';
+import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { IUniDialogOptions } from './dialog-options.interface';
-
 export class UniDialogRef {
-  readonly closed = new EventEmitter<void>();
+  private readonly _closed = new Subject<void>();
+  get closed() {
+    return this._closed.asObservable();
+  }
 
   constructor(
     private readonly _overlayRef: OverlayRef,
-    private readonly _options: IUniDialogOptions
+    private readonly _disableClose: boolean
   ) {
-    this._overlayRef.backdropClick().pipe(take(1)).subscribe(() => {
-      if (!this._options.disableClose) {
-        this.dismiss();
-      }
-    });
+    if (!this._disableClose) {
+      this._overlayRef.backdropClick()
+                      .pipe(take(1))
+                      .subscribe(() => this.dismiss());
+    }
   }
 
   dismiss() {
-    this.closed.emit();
+    this._closed.next();
     this._overlayRef.detach();
   }
 }

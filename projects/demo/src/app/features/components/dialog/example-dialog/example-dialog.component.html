@@ -1,15 +1,15 @@
 <uni-dialog-header>
-  <uni-dialog-title>title</uni-dialog-title>
+  <uni-dialog-title>{{ data.title }}</uni-dialog-title>
 </uni-dialog-header>
 
 <uni-dialog-content>
-  content
+  {{ data.content }}
 </uni-dialog-content>
 
 <uni-dialog-footer>
   <button uni-button
-          color="danger"
-          (click)="close()">
+          uniDialogClose
+          color="danger">
     Close
   </button>
 </uni-dialog-footer>

@@ -26,7 +26,7 @@ export class UniDialogService {
     private readonly _resolver: ComponentFactoryResolver
   ) {}
 
-  find<T = any>(id: number): IUniDialog {
+  find(id: number) {
     return this._dialogs.find(t => t.id === id);
   }
 
@@ -48,7 +48,7 @@ export class UniDialogService {
       positionStrategy: this._getPositionStrategy()
     });
 
-    const dialogRef = new UniDialogRef(overlayRef, options);
+    const dialogRef = new UniDialogRef(overlayRef, options.disableClose);
     const portal = new ComponentPortal(UniDialogContainerComponent, undefined, this._getInjector(dialogRef, content, options));
     overlayRef.attach(portal);
     const dialog: IUniDialog = {

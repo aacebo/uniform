@@ -3,11 +3,18 @@ uni-sidenav-container {
 }
 
 .sidenav-list {
-  .sidenav-item {
+  .sidenav-item-group, .sidenav-item {
     margin: 10px 20px;
-    opacity: 0.7;
     cursor: pointer;
     outline: none;
+  }
+
+  .sidenav-item-group-title {
+    opacity: 0.7;
+  }
+
+  .sidenav-item {
+    opacity: 0.7;
 
     &:hover {
       opacity: 1;

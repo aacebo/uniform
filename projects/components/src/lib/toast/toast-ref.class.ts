@@ -1,8 +1,11 @@
-import { EventEmitter } from '@angular/core';
 import { OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
+import { Subject } from 'rxjs';
 
 export class UniToastRef {
-  readonly closed = new EventEmitter<void>();
+  private readonly _closed = new Subject<void>();
+  get closed() {
+    return this._closed.asObservable();
+  }
 
   get config() {
     return this._overlayRef.getConfig();
@@ -15,7 +18,7 @@ export class UniToastRef {
   constructor(private readonly _overlayRef: OverlayRef) {}
 
   dismiss() {
-    this.closed.emit();
+    this._closed.next();
     this._overlayRef.detach();
   }
 

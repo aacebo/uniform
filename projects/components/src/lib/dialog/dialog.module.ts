@@ -7,6 +7,7 @@ import { UniDialogContentComponent } from './components/dialog-content/dialog-co
 import { UniDialogFooterComponent } from './components/dialog-footer/dialog-footer.component';
 import { UniDialogHeaderComponent } from './components/dialog-header/dialog-header.component';
 import { UniDialogTitleComponent } from './components/dialog-title/dialog-title.component';
+import { UniDialogCloseDirective } from './directives/dialog-close/dialog-close.directive';
 import { UniDialogService } from './dialog.service';
 
 const declarations = [
@@ -14,7 +15,8 @@ const declarations = [
   UniDialogContentComponent,
   UniDialogFooterComponent,
   UniDialogHeaderComponent,
-  UniDialogTitleComponent
+  UniDialogTitleComponent,
+  UniDialogCloseDirective
 ];
 
 @NgModule({

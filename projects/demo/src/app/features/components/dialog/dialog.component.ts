@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UniDialogService } from '@uniform/components';
+
 import { ExampleDialogComponent } from './example-dialog/example-dialog.component';
 
 @Component({
@@ -13,7 +14,11 @@ export class DialogComponent {
 
   onClick() {
     this._dialog.open(ExampleDialogComponent, {
-      width: 500
+      width: 500,
+      data: {
+        title: 'Example Dialog',
+        content: 'example dialog content...'
+      }
     });
   }
 }

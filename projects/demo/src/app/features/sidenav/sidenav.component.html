@@ -5,16 +5,39 @@
                [open]="open"
                (closed)="backdropClicked.emit()">
     <div class="sidenav-list">
-      <div class="sidenav-item"
-           *ngFor="let item of items"
-           [routerLink]="item.route"
-           routerLinkActive="active"
-           (click)="backdropClicked.emit()">
-        {{ item.text }}
-      </div>
+      <ng-container *ngFor="let item of items">
+        <ng-container *ngTemplateOutlet="(item.routes ? routeGroup : routeItem); context: { $implicit: item }">
+        </ng-container>
+      </ng-container>
     </div>
   </uni-sidenav>
   <uni-sidenav-content>
     <ng-content></ng-content>
   </uni-sidenav-content>
 </uni-sidenav-container>
+
+<ng-template #routeItem let-item>
+  <div class="sidenav-item"
+       [routerLink]="item.route"
+       routerLinkActive="active"
+       (click)="backdropClicked.emit()">
+    {{ item.text }}
+  </div>
+</ng-template>
+
+<ng-template #routeGroup let-item>
+  <div class="sidenav-item-group"
+       (click)="item.expanded = !item.expanded">
+    <div class="sidenav-item-group-title">
+      {{ item.text }}
+    </div>
+
+    <div class="sidenav-item-group-routes"
+         *ngIf="item.expanded">
+      <ng-container *ngFor="let subItem of item.routes">
+        <ng-container *ngTemplateOutlet="routeItem; context: { $implicit: subItem }">
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

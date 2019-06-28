@@ -16,13 +16,21 @@ export class AppComponent {
     { text: 'Icon', route: '/components/icon' },
     { text: 'Toolbar', route: '/components/toolbar' },
     { text: 'Sidenav', route: '/components/sidenav' },
-    { text: 'Tooltip', route: '/components/tooltip' },
-    { text: 'Popover', route: '/components/popover' },
-    { text: 'Toast', route: '/components/toast' },
-    { text: 'Select', route: '/components/select' },
-    { text: 'Input', route: '/components/input' },
-    { text: 'Menu', route: '/components/menu' },
-    { text: 'Context Menu', route: '/components/context-menu' },
-    { text: 'Dialog', route: '/components/dialog' }
+    {
+      text: 'Form Fields',
+      routes: [
+        { text: 'Select', route: '/components/select' },
+        { text: 'Input', route: '/components/input' }
+      ]
+    },
+    {
+      text: 'Overlays',
+      routes: [
+        { text: 'Tooltip', route: '/components/tooltip' },
+        { text: 'Popover', route: '/components/popover' },
+        { text: 'Toast', route: '/components/toast' },
+        { text: 'Dialog', route: '/components/dialog' }
+      ]
+    }
   ];
 }
