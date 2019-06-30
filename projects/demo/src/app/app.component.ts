@@ -16,6 +16,7 @@ export class AppComponent {
     { text: 'Icon', route: '/components/icon' },
     { text: 'Toolbar', route: '/components/toolbar' },
     { text: 'Sidenav', route: '/components/sidenav' },
+    { text: 'Progress', route: '/components/progress' },
     {
       text: 'Form Fields',
       routes: [

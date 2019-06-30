@@ -1,0 +1,35 @@
+@import '../../../core/styles/animations';
+@import '../../../core/styles/colors';
+
+:host {
+  display: inline-block;
+
+  .uni-spinner {
+    circle {
+      fill: transparent;
+      transition: $uni-animation-duration stroke-dashoffset;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+
+      &.primary {
+        stroke: uni-theme-color('primary');
+      }
+
+      &.secondary {
+        stroke: uni-theme-color('secondary');
+      }
+
+      &.success {
+        stroke: uni-theme-color('success');
+      }
+
+      &.warning {
+        stroke: uni-theme-color('warning');
+      }
+
+      &.danger {
+        stroke: uni-theme-color('danger');
+      }
+    }
+  }
+}

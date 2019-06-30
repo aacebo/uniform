@@ -53,6 +53,11 @@ const routes: Routes = [
     path: 'dialog',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./dialog/dialog.module').then(m => m.DialogModule)
+  },
+  {
+    path: 'progress',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./progress/progress.module').then(m => m.ProgressModule)
   }
 ];
 

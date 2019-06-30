@@ -1,3 +1,14 @@
-<p>
-  progress-spinner works!
-</p>
+<svg class="uni-spinner"
+     [style.width.px]="diameter"
+     [style.height.px]="diameter"
+>
+  <circle [ngClass]="colors"
+          [style.fill]="fill"
+          [style.stroke-width.px]="strokeWidth"
+          [style.stroke-dashoffset]="strokeDashoffset"
+          [style.stroke-dasharray]="strokeDasharray"
+          [style.r.px]="radius"
+          [style.cx.px]="diameter / 2"
+          [style.cy.px]="diameter / 2"
+  ></circle>
+</svg>
