@@ -1,0 +1,53 @@
+@import '../../../core/styles/colors';
+
+$uni-progress-foreground-opacity: 0.5;
+
+:host {
+  display: block;
+
+  svg {
+    .uni-progress-bar-background {
+      &.primary {
+        fill: rgba(uni-theme-color('primary'), $uni-progress-foreground-opacity);
+      }
+
+      &.secondary {
+        fill: rgba(uni-theme-color('secondary'), $uni-progress-foreground-opacity);
+      }
+
+      &.success {
+        fill: rgba(uni-theme-color('success'), $uni-progress-foreground-opacity);
+      }
+
+      &.warning {
+        fill: rgba(uni-theme-color('warning'), $uni-progress-foreground-opacity);
+      }
+
+      &.danger {
+        fill: rgba(uni-theme-color('danger'), $uni-progress-foreground-opacity);
+      }
+    }
+
+    .uni-progress-bar-foreground {
+      &.primary {
+        fill: uni-theme-color('primary');
+      }
+
+      &.secondary {
+        fill: uni-theme-color('secondary');
+      }
+
+      &.success {
+        fill: uni-theme-color('success');
+      }
+
+      &.warning {
+        fill: uni-theme-color('warning');
+      }
+
+      &.danger {
+        fill: uni-theme-color('danger');
+      }
+    }
+  }
+}
