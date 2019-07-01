@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule, UniPopoverModule } from '@uniform/components';
 
@@ -7,9 +7,9 @@ import { ToolbarService } from './toolbar.service';
 
 @NgModule({
   declarations: [ToolbarComponent],
+  schemas: [NO_ERRORS_SCHEMA],
   exports: [ToolbarComponent],
   imports: [CommonModule, UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule, UniPopoverModule],
-  providers: [ToolbarService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [ToolbarService]
 })
 export class ToolbarModule {}

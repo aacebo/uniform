@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { UniIconComponent } from '@uniform/components';
 
 import { environment } from '../../../environments/environment';
 import { ToolbarService } from './toolbar.service';
@@ -12,6 +13,8 @@ import { ToolbarService } from './toolbar.service';
 export class ToolbarComponent {
   @Input() title?: string;
   @Output() toggle = new EventEmitter<void>();
+
+  @ViewChild('uniIcon', { read: ElementRef, static: false }) icon: ElementRef<UniIconComponent>;
 
   constructor(readonly toolbarService: ToolbarService) {}
 

@@ -11,9 +11,11 @@
     {{ toolbarService.$title | async }}
   </div>
   <div class="uni-toolbar-spacer"></div>
-  <button uni-icon-button>
-    <uni-icon [uniPopover]="info"
-              uniPopoverPosition="bottom left"
+  <button uni-icon-button
+          [uniPopover]="info"
+          [uniPopoverOrigin]="icon"
+          uniPopoverPosition="bottom left">
+    <uni-icon #uniIcon
               icon="mdi-information-outline">
     </uni-icon>
   </button>

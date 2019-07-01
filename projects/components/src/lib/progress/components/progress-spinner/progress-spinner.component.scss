@@ -1,10 +1,15 @@
 @import '../../../core/styles/animations';
 @import '../../../core/styles/colors';
+@import '../../progress';
 
 :host {
   display: inline-block;
 
-  .uni-spinner {
+  &.indeterminate {
+    @include uni-spinner-indeterminate();
+  }
+
+  svg {
     circle {
       fill: transparent;
       transition: $uni-animation-duration stroke-dashoffset;

@@ -18,6 +18,7 @@ export class UniTooltipDirective implements OnInit {
   @Input('uniTooltipDisabled') disabled = false;
   @Input('uniTooltipPosition') position = UniPosition.Top;
   @Input('uniTooltipPanelClass') panelClass = 'uni-tooltip-panel';
+  @Input('uniTooltipOrigin') origin: HTMLElement;
 
   private _overlayRef: OverlayRef;
 
@@ -29,7 +30,7 @@ export class UniTooltipDirective implements OnInit {
   private get _positionStrategy() {
     return this._overlay
                .position()
-               .flexibleConnectedTo(this._el)
+               .flexibleConnectedTo(this.origin || this._el)
                .withFlexibleDimensions(true)
                .withPush(this._vertical ? true : false)
                .withViewportMargin(8)

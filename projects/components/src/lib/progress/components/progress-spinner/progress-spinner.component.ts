@@ -12,7 +12,8 @@ import { UniColor } from '../../../core/enums';
   templateUrl: './progress-spinner.component.html',
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
-    class: 'uni-progress-spinner'
+    class: 'uni-progress-spinner',
+    '[class.indeterminate]': 'mode === "indeterminate"'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -23,8 +24,12 @@ export class UniProgressSpinnerComponent {
   @Input() total = 100;
   @Input() value = 0;
   @Input() strokeWidth = 5;
-  @Input() diameter = 40;
-  @Input() fill = 'transparent';
+  @Input() diameter = 90;
+
+  private readonly indeterminate = {
+    value: 25,
+    total: 100
+  };
 
   get colors() {
     return uniColors(this.color);
@@ -47,6 +52,14 @@ export class UniProgressSpinnerComponent {
   }
 
   private get _percentage() {
-    return (100 / this.total) * this.value;
+    return (100 / this._total) * this._value;
+  }
+
+  private get _value() {
+    return this.mode === UniProgressMode.Determinate ? this.value : this.indeterminate.value;
+  }
+
+  private get _total() {
+    return this.mode === UniProgressMode.Determinate ? this.total : this.indeterminate.total;
   }
 }

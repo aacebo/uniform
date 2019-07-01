@@ -23,6 +23,7 @@ export class UniPopoverDirective implements OnInit {
   @Input('uniPopoverPanelClass') panelClass = 'uni-popover-panel';
   @Input('uniPopoverHasBackdrop') hasBackdrop = true;
   @Input('uniPopoverBackdropClass') backdropClass = 'cdk-overlay-transparent-backdrop';
+  @Input('uniPopoverOrigin') origin: HTMLElement;
 
   private _overlayRef: OverlayRef;
 
@@ -34,7 +35,7 @@ export class UniPopoverDirective implements OnInit {
   private get _positionStrategy() {
     return this._overlay
                .position()
-               .flexibleConnectedTo(this._el)
+               .flexibleConnectedTo(this.origin || this._el)
                .withFlexibleDimensions(true)
                .withPush(this._vertical ? true : false)
                .withViewportMargin(8)
