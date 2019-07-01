@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { uniColors } from '../../../core/constants';
-import { UniProgressSpinnerType } from '../../enums/progress-spinner-type.enum';
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { UniColor } from '../../../core/enums';
 
@@ -18,7 +17,6 @@ import { UniColor } from '../../../core/enums';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniProgressSpinnerComponent {
-  @Input() type = UniProgressSpinnerType.Default;
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
   @Input() total = 100;
