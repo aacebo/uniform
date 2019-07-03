@@ -20,7 +20,7 @@
   }
 
   &:hover {
-    background-color: rgba(uni-color('black'), 0.15);
+    background-color: var(--black-a15);
   }
 
   &:first-child {

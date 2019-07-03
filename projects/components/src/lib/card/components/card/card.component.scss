@@ -13,7 +13,7 @@
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-colors;
+  @include uni-colors();
 
   &.uni-card-hover {
     &:hover {

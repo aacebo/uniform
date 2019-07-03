@@ -2,11 +2,19 @@ uni-sidenav-container {
   height: 100%;
 }
 
+uni-sidenav-content {
+  padding-top: 60px;
+}
+
+uni-sidenav {
+  padding: 70px 0;
+}
+
 .sidenav-list {
   .sidenav-item-group, .sidenav-item {
-    margin: 10px 20px;
     cursor: pointer;
     outline: none;
+    padding: 5px 10px;
   }
 
   .sidenav-item-group-title {
@@ -22,6 +30,7 @@ uni-sidenav-container {
 
     &.active {
       opacity: 1;
+      box-shadow: inset 9px 0 0 -5px var(--primary);
     }
   }
 }

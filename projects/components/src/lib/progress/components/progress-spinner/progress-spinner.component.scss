@@ -1,5 +1,4 @@
 @import '../../../core/styles/animations';
-@import '../../../core/styles/colors';
 @import '../../progress';
 
 :host {
@@ -17,23 +16,23 @@
       transform-origin: 50% 50%;
 
       &.primary {
-        stroke: uni-theme-color('primary');
+        stroke: var(--primary);
       }
 
       &.secondary {
-        stroke: uni-theme-color('secondary');
+        stroke: var(--secondary);
       }
 
       &.success {
-        stroke: uni-theme-color('success');
+        stroke: var(--success);
       }
 
       &.warning {
-        stroke: uni-theme-color('warning');
+        stroke: var(--warning);
       }
 
       &.danger {
-        stroke: uni-theme-color('danger');
+        stroke: var(--danger);
       }
     }
   }

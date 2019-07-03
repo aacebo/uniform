@@ -1,11 +1,10 @@
 @import '../core/styles/animations';
-@import '../core/styles/colors';
 @import '../core/styles/arrow';
 @import '../core/styles/border-radius';
 
 $uni-tooltip-margin: 10px;
-$uni-tooltip-bg-color: uni-color('black');
-$uni-tooltip-color: uni-color('white');
+$uni-tooltip-bg-color: var(--black);
+$uni-tooltip-color: var(--white);
 
 :host {
   max-width: 250px;
@@ -19,7 +18,7 @@ $uni-tooltip-color: uni-color('white');
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-arrow(uni-color('black'), uni-color('black'));
+  @include uni-arrow(var(--black), var(--black));
 
   &.top, &.top-left, &.top-right {
     margin-bottom: $uni-tooltip-margin;

@@ -1,92 +1,70 @@
-$uni-theme-colors: (
-  'primary': #0b81cf,
-  'secondary': #6b6969,
-  'success': #4BB543,
-  'warning': #e49e07,
-  'danger': #a72222
-);
-
-$uni-colors: (
-  'white': #ffffff,
-  'black': #000000,
-  'grey': #6c757d
-);
-
-@function uni-theme-color($key) {
-  @return map-get($uni-theme-colors, $key);
-}
-
-@function uni-color($key) {
-  @return map-get($uni-colors, $key);
-}
-
 @mixin uni-colors {
   &.primary {
-    color: uni-color('white');
-    background-color: uni-theme-color('primary');
+    color: var(--white);
+    background-color: var(--primary);
   }
 
   &.secondary {
-    color: uni-color('white');
-    background-color: uni-theme-color('secondary');
+    color: var(--white);
+    background-color: var(--secondary);
   }
 
   &.success {
-    color: uni-color('white');
-    background-color: uni-theme-color('success');
+    color: var(--white);
+    background-color: var(--success);
   }
 
   &.warning {
-    color: uni-color('white');
-    background-color: uni-theme-color('warning');
+    color: var(--white);
+    background-color: var(--warning);
   }
 
   &.danger {
-    color: uni-color('white');
-    background-color: uni-theme-color('danger');
+    color: var(--white);
+    background-color: var(--danger);
   }
 }
 
 @mixin uni-colors-text {
   &.primary {
-    color: uni-theme-color('primary');
+    color: var(--primary);
   }
 
   &.secondary {
-    color: uni-theme-color('secondary');
+    color: var(--secondary);
   }
 
   &.success {
-    color: uni-theme-color('success');
+    color: var(--success);
   }
 
   &.warning {
-    color: uni-theme-color('warning');
+    color: var(--warning);
   }
 
   &.danger {
-    color: uni-theme-color('danger');
+    color: var(--danger);
   }
 }
 
 @mixin uni-colors-background {
   &.primary {
-    background-color: uni-theme-color('primary');
+    background-color: var(--primary);
   }
 
   &.secondary {
-    background-color: uni-theme-color('secondary');
+    background-color: var(--secondary);
   }
 
   &.success {
-    background-color: uni-theme-color('success');
+    background-color: var(--success);
   }
 
   &.warning {
-    background-color: uni-theme-color('warning');
+    background-color: var(--warning);
   }
 
   &.danger {
-    background-color: uni-theme-color('danger');
+    background-color: var(--danger);
   }
 }

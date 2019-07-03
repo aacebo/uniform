@@ -1,6 +1,6 @@
 <uni-sidenav-container (backdropClicked)="backdropClicked.emit()">
   <uni-sidenav position="start"
-               mode="over"
+               mode="side"
                color="secondary"
                [open]="open"
                (closed)="backdropClicked.emit()">
@@ -19,8 +19,7 @@
 <ng-template #routeItem let-item>
   <div class="sidenav-item"
        [routerLink]="item.route"
-       routerLinkActive="active"
-       (click)="backdropClicked.emit()">
+       routerLinkActive="active">
     {{ item.text }}
   </div>
 </ng-template>
@@ -31,13 +30,13 @@
     <div class="sidenav-item-group-title">
       {{ item.text }}
     </div>
+  </div>
 
-    <div class="sidenav-item-group-routes"
-         *ngIf="item.expanded">
-      <ng-container *ngFor="let subItem of item.routes">
-        <ng-container *ngTemplateOutlet="routeItem; context: { $implicit: subItem }">
-        </ng-container>
+  <div class="sidenav-item-group-routes"
+       *ngIf="item.expanded">
+    <ng-container *ngFor="let subItem of item.routes">
+      <ng-container *ngTemplateOutlet="routeItem; context: { $implicit: subItem }">
       </ng-container>
-    </div>
+    </ng-container>
   </div>
 </ng-template>

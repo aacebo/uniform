@@ -1,6 +1,6 @@
 @mixin uni-outline-button($color) {
-  $uni-theme-color: uni-theme-color($color);
-  $uni-white: uni-color('white');
+  $uni-theme-color: var($color);
+  $uni-white: var(--white);
 
   border-color: $uni-theme-color;
   background-color: $uni-white;
@@ -18,12 +18,11 @@
 }
 
 @mixin uni-icon-button($color) {
-  $uni-theme-color: uni-theme-color($color);
-
+  $uni-theme-color: var($color);
   color: $uni-theme-color;
 
   &:hover {
-    background-color: rgba($uni-theme-color, 0.25);
+    background-color: var(#{ $color + '-a25' });
 
     &:disabled {
       background-color: transparent;
@@ -32,8 +31,8 @@
 }
 
 @mixin uni-fab($color) {
-  $uni-theme-color: uni-theme-color($color);
-  $uni-color: uni-color('white');
+  $uni-theme-color: var($color);
+  $uni-color: var(--white);
 
   background-color: $uni-theme-color;
   color: $uni-color;

@@ -1,15 +1,10 @@
-@import '../core/styles/colors';
 @import '../core/styles/border-radius';
 @import './toast';
-
-$uni-toast-outline: 20%;
-$uni-toast-progress-opacity: 0.8;
-$uni-toast-progress-darkness: 20%;
 
 :host {
   visibility: hidden;
   font-size: 12pt;
-  color: uni-color('white');
+  color: var(--white);
   border-radius: $uni-border-radius-sm;
   min-width: 200px;
   animation: 0.5s uniFadeIn;
@@ -35,50 +30,50 @@ $uni-toast-progress-darkness: 20%;
   }
 
   &.info {
-    background-color: uni-theme-color('primary');
+    background-color: var(--primary);
 
     &:hover {
-      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('primary'), $uni-toast-outline);
+      box-shadow: inset 0 0 0 3px var(--primary-l20);
     }
 
     .uni-toast-progressbar {
-      background-color: rgba(darken(uni-theme-color('primary'), $uni-toast-progress-darkness), $uni-toast-progress-opacity);
+      background-color: var(--primary-l20);
     }
   }
 
   &.success {
-    background-color: uni-theme-color('success');
+    background-color: var(--success);
 
     &:hover {
-      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('success'), $uni-toast-outline);
+      box-shadow: inset 0 0 0 3px var(--success-l20);
     }
 
     .uni-toast-progressbar {
-      background-color: rgba(darken(uni-theme-color('success'), $uni-toast-progress-darkness), $uni-toast-progress-opacity);
+      background-color: var(--success-l20);
     }
   }
 
   &.warning {
-    background-color: uni-theme-color('warning');
+    background-color: var(--warning);
 
     &:hover {
-      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('warning'), $uni-toast-outline);
+      box-shadow: inset 0 0 0 3px var(--warning-l20);
     }
 
     .uni-toast-progressbar {
-      background-color: rgba(darken(uni-theme-color('warning'), $uni-toast-progress-darkness), $uni-toast-progress-opacity);
+      background-color: var(--warning-l20);
     }
   }
 
   &.danger {
-    background-color: uni-theme-color('danger');
+    background-color: var(--danger);
 
     &:hover {
-      box-shadow: inset 0 0 0 3px lighten(uni-theme-color('danger'), $uni-toast-outline);
+      box-shadow: inset 0 0 0 3px var(--danger-l20);
     }
 
     .uni-toast-progressbar {
-      background-color: rgba(darken(uni-theme-color('danger'), $uni-toast-progress-darkness), $uni-toast-progress-opacity);
+      background-color: var(--danger-l20);
     }
   }
 }

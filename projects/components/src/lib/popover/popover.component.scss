@@ -1,12 +1,11 @@
 @import '../core/styles/animations';
-@import '../core/styles/colors';
 @import '../core/styles/arrow';
 @import '../core/styles/box-shadow';
 @import '../core/styles/border-radius';
 
 $uni-popover-margin: 10px;
-$uni-popover-bg-color: uni-color('white');
-$uni-popover-color: uni-color('black');
+$uni-popover-bg-color: var(--white);
+$uni-popover-color: var(--black);
 $uni-popover-title-bg-color: rgb(230, 235, 236);
 
 :host {
@@ -21,7 +20,7 @@ $uni-popover-title-bg-color: rgb(230, 235, 236);
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-arrow(uni-color('white'), uni-color('white'));
+  @include uni-arrow(var(--white), var(--white));
 
   &.top, &.top-left, &.top-right {
     margin-bottom: $uni-popover-margin;

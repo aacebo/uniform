@@ -1,4 +1,3 @@
-@import '../../../core/styles/colors';
 @import '../../../form-field/form-field-control';
 @import '../../../core/styles/border-radius';
 
@@ -31,7 +30,7 @@
       font-size: 12px;
       margin: auto;
       margin-left: 10px;
-      color: uni-color('grey');
+      color: var(--grey);
       user-select: none;
 
       &:before {
