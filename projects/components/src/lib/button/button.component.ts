@@ -15,7 +15,6 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
 
 @Component({
   moduleId: module.id,
-  // tslint:disable-next-line: component-selector
   selector: `button[uni-button], button[uni-outline-button], button[uni-icon-button],
              button[uni-fab], button[uni-mini-fab], button[uni-outline-fab],
              button[uni-outline-mini-fab]`,
@@ -31,10 +30,10 @@ export class UniButtonComponent {
   @Input() color?: UniColor;
 
   private get _element() {
-    return this.el.nativeElement;
+    return this._el.nativeElement;
   }
 
-  constructor(private readonly el: ElementRef<HTMLElement>) {
+  constructor(private readonly _el: ElementRef<HTMLElement>) {
     for (const attr of UNI_BUTTON_HOST_ATTRIBUTES) {
       if (this._element.hasAttribute(attr)) {
         this._element.classList.add(attr);
