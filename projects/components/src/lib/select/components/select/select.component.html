@@ -10,7 +10,7 @@
   </div>
 
   <div class="uni-select-icon"
-       [ngClass]="{ bottom: (opened | async) }">
+       [ngClass]="{ bottom: (opened$ | async) }">
   </div>
 </div>
 
@@ -20,7 +20,7 @@
   cdkConnectedOverlayHasBackdrop
   cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
   [cdkConnectedOverlayOrigin]="origin"
-  [cdkConnectedOverlayOpen]="opened | async"
+  [cdkConnectedOverlayOpen]="opened$ | async"
   [cdkConnectedOverlayPositions]="positions"
   [cdkConnectedOverlayMinWidth]="minWidth"
   [cdkConnectedOverlayOffsetY]="50"

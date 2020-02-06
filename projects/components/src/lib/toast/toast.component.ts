@@ -25,7 +25,7 @@ import { UniToastRef } from './toast-ref.class';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniToastComponent implements OnInit, OnDestroy {
-  readonly progress = new BehaviorSubject(0);
+  readonly progress$ = new BehaviorSubject(0);
 
   private _interval: NodeJS.Timer;
   private _timeout: NodeJS.Timer;
@@ -50,7 +50,7 @@ export class UniToastComponent implements OnInit, OnDestroy {
 
       if (this.config.progressBar) {
         this._interval = setInterval(() => {
-          this.progress.next(this.progress.value + this._tick);
+          this.progress$.next(this.progress$.value + this._tick);
         }, this._ticks);
       }
     }

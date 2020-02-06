@@ -1,9 +1,9 @@
 <app-toolbar title="/components/button"
-             (toggle)="$toggle.next(!$toggle.value)">
+             (toggle)="toggle$.next(!toggle$.value)">
 </app-toolbar>
 <app-sidenav [items]="sidenavItems"
-             [open]="$toggle | async"
-             (backdropClicked)="$toggle.next(false)">
+             [open]="toggle$ | async"
+             (backdropClicked)="toggle$.next(false)">
   <div class="content">
     <router-outlet></router-outlet>
   </div>

@@ -56,7 +56,7 @@ export class UniDialogService {
       ref: dialogRef,
     };
 
-    dialogRef.closed.pipe(take(1)).subscribe(() => {
+    dialogRef.closed$.pipe(take(1)).subscribe(() => {
       this.remove(dialog.id);
     });
 

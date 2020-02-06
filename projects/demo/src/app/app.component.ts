@@ -9,7 +9,7 @@ import { ISidenavItem } from './features/sidenav';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  readonly $toggle = new BehaviorSubject(true);
+  readonly toggle$ = new BehaviorSubject(true);
   readonly sidenavItems: ISidenavItem[] = [
     { text: 'Card', route: '/components/card' },
     { text: 'Button', route: '/components/button' },

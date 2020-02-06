@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 import { ISidenavItem } from './sidenav-item.interface';
 

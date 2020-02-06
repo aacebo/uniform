@@ -13,8 +13,8 @@ import { UNI_HOST_COLORS } from '../../../core/constants';
   styleUrls: ['./sidenav.component.scss'],
   host: {
     class: 'uni-sidenav',
-    '[class.over]': 'mode === "over"',
-    '[class.end]': 'position === "end"',
+    '[class.over]': 'mode === UniSidenavMode.Over',
+    '[class.end]': 'position === UniSidenavPosition.End',
     '[class.closed]': 'open === false',
     ...UNI_HOST_COLORS,
   },
@@ -28,11 +28,16 @@ export class UniSidenavComponent {
 
   @Output() closed = new EventEmitter<void>();
 
+  readonly UniSidenavPosition = UniSidenavPosition;
+  readonly UniSidenavMode = UniSidenavMode;
+
   constructor(readonly el: ElementRef) {}
 
   @HostListener('document:keydown.escape')
   onEscape() {
-    this.open = false;
-    this.closed.emit();
+    if (this.mode === UniSidenavMode.Over) {
+      this.open = false;
+      this.closed.emit();
+    }
   }
 }

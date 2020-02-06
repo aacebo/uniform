@@ -69,7 +69,7 @@ export class UniToastService {
       ref: toastRef,
     };
 
-    toastRef.closed.pipe(take(1)).subscribe(() => {
+    toastRef.closed$.pipe(take(1)).subscribe(() => {
       this.remove(toast.id);
       this._updatePositions(toast.position);
     });

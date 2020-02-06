@@ -39,11 +39,11 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
   @ViewChild(CdkConnectedOverlay, { static: false }) overlay: CdkConnectedOverlay;
   @ContentChildren(UniOptionComponent, { descendants: true }) options: QueryList<UniOptionComponent>;
 
-  private readonly _destroy = new Subject<void>();
+  private readonly _destroy$ = new Subject<void>();
 
   selectionModel: SelectionModel<UniOptionComponent>;
   optionSelectionChanged: Observable<IUniOptionSelectedEvent>;
-  readonly opened = new BehaviorSubject(false);
+  readonly opened$ = new BehaviorSubject(false);
   readonly positions: ConnectedPosition[] = [
     {
       originX: 'start',
@@ -75,13 +75,13 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
       mergeMap(() => merge<IUniOptionSelectedEvent>(...this.options.map(o => o.selectionChanged))),
     );
 
-    this.optionSelectionChanged.pipe(takeUntil(this._destroy))
+    this.optionSelectionChanged.pipe(takeUntil(this._destroy$))
                                .subscribe(e => {
       if (e.source.selected) {
         this.select(e.source);
       }
 
-      if (this.opened.value) {
+      if (this.opened$.value) {
         this.close();
       }
     });
@@ -90,8 +90,8 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
   }
 
   ngOnDestroy() {
-    this._destroy.next();
-    this._destroy.complete();
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
   writeValue(value: string) {
@@ -105,11 +105,11 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
   }
 
   toggle() {
-    this.opened.next(!this.opened.value);
+    this.opened$.next(!this.opened$.value);
   }
 
   close() {
-    this.opened.next(false);
+    this.opened$.next(false);
   }
 
   private select(v: UniOptionComponent) {
