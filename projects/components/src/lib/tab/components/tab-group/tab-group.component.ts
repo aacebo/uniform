@@ -10,9 +10,9 @@ import { UniColor } from '../../../core/enums';
   templateUrl: './tab-group.component.html',
   styleUrls: ['./tab-group.component.scss'],
   host: {
-    class: 'uni-tab-group'
+    class: 'uni-tab-group',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTabGroupComponent implements AfterContentInit {
   @Input() active = 0;

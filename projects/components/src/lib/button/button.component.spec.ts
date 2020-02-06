@@ -8,7 +8,7 @@ describe('UniButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniButtonComponent ]
+      declarations: [ UniButtonComponent ],
     })
     .compileComponents();
   }));

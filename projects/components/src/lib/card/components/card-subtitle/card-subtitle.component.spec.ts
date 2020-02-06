@@ -8,7 +8,7 @@ describe('UniCardSubtitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniCardSubtitleComponent ]
+      declarations: [ UniCardSubtitleComponent ],
     })
     .compileComponents();
   }));

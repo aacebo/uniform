@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
 
 const routes: Routes = [
-  { path: '', component: SelectComponent }
+  { path: '', component: SelectComponent },
 ];
 
 @NgModule({

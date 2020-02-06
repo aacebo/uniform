@@ -8,5 +8,5 @@ export const UNI_DIALOG_DEFAULT_OPTIONS: IUniDialogOptions = {
   width: 'auto',
   height: 'auto',
   hasBackdrop: true,
-  backdropClass: 'cdk-overlay-dark-backdrop'
+  backdropClass: 'cdk-overlay-dark-backdrop',
 };

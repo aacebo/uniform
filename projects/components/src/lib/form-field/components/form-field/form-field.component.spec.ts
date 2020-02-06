@@ -8,7 +8,7 @@ describe('UniFormFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniFormFieldComponent ]
+      declarations: [ UniFormFieldComponent ],
     })
     .compileComponents();
   }));

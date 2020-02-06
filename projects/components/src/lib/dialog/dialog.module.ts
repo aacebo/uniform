@@ -16,7 +16,7 @@ const declarations = [
   UniDialogFooterComponent,
   UniDialogHeaderComponent,
   UniDialogTitleComponent,
-  UniDialogCloseDirective
+  UniDialogCloseDirective,
 ];
 
 @NgModule({
@@ -24,6 +24,6 @@ const declarations = [
   exports: declarations,
   entryComponents: [UniDialogContainerComponent],
   imports: [CommonModule, OverlayModule],
-  providers: [UniDialogService]
+  providers: [UniDialogService],
 })
 export class UniDialogModule { }

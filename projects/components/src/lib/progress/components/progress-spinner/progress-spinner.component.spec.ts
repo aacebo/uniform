@@ -8,7 +8,7 @@ describe('UniProgressSpinnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniProgressSpinnerComponent ]
+      declarations: [ UniProgressSpinnerComponent ],
     })
     .compileComponents();
   }));

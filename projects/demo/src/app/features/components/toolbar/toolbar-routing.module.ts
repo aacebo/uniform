@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ToolbarComponent } from './toolbar.component';
 
 const routes: Routes = [
-  { path: '', component: ToolbarComponent }
+  { path: '', component: ToolbarComponent },
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 import { ConnectedPosition, CdkConnectedOverlay } from '@angular/cdk/overlay';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -27,9 +27,9 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   styleUrls: ['./select.component.scss'],
   providers: [uniFormFieldProvider(UniSelectComponent)],
   host: {
-    class: 'uni-select'
+    class: 'uni-select',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
   @Input() panelClass = 'uni-select-panel';
@@ -56,7 +56,7 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
       originY: 'bottom',
       overlayX: 'start',
       overlayY: 'bottom',
-    }
+    },
   ];
 
   get selected() {
@@ -72,7 +72,7 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
 
     this.optionSelectionChanged = this.options.changes.pipe(
       startWith(this.options),
-      mergeMap(() => merge<IUniOptionSelectedEvent>(...this.options.map(o => o.selectionChanged)))
+      mergeMap(() => merge<IUniOptionSelectedEvent>(...this.options.map(o => o.selectionChanged))),
     );
 
     this.optionSelectionChanged.pipe(takeUntil(this._destroy))

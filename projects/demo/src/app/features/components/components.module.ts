@@ -4,6 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
 
 @NgModule({
-  imports: [CommonModule, ComponentsRoutingModule]
+  imports: [CommonModule, ComponentsRoutingModule],
 })
 export class ComponentsModule {}

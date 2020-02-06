@@ -6,7 +6,7 @@ import { ISidenavItem } from './features/sidenav';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   readonly $toggle = new BehaviorSubject(true);
@@ -21,8 +21,8 @@ export class AppComponent {
       text: 'Form Fields',
       routes: [
         { text: 'Select', route: '/components/select' },
-        { text: 'Input', route: '/components/input' }
-      ]
+        { text: 'Input', route: '/components/input' },
+      ],
     },
     {
       text: 'Overlays',
@@ -30,8 +30,8 @@ export class AppComponent {
         { text: 'Tooltip', route: '/components/tooltip' },
         { text: 'Popover', route: '/components/popover' },
         { text: 'Toast', route: '/components/toast' },
-        { text: 'Dialog', route: '/components/dialog' }
-      ]
-    }
+        { text: 'Dialog', route: '/components/dialog' },
+      ],
+    },
   ];
 }

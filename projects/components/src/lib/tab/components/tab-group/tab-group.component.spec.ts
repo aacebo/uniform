@@ -8,7 +8,7 @@ describe('UniTabGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniTabGroupComponent ]
+      declarations: [ UniTabGroupComponent ],
     })
     .compileComponents();
   }));

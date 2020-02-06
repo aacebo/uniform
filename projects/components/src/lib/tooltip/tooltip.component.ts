@@ -9,8 +9,8 @@ import { UNI_POSITIONS, UniPositionBase } from '../core/position';
   styleUrls: ['./tooltip.component.scss'],
   host: {
     class: 'uni-tooltip',
-    ...UNI_POSITIONS
+    ...UNI_POSITIONS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTooltipComponent extends UniPositionBase {}

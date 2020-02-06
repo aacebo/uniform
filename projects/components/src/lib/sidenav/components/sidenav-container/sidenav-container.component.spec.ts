@@ -8,7 +8,7 @@ describe('UniSidenavContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniSidenavContainerComponent ]
+      declarations: [ UniSidenavContainerComponent ],
     })
     .compileComponents();
   }));

@@ -5,7 +5,7 @@ export const UNI_HOST_COLORS = {
   '[class.secondary]': 'color === "secondary"',
   '[class.success]': 'color === "success"',
   '[class.warning]': 'color === "warning"',
-  '[class.danger]': 'color === "danger"'
+  '[class.danger]': 'color === "danger"',
 };
 
 export function uniColors(color: UniColor) {
@@ -14,6 +14,6 @@ export function uniColors(color: UniColor) {
     secondary: color === UniColor.Secondary,
     success: color === UniColor.Success,
     warning: color === UniColor.Warning,
-    danger: color === UniColor.Danger
+    danger: color === UniColor.Danger,
   };
 }

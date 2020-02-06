@@ -23,7 +23,7 @@ export class UniDialogService {
 
   constructor(
     private readonly _overlay: Overlay,
-    private readonly _resolver: ComponentFactoryResolver
+    private readonly _resolver: ComponentFactoryResolver,
   ) {}
 
   find(id: number) {
@@ -45,7 +45,7 @@ export class UniDialogService {
     const overlayRef = this._overlay.create({
       ...UNI_DIALOG_DEFAULT_OPTIONS,
       ...options,
-      positionStrategy: this._getPositionStrategy()
+      positionStrategy: this._getPositionStrategy(),
     });
 
     const dialogRef = new UniDialogRef(overlayRef, options.disableClose);
@@ -53,7 +53,7 @@ export class UniDialogService {
     overlayRef.attach(portal);
     const dialog: IUniDialog = {
       id: this._id,
-      ref: dialogRef
+      ref: dialogRef,
     };
 
     dialogRef.closed.pipe(take(1)).subscribe(() => {

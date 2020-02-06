@@ -19,7 +19,7 @@ import { TooltipRoutingModule } from './tooltip-routing.module';
     UniCardModule,
     UniTabModule,
     UniFormFieldModule,
-    UniSelectModule
-  ]
+    UniSelectModule,
+  ],
 })
 export class TooltipModule { }

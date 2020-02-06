@@ -5,7 +5,7 @@ import { UNI_DIALOG_DATA } from '@uniform/components';
   selector: 'app-example-dialog',
   templateUrl: './example-dialog.component.html',
   styleUrls: ['./example-dialog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleDialogComponent {
   constructor(

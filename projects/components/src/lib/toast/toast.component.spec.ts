@@ -8,7 +8,7 @@ describe('UniToastComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniToastComponent ]
+      declarations: [ UniToastComponent ],
     })
     .compileComponents();
   }));

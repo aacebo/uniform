@@ -11,9 +11,9 @@ import { UNI_HOST_COLORS } from '../core/constants';
   styleUrls: ['./toolbar.component.scss'],
   host: {
     class: 'uni-toolbar',
-    ...UNI_HOST_COLORS
+    ...UNI_HOST_COLORS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniToolbarComponent {
   @Input() color?: UniColor;

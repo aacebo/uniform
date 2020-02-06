@@ -20,9 +20,9 @@ import { UniToastRef } from './toast-ref.class';
     '[class.warning]': 'options.type === "warning"',
     '[class.danger]': 'options.type === "danger"',
     '[class.dismissable]': 'config.tapToDismiss',
-    '(click)': 'onClick()'
+    '(click)': 'onClick()',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniToastComponent implements OnInit, OnDestroy {
   readonly progress = new BehaviorSubject(0);
@@ -39,7 +39,7 @@ export class UniToastComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(UNI_TOAST_CONFIG) readonly config: IUniToastConfig,
     @Inject(UNI_TOAST_OPTIONS) readonly options: IUniToastOptions,
-    private readonly _toastRef: UniToastRef
+    private readonly _toastRef: UniToastRef,
   ) {}
 
   ngOnInit() {

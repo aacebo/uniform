@@ -13,7 +13,7 @@ import { ToolbarComponent } from './toolbar.component';
     ToolbarRoutingModule,
     UniToolbarModule,
     UniCardModule,
-    UniTabModule
-  ]
+    UniTabModule,
+  ],
 })
 export class ToolbarModule { }

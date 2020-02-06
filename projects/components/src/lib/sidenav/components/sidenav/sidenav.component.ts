@@ -18,7 +18,7 @@ import { UNI_HOST_COLORS } from '../../../core/constants';
     '[class.closed]': 'open === false',
     ...UNI_HOST_COLORS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniSidenavComponent {
   @Input() position = UniSidenavPosition.Start;

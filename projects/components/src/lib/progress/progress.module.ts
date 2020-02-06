@@ -6,12 +6,12 @@ import { UniProgressSpinnerComponent } from './components/progress-spinner/progr
 
 const declarations = [
   UniProgressBarComponent,
-  UniProgressSpinnerComponent
+  UniProgressSpinnerComponent,
 ];
 
 @NgModule({
   declarations,
   exports: declarations,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class UniProgressModule { }

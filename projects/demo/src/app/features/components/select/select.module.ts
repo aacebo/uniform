@@ -17,7 +17,7 @@ import { SelectRoutingModule } from './select-routing.module';
     UniFormFieldModule,
     UniTabModule,
     UniCardModule,
-    SelectRoutingModule
-  ]
+    SelectRoutingModule,
+  ],
 })
 export class SelectModule { }

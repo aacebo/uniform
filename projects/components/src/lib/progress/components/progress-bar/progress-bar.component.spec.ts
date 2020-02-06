@@ -8,7 +8,7 @@ describe('UniProgressBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniProgressBarComponent ]
+      declarations: [ UniProgressBarComponent ],
     })
     .compileComponents();
   }));

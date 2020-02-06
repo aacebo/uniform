@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './dialog-title.component.html',
   styleUrls: ['./dialog-title.component.scss'],
   host: {
-    class: 'uni-dialog-title'
+    class: 'uni-dialog-title',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniDialogTitleComponent {}

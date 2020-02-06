@@ -6,5 +6,5 @@ export enum UniPosition {
   BottomLeft = 'bottom left',
   BottomRight = 'bottom right',
   TopLeft = 'top left',
-  TopRight = 'top right'
+  TopRight = 'top right',
 }

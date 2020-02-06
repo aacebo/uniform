@@ -9,8 +9,8 @@ import { UNI_POSITIONS, UniPositionBase } from '../core/position';
   styleUrls: ['./popover.component.scss'],
   host: {
     class: 'uni-popover',
-    ...UNI_POSITIONS
+    ...UNI_POSITIONS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniPopoverComponent extends UniPositionBase {}

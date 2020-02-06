@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.scss'],
   host: {
-    class: 'uni-hint'
+    class: 'uni-hint',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniHintComponent {}

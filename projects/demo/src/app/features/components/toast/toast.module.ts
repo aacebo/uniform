@@ -19,7 +19,7 @@ import { ToastRoutingModule } from './toast-routing.module';
     UniButtonModule,
     UniToastModule,
     UniFormFieldModule,
-    UniSelectModule
-  ]
+    UniSelectModule,
+  ],
 })
 export class ToastModule { }

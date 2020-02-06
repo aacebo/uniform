@@ -24,7 +24,7 @@ export class UniToastService {
 
   constructor(
     @Inject(UNI_TOAST_CONFIG) private readonly _config: IUniToastConfig,
-    private readonly _overlay: Overlay
+    private readonly _overlay: Overlay,
   ) {}
 
   open(options: IUniToastOptions) {
@@ -55,7 +55,7 @@ export class UniToastService {
     const position = latest ? latest.ref.position : undefined;
     const overlayRef = this._overlay.create({
       panelClass: options.panelClass,
-      positionStrategy: this._getPositionStrategy(options.position, position)
+      positionStrategy: this._getPositionStrategy(options.position, position),
     });
 
     const toastRef = new UniToastRef(overlayRef);
@@ -66,7 +66,7 @@ export class UniToastService {
       type: options.type,
       position: options.position,
       component: instance,
-      ref: toastRef
+      ref: toastRef,
     };
 
     toastRef.closed.pipe(take(1)).subscribe(() => {
@@ -137,7 +137,7 @@ export class UniToastService {
     for (let i = 0; i < toasts.length; i++) {
       toasts[i].ref.updatePosition(this._getPositionStrategy(
         toasts[i].position,
-        toasts[i - 1] ? toasts[i - 1].ref.position : undefined
+        toasts[i - 1] ? toasts[i - 1].ref.position : undefined,
       ));
     }
   }

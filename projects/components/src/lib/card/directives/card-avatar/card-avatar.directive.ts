@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[uniCardAvatar]'
+  selector: '[uniCardAvatar]',
 })
 export class UniCardAvatarDirective {
 

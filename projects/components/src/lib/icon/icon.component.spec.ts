@@ -8,7 +8,7 @@ describe('UniIconComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniIconComponent ]
+      declarations: [ UniIconComponent ],
     })
     .compileComponents();
   }));

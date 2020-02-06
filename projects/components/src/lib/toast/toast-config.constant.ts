@@ -7,5 +7,5 @@ export const UNI_TOAST_CONFIG = new InjectionToken<IUniToastConfig>('UNI_TOAST_C
 export const UNI_TOAST_DEFAULT_CONFIG: IUniToastConfig = {
   progressBar: true,
   tapToDismiss: true,
-  margin: 10
+  margin: 10,
 };

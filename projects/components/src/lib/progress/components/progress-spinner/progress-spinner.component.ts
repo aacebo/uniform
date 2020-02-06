@@ -12,9 +12,9 @@ import { UniColor } from '../../../core/enums';
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
     class: 'uni-progress-spinner',
-    '[class.indeterminate]': 'mode === "indeterminate"'
+    '[class.indeterminate]': 'mode === "indeterminate"',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniProgressSpinnerComponent {
   @Input() mode = UniProgressMode.Indeterminate;
@@ -26,7 +26,7 @@ export class UniProgressSpinnerComponent {
 
   private readonly indeterminate = {
     value: 25,
-    total: 100
+    total: 100,
   };
 
   get colors() {

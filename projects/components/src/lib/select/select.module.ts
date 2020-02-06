@@ -9,13 +9,13 @@ import { UniSelectPanelComponent } from './components/select-panel/select-panel.
 const declarations = [
   UniSelectComponent,
   UniOptionComponent,
-  UniSelectPanelComponent
+  UniSelectPanelComponent,
 ];
 
 @NgModule({
   declarations,
   exports: declarations,
   entryComponents: [UniSelectPanelComponent],
-  imports: [CommonModule, OverlayModule]
+  imports: [CommonModule, OverlayModule],
 })
 export class UniSelectModule { }

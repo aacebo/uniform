@@ -5,7 +5,7 @@ import { UniPosition } from '@uniform/components';
   selector: 'app-tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TooltipComponent {
   readonly position = UniPosition.Top;

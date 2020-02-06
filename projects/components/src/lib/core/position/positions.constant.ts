@@ -6,5 +6,5 @@ export const UNI_POSITIONS = {
   '[class.bottom-left]': 'position === "bottom left"',
   '[class.bottom-right]': 'position === "bottom right"',
   '[class.top-left]': 'position === "top left"',
-  '[class.top-right]': 'position === "top right"'
+  '[class.top-right]': 'position === "top right"',
 };

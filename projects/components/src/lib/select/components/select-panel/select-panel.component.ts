@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './select-panel.component.html',
   styleUrls: ['./select-panel.component.scss'],
   host: {
-    class: 'uni-select-panel'
+    class: 'uni-select-panel',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniSelectPanelComponent {}

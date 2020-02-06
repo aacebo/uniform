@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProgressComponent } from './progress.component';
 
 const routes: Routes = [
-  { path: '', component: ProgressComponent }
+  { path: '', component: ProgressComponent },
 ];
 
 @NgModule({

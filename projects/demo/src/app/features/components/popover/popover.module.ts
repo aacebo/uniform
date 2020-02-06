@@ -19,7 +19,7 @@ import { PopoverRoutingModule } from './popover-routing.module';
     UniButtonModule,
     UniPopoverModule,
     UniFormFieldModule,
-    UniSelectModule
-  ]
+    UniSelectModule,
+  ],
 })
 export class PopoverModule { }

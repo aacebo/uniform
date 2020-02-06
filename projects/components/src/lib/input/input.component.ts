@@ -11,9 +11,9 @@ import { UniFormFieldControlBase } from '../form-field';
   styleUrls: ['./input.component.scss'],
   host: {
     class: 'uni-input',
-    '(input)': 'onInput()'
+    '(input)': 'onInput()',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniInputComponent extends UniFormFieldControlBase<string> {
   get value() { return this._element.value; }

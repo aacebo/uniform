@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
   host: {
-    class: 'uni-error'
+    class: 'uni-error',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniErrorComponent {}

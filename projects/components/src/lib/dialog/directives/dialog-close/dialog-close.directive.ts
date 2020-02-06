@@ -5,8 +5,8 @@ import { UniDialogRef } from '../../dialog-ref.class';
 @Directive({
   selector: '[uniDialogClose]',
   host: {
-    '(click)': 'onClick()'
-  }
+    '(click)': 'onClick()',
+  },
 })
 export class UniDialogCloseDirective {
   constructor(private readonly _dialogRef: UniDialogRef) {}

@@ -7,7 +7,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
   constructor(private readonly _dialog: UniDialogService) {}
@@ -17,8 +17,8 @@ export class DialogComponent {
       width: 500,
       data: {
         title: 'Example Dialog',
-        content: 'example dialog content...'
-      }
+        content: 'example dialog content...',
+      },
     });
   }
 }

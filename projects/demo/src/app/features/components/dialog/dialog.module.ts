@@ -16,7 +16,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
     UniCardModule,
     UniDialogModule,
     UniButtonModule,
-    DialogRoutingModule
-  ]
+    DialogRoutingModule,
+  ],
 })
 export class DialogModule { }

@@ -5,6 +5,6 @@ export function uniFormFieldProvider<T>(component: T) {
   return {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => component),
-    multi: true
+    multi: true,
   };
 }

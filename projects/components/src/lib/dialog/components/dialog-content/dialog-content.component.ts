@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './dialog-content.component.html',
   styleUrls: ['./dialog-content.component.scss'],
   host: {
-    class: 'uni-dialog-content'
+    class: 'uni-dialog-content',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniDialogContentComponent {}

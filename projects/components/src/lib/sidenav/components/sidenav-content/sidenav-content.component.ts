@@ -13,7 +13,7 @@ import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-conta
     '[style.margin-left.px]': 'marginLeft',
     '[style.margin-right.px]': 'marginRight',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniSidenavContentComponent {
   get marginLeft() {

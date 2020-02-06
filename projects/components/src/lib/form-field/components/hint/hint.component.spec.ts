@@ -8,7 +8,7 @@ describe('UniHintComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniHintComponent ]
+      declarations: [ UniHintComponent ],
     })
     .compileComponents();
   }));

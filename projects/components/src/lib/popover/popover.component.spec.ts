@@ -8,7 +8,7 @@ describe('UniPopoverComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniPopoverComponent ]
+      declarations: [ UniPopoverComponent ],
     })
     .compileComponents();
   }));

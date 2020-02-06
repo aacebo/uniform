@@ -5,7 +5,7 @@ import { UniPosition } from '@uniform/components';
   selector: 'app-popover',
   templateUrl: './popover.component.html',
   styleUrls: ['./popover.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopoverComponent {
   readonly position = UniPosition.Top;

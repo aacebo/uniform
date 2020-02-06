@@ -12,9 +12,9 @@ import { UniColor } from '../../../core/enums';
   host: {
     class: 'uni-card',
     '[class.uni-card-hover]': 'hover',
-    ...UNI_HOST_COLORS
+    ...UNI_HOST_COLORS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniCardComponent {
   @Input() color?: UniColor;

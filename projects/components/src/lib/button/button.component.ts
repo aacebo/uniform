@@ -10,7 +10,7 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   'uni-fab',
   'uni-mini-fab',
   'uni-outline-fab',
-  'uni-outline-mini-fab'
+  'uni-outline-mini-fab',
 ];
 
 @Component({
@@ -23,9 +23,9 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   host: {
-    ...UNI_HOST_COLORS
+    ...UNI_HOST_COLORS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniButtonComponent {
   @Input() color?: UniColor;

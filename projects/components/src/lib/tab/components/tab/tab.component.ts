@@ -10,9 +10,9 @@ import { UniTabLabelComponent } from '../tab-label/tab-label.component';
   styleUrls: ['./tab.component.scss'],
   host: {
     class: 'uni-tab',
-    '[class.active]': 'active'
+    '[class.active]': 'active',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTabComponent {
   @Input() label?: string;

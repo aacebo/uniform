@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: 'components',
     loadChildren: () => import('./features/components/components.module')
-                        .then(m => m.ComponentsModule)
+                        .then(m => m.ComponentsModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -48,7 +48,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
     readonly el: ElementRef,
     @Optional() readonly uniFormField: UniFormFieldComponent,
     @Optional() readonly ngForm: NgForm,
-    @Optional() readonly ngFormGroup: FormGroupDirective
+    @Optional() readonly ngFormGroup: FormGroupDirective,
   ) {
     this.tabIndex = 0;
   }

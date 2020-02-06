@@ -4,6 +4,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-progress',
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressComponent {}

@@ -3,5 +3,5 @@ export enum UniColor {
   Secondary = 'secondary',
   Success = 'success',
   Warning = 'warning',
-  Danger = 'danger'
+  Danger = 'danger',
 }

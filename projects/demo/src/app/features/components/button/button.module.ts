@@ -14,7 +14,7 @@ import { ButtonRoutingModule } from './button-routing.module';
     UniIconModule,
     UniCardModule,
     ButtonRoutingModule,
-    UniTabModule
+    UniTabModule,
   ],
 })
 export class ButtonModule {}

@@ -10,12 +10,12 @@ const declarations = [
   UniFormFieldComponent,
   UniErrorComponent,
   UniHintComponent,
-  UniLabelComponent
+  UniLabelComponent,
 ];
 
 @NgModule({
   declarations,
   exports: declarations,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class UniFormFieldModule { }

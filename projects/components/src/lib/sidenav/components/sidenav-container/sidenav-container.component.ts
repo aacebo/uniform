@@ -10,9 +10,9 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   templateUrl: './sidenav-container.component.html',
   styleUrls: ['./sidenav-container.component.scss'],
   host: {
-    class: 'uni-sidenav-container'
+    class: 'uni-sidenav-container',
   },
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class UniSidenavContainerComponent {
   @ContentChild(UniSidenavComponent, { static: true }) sidenav: UniSidenavComponent;

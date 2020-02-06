@@ -13,7 +13,7 @@ import { IconComponent } from './icon.component';
     IconRoutingModule,
     UniIconModule,
     UniCardModule,
-    UniTabModule
-  ]
+    UniTabModule,
+  ],
 })
 export class IconModule { }

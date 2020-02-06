@@ -13,7 +13,7 @@ import { CardRoutingModule } from './card-routing.module';
     CardRoutingModule,
     UniCardModule,
     UniTabModule,
-    UniButtonModule
-  ]
+    UniButtonModule,
+  ],
 })
 export class CardModule { }

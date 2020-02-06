@@ -9,9 +9,9 @@ import { UniIconService } from './icon.service';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   host: {
-    class: 'uni-icon'
+    class: 'uni-icon',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniIconComponent {
   @Input() icon: string;

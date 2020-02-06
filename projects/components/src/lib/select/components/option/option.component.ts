@@ -15,9 +15,9 @@ import { UNI_HOST_COLORS } from '../../../core/constants';
     ...UNI_HOST_COLORS,
     '[class.disabled]': 'disabled',
     '[class.selected]': 'selected',
-    '(click)': 'select()'
+    '(click)': 'select()',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniOptionComponent {
   @Input() value?: any;

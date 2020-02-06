@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './card-content.component.html',
   styleUrls: ['./card-content.component.scss'],
   host: {
-    class: 'uni-card-content'
+    class: 'uni-card-content',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniCardContentComponent {}

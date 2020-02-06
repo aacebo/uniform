@@ -16,12 +16,12 @@ const declarations = [
   UniCardSubtitleComponent,
   UniCardTitleComponent,
   UniCardContentComponent,
-  UniCardAvatarDirective
+  UniCardAvatarDirective,
 ];
 
 @NgModule({
   declarations,
   exports: declarations,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class UniCardModule {}

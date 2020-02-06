@@ -10,8 +10,8 @@ import { UniTooltipComponent } from './tooltip.component';
   exportAs: 'uniTooltip',
   host: {
     '(mouseenter)': 'onMouseEnter()',
-    '(mouseleave)': 'onMouseLeave()'
-  }
+    '(mouseleave)': 'onMouseLeave()',
+  },
 })
 export class UniTooltipDirective implements OnInit {
   @Input('uniTooltip') content: string | TemplateRef<any>;
@@ -39,14 +39,14 @@ export class UniTooltipDirective implements OnInit {
 
   constructor(
     private readonly _overlay: Overlay,
-    private readonly _el: ElementRef
+    private readonly _el: ElementRef,
   ) {}
 
   ngOnInit() {
     const positionStrategy = this._positionStrategy;
     this._overlayRef = this._overlay.create({
       positionStrategy,
-      panelClass: this.panelClass
+      panelClass: this.panelClass,
     });
   }
 

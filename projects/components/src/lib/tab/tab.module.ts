@@ -8,12 +8,12 @@ import { UniTabLabelComponent } from './components/tab-label/tab-label.component
 const declarations = [
   UniTabComponent,
   UniTabGroupComponent,
-  UniTabLabelComponent
+  UniTabLabelComponent,
 ];
 
 @NgModule({
   declarations,
   exports: declarations,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class UniTabModule { }

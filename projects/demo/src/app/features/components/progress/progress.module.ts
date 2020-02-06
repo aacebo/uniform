@@ -13,7 +13,7 @@ import { ProgressRoutingModule } from './progress-routing.module';
     UniProgressModule,
     UniCardModule,
     UniTabModule,
-    ProgressRoutingModule
-  ]
+    ProgressRoutingModule,
+  ],
 })
 export class ProgressModule { }

@@ -8,7 +8,7 @@ describe('UniTooltipComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniTooltipComponent ]
+      declarations: [ UniTooltipComponent ],
     })
     .compileComponents();
   }));

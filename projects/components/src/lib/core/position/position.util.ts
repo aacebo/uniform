@@ -50,6 +50,6 @@ export function getUniPosition(position: UniPosition): ConnectedPosition {
     originY,
     overlayX,
     overlayY,
-    offsetX
+    offsetX,
   };
 }

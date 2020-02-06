@@ -5,7 +5,7 @@ import {
   UniButtonModule,
   UniToolbarModule,
   UniIconModule,
-  UniIconService
+  UniIconService,
 } from '@uniform/components';
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { ToolbarModule } from './features/toolbar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,10 +26,10 @@ import { ToolbarModule } from './features/toolbar';
 
     UniButtonModule,
     UniToolbarModule,
-    UniIconModule
+    UniIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(private readonly iconService: UniIconService) {

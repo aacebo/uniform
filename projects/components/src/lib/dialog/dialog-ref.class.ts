@@ -10,7 +10,7 @@ export class UniDialogRef {
 
   constructor(
     private readonly _overlayRef: OverlayRef,
-    private readonly _disableClose: boolean
+    private readonly _disableClose: boolean,
   ) {
     if (!this._disableClose) {
       this._overlayRef.backdropClick()

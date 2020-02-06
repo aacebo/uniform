@@ -6,6 +6,6 @@ import { UniButtonComponent } from './button.component';
 @NgModule({
   declarations: [UniButtonComponent],
   exports: [UniButtonComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class UniButtonModule {}

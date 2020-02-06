@@ -8,7 +8,7 @@ describe('UniCardTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniCardTitleComponent ]
+      declarations: [ UniCardTitleComponent ],
     })
     .compileComponents();
   }));

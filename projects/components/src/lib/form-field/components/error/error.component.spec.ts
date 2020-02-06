@@ -8,7 +8,7 @@ describe('UniErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniErrorComponent ]
+      declarations: [ UniErrorComponent ],
     })
     .compileComponents();
   }));

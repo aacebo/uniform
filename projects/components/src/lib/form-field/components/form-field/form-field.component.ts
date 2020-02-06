@@ -9,9 +9,9 @@ import { UniColor } from '../../../core/enums';
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss'],
   host: {
-    class: 'uni-form-field'
+    class: 'uni-form-field',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniFormFieldComponent {
   @Input() color?: UniColor;

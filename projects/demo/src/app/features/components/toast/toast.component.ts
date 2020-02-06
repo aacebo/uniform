@@ -5,7 +5,7 @@ import { UniToastType, UniToastPosition, UniToastService } from '@uniform/compon
   selector: 'app-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
   readonly type = UniToastType.Success;
@@ -21,7 +21,7 @@ export class ToastComponent {
       message: `${this.type} toast`,
       type: this.type,
       position: this.position,
-      duration: 5000
+      duration: 5000,
     });
   }
 }

@@ -12,9 +12,9 @@ import { uniColors } from '../../../core/constants';
   styleUrls: ['./progress-bar.component.scss'],
   host: {
     class: 'uni-progress-bar',
-    '[class.indeterminate]': 'mode === "indeterminate"'
+    '[class.indeterminate]': 'mode === "indeterminate"',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniProgressBarComponent {
   @Input() mode = UniProgressMode.Indeterminate;

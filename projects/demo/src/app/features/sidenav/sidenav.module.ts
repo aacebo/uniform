@@ -9,6 +9,6 @@ import { SidenavComponent } from './sidenav.component';
   declarations: [SidenavComponent],
   exports: [SidenavComponent],
   imports: [CommonModule, RouterModule, UniSidenavModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SidenavModule {}

@@ -8,7 +8,7 @@ describe('UniLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniLabelComponent ]
+      declarations: [ UniLabelComponent ],
     })
     .compileComponents();
   }));

@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './label.component.html',
   styleUrls: ['./label.component.scss'],
   host: {
-    class: 'uni-label'
+    class: 'uni-label',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniLabelComponent {}

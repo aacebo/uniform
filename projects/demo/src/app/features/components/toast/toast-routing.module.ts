@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ToastComponent } from './toast.component';
 
 const routes: Routes = [
-  { path: '', component: ToastComponent }
+  { path: '', component: ToastComponent },
 ];
 
 @NgModule({

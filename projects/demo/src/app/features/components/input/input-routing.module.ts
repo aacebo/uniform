@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InputComponent } from './input.component';
 
 const routes: Routes = [
-  { path: '', component: InputComponent }
+  { path: '', component: InputComponent },
 ];
 
 @NgModule({

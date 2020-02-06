@@ -9,6 +9,6 @@ import { UniTooltipDirective } from './tooltip.directive';
   declarations: [UniTooltipComponent, UniTooltipDirective],
   entryComponents: [UniTooltipComponent],
   exports: [UniTooltipDirective],
-  imports: [CommonModule, OverlayModule]
+  imports: [CommonModule, OverlayModule],
 })
 export class UniTooltipModule {}

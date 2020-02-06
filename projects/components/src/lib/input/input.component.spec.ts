@@ -8,7 +8,7 @@ describe('UniInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniInputComponent ]
+      declarations: [ UniInputComponent ],
     })
     .compileComponents();
   }));

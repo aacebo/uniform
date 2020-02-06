@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './card-footer.component.html',
   styleUrls: ['./card-footer.component.scss'],
   host: {
-    class: 'uni-card-footer'
+    class: 'uni-card-footer',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniCardFooterComponent {}

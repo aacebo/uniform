@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-Injectable({ providedIn: 'root' })
+Injectable({ providedIn: 'root' });
 export class ToolbarService {
   private readonly base = '@uniform/components';
   private readonly $component: BehaviorSubject<string> = new BehaviorSubject(undefined);
 
   get $title() {
     return this.$component.pipe(
-      map(c => `${this.base}${c ? `/${c}` : '' }`)
+      map(c => `${this.base}${c ? `/${c}` : '' }`),
     );
   }
 

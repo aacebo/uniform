@@ -5,7 +5,7 @@ import { UniColor } from '@uniform/components';
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   readonly colors: string[] = Object.values(UniColor);

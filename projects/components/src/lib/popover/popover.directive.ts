@@ -12,8 +12,8 @@ import { UniPopoverTrigger } from './popover-trigger.enum';
   host: {
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()',
-    '(click)': 'onClick()'
-  }
+    '(click)': 'onClick()',
+  },
 })
 export class UniPopoverDirective implements OnInit {
   @Input('uniPopover') content: string | TemplateRef<any>;
@@ -44,7 +44,7 @@ export class UniPopoverDirective implements OnInit {
 
   constructor(
     private readonly _overlay: Overlay,
-    private readonly _el: ElementRef
+    private readonly _el: ElementRef,
   ) {}
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class UniPopoverDirective implements OnInit {
       positionStrategy: this._positionStrategy,
       panelClass: this.panelClass,
       hasBackdrop: this.hasBackdrop,
-      backdropClass: this.backdropClass
+      backdropClass: this.backdropClass,
     });
 
     this._overlayRef.backdropClick().subscribe(() => {

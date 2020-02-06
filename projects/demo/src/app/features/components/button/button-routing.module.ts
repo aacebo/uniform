@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ButtonComponent } from './button.component';
 
 const routes: Routes = [
-  { path: '', component: ButtonComponent }
+  { path: '', component: ButtonComponent },
 ];
 
 @NgModule({

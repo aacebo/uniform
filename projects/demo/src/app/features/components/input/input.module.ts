@@ -17,7 +17,7 @@ import { InputComponent } from './input.component';
     UniInputModule,
     UniTabModule,
     UniCardModule,
-    InputRoutingModule
-  ]
+    InputRoutingModule,
+  ],
 })
 export class InputModule { }

@@ -12,9 +12,9 @@ import { UniColor } from '../../../core/enums';
   host: {
     class: 'uni-tab-label',
     '[class.active]': 'active',
-    ...UNI_HOST_COLORS
+    ...UNI_HOST_COLORS,
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTabLabelComponent {
   @Input() active = false;

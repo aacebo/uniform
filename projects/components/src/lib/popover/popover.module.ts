@@ -9,6 +9,6 @@ import { UniPopoverDirective } from './popover.directive';
   declarations: [UniPopoverComponent, UniPopoverDirective],
   entryComponents: [UniPopoverComponent],
   exports: [UniPopoverDirective],
-  imports: [CommonModule, OverlayModule]
+  imports: [CommonModule, OverlayModule],
 })
 export class UniPopoverModule {}

@@ -8,7 +8,7 @@ describe('UniDialogHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniDialogHeaderComponent ]
+      declarations: [ UniDialogHeaderComponent ],
     })
     .compileComponents();
   }));

@@ -8,7 +8,7 @@ describe('UniOptionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniOptionComponent ]
+      declarations: [ UniOptionComponent ],
     })
     .compileComponents();
   }));

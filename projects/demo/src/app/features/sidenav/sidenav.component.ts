@@ -7,7 +7,7 @@ import { ISidenavItem } from './sidenav-item.interface';
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent {
   @Input() items: ISidenavItem[] = [];

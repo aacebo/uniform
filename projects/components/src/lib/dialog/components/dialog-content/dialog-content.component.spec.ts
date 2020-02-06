@@ -8,7 +8,7 @@ describe('UniDialogContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniDialogContentComponent ]
+      declarations: [ UniDialogContentComponent ],
     })
     .compileComponents();
   }));

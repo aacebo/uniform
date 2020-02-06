@@ -8,7 +8,7 @@ describe('UniSelectPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniSelectPanelComponent ]
+      declarations: [ UniSelectPanelComponent ],
     })
     .compileComponents();
   }));

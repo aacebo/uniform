@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './dialog-footer.component.html',
   styleUrls: ['./dialog-footer.component.scss'],
   host: {
-    class: 'uni-dialog-footer'
+    class: 'uni-dialog-footer',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniDialogFooterComponent {}

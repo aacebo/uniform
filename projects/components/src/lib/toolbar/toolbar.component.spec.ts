@@ -8,7 +8,7 @@ describe('UniToolbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UniToolbarComponent ]
+      declarations: [ UniToolbarComponent ],
     })
     .compileComponents();
   }));
