@@ -8,9 +8,15 @@ $uni-theme-colors: (
   'white': #ffffff,
   'black': #000000,
   'grey': #6c757d,
+  'blood-orange': rgb(244, 81, 30),
+
   'dark': #303030,
   'darker': rgba(0, 0, 0, 0.2),
-  'darkest': rgba(0, 0, 0, 0.26)
+  'darkest': rgba(0, 0, 0, 0.26),
+
+  'hairline-soft': #413f3f,
+  'hairline-regular': #434343,
+  'hairline-strong': #504f4f
 );
 
 @function uni-theme-alphas($theme) {

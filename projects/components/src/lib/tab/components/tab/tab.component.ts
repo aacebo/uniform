@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ContentChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef } from '@angular/core';
 
 import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 
@@ -20,5 +20,12 @@ export class UniTabComponent {
   @ContentChild(UniTabLabelComponent, { static: true })
   readonly uniLabel?: UniTabLabelComponent;
 
-  active = false;
+  get active() { return this._active; }
+  set active(v: boolean) {
+    this._active = v;
+    this._cdr.markForCheck();
+  }
+  private _active = false;
+
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

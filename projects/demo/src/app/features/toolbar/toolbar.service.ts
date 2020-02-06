@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 Injectable({ providedIn: 'root' });
 export class ToolbarService {
-  private readonly base = '@uniform/components';
+  private readonly base = '@uniform';
   private readonly component$: BehaviorSubject<string> = new BehaviorSubject(undefined);
 
   get $title() {

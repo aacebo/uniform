@@ -14,8 +14,8 @@
   user-select: none;
   cursor: pointer;
   border-radius: $uni-border-radius-sm;
-  transition-duration: $uni-animation-duration;
-  transition-timing-function: $uni-animation-timing-function;
+  transition: background-color $uni-animation-timing-function $uni-animation-duration,
+              color $uni-animation-timing-function $uni-animation-duration;
 
   &:disabled {
     opacity: 0.6;
@@ -23,9 +23,16 @@
   }
 
   &.uni-button {
-    box-shadow: $uni-shadow-2dp;
-
     @include uni-colors();
+  }
+
+  &.uni-button,
+  &.uni-outline-button,
+  &.uni-fab,
+  &.uni-mini-fab,
+  &.uni-outline-fab,
+  &.uni-outline-mini-fab {
+    box-shadow: $uni-shadow-2dp;
   }
 
   &.uni-fab,
@@ -46,7 +53,6 @@
   &.uni-outline-fab,
   &.uni-outline-mini-fab {
     $uni-color: var(--white);
-    box-shadow: $uni-shadow-2dp;
 
     border-radius: 100%;
     padding: 0;
