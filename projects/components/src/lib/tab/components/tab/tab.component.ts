@@ -22,8 +22,10 @@ export class UniTabComponent {
 
   get active() { return this._active; }
   set active(v: boolean) {
-    this._active = v;
-    this._cdr.markForCheck();
+    if (v !== this._active) {
+      this._active = v;
+      this._cdr.markForCheck();
+    }
   }
   private _active = false;
 

@@ -1,10 +1,29 @@
 :host {
   display: block;
 
+  &.uni-tab-group--start {
+    .uni-tab-header {
+      justify-content: flex-start;
+      padding-left: 10px;
+    }
+  }
+
+  &.uni-tab-group--end {
+    .uni-tab-header {
+      justify-content: flex-end;
+      padding-right: 10px;
+    }
+  }
+
+  &.uni-tab-group--center {
+    .uni-tab-header {
+      justify-content: center;
+    }
+  }
+
   .uni-tab-header {
     display: flex;
     background-color: var(--dark);
-    padding-left: 10px;
     border-bottom: 1px solid var(--hairline-regular);
   }
 }
