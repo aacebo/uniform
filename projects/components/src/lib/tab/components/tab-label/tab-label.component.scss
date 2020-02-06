@@ -1,12 +1,16 @@
 @import '../../../core/styles/animations';
 @import '../../../core/styles/colors';
+@import '../../../core/styles/border-radius';
 
 :host {
-  padding: 15px 25px;
-  cursor: pointer;
+  padding: 0.3em 0.5em;
   color: var(--black);
   opacity: 0.5;
-  font-weight: 600;
+  font-weight: 500;
+  border-top: 3px solid transparent;
+  cursor: pointer;
+  border-top-left-radius: $uni-border-radius-sm;
+  border-top-right-radius: $uni-border-radius-sm;
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
@@ -14,26 +18,29 @@
 
   &.active {
     opacity: 1;
-    border-bottom: 3px solid var(--black);
 
     &.primary {
-      border-bottom-color: var(--primary);
+      border-top-color: var(--primary);
     }
 
     &.secondary {
-      border-bottom-color: var(--secondary);
+      border-top-color: var(--secondary);
     }
 
     &.success {
-      border-bottom-color: var(--success);
+      border-top-color: var(--success);
     }
 
     &.warning {
-      border-bottom-color: var(--warning);
+      border-top-color: var(--warning);
     }
 
     &.danger {
-      border-bottom-color: var(--danger);
+      border-top-color: var(--danger);
     }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
   }
 }

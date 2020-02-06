@@ -7,7 +7,10 @@ $uni-theme-colors: (
 
   'white': #ffffff,
   'black': #000000,
-  'grey': #6c757d
+  'grey': #6c757d,
+  'dark': #303030,
+  'darker': rgba(0, 0, 0, 0.2),
+  'darkest': rgba(0, 0, 0, 0.26)
 );
 
 @function uni-theme-alphas($theme) {

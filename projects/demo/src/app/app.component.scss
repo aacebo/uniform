@@ -2,7 +2,8 @@
   height: calc(100% - 60px);
   display: block;
   overflow-y: auto;
-  background: hsl(0, 0%, 96%);
+  background: var(--dark);
+  padding: 10px;
 }
 
 app-toolbar {

@@ -7,9 +7,10 @@
   display: block;
   padding-bottom: 15px;
   padding-top: 15px;
-  background-color: #fff;
+  color: var(--white);
+  background-color: var(--dark);
   border-radius: $uni-border-radius-sm;
-  box-shadow: $uni-shadow-2dp;
+  box-shadow: $uni-shadow-4dp;
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 

@@ -17,7 +17,8 @@ import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 export class UniTabComponent {
   @Input() label?: string;
 
-  @ContentChild(UniTabLabelComponent, { static: true }) uniLabel?: UniTabLabelComponent;
+  @ContentChild(UniTabLabelComponent, { static: true })
+  readonly uniLabel?: UniTabLabelComponent;
 
   active = false;
 }

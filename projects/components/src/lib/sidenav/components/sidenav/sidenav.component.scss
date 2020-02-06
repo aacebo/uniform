@@ -1,5 +1,4 @@
 @import '../../../core/styles/animations';
-@import '../../../core/styles/colors';
 
 :host {
   display: block;
@@ -7,10 +6,10 @@
   height: 100%;
   overflow-y: auto;
   z-index: 2;
+  color: var(--white);
+  background-color: var(--darker);
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
-
-  @include uni-colors;
 
   &.end {
     right: 0;

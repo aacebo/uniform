@@ -1,6 +1,6 @@
 @mixin uni-outline-button($color) {
   $uni-theme-color: var($color);
-  $uni-white: var(--white);
+  $uni-white: var(--dark);
 
   border-color: $uni-theme-color;
   background-color: $uni-white;

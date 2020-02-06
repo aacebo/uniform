@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, Input, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChildren, QueryList, AfterContentInit, ChangeDetectorRef } from '@angular/core';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { UniTabComponent } from '../tab/tab.component';
 import { UniColor } from '../../../core/enums';
@@ -15,10 +16,20 @@ import { UniColor } from '../../../core/enums';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTabGroupComponent implements AfterContentInit {
-  @Input() active = 0;
   @Input() color = UniColor.Secondary;
 
-  @ContentChildren(UniTabComponent) tabs: QueryList<UniTabComponent>;
+  @Input()
+  get active() { return this._active; }
+  set active(v: number) {
+    this._active = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _active = 0;
+
+  @ContentChildren(UniTabComponent)
+  readonly tabs: QueryList<UniTabComponent>;
+
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 
   ngAfterContentInit() {
     this._setActive();
@@ -33,7 +44,7 @@ export class UniTabGroupComponent implements AfterContentInit {
     this.tabs.forEach((tab, i) => {
       tab.active = false;
 
-      if (i === +this.active) {
+      if (i === this._active) {
         tab.active = true;
       }
     });
