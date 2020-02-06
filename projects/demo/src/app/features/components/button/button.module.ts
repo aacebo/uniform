@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniButtonModule, UniIconModule, UniCardModule, UniTabModule } from '@uniform/components';
+import { UniButtonModule, UniIconModule, UniCardModule, UniTabModule, UniMarkedModule } from '@uniform/components';
 
 import { ButtonComponent } from './button.component';
 import { ButtonRoutingModule } from './button-routing.module';
@@ -15,6 +15,7 @@ import { ButtonRoutingModule } from './button-routing.module';
     UniCardModule,
     ButtonRoutingModule,
     UniTabModule,
+    UniMarkedModule,
   ],
 })
 export class ButtonModule {}

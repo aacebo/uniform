@@ -4,7 +4,6 @@ import { UniFormFieldControlBase } from '../form-field';
 
 @Component({
   moduleId: module.id,
-  // tslint:disable-next-line: component-selector
   selector: 'input[uniInput], textarea[uniInput]',
   exportAs: 'uniInput',
   templateUrl: './input.component.html',

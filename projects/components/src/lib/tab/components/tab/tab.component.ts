@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef } from '@angular/core';
 
 import { UniTabLabelComponent } from '../tab-label/tab-label.component';
+import { UniTabBodyDirective } from '../../directives/tab-body';
 
 @Component({
   moduleId: module.id,
@@ -19,6 +20,9 @@ export class UniTabComponent {
 
   @ContentChild(UniTabLabelComponent, { static: true })
   readonly uniLabel?: UniTabLabelComponent;
+
+  @ContentChild(UniTabBodyDirective, { static: false })
+  readonly uniBody?: UniTabBodyDirective;
 
   get active() { return this._active; }
   set active(v: boolean) {
