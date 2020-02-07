@@ -12,9 +12,11 @@ import { ToolbarService } from './toolbar.service';
 })
 export class ToolbarComponent {
   @Input() title?: string;
+
   @Output() toggle = new EventEmitter<void>();
 
-  @ViewChild('uniIcon', { read: ElementRef }) icon: ElementRef<UniIconComponent>;
+  @ViewChild('uniIcon', { read: ElementRef, static: false })
+  readonly icon: ElementRef<UniIconComponent>;
 
   constructor(readonly toolbarService: ToolbarService) {}
 

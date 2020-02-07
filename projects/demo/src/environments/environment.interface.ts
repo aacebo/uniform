@@ -3,5 +3,6 @@ export interface IEnvironment {
   github: {
     repository: string;
     components: string;
+    raw: string;
   };
 }
