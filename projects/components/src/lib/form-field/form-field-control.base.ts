@@ -1,4 +1,4 @@
-import { Optional, Input, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Optional, Input, ElementRef, ChangeDetectorRef, Directive } from '@angular/core';
 import { NgForm, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
@@ -6,6 +6,7 @@ import { UniFormFieldComponent } from './components/form-field/form-field.compon
 
 let nextId = 0;
 
+@Directive()
 export class UniFormFieldControlBase<T> implements ControlValueAccessor {
   get value() { return this._value; }
   set value(v: T) {

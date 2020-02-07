@@ -8,6 +8,6 @@ import { UniPosition } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopoverComponent {
-  readonly position = UniPosition.Top;
+  position = UniPosition.Top;
   readonly positions = Object.values(UniPosition);
 }

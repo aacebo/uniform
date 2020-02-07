@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef } from '@angular/core';
 
 import { UniTabLabelComponent } from '../tab-label/tab-label.component';
-import { UniTabBodyDirective } from '../../directives/tab-body';
+import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directive';
 
 @Component({
   moduleId: module.id,

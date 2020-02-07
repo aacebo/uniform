@@ -21,7 +21,7 @@ import { UNI_DIALOG_CONTENT } from '../../dialog-content.constant';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniDialogContainerComponent implements AfterViewInit {
-  @ViewChild('vc', { read: ViewContainerRef, static: false }) vc: ViewContainerRef;
+  @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
 
   constructor(
     @Inject(UNI_DIALOG_CONTENT) private readonly _content: any,

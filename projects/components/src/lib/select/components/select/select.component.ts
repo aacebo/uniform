@@ -34,9 +34,9 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
 export class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
   @Input() panelClass = 'uni-select-panel';
 
-  @ViewChild('trigger', { static: false }) trigger: ElementRef<HTMLElement>;
-  @ViewChild(UniSelectPanelComponent, { static: false }) panel: UniSelectPanelComponent;
-  @ViewChild(CdkConnectedOverlay, { static: false }) overlay: CdkConnectedOverlay;
+  @ViewChild('trigger') trigger: ElementRef<HTMLElement>;
+  @ViewChild(UniSelectPanelComponent) panel: UniSelectPanelComponent;
+  @ViewChild(CdkConnectedOverlay) overlay: CdkConnectedOverlay;
   @ContentChildren(UniOptionComponent, { descendants: true }) options: QueryList<UniOptionComponent>;
 
   private readonly _destroy$ = new Subject<void>();

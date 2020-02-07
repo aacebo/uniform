@@ -14,7 +14,7 @@ export class ToolbarComponent {
   @Input() title?: string;
   @Output() toggle = new EventEmitter<void>();
 
-  @ViewChild('uniIcon', { read: ElementRef, static: false }) icon: ElementRef<UniIconComponent>;
+  @ViewChild('uniIcon', { read: ElementRef }) icon: ElementRef<UniIconComponent>;
 
   constructor(readonly toolbarService: ToolbarService) {}
 

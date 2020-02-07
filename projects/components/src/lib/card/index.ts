@@ -6,3 +6,4 @@ export { UniCardFooterComponent } from './components/card-footer/card-footer.com
 export { UniCardHeaderComponent } from './components/card-header/card-header.component';
 export { UniCardSubtitleComponent } from './components/card-subtitle/card-subtitle.component';
 export { UniCardTitleComponent } from './components/card-title/card-title.component';
+export { UniCardAvatarDirective } from './directives/card-avatar/card-avatar.directive';

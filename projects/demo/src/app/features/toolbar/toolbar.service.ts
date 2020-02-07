@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 Injectable({ providedIn: 'root' });
+@Injectable()
 export class ToolbarService {
   private readonly base = '@uniform';
   private readonly component$: BehaviorSubject<string> = new BehaviorSubject(undefined);
