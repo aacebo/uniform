@@ -1,1 +1,6 @@
-<uni-marked [markdown]="markdown$ | async"></uni-marked>
+<uni-marked
+  highlight
+  sanitize
+  [markdown]="markdown$ | async"
+  (error)="onError($event)"
+></uni-marked>
