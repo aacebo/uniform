@@ -6,7 +6,7 @@ import marked from 'marked';
   moduleId: module.id,
   selector: 'uni-marked',
   exportAs: 'uniMarked',
-  templateUrl: './marked.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./marked.component.scss'],
   host: { class: 'uni-marked' },
   changeDetection: ChangeDetectionStrategy.OnPush,
