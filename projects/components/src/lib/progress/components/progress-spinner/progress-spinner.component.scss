@@ -1,11 +1,13 @@
 @import '../../../core/styles/animations';
 @import '../../progress';
 
-:host {
+.uni-progress-spinner {
   display: inline-block;
 
   &.indeterminate {
-    @include uni-spinner-indeterminate();
+    circle {
+      @include uni-spinner-indeterminate();
+    }
   }
 
   svg {

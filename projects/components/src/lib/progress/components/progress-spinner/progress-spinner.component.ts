@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 
 import { uniColors } from '../../../core/constants';
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { UniColor } from '../../../core/enums';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 @Component({
   moduleId: module.id,
@@ -12,17 +13,46 @@ import { UniColor } from '../../../core/enums';
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
     class: 'uni-progress-spinner',
-    '[class.indeterminate]': 'mode === "indeterminate"',
+    '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniProgressSpinnerComponent {
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
-  @Input() total = 100;
-  @Input() value = 0;
-  @Input() strokeWidth = 5;
-  @Input() diameter = 90;
+
+  @Input()
+  get total() { return this._total; }
+  set total(v: number) {
+    this._total = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _total = 100;
+
+  @Input()
+  get value() { return this._value; }
+  set value(v: number) {
+    this._value = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _value = 0;
+
+  @Input()
+  get strokeWidth() { return this._strokeWidth; }
+  set strokeWidth(v: number) {
+    this._strokeWidth = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _strokeWidth = 5;
+
+  @Input()
+  get diameter() { return this._diameter; }
+  set diameter(v: number) {
+    this._diameter = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _diameter = 90;
 
   private readonly indeterminate = {
     value: 25,
@@ -50,14 +80,18 @@ export class UniProgressSpinnerComponent {
   }
 
   private get _percentage() {
-    return (100 / this._total) * this._value;
+    return (100 / this._modeTotal) * this._modeValue;
   }
 
-  private get _value() {
+  private get _modeValue() {
     return this.mode === UniProgressMode.Determinate ? this.value : this.indeterminate.value;
   }
 
-  private get _total() {
+  private get _modeTotal() {
     return this.mode === UniProgressMode.Determinate ? this.total : this.indeterminate.total;
   }
+
+  readonly UniProgressMode = UniProgressMode;
+
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

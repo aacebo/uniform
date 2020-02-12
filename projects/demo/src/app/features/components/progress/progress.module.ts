@@ -1,6 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniProgressModule, UniCardModule, UniTabModule } from '@uniform/components';
+import { UniProgressModule, UniTabModule, UniCodeModule } from '@uniform/components';
+
+import { DocViewerModule } from '../../doc-viewer';
+import { CodeExampleModule } from '../../code-example';
 
 import { ProgressComponent } from './progress.component';
 import { ProgressRoutingModule } from './progress-routing.module';
@@ -10,10 +13,13 @@ import { ProgressRoutingModule } from './progress-routing.module';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
-    UniProgressModule,
-    UniCardModule,
-    UniTabModule,
     ProgressRoutingModule,
+    DocViewerModule,
+    CodeExampleModule,
+
+    UniProgressModule,
+    UniCodeModule,
+    UniTabModule,
   ],
 })
 export class ProgressModule { }

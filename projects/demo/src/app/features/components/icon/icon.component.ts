@@ -1,9 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
+import { ICON_EXAMPLE } from './icon-example.constant';
+
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconComponent {}
+export class IconComponent {
+  readonly example = ICON_EXAMPLE;
+}
