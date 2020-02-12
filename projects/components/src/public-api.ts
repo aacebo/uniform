@@ -18,13 +18,15 @@ export * from './lib/form-field';
 export * from './lib/select';
 export * from './lib/input';
 
-// misc
-export * from './lib/toolbar';
-export * from './lib/sidenav';
-export * from './lib/icon';
-export * from './lib/button';
+// layouts
 export * from './lib/card';
 export * from './lib/tab';
+export * from './lib/toolbar';
+export * from './lib/sidenav';
+
+// indicators
+export * from './lib/icon';
+export * from './lib/button';
 export * from './lib/progress';
 
 // external

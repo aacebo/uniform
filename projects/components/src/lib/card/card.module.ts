@@ -24,4 +24,4 @@ const declarations = [
   exports: declarations,
   imports: [CommonModule],
 })
-export class UniCardModule {}
+export class UniCardModule { }

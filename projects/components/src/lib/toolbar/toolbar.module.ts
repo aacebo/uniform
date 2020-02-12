@@ -8,4 +8,4 @@ import { UniToolbarComponent } from './toolbar.component';
   exports: [UniToolbarComponent],
   imports: [CommonModule],
 })
-export class UniToolbarModule {}
+export class UniToolbarModule { }

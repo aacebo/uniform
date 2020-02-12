@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UniColor } from '@uniform/components';
 
+import { TOOLBAR_EXAMPLE } from './toolbar-example.constant';
+
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -8,5 +10,6 @@ import { UniColor } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarComponent {
-  readonly colors: string[] = Object.values(UniColor);
+  readonly colors = Object.values(UniColor);
+  readonly example = TOOLBAR_EXAMPLE;
 }

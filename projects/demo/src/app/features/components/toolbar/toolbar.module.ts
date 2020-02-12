@@ -1,6 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniToolbarModule, UniCardModule, UniTabModule } from '@uniform/components';
+import { UniToolbarModule, UniTabModule } from '@uniform/components';
+
+import { DocViewerModule } from '../../doc-viewer';
+import { CodeExampleModule } from '../../code-example';
 
 import { ToolbarRoutingModule } from './toolbar-routing.module';
 import { ToolbarComponent } from './toolbar.component';
@@ -11,8 +14,10 @@ import { ToolbarComponent } from './toolbar.component';
   imports: [
     CommonModule,
     ToolbarRoutingModule,
+    DocViewerModule,
+    CodeExampleModule,
+
     UniToolbarModule,
-    UniCardModule,
     UniTabModule,
   ],
 })

@@ -1,26 +1,35 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
     <ng-template uniTabBody>
-      <uni-card>
-        <uni-card-header>
-          <uni-card-title>Title</uni-card-title>
-        </uni-card-header>
+      <app-code-example title="Card"
+                        [html]="example">
+        <uni-card>
+          <uni-card-header>
+            <uni-card-title>Title</uni-card-title>
+          </uni-card-header>
 
-        <uni-card-content>
-          Content
-        </uni-card-content>
+          <uni-card-content>
+            {{ text }}
+          </uni-card-content>
 
-        <uni-card-footer>
-          <button uni-button
-                  color="primary">
-            <uni-icon icon="mdi-content-save"></uni-icon> Save
-          </button>
+          <uni-card-footer>
+            <button uni-button
+                    color="primary">
+              <uni-icon icon="mdi-content-save"></uni-icon> Save
+            </button>
 
-          <button uni-outline-button>
-            Cancel
-          </button>
-        </uni-card-footer>
-      </uni-card>
+            <button uni-button>
+              Cancel
+            </button>
+          </uni-card-footer>
+        </uni-card>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="card"></app-doc-viewer>
     </ng-template>
   </uni-tab>
 </uni-tab-group>

@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniProgressModule, UniTabModule, UniCodeModule } from '@uniform/components';
+import { UniProgressModule, UniTabModule } from '@uniform/components';
 
 import { DocViewerModule } from '../../doc-viewer';
 import { CodeExampleModule } from '../../code-example';
@@ -18,7 +18,6 @@ import { ProgressRoutingModule } from './progress-routing.module';
     CodeExampleModule,
 
     UniProgressModule,
-    UniCodeModule,
     UniTabModule,
   ],
 })

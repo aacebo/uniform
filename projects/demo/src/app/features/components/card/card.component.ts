@@ -1,4 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import * as faker from 'faker';
+
+import { CARD_EXAMPLE } from './card-example.constant';
 
 @Component({
   selector: 'app-card',
@@ -6,4 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardComponent { }
+export class CardComponent {
+  readonly text = faker.random.words(300);
+  readonly example = CARD_EXAMPLE;
+}
