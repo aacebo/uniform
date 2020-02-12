@@ -13,12 +13,12 @@ import { ButtonRoutingModule } from './button-routing.module';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
+    ButtonRoutingModule,
     DocViewerModule,
     CodeExampleModule,
 
     UniButtonModule,
     UniIconModule,
-    ButtonRoutingModule,
     UniTabModule,
     UniCodeModule,
   ],

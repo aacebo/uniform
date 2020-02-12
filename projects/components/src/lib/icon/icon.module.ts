@@ -8,4 +8,4 @@ import { UniIconComponent } from './icon.component';
   exports: [UniIconComponent],
   imports: [CommonModule],
 })
-export class UniIconModule {}
+export class UniIconModule { }

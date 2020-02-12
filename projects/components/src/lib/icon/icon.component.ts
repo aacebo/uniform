@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ElementRef, OnInit } from '@angular/core';
 
 import { UniIconService } from './icon.service';
 
@@ -6,15 +6,33 @@ import { UniIconService } from './icon.service';
   moduleId: module.id,
   selector: 'uni-icon',
   exportAs: 'uniIcon',
-  templateUrl: './icon.component.html',
+  template: ``,
   styleUrls: ['./icon.component.scss'],
-  host: {
-    class: 'uni-icon',
-  },
+  host: { class: 'uni-icon' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniIconComponent {
-  @Input() icon: string;
+export class UniIconComponent implements OnInit {
+  @Input()
+  get icon() { return this._icon; }
+  set icon(v: string) {
+    if (v !== this._icon) {
+      if (v && this._el.nativeElement.classList.contains(this._icon)) {
+        this._el.nativeElement.classList.remove(this._icon);
+      }
 
-  constructor(readonly iconService: UniIconService) {}
+      this._icon = v;
+      this._el.nativeElement.classList.add(v);
+    }
+  }
+  private _icon: string;
+
+  constructor(
+    private readonly _el: ElementRef<HTMLElement>,
+    private readonly _iconService: UniIconService,
+  ) { }
+
+  ngOnInit() {
+    this._el.nativeElement.classList.add(this._iconService.prefix);
+  }
 }

@@ -1,6 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniIconModule, UniCardModule, UniTabModule } from '@uniform/components';
+import { UniIconModule, UniTabModule, UniCodeModule } from '@uniform/components';
+
+import { DocViewerModule } from '../../doc-viewer';
+import { CodeExampleModule } from '../../code-example';
 
 import { IconRoutingModule } from './icon-routing.module';
 import { IconComponent } from './icon.component';
@@ -11,9 +14,12 @@ import { IconComponent } from './icon.component';
   imports: [
     CommonModule,
     IconRoutingModule,
+    DocViewerModule,
+    CodeExampleModule,
+
     UniIconModule,
-    UniCardModule,
     UniTabModule,
+    UniCodeModule,
   ],
 })
 export class IconModule { }

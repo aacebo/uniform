@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ElementRef, Input } from '@angular/core';
 
-import { UNI_HOST_COLORS, UNI_HOST_SIZES } from '../core/constants';
-import { UniColor, UniSize } from '../core/enums';
+import { UNI_HOST_COLORS } from '../core/constants';
+import { UniColor } from '../core/enums';
 
 const UNI_BUTTON_HOST_ATTRIBUTES = [
   'uni-button',
@@ -19,15 +19,11 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   exportAs: 'uniButton',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./button.component.scss'],
-  host: {
-    ...UNI_HOST_COLORS,
-    ...UNI_HOST_SIZES,
-  },
+  host: { ...UNI_HOST_COLORS },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniButtonComponent {
   @Input() color?: UniColor;
-  @Input() size?: UniSize;
 
   private get _element() {
     return this._el.nativeElement;
