@@ -1,49 +1,56 @@
+@import '../../../core/styles/animations';
+@import '../../progress';
+
 .uni-progress-bar {
-  display: block;
+  display: flex;
 
-  svg {
+  &.indeterminate {
+    .uni-progress-bar-foreground {
+      @include uni-bar-indeterminate();
+    }
+  }
+
+  &.primary {
     .uni-progress-bar-background {
-      &.primary {
-        fill: var(--primary-a50);
-      }
-
-      &.secondary {
-        fill: var(--secondary-a50);
-      }
-
-      &.success {
-        fill: var(--success-a50);
-      }
-
-      &.warning {
-        fill: var(--warning-a50);
-      }
-
-      &.danger {
-        fill: var(--danger-a50);
-      }
+      fill: var(--primary-a50);
     }
 
     .uni-progress-bar-foreground {
-      &.primary {
-        fill: var(--primary);
-      }
-
-      &.secondary {
-        fill: var(--secondary);
-      }
-
-      &.success {
-        fill: var(--success);
-      }
-
-      &.warning {
-        fill: var(--warning);
-      }
-
-      &.danger {
-        fill: var(--danger);
-      }
+      fill: var(--primary);
     }
+  }
+
+  &.success {
+    .uni-progress-bar-background {
+      fill: var(--success-a50);
+    }
+
+    .uni-progress-bar-foreground {
+      fill: var(--success);
+    }
+  }
+
+  &.warning {
+    .uni-progress-bar-background {
+      fill: var(--warning-a50);
+    }
+
+    .uni-progress-bar-foreground {
+      fill: var(--warning);
+    }
+  }
+
+  &.danger {
+    .uni-progress-bar-background {
+      fill: var(--danger-a50);
+    }
+
+    .uni-progress-bar-foreground {
+      fill: var(--danger);
+    }
+  }
+
+  .uni-progress-bar-foreground {
+    transition: all $uni-animation-duration $uni-animation-timing-function;
   }
 }

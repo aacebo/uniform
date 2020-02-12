@@ -1,12 +1,14 @@
-import { Component, ChangeDetectionStrategy, Inject, forwardRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, forwardRef, ViewEncapsulation } from '@angular/core';
 
 import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-container.component';
+import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
+import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
 
 @Component({
   moduleId: module.id,
   selector: 'uni-sidenav-content',
   exportAs: 'uniSidenavContent',
-  templateUrl: './sidenav-content.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./sidenav-content.component.scss'],
   host: {
     class: 'uni-sidenav-content',
@@ -14,14 +16,19 @@ import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-conta
     '[style.margin-right.px]': 'marginRight',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniSidenavContentComponent {
   get marginLeft() {
-    return this._open && this._position === 'start' && this._mode === 'side' ? this._width : 0;
+    return this._open &&
+           this._position === UniSidenavPosition.Start &&
+           this._mode === UniSidenavMode.Side ? this._width : 0;
   }
 
   get marginRight() {
-    return this._open && this._position === 'end' && this._mode === 'side' ? this._width : 0;
+    return this._open &&
+           this._position === UniSidenavPosition.End &&
+           this._mode === UniSidenavMode.Side ? this._width : 0;
   }
 
   private get _open() {

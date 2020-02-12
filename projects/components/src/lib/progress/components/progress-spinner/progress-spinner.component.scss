@@ -10,32 +10,36 @@
     }
   }
 
+  &.primary {
+    circle {
+      stroke: var(--primary);
+    }
+  }
+
+  &.success {
+    circle {
+      stroke: var(--success);
+    }
+  }
+
+  &.warning {
+    circle {
+      stroke: var(--warning);
+    }
+  }
+
+  &.danger {
+    circle {
+      stroke: var(--danger);
+    }
+  }
+
   svg {
     circle {
       fill: transparent;
       transition: $uni-animation-duration stroke-dashoffset;
       transform: rotate(-90deg);
       transform-origin: 50% 50%;
-
-      &.primary {
-        stroke: var(--primary);
-      }
-
-      &.secondary {
-        stroke: var(--secondary);
-      }
-
-      &.success {
-        stroke: var(--success);
-      }
-
-      &.warning {
-        stroke: var(--warning);
-      }
-
-      &.danger {
-        stroke: var(--danger);
-      }
     }
   }
 }

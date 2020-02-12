@@ -8,6 +8,7 @@ import {
   EventEmitter,
   ChangeDetectorRef,
   AfterContentInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -18,7 +19,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   moduleId: module.id,
   selector: 'uni-sidenav',
   exportAs: 'uniSidenav',
-  templateUrl: './sidenav.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./sidenav.component.scss'],
   host: {
     class: 'uni-sidenav',
@@ -27,6 +28,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
     '[class.closed]': 'open === false',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniSidenavComponent implements AfterContentInit {
   @Input() position = UniSidenavPosition.Start;

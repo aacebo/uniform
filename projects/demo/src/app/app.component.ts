@@ -30,6 +30,7 @@ export class AppComponent {
         { text: 'Card', route: '/components/card' },
         { text: 'Toolbar', route: '/components/toolbar' },
         { text: 'Sidenav', route: '/components/sidenav' },
+        { text: 'Tab', route: '/components/tab' },
       ],
     },
     {
@@ -57,7 +58,8 @@ export class AppComponent {
       icon: 'mdi-code-tags',
       expanded: true,
       routes: [
-
+        { text: 'Marked', route: '/components/marked' },
+        { text: 'Code', route: '/components/code' },
       ],
     },
   ];

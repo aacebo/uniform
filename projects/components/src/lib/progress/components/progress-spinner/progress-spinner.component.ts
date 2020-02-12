@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-
-import { uniColors } from '../../../core/constants';
-import { UniProgressMode } from '../../enums/progress-mode.enum';
-import { UniColor } from '../../../core/enums';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
+
+import { UNI_HOST_COLORS } from '../../../core/constants';
+import { UniColor } from '../../../core/enums';
+
+import { UniProgressMode } from '../../enums/progress-mode.enum';
+import { IUniProgress } from '../../progress.interface';
 
 @Component({
   moduleId: module.id,
@@ -13,12 +15,13 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
     class: 'uni-progress-spinner',
+    ...UNI_HOST_COLORS,
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniProgressSpinnerComponent {
+export class UniProgressSpinnerComponent implements IUniProgress {
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
 
@@ -54,14 +57,10 @@ export class UniProgressSpinnerComponent {
   }
   private _diameter = 90;
 
-  private readonly indeterminate = {
+  private readonly _indeterminate = {
     value: 25,
     total: 100,
   };
-
-  get colors() {
-    return uniColors(this.color);
-  }
 
   get radius() {
     return (this.diameter / 2) - this.strokeWidth;
@@ -84,11 +83,11 @@ export class UniProgressSpinnerComponent {
   }
 
   private get _modeValue() {
-    return this.mode === UniProgressMode.Determinate ? this.value : this.indeterminate.value;
+    return this.mode === UniProgressMode.Determinate ? this.value : this._indeterminate.value;
   }
 
   private get _modeTotal() {
-    return this.mode === UniProgressMode.Determinate ? this.total : this.indeterminate.total;
+    return this.mode === UniProgressMode.Determinate ? this.total : this._indeterminate.total;
   }
 
   readonly UniProgressMode = UniProgressMode;

@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { UniColor } from '../../../core/enums';
-import { uniColors } from '../../../core/constants';
+import { UNI_HOST_COLORS } from '../../../core/constants';
+
+import { UniProgressMode } from '../../enums/progress-mode.enum';
+import { IUniProgress } from '../../progress.interface';
 
 @Component({
   moduleId: module.id,
@@ -13,12 +15,13 @@ import { uniColors } from '../../../core/constants';
   styleUrls: ['./progress-bar.component.scss'],
   host: {
     class: 'uni-progress-bar',
+    ...UNI_HOST_COLORS,
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniProgressBarComponent {
+export class UniProgressBarComponent implements IUniProgress {
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
 
@@ -38,15 +41,17 @@ export class UniProgressBarComponent {
   }
   private _value = 0;
 
-  get colors() {
-    return uniColors(this.color);
-  }
-
   get percentage() {
-    return (100 / this.total) * this.value;
+    return this.mode === UniProgressMode.Determinate ?
+      (100 / this.total) * this.value :
+      (100 / this._indeterminate.total) * this._indeterminate.value;
   }
 
   readonly UniProgressMode = UniProgressMode;
+  private readonly _indeterminate = {
+    value: 25,
+    total: 100,
+  };
 
   constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

@@ -12,7 +12,10 @@ import { PROGRESS_SPINNER_EXAMPLE } from './progress-spinner-example.constant';
 })
 export class ProgressComponent {
   readonly colors = Object.values(UniColor);
-  readonly mode = UniProgressMode.Determinate;
   readonly progressBarExample = PROGRESS_BAR_EXAMPLE;
   readonly progressSpinnerExample = PROGRESS_SPINNER_EXAMPLE;
+  readonly UniProgressMode = UniProgressMode;
+
+  mode = UniProgressMode.Indeterminate;
+  value = 50;
 }

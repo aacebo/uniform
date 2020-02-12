@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ContentChild, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ContentChild, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
@@ -9,10 +9,9 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   exportAs: 'uniSidenavContainer',
   templateUrl: './sidenav-container.component.html',
   styleUrls: ['./sidenav-container.component.scss'],
-  host: {
-    class: 'uni-sidenav-container',
-  },
+  host: { class: 'uni-sidenav-container' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniSidenavContainerComponent {
   @Output() backdropClicked = new EventEmitter<void>();

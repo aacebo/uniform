@@ -5,20 +5,24 @@
                         [html]="progressSpinnerExample">
         <uni-progress-spinner
           *ngFor="let color of colors"
-          value="50"
+          [value]="value"
           [mode]="mode"
           [color]="color"
         ></uni-progress-spinner>
-      </app-code-example>
 
-      <app-code-example title="Progress Bar"
-                        [html]="progressBarExample">
         <uni-progress-bar
           *ngFor="let color of colors"
-          value="50"
+          [value]="value"
           [mode]="mode"
           [color]="color"
         ></uni-progress-bar>
+
+        <uni-form-field>
+          <uni-select [(ngModel)]="mode">
+            <uni-option [value]="UniProgressMode.Indeterminate">Indeterminate</uni-option>
+            <uni-option [value]="UniProgressMode.Determinate">Determinate</uni-option>
+          </uni-select>
+        </uni-form-field>
       </app-code-example>
     </ng-template>
   </uni-tab>

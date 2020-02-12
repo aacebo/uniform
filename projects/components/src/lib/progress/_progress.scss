@@ -7,7 +7,25 @@
   }
 }
 
-@mixin uni-spinner-indeterminate() {
-  animation: uni-spinner-rotate 0.8s linear infinite;
+@keyframes uni-bar-slide {
+  0% {
+    transform: translateX(0%) scaleX(0.5);
+  }
+  20% {
+    transform: translateX(20%) scaleX(2);
+  }
+  80% {
+    transform: translateX(80%) scaleX(0.5)
+  }
+  100% {
+    transform: translateX(100%) scaleX(0);
+  }
 }
 
+@mixin uni-spinner-indeterminate() {
+  animation: uni-spinner-rotate 1s linear infinite;
+}
+
+@mixin uni-bar-indeterminate() {
+  animation: uni-bar-slide 1s linear infinite;
+}
