@@ -1,0 +1,22 @@
+<uni-card>
+  <uni-card-header>
+    <uni-card-title>
+      <span class="code-example--title">{{ title }}</span>
+      <button uni-icon-button
+              (click)="code = !code">
+        <uni-icon icon="mdi-code-tags"></uni-icon>
+      </button>
+    </uni-card-title>
+  </uni-card-header>
+
+  <uni-card-content>
+    <uni-code *ngIf="code"
+              language="html"
+              [code]="html">
+    </uni-code>
+
+    <ng-container *ngIf="!code">
+      <ng-content></ng-content>
+    </ng-container>
+  </uni-card-content>
+</uni-card>

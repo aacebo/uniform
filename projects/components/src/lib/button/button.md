@@ -1,5 +1,7 @@
 # UniButton
 
+`import { UniButtonModule } from '@uniform/components/button';`
+
 ## Attributes
 
 | Attribute              |

@@ -2,12 +2,5 @@
   height: calc(100% - 60px);
   display: block;
   overflow-y: auto;
-  background: var(--dark);
   padding-top: 10px;
-}
-
-app-toolbar {
-  position: fixed;
-  width: 100%;
-  z-index: 100;
 }

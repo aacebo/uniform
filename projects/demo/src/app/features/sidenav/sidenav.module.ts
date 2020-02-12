@@ -1,14 +1,14 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UniSidenavModule } from '@uniform/components';
+import { UniSidenavModule, UniIconModule } from '@uniform/components';
 
 import { SidenavComponent } from './sidenav.component';
 
 @NgModule({
   declarations: [SidenavComponent],
   exports: [SidenavComponent],
-  imports: [CommonModule, RouterModule, UniSidenavModule],
+  imports: [CommonModule, RouterModule, UniSidenavModule, UniIconModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SidenavModule {}

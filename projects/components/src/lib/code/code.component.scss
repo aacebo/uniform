@@ -1,0 +1,15 @@
+@import '../core/styles/border-radius';
+@import '../core/styles/box-shadow';
+
+.uni-code {
+  display: block;
+  background-color: var(--darkest);
+  color: var(--white);
+  padding: 10px;
+  border-radius: $uni-border-radius-sm;
+  box-shadow: $uni-shadow-2dp;
+
+  pre {
+    margin: 0;
+  }
+}

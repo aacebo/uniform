@@ -7,6 +7,7 @@ import {
   Output,
   EventEmitter,
   ChangeDetectorRef,
+  AfterContentInit,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -27,7 +28,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UniSidenavComponent {
+export class UniSidenavComponent implements AfterContentInit {
   @Input() position = UniSidenavPosition.Start;
   @Input() mode = UniSidenavMode.Side;
 
@@ -48,6 +49,10 @@ export class UniSidenavComponent {
     readonly el: ElementRef<HTMLElement>,
     private readonly _cdr: ChangeDetectorRef,
   ) { }
+
+  ngAfterContentInit() {
+    setTimeout(() => this._cdr.markForCheck(), 100);
+  }
 
   @HostListener('document:keydown.escape')
   onEscape() {

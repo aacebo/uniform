@@ -1,21 +1,26 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
-    <uni-card *ngFor="let color of colors"
-              [color]="color"
-              [hover]="true">
-      <uni-card-header>
-        <uni-card-title>{{ color }} Card</uni-card-title>
-      </uni-card-header>
+    <ng-template uniTabBody>
+      <uni-card>
+        <uni-card-header>
+          <uni-card-title>Title</uni-card-title>
+        </uni-card-header>
 
-      <uni-card-content>
-      </uni-card-content>
+        <uni-card-content>
+          Content
+        </uni-card-content>
 
-      <uni-card-footer>
-        <button uni-outline-button
-                [color]="color">
-          Action Button
-        </button>
-      </uni-card-footer>
-    </uni-card>
+        <uni-card-footer>
+          <button uni-button
+                  color="primary">
+            <uni-icon icon="mdi-content-save"></uni-icon> Save
+          </button>
+
+          <button uni-outline-button>
+            Cancel
+          </button>
+        </uni-card-footer>
+      </uni-card>
+    </ng-template>
   </uni-tab>
 </uni-tab-group>

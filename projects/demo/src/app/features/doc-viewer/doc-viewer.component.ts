@@ -19,8 +19,4 @@ export class DocViewerComponent implements OnInit {
   ngOnInit() {
     this.markdown$ = this._docViewerService.get(this.component);
   }
-
-  onError(e: { error: any; result: string; }) {
-    console.error(e);
-  }
 }

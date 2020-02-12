@@ -43,5 +43,5 @@ export class UniSidenavContentComponent {
   constructor(
     @Inject(forwardRef(() => UniSidenavContainerComponent))
     private readonly _container: UniSidenavContainerComponent,
-  ) {}
+  ) { }
 }

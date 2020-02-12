@@ -1,36 +1,77 @@
-uni-sidenav-container {
+@import '../../../../../components/src/lib/core/styles/box-shadow';
+
+$padding: 15px;
+$opacity: 0.6;
+
+:host {
+  display: block;
   height: 100%;
-}
 
-uni-sidenav-content {
-  padding-top: 60px;
-}
+  uni-sidenav-container {
+    height: 100%;
 
-uni-sidenav {
-  padding: 70px 0;
-}
+    uni-sidenav {
+      .sidenav--list {
+        user-select: none;
 
-.sidenav-list {
-  .sidenav-item-group, .sidenav-item {
-    cursor: pointer;
-    outline: none;
-    padding: 5px 10px;
-  }
+        .sidenav--list-item {
+          font-size: 0.8em;
+          cursor: pointer;
+          outline: none;
+          padding: $padding;
+          opacity: $opacity;
 
-  .sidenav-item-group-title {
-    opacity: 0.7;
-  }
+          &:not(:last-child) {
+            border-bottom: 1px solid var(--darker);
+          }
 
-  .sidenav-item {
-    opacity: 0.7;
+          &:hover,
+          &.active {
+            opacity: 1;
+            box-shadow: inset 3px 0 0 0 var(--primary);
+          }
+        }
 
-    &:hover {
-      opacity: 1;
-    }
+        .sidenav--list-group {
+          font-size: 1.5em;
 
-    &.active {
-      opacity: 1;
-      box-shadow: inset 9px 0 0 -5px var(--primary);
+          &:hover {
+            .sidenav--list-group-text {
+              opacity: 1;
+            }
+          }
+
+          &.expanded {
+            .sidenav--list-group-text {
+              .expand-icon {
+                transform: rotate(90deg);
+              }
+            }
+          }
+
+          .sidenav--list-group-text {
+            display: flex;
+            background-color: var(--darker);
+            opacity: $opacity;
+            cursor: pointer;
+            box-shadow: $uni-shadow-2dp;
+
+            .item-icon {
+              margin: $padding;
+            }
+
+            .text {
+              flex: 1 1 auto;
+              margin: $padding $padding $padding 0;
+            }
+
+            .expand-icon {
+              margin: $padding $padding $padding 0;
+              transition: all 0.2s ease-in-out;
+            }
+          }
+        }
+      }
     }
   }
 }

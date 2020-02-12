@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,9 +6,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   exportAs: 'uniCardContent',
   templateUrl: './card-content.component.html',
   styleUrls: ['./card-content.component.scss'],
-  host: {
-    class: 'uni-card-content',
-  },
+  host: { class: 'uni-card-content' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniCardContentComponent {}
+export class UniCardContentComponent { }

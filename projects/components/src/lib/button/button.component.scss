@@ -12,13 +12,16 @@
   outline: none;
   border: 2px solid transparent;
   user-select: none;
+  color: var(--white);
   cursor: pointer;
   border-radius: $uni-border-radius-sm;
   transition: background-color $uni-animation-timing-function $uni-animation-duration,
-              color $uni-animation-timing-function $uni-animation-duration;
+              color $uni-animation-timing-function $uni-animation-duration,
+              opacity $uni-animation-timing-function $uni-animation-duration;
 
   &:disabled {
     opacity: 0.6;
+    box-shadow: none !important;
     cursor: not-allowed;
 
     &:active {
@@ -32,46 +35,44 @@
 
   &.uni-button {
     @include uni-colors();
+
+    background-color: var(--grey);
   }
 
-  &.uni-button,
-  &.uni-outline-button,
-  &.uni-fab,
-  &.uni-mini-fab,
-  &.uni-outline-fab,
-  &.uni-outline-mini-fab {
-    box-shadow: $uni-shadow-2dp;
-  }
-
-  &.uni-fab,
-  &.uni-outline-fab {
+  &.uni-fab {
     height: 50px;
     width: 50px;
   }
 
+  &.uni-button,
+  &.uni-fab,
+  &.uni-mini-fab {
+    box-shadow: $uni-shadow-2dp;
+  }
+
+  &.uni-fab,
   &.uni-mini-fab,
-  &.uni-outline-mini-fab,
+  &.uni-icon-button {
+    ::ng-deep .uni-icon {
+      font-size: 20px;
+    }
+  }
+
+  &.uni-mini-fab,
   &.uni-icon-button {
     height: 40px;
     width: 40px;
   }
 
   &.uni-fab,
-  &.uni-mini-fab,
-  &.uni-outline-fab,
-  &.uni-outline-mini-fab {
-    $uni-color: var(--white);
-
+  &.uni-mini-fab {
     border-radius: 100%;
     padding: 0;
-    color: $uni-color;
+
+    @include uni-fab(--grey);
 
     &.primary {
       @include uni-fab(--primary);
-    }
-
-    &.secondary {
-      @include uni-fab(--secondary);
     }
 
     &.success {
@@ -80,6 +81,8 @@
 
     &.warning {
       @include uni-fab(--warning);
+
+      color: var(--black);
     }
 
     &.danger {
@@ -88,27 +91,23 @@
   }
 
   &.uni-icon-button {
-    $uni-color: var(--white);
-
     border-radius: 100%;
     padding: 0;
     background-color: transparent;
-    color: $uni-color;
+    opacity: 0.7;
 
     &:hover {
-      background-color: var(--white-a25);
+      opacity: 1;
 
       &:disabled {
-        background-color: transparent;
+        opacity: 0.6;
       }
     }
 
+    @include uni-icon-button(--white);
+
     &.primary {
       @include uni-icon-button(--primary);
-    }
-
-    &.secondary {
-      @include uni-icon-button(--secondary);
     }
 
     &.success {
@@ -124,27 +123,24 @@
     }
   }
 
-  &.uni-outline-button,
-  &.uni-outline-fab,
-  &.uni-outline-mini-fab {
-    &.primary {
-      @include uni-outline-button(--primary);
-    }
+  &.uni-link-button {
+    background-color: transparent;
+    box-shadow: none;
 
-    &.secondary {
-      @include uni-outline-button(--secondary);
+    &.primary {
+      @include uni-link-button(--primary);
     }
 
     &.success {
-      @include uni-outline-button(--success);
+      @include uni-link-button(--success);
     }
 
     &.warning {
-      @include uni-outline-button(--warning);
+      @include uni-link-button(--warning);
     }
 
     &.danger {
-      @include uni-outline-button(--danger);
+      @include uni-link-button(--danger);
     }
   }
 }

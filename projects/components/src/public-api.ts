@@ -29,3 +29,4 @@ export * from './lib/progress';
 
 // external
 export * from './lib/marked';
+export * from './lib/code';

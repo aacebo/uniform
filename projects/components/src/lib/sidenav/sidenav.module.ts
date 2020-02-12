@@ -10,4 +10,4 @@ import { UniSidenavContentComponent } from './components/sidenav-content/sidenav
   exports: [UniSidenavComponent, UniSidenavContainerComponent, UniSidenavContentComponent],
   imports: [CommonModule],
 })
-export class UniSidenavModule {}
+export class UniSidenavModule { }

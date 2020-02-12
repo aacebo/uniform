@@ -4,18 +4,13 @@
     background-color: var(--primary);
   }
 
-  &.secondary {
-    color: var(--white);
-    background-color: var(--secondary);
-  }
-
   &.success {
     color: var(--white);
     background-color: var(--success);
   }
 
   &.warning {
-    color: var(--white);
+    color: var(--black);
     background-color: var(--warning);
   }
 
@@ -28,10 +23,6 @@
 @mixin uni-colors-text {
   &.primary {
     color: var(--primary);
-  }
-
-  &.secondary {
-    color: var(--secondary);
   }
 
   &.success {
@@ -50,10 +41,6 @@
 @mixin uni-colors-background {
   &.primary {
     background-color: var(--primary);
-  }
-
-  &.secondary {
-    background-color: var(--secondary);
   }
 
   &.success {

@@ -4,9 +4,9 @@
                color="secondary"
                [open]="open"
                (closed)="backdropClicked.emit()">
-    <div class="sidenav-list">
+    <div class="sidenav--list">
       <ng-container *ngFor="let item of items">
-        <ng-container *ngTemplateOutlet="(item.routes ? routeGroup : routeItem); context: { $implicit: item }">
+        <ng-container *ngTemplateOutlet="(item.routes ? groupTpl : itemTpl); context: { $implicit: item }">
         </ng-container>
       </ng-container>
     </div>
@@ -16,27 +16,29 @@
   </uni-sidenav-content>
 </uni-sidenav-container>
 
-<ng-template #routeItem let-item>
-  <div class="sidenav-item"
-       [routerLink]="item.route"
-       routerLinkActive="active">
-    {{ item.text }}
+<ng-template #groupTpl let-item>
+  <div class="sidenav--list-group"
+       [class.expanded]="item.expanded">
+    <div class="sidenav--list-group-text"
+         (click)="item.expanded = !item.expanded">
+      <uni-icon class="item-icon" [icon]="item.icon"></uni-icon>
+      <div class="text">{{ item.text }}</div>
+      <uni-icon class="expand-icon" icon="mdi-chevron-right"></uni-icon>
+    </div>
+
+    <div *ngIf="item.expanded" class="sidenav--list-group-items">
+      <ng-container *ngFor="let subItem of item.routes">
+        <ng-container *ngTemplateOutlet="itemTpl; context: { $implicit: subItem }">
+        </ng-container>
+      </ng-container>
+    </div>
   </div>
 </ng-template>
 
-<ng-template #routeGroup let-item>
-  <div class="sidenav-item-group"
-       (click)="item.expanded = !item.expanded">
-    <div class="sidenav-item-group-title">
-      {{ item.text }}
-    </div>
-  </div>
-
-  <div class="sidenav-item-group-routes"
-       *ngIf="item.expanded">
-    <ng-container *ngFor="let subItem of item.routes">
-      <ng-container *ngTemplateOutlet="routeItem; context: { $implicit: subItem }">
-      </ng-container>
-    </ng-container>
+<ng-template #itemTpl let-item>
+  <div class="sidenav--list-item"
+       [routerLink]="item.route"
+       routerLinkActive="active">
+    <div class="text">{{ item.text }}</div>
   </div>
 </ng-template>

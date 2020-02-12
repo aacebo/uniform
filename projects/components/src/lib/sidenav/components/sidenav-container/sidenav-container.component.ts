@@ -12,11 +12,13 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   host: {
     class: 'uni-sidenav-container',
   },
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniSidenavContainerComponent {
-  @ContentChild(UniSidenavComponent, { static: true }) sidenav: UniSidenavComponent;
   @Output() backdropClicked = new EventEmitter<void>();
+
+  @ContentChild(UniSidenavComponent, { static: false })
+  readonly sidenav: UniSidenavComponent;
 
   get showBackdrop() {
     return this.sidenav.mode === UniSidenavMode.Over && this.sidenav.open;

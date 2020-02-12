@@ -1,0 +1,11 @@
+:host {
+  display: block;
+
+  uni-card-title {
+    display: flex;
+
+    .code-example--title {
+      flex: 1 1 auto;
+    }
+  }
+}

@@ -11,8 +11,6 @@ import {
 } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UniColor } from '../../../core/enums';
-
 import { UniTabComponent } from '../tab/tab.component';
 import { UniTabDirection } from '../../enums/tab-direction.enum';
 
@@ -31,7 +29,6 @@ import { UniTabDirection } from '../../enums/tab-direction.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniTabGroupComponent implements AfterContentInit {
-  @Input() color = UniColor.Secondary;
   @Input() direction = UniTabDirection.Start;
 
   @Input()

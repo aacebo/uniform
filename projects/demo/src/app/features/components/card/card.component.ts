@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UniColor } from '@uniform/components';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +6,4 @@ import { UniColor } from '@uniform/components';
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardComponent {
-  readonly colors: string[] = Object.values(UniColor);
-}
+export class CardComponent { }

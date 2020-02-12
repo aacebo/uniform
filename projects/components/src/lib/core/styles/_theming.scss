@@ -1,18 +1,17 @@
 $uni-theme-colors: (
-  'primary': #0b81cf,
-  'secondary': #6b6969,
+  'primary': #479eff,
   'success': #4BB543,
-  'warning': #e49e07,
-  'danger': #a72222,
+  'warning': #ffbb47,
+  'danger': #ff6d47,
 
   'white': #ffffff,
   'black': #000000,
-  'grey': #6c757d,
+  'grey': #455066,
   'blood-orange': rgb(244, 81, 30),
 
-  'dark': #303030,
-  'darker': rgba(0, 0, 0, 0.2),
-  'darkest': rgba(0, 0, 0, 0.26),
+  'dark': #424242,
+  'darker': #303030,
+  'darkest': #1f1e1e,
 
   'hairline-soft': #413f3f,
   'hairline-regular': #434343,
@@ -74,5 +73,10 @@ $uni-theme-colors: (
     @each $name, $color in $theme {
       --#{ $name }: #{ $color };
     }
+  }
+
+  body {
+    color: var(--white);
+    background-color: var(--darker);
   }
 }

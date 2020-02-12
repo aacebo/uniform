@@ -1,3 +1,57 @@
-:host {
+@import '../core/styles/border-radius';
+@import '../core/styles/box-shadow';
+
+.uni-marked {
   display: block;
+
+  code {
+    color: var(--blood-orange);
+  }
+
+  table {
+    border-spacing: 0px;
+    box-shadow: $uni-shadow-2dp;
+
+    th, td {
+      padding: 10px;
+    }
+
+    thead {
+      tr {
+        background-color: var(--darker);
+
+        th {
+          text-align: left;
+          color: var(--white);
+          font-weight: 500;
+
+          &:first-child {
+            border-top-left-radius: $uni-border-radius-sm;
+          }
+
+          &:last-child {
+            border-top-right-radius: $uni-border-radius-sm;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: var(--dark);
+
+        &:last-child {
+          td {
+            &:first-child {
+              border-bottom-left-radius: $uni-border-radius-sm;
+            }
+
+            &:last-child {
+              border-bottom-right-radius: $uni-border-radius-sm;
+            }
+          }
+        }
+      }
+    }
+  }
 }
