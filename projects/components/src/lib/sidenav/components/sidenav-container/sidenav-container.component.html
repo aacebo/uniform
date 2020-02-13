@@ -1,6 +1,7 @@
 <div class="uni-backdrop"
+     *ngIf="hasBackdrop"
      [class.visible]="showBackdrop"
-     (click)="backdropClicked.emit()">
+     (click)="onBackdropClick()">
 </div>
 
 <ng-content select="uni-sidenav"></ng-content>

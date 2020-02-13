@@ -3,7 +3,7 @@
                mode="side"
                color="secondary"
                [open]="open"
-               (closed)="backdropClicked.emit()">
+               (openChange)="onOpenChange($event)">
     <div class="sidenav--list">
       <ng-container *ngFor="let item of items">
         <ng-container *ngTemplateOutlet="(item.routes ? groupTpl : itemTpl); context: { $implicit: item }">

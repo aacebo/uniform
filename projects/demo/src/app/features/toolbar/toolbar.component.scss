@@ -1,34 +1,38 @@
-.uni-toolbar-title {
-  margin: auto 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
+:host {
+  display: block;
 
-.uni-toolbar-spacer {
-  flex: 1 1 auto;
-}
-
-.info {
-  display: flex;
-  flex-direction: row;
-
-  .labels {
-    display: flex;
-    flex-direction: column;
-
-    .label {
-      font-size: 14pt;
-      font-weight: 550;
-      margin-right: 5px;
-    }
+  .uni-toolbar-title {
+    margin: auto 10px;
+    cursor: pointer;
+    font-weight: 600;
   }
 
-  .values {
-    display: flex;
-    flex-direction: column;
+  .uni-toolbar-spacer {
+    flex: 1 1 auto;
+  }
 
-    .value {
-      font-size: 14pt;
+  .info {
+    display: flex;
+    flex-direction: row;
+
+    .labels {
+      display: flex;
+      flex-direction: column;
+
+      .label {
+        font-size: 14pt;
+        font-weight: 550;
+        margin-right: 5px;
+      }
+    }
+
+    .values {
+      display: flex;
+      flex-direction: column;
+
+      .value {
+        font-size: 14pt;
+      }
     }
   }
 }

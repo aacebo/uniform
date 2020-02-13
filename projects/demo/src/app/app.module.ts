@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import {
@@ -19,6 +20,7 @@ import { ToolbarModule } from './features/toolbar';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
 
     AppRoutingModule,
     SidenavModule,

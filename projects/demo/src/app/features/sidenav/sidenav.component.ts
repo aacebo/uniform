@@ -13,4 +13,10 @@ export class SidenavComponent {
   @Input() open = false;
 
   @Output() backdropClicked = new EventEmitter<void>();
+
+  onOpenChange(e: boolean) {
+    if (!e) {
+      this.backdropClicked.emit();
+    }
+  }
 }

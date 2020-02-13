@@ -59,6 +59,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./progress/progress.module').then(m => m.ProgressModule),
   },
+  {
+    path: 'sidenav',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./sidenav/sidenav.module').then(m => m.SidenavModule),
+  },
 ];
 
 @NgModule({

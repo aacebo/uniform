@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef, ElementRef, OnInit } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
@@ -7,7 +7,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
   styleUrls: ['./code-example.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CodeExampleComponent {
+export class CodeExampleComponent implements OnInit {
   @Input() title: string;
   @Input() html: string;
 
@@ -19,5 +19,12 @@ export class CodeExampleComponent {
   }
   private _code?: boolean;
 
-  constructor(private readonly _cdr: ChangeDetectorRef) { }
+  constructor(
+    private readonly _cdr: ChangeDetectorRef,
+    private readonly _el: ElementRef<HTMLElement>,
+  ) { }
+
+  ngOnInit() {
+    this._el.nativeElement.title = '';
+  }
 }

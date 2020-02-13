@@ -1,15 +1,20 @@
+@import './animations';
+
 $uni-backdrop-index: 2;
 $uni-backdrop-bg-color: rgba(0, 0, 0, 0.8);
 
 .uni-backdrop {
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  pointer-events: none;
   z-index: $uni-backdrop-index;
   background-color: $uni-backdrop-bg-color;
-  visibility: hidden;
+  transition: opacity $uni-animation-duration $uni-animation-timing-function;
 
   &.visible {
-    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
   }
 }

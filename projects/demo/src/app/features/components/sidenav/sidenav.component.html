@@ -1,0 +1,44 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Sidenav">
+        <uni-sidenav-container>
+          <uni-sidenav
+            [(open)]="open"
+            [mode]="mode"
+            [position]="position"
+          >
+            sidenav content
+          </uni-sidenav>
+
+          <uni-sidenav-content>
+            <button uni-button
+                    (click)="toggle()">
+              Toggle
+            </button>
+          </uni-sidenav-content>
+        </uni-sidenav-container>
+
+        <uni-form-field>
+          <uni-select [(ngModel)]="mode">
+            <uni-option [value]="UniSidenavMode.Over">Over</uni-option>
+            <uni-option [value]="UniSidenavMode.Side">Side</uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <uni-form-field>
+          <uni-select [(ngModel)]="position">
+            <uni-option [value]="UniSidenavPosition.Start">Start</uni-option>
+            <uni-option [value]="UniSidenavPosition.End">End</uni-option>
+          </uni-select>
+        </uni-form-field>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="sidenav"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>
