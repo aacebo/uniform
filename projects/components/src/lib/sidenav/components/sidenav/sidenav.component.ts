@@ -9,18 +9,21 @@ import {
   ChangeDetectorRef,
   ViewEncapsulation,
   AfterContentChecked,
+  ContentChild,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { BehaviorSubject } from 'rxjs';
 
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
 import { UNI_SIDENAV_ANIMATIONS } from '../../sidenav.animations';
+import { UniSidenavBodyDirective } from '../../directives/sidenav-body/sidenav-body.directive';
 
 @Component({
   moduleId: module.id,
   selector: 'uni-sidenav',
   exportAs: 'uniSidenav',
-  template: `<ng-content></ng-content>`,
+  templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
   animations: [
     UNI_SIDENAV_ANIMATIONS.slideTransition,
@@ -31,6 +34,7 @@ import { UNI_SIDENAV_ANIMATIONS } from '../../sidenav.animations';
     '[class.end]': 'position === UniSidenavPosition.End',
     '[class.closed]': 'open === false',
     '[@slideTransition]': 'slide',
+    '(@slideTransition.start)': 'onSlideStart()',
     '(@slideTransition.done)': 'onSlideEnd()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -91,8 +95,13 @@ export class UniSidenavComponent implements AfterContentChecked {
   private _hasBackdrop = true;
 
   @Output() openChange = new EventEmitter<boolean>();
+  @Output() openChangeStart = new EventEmitter<boolean>();
+  @Output() openChangeEnd = new EventEmitter<boolean>();
   @Output() modeChange = new EventEmitter<UniSidenavMode>();
   @Output() positionChange = new EventEmitter<UniSidenavPosition>();
+
+  @ContentChild(UniSidenavBodyDirective)
+  readonly body: UniSidenavBodyDirective;
 
   get slide() {
     return {
@@ -102,6 +111,9 @@ export class UniSidenavComponent implements AfterContentChecked {
       },
     };
   }
+
+  get showContent$() { return this._showContent$.asObservable(); }
+  private readonly _showContent$ = new BehaviorSubject(false);
 
   readonly UniSidenavPosition = UniSidenavPosition;
   readonly UniSidenavMode = UniSidenavMode;
@@ -122,7 +134,25 @@ export class UniSidenavComponent implements AfterContentChecked {
     }
   }
 
+  onSlideStart() {
+    this.openChangeStart.emit(this.open);
+
+    if (this.open && !this._showContent$.value) {
+      setTimeout(() => {
+        this._showContent$.next(this.open);
+        this.cdr.markForCheck();
+      });
+    }
+  }
+
   onSlideEnd() {
-    console.log('end');
+    this.openChangeEnd.emit(this.open);
+
+    if (!this.open && this._showContent$.value) {
+      setTimeout(() => {
+        this._showContent$.next(this.open);
+        this.cdr.markForCheck();
+      });
+    }
   }
 }

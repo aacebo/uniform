@@ -6,3 +6,5 @@ export { UniSidenavPosition } from './enums/sidenav-position.enum';
 export { UniSidenavComponent } from './components/sidenav/sidenav.component';
 export { UniSidenavContainerComponent } from './components/sidenav-container/sidenav-container.component';
 export { UniSidenavContentComponent } from './components/sidenav-content/sidenav-content.component';
+
+export { UniSidenavBodyDirective } from './directives/sidenav-body/sidenav-body.directive';

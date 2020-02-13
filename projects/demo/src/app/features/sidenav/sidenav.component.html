@@ -4,12 +4,14 @@
                color="secondary"
                [open]="open"
                (openChange)="onOpenChange($event)">
-    <div class="sidenav--list">
-      <ng-container *ngFor="let item of items">
-        <ng-container *ngTemplateOutlet="(item.routes ? groupTpl : itemTpl); context: { $implicit: item }">
+    <ng-template uniSidenavBody>
+      <div class="sidenav--list">
+        <ng-container *ngFor="let item of items">
+          <ng-container *ngTemplateOutlet="(item.routes ? groupTpl : itemTpl); context: { $implicit: item }">
+          </ng-container>
         </ng-container>
-      </ng-container>
-    </div>
+      </div>
+    </ng-template>
   </uni-sidenav>
   <uni-sidenav-content>
     <ng-content></ng-content>
