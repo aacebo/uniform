@@ -8,16 +8,16 @@ import {
   EventEmitter,
   ChangeDetectorRef,
   ViewEncapsulation,
-  AfterContentChecked,
   ContentChild,
+  AfterContentInit,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { BehaviorSubject } from 'rxjs';
 
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
 import { UNI_SIDENAV_ANIMATIONS } from '../../sidenav.animations';
 import { UniSidenavBodyDirective } from '../../directives/sidenav-body/sidenav-body.directive';
+import { UniSidenavState } from '../../enums/sidenav-state.enum';
 
 @Component({
   moduleId: module.id,
@@ -40,7 +40,7 @@ import { UniSidenavBodyDirective } from '../../directives/sidenav-body/sidenav-b
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSidenavComponent implements AfterContentChecked {
+export class UniSidenavComponent implements AfterContentInit {
   @Input()
   get position() { return this._position; }
   set position(v: UniSidenavPosition) {
@@ -95,8 +95,7 @@ export class UniSidenavComponent implements AfterContentChecked {
   private _hasBackdrop = true;
 
   @Output() openChange = new EventEmitter<boolean>();
-  @Output() openChangeStart = new EventEmitter<boolean>();
-  @Output() openChangeEnd = new EventEmitter<boolean>();
+  @Output() stateChange = new EventEmitter<UniSidenavState>();
   @Output() modeChange = new EventEmitter<UniSidenavMode>();
   @Output() positionChange = new EventEmitter<UniSidenavPosition>();
 
@@ -112,18 +111,25 @@ export class UniSidenavComponent implements AfterContentChecked {
     };
   }
 
-  get showContent$() { return this._showContent$.asObservable(); }
-  private readonly _showContent$ = new BehaviorSubject(false);
+  get state() { return this._state; }
+  set state(v: UniSidenavState) {
+    if (v !== this._state) {
+      this._state = v;
+      this.stateChange.emit(v);
+    }
+  }
+  private _state?: UniSidenavState;
 
   readonly UniSidenavPosition = UniSidenavPosition;
   readonly UniSidenavMode = UniSidenavMode;
+  readonly UniSidenavState = UniSidenavState;
 
   constructor(
     readonly el: ElementRef<HTMLElement>,
     readonly cdr: ChangeDetectorRef,
   ) { }
 
-  ngAfterContentChecked() {
+  ngAfterContentInit() {
     setTimeout(() => this.cdr.markForCheck());
   }
 
@@ -135,24 +141,16 @@ export class UniSidenavComponent implements AfterContentChecked {
   }
 
   onSlideStart() {
-    this.openChangeStart.emit(this.open);
-
-    if (this.open && !this._showContent$.value) {
-      setTimeout(() => {
-        this._showContent$.next(this.open);
-        this.cdr.markForCheck();
-      });
-    }
+    setTimeout(() => {
+      this.state = this.open ? UniSidenavState.Opening : UniSidenavState.Closing;
+      this.cdr.markForCheck();
+    });
   }
 
   onSlideEnd() {
-    this.openChangeEnd.emit(this.open);
-
-    if (!this.open && this._showContent$.value) {
-      setTimeout(() => {
-        this._showContent$.next(this.open);
-        this.cdr.markForCheck();
-      });
-    }
+    setTimeout(() => {
+      this.state = this.open ? UniSidenavState.Opened : UniSidenavState.Closed;
+      this.cdr.markForCheck();
+    });
   }
 }

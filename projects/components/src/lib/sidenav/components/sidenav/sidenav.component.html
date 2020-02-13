@@ -1,1 +1,3 @@
-<ng-container *ngTemplateOutlet="(showContent$ | async) ? body.template : null"></ng-container>
+<ng-container
+  *ngTemplateOutlet="(state !== UniSidenavState.Closed) ? body.template : null"
+></ng-container>
