@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Inject, forwardRef, ViewEncapsulation } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, forwardRef, ViewEncapsulation, ElementRef, AfterContentInit } from '@angular/core';
 
 import { UniSidenavContainerComponent } from '../sidenav-container/sidenav-container.component';
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
@@ -18,7 +18,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSidenavContentComponent {
+export class UniSidenavContentComponent implements AfterContentInit {
   get marginLeft() {
     return this._open &&
            this._position === UniSidenavPosition.Start &&
@@ -50,5 +50,12 @@ export class UniSidenavContentComponent {
   constructor(
     @Inject(forwardRef(() => UniSidenavContainerComponent))
     private readonly _container: UniSidenavContainerComponent,
+    private readonly _el: ElementRef<HTMLElement>,
   ) { }
+
+  ngAfterContentInit() {
+    setTimeout(() => {
+      this._el.nativeElement.style.transition = 'all 0.2s ease-in-out';
+    }, 1000);
+  }
 }
