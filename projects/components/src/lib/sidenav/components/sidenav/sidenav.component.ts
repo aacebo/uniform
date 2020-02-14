@@ -124,7 +124,7 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
       this._state = v;
 
       if (this.view) {
-        if (prev !== UniSidenavState.Closing && this._state === UniSidenavState.Opening) {
+        if (prev === UniSidenavState.Closed && this._state === UniSidenavState.Opening) {
           this.view.createEmbeddedView(this.body.template);
         } else if (this._state === UniSidenavState.Closed) {
           this.view.remove();
