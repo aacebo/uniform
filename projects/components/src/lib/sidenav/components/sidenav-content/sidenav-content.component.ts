@@ -22,13 +22,13 @@ export class UniSidenavContentComponent {
   get marginLeft() {
     return this._open &&
            this._position === UniSidenavPosition.Start &&
-           this._mode === UniSidenavMode.Side ? this._width : 0;
+           this._mode === UniSidenavMode.Side ? this._width : undefined;
   }
 
   get marginRight() {
     return this._open &&
            this._position === UniSidenavPosition.End &&
-           this._mode === UniSidenavMode.Side ? this._width : 0;
+           this._mode === UniSidenavMode.Side ? this._width : undefined;
   }
 
   private get _open() {
@@ -44,7 +44,7 @@ export class UniSidenavContentComponent {
   }
 
   private get _width() {
-    return +this._container.sidenav.el.nativeElement.clientWidth;
+    return this._container.sidenav.el.nativeElement.clientWidth;
   }
 
   constructor(

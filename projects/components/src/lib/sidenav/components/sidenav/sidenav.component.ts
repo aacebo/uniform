@@ -10,20 +10,23 @@ import {
   ViewEncapsulation,
   ContentChild,
   AfterContentInit,
+  ViewContainerRef,
+  ViewChild,
+  AfterViewInit,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
+import { UniSidenavState } from '../../enums/sidenav-state.enum';
 import { UNI_SIDENAV_ANIMATIONS } from '../../sidenav.animations';
 import { UniSidenavBodyDirective } from '../../directives/sidenav-body/sidenav-body.directive';
-import { UniSidenavState } from '../../enums/sidenav-state.enum';
 
 @Component({
   moduleId: module.id,
   selector: 'uni-sidenav',
   exportAs: 'uniSidenav',
-  templateUrl: './sidenav.component.html',
+  template: `<ng-container #view></ng-container>`,
   styleUrls: ['./sidenav.component.scss'],
   animations: [
     UNI_SIDENAV_ANIMATIONS.slideTransition,
@@ -34,13 +37,12 @@ import { UniSidenavState } from '../../enums/sidenav-state.enum';
     '[class.end]': 'position === UniSidenavPosition.End',
     '[class.closed]': 'open === false',
     '[@slideTransition]': 'slide',
-    '(@slideTransition.start)': 'onSlideStart()',
     '(@slideTransition.done)': 'onSlideEnd()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSidenavComponent implements AfterContentInit {
+export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
   @Input()
   get position() { return this._position; }
   set position(v: UniSidenavPosition) {
@@ -68,6 +70,7 @@ export class UniSidenavComponent implements AfterContentInit {
   set open(v: boolean) {
     if (v !== this._open) {
       this._open = coerceBooleanProperty(v);
+      this.state = this.open ? UniSidenavState.Opening : UniSidenavState.Closing;
       this.openChange.emit(this._open);
       this.cdr.markForCheck();
     }
@@ -102,6 +105,9 @@ export class UniSidenavComponent implements AfterContentInit {
   @ContentChild(UniSidenavBodyDirective)
   readonly body: UniSidenavBodyDirective;
 
+  @ViewChild('view', { read: ViewContainerRef })
+  readonly view: ViewContainerRef;
+
   get slide() {
     return {
       value: this.open,
@@ -114,8 +120,19 @@ export class UniSidenavComponent implements AfterContentInit {
   get state() { return this._state; }
   set state(v: UniSidenavState) {
     if (v !== this._state) {
+      const prev = this._state;
       this._state = v;
+
+      if (this.view) {
+        if (prev !== UniSidenavState.Closing && this._state === UniSidenavState.Opening) {
+          this.view.createEmbeddedView(this.body.template);
+        } else if (this._state === UniSidenavState.Closed) {
+          this.view.remove();
+        }
+      }
+
       this.stateChange.emit(v);
+      this.cdr.markForCheck();
     }
   }
   private _state?: UniSidenavState;
@@ -129,6 +146,12 @@ export class UniSidenavComponent implements AfterContentInit {
     readonly cdr: ChangeDetectorRef,
   ) { }
 
+  ngAfterViewInit() {
+    if (this.open) {
+      this.view.createEmbeddedView(this.body.template);
+    }
+  }
+
   ngAfterContentInit() {
     setTimeout(() => this.cdr.markForCheck());
   }
@@ -140,17 +163,7 @@ export class UniSidenavComponent implements AfterContentInit {
     }
   }
 
-  onSlideStart() {
-    setTimeout(() => {
-      this.state = this.open ? UniSidenavState.Opening : UniSidenavState.Closing;
-      this.cdr.markForCheck();
-    });
-  }
-
   onSlideEnd() {
-    setTimeout(() => {
-      this.state = this.open ? UniSidenavState.Opened : UniSidenavState.Closed;
-      this.cdr.markForCheck();
-    });
+    this.state = this.open ? UniSidenavState.Opened : UniSidenavState.Closed;
   }
 }
