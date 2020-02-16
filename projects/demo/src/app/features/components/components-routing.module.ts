@@ -64,6 +64,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./sidenav/sidenav.module').then(m => m.SidenavModule),
   },
+  {
+    path: 'tab',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./tab/tab.module').then(m => m.TabModule),
+  },
 ];
 
 @NgModule({

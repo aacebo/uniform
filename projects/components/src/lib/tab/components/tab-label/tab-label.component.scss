@@ -1,6 +1,6 @@
 @import '../../../core/styles/border-radius';
 
-:host {
+.uni-tab-label {
   padding: 0.8em 0.8em;
   opacity: 0.4;
   font-weight: 500;
@@ -19,6 +19,7 @@
     border-left-color: var(--hairline-regular);
     border-right-color: var(--hairline-regular);
     border-bottom-color: var(--darker);
+    background-color: var(--darker);
   }
 
   &.disabled {

@@ -8,6 +8,7 @@ import {
   ChangeDetectorRef,
   Output,
   EventEmitter,
+  ViewEncapsulation,
 } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
@@ -27,9 +28,18 @@ import { UniTabDirection } from '../../enums/tab-direction.enum';
     '[class.uni-tab-group--center]': 'direction === UniTabDirection.Center',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniTabGroupComponent implements AfterContentInit {
-  @Input() direction = UniTabDirection.Start;
+  @Input()
+  get direction() { return this._direction; }
+  set direction(v: UniTabDirection) {
+    if (v !== this._direction) {
+      this._direction = v;
+      this._cdr.markForCheck();
+    }
+  }
+  private _direction = UniTabDirection.Start;
 
   @Input()
   get active() { return this._active; }

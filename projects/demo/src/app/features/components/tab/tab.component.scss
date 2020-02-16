@@ -1,0 +1,15 @@
+:host {
+  display: block;
+
+  app-code-example {
+    uni-tab-group {
+      uni-tab {
+        &.active {
+          border: 1px solid var(--hairline-regular);
+          border-top: none;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}

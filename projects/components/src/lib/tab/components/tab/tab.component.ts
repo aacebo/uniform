@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 
 import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directive';
@@ -14,6 +14,7 @@ import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directiv
     '[class.active]': 'active',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniTabComponent {
   @Input() label?: string;

@@ -1,0 +1,35 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Tab">
+        <uni-tab-group [direction]="direction">
+          <uni-tab label="First">
+            <ng-template uniTabBody>
+              <p>Hello</p>
+            </ng-template>
+          </uni-tab>
+
+          <uni-tab label="Second">
+            <ng-template uniTabBody>
+              <p>World</p>
+            </ng-template>
+          </uni-tab>
+        </uni-tab-group>
+
+        <uni-form-field>
+          <uni-select [(ngModel)]="direction">
+            <uni-option [value]="UniTabDirection.Start">Start</uni-option>
+            <uni-option [value]="UniTabDirection.End">End</uni-option>
+            <uni-option [value]="UniTabDirection.Center">Center</uni-option>
+          </uni-select>
+        </uni-form-field>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="tab"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

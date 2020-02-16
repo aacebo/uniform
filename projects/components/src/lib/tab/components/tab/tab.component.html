@@ -1,3 +1,1 @@
-<ng-container *ngIf="active && uniBody">
-  <ng-container *ngTemplateOutlet="uniBody.template"></ng-container>
-</ng-container>
+<ng-container *ngTemplateOutlet="active ? uniBody.template : null"></ng-container>
