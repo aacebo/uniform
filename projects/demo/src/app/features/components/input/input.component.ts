@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
+import { INPUT_EXAMPLE } from './input-example.constant';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -7,5 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
+  readonly example = INPUT_EXAMPLE;
+
   value?: string;
 }

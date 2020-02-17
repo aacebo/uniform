@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ContentChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ContentChild, EventEmitter } from '@angular/core';
 
 import { UniColor } from '../../../core/enums';
 import { UNI_HOST_COLORS } from '../../../core/constants';
@@ -19,6 +19,7 @@ import { UniErrorComponent } from '../error/error.component';
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
     ...UNI_HOST_COLORS,
+    '(click)': 'clicked.emit()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -79,6 +80,8 @@ export class UniFormFieldComponent {
     }
   }
   private _hasValue?: boolean;
+
+  readonly clicked = new EventEmitter<void>();
 
   constructor(private readonly _cdr: ChangeDetectorRef) { }
 }
