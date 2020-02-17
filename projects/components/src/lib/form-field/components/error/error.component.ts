@@ -1,14 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'uni-error',
   exportAs: 'uniError',
-  templateUrl: './error.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./error.component.scss'],
-  host: {
-    class: 'uni-error',
-  },
+  host: { class: 'uni-error' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniErrorComponent {}
+export class UniErrorComponent { }

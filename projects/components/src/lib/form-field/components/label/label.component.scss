@@ -1,0 +1,10 @@
+@import '../../../core/styles/animations';
+
+.uni-label {
+  position: absolute;
+  transition: transform $uni-animation-duration $uni-animation-timing-function;
+
+  label {
+    cursor: text;
+  }
+}

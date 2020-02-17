@@ -1,17 +1,18 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
     <ng-template uniTabBody>
-      <app-code-example title="Tab">
+      <app-code-example title="Tab"
+                        [html]="example">
         <uni-tab-group [direction]="direction">
           <uni-tab label="First">
             <ng-template uniTabBody>
-              <p>Hello</p>
+              <div>Hello</div>
             </ng-template>
           </uni-tab>
 
           <uni-tab label="Second">
             <ng-template uniTabBody>
-              <p>World</p>
+              <div>World</div>
             </ng-template>
           </uni-tab>
         </uni-tab-group>

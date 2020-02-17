@@ -1,0 +1,19 @@
+$uni-field-box-shadow: inset 0 0 0 1px;
+$uni-label-transform: translate(-8px, -15px) scale(0.75);
+
+@mixin uni-form-label($color) {
+  &.#{ $color } {
+    &.focused {
+      box-shadow: $uni-field-box-shadow var(--#{ $color });
+
+      .uni-label {
+        transform: $uni-label-transform;
+        color: var(--#{ $color });
+      }
+    }
+
+    .uni-input {
+      caret-color: var(--#{ $color });
+    }
+  }
+}

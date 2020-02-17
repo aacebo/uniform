@@ -1,4 +1,4 @@
-import { Optional, Input, ElementRef, ChangeDetectorRef, Directive } from '@angular/core';
+import { Optional, Input, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
 import { NgForm, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
@@ -6,22 +6,14 @@ import { UniFormFieldComponent } from './components/form-field/form-field.compon
 
 let nextId = 0;
 
-@Directive()
-export class UniFormFieldControlBase<T> implements ControlValueAccessor {
-  get value() { return this._value; }
-  set value(v: T) {
-    this._value = v;
-    this.onChange(v);
-    this.cdr.markForCheck();
-  }
-  private _value?: T;
-
+export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit {
   @Input()
   get id() { return this._id; }
   set id(v: string) {
     this._id = v;
+    this.uniFormField.id = v;
   }
-  protected _id = `${++nextId}`;
+  protected _id = `uni-form-field--${++nextId}`;
 
   @Input()
   get tabIndex() { return this._tabIndex; }
@@ -29,7 +21,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
     this._tabIndex = coerceNumberProperty(v);
     this.el.nativeElement.tabIndex = this._tabIndex;
   }
-  private _tabIndex?: number;
+  private _tabIndex = 0;
 
   @Input()
   get placeholder() { return this._placeholder; }
@@ -55,22 +47,42 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor {
   }
   private _disabled?: boolean;
 
+  @Input()
+  get autofocus() { return this._autofocus; }
+  set autofocus(v: boolean) {
+    this._autofocus = coerceBooleanProperty(v);
+    this.cdr.markForCheck();
+  }
+  private _autofocus?: boolean;
+
+  get value() { return this._value; }
+  set value(v: T) {
+    if (v !== this._value) {
+      this._value = v;
+      this.onChange(v);
+      this.cdr.markForCheck();
+    }
+  }
+  private _value?: T;
+
   onChange: (v: any) => void = () => {};
   onTouch = () => {};
 
   constructor(
-    readonly el: ElementRef,
+    readonly el: ElementRef<HTMLElement>,
     readonly cdr: ChangeDetectorRef,
     @Optional() readonly uniFormField: UniFormFieldComponent,
     @Optional() readonly ngForm: NgForm,
     @Optional() readonly ngFormGroup: FormGroupDirective,
-  ) {
-    this.tabIndex = 0;
+  ) { }
+
+  ngOnInit() {
+    this.uniFormField.id = this._id;
   }
 
-  writeValue(value: T) {
-    if (value !== this.value) {
-      this.value = value;
+  writeValue(v: T) {
+    if (v !== this.value) {
+      this.value = v;
     }
   }
 

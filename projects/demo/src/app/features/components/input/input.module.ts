@@ -1,7 +1,10 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UniFormFieldModule, UniTabModule, UniCardModule, UniInputModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniFormFieldModule, UniTabModule, UniInputModule } from '@uniform/components';
+
+import { CodeExampleModule } from '../../code-example';
+import { DocViewerModule } from '../../doc-viewer';
 
 import { InputRoutingModule } from './input-routing.module';
 import { InputComponent } from './input.component';
@@ -11,13 +14,15 @@ import { InputComponent } from './input.component';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
+
+    InputRoutingModule,
+    CodeExampleModule,
+    DocViewerModule,
+
     UniFormFieldModule,
     UniInputModule,
     UniTabModule,
-    UniCardModule,
-    InputRoutingModule,
   ],
 })
 export class InputModule { }

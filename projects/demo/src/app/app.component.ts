@@ -38,8 +38,8 @@ export class AppComponent {
       icon: 'mdi-keyboard-outline',
       expanded: true,
       routes: [
-        { text: 'Select', route: '/components/select' },
         { text: 'Input', route: '/components/input' },
+        { text: 'Select', route: '/components/select' },
       ],
     },
     {

@@ -1,33 +1,36 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
-import { UniFormFieldControlBase } from '../form-field';
+import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
 
 @Component({
   moduleId: module.id,
   selector: 'input[uniInput], textarea[uniInput]',
   exportAs: 'uniInput',
-  templateUrl: './input.component.html',
+  template: ``,
   styleUrls: ['./input.component.scss'],
   host: {
     class: 'uni-input',
+    '[id]': 'id',
+    '[tabIndex]': 'tabIndex',
+    '[required]': 'required',
+    '[autofocus]': 'autofocus',
+    '(focus)': 'onFocus(true)',
+    '(focusout)': 'onFocus(false)',
     '(input)': 'onInput()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniInputComponent extends UniFormFieldControlBase<string> {
-  get value() { return this._element.value; }
-  set value(v: string) {
-    this._element.value = v;
-    this.onChange(v);
+  private get _element() {
+    return this.el.nativeElement as  HTMLInputElement | HTMLTextAreaElement;
   }
 
-  get textarea() {
-    return this._element.nodeName.toLowerCase() === 'textarea';
+  onFocus(e: boolean) {
+    this.uniFormField.focused = e;
   }
 
-  private get _element(): HTMLInputElement | HTMLTextAreaElement {
-    return this.el.nativeElement;
+  onInput() {
+    this.uniFormField.hasValue = !!this._element.value;
   }
-
-  onInput() {}
 }

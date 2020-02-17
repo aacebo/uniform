@@ -1,7 +1,10 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UniSelectModule, UniFormFieldModule, UniTabModule, UniCardModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniSelectModule, UniFormFieldModule, UniTabModule } from '@uniform/components';
+
+import { DocViewerModule } from '../../doc-viewer';
+import { CodeExampleModule } from '../../code-example';
 
 import { SelectComponent } from './select.component';
 import { SelectRoutingModule } from './select-routing.module';
@@ -11,13 +14,15 @@ import { SelectRoutingModule } from './select-routing.module';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
+
+    SelectRoutingModule,
+    DocViewerModule,
+    CodeExampleModule,
+
     UniSelectModule,
     UniFormFieldModule,
     UniTabModule,
-    UniCardModule,
-    SelectRoutingModule,
   ],
 })
 export class SelectModule { }

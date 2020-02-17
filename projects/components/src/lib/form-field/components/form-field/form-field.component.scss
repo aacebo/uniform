@@ -1,7 +1,28 @@
-@import '../../form-field-control';
 @import '../../../core/styles/border-radius';
+@import '../../../core/styles/animations';
 
-:host {
+@import '../../form-field';
+
+.uni-form-field {
   display: inline-block;
-  border-radius: $uni-border-radius-sm;
+  position: relative;
+  border-radius: $uni-border-radius-md;
+  border: 1px solid var(--white-a50);
+  padding: 15px 10px;
+  transition: all $uni-animation-duration $uni-animation-timing-function;
+
+  &:hover {
+    box-shadow: $uni-field-box-shadow var(--white);
+  }
+
+  &.has-value {
+    .uni-label {
+      transform: $uni-label-transform;
+    }
+  }
+
+  @include uni-form-label(primary);
+  @include uni-form-label(success);
+  @include uni-form-label(warning);
+  @include uni-form-label(danger);
 }

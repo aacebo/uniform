@@ -1,12 +1,8 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
-    <uni-card>
-      <uni-card-header>
-        <uni-card-title>Select</uni-card-title>
-      </uni-card-header>
-
-      <uni-card-content>
-        <uni-form-field color="secondary">
+    <ng-template uniTabBody>
+      <app-code-example title="Select">
+        <uni-form-field>
           <uni-select placeholder="PLACEHOLDER..."
                       [(ngModel)]="value">
             <uni-option>option 1</uni-option>
@@ -16,7 +12,13 @@
         </uni-form-field>
 
         value: {{ value }}
-      </uni-card-content>
-    </uni-card>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="select"></app-doc-viewer>
+    </ng-template>
   </uni-tab>
 </uni-tab-group>
