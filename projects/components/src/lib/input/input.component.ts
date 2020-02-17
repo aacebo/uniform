@@ -14,6 +14,7 @@ import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
     '[tabIndex]': 'tabIndex',
     '[required]': 'required',
     '[autofocus]': 'autofocus',
+    '[autocomplete]': 'autocomplete',
     '(focus)': 'onFocus(true)',
     '(focusout)': 'onFocus(false)',
     '(input)': 'onInput()',

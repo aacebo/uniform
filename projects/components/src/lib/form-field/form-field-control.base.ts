@@ -37,7 +37,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._required = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _required?: boolean;
+  private _required = false;
 
   @Input()
   get disabled() { return this._disabled; }
@@ -45,7 +45,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._disabled = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _disabled?: boolean;
+  private _disabled = false;
 
   @Input()
   get autofocus() { return this._autofocus; }
@@ -53,7 +53,15 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._autofocus = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _autofocus?: boolean;
+  private _autofocus = false;
+
+  @Input()
+  get autocomplete() { return this._autocomplete; }
+  set autocomplete(v: boolean) {
+    this._autocomplete = coerceBooleanProperty(v);
+    this.cdr.markForCheck();
+  }
+  private _autocomplete = false;
 
   get value() { return this._value; }
   set value(v: T) {

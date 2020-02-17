@@ -1,3 +1,7 @@
 .uni-error {
-  display: block;
+  position: absolute;
+  left: 5px;
+  bottom: -15px;
+  font-size: 0.7em;
+  color: var(--danger);
 }

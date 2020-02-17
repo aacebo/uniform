@@ -3,23 +3,18 @@
     <ng-template uniTabBody>
       <app-code-example title="Input">
         <uni-form-field>
-          <input
-            uniInput
-            placeholder="test placeholder"
-            required
-            [(ngModel)]="value"
-          />
-        </uni-form-field>
-
-        <uni-form-field>
           <uni-label>test label</uni-label>
 
           <input
             uniInput
             placeholder="test placeholder"
+            spellcheck="false"
             required
             [(ngModel)]="value"
           />
+
+          <uni-hint>max 5 characters</uni-hint>
+          <uni-error *ngIf="value?.length > 5">too many characters!</uni-error>
         </uni-form-field>
 
         {{ value }}

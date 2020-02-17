@@ -1,6 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-
-import { UniFormFieldComponent } from '../form-field/form-field.component';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -13,9 +11,14 @@ import { UniFormFieldComponent } from '../form-field/form-field.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class UniLabelComponent {
-  get for() {
-    return this._uniFormField.id;
+  get for() { return this._for; }
+  set for(v: string) {
+    if (v !== this._for) {
+      this._for = v;
+      this._cdr.markForCheck();
+    }
   }
+  private _for?: string;
 
-  constructor(private readonly _uniFormField: UniFormFieldComponent) { }
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

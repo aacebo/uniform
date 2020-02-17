@@ -9,6 +9,7 @@
   border-radius: $uni-border-radius-md;
   border: 1px solid var(--white-a50);
   padding: 15px 10px;
+  margin-bottom: 10px;
   transition: all $uni-animation-duration $uni-animation-timing-function;
 
   &:hover {
@@ -18,6 +19,42 @@
   &.has-value {
     .uni-label {
       transform: $uni-label-transform;
+    }
+  }
+
+  &.has-label {
+    &.focused,
+    &.has-value {
+      .uni-input {
+        opacity: 1;
+      }
+    }
+
+    .uni-input {
+      opacity: 0;
+    }
+  }
+
+  &.has-error {
+    border-color: var(--danger);
+
+    &.focused,
+    &:hover {
+      box-shadow: $uni-field-box-shadow var(--danger) !important;
+    }
+
+    .uni-input {
+      caret-color: var(--danger) !important;
+    }
+
+    .uni-hint {
+      display: none;
+    }
+
+    .uni-label {
+      label {
+        color: var(--danger);
+      }
     }
   }
 
