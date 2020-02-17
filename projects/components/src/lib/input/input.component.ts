@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit, AfterViewInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 
 import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
@@ -18,12 +18,12 @@ import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
     '[autocomplete]': 'autocomplete',
     '(focus)': 'onFocus(true)',
     '(focusout)': 'onFocus(false)',
-    '(input)': 'onInput()',
+    '(change)': 'onInput()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniInputComponent extends UniFormFieldControlBase<string> implements OnInit {
+export class UniInputComponent extends UniFormFieldControlBase<string> implements OnInit, AfterViewInit {
   private get _element() {
     return this.el.nativeElement as  HTMLInputElement | HTMLTextAreaElement;
   }
@@ -34,6 +34,10 @@ export class UniInputComponent extends UniFormFieldControlBase<string> implement
     this.uniFormField.clicked.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this._element.focus();
     });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => this.onInput());
   }
 
   onFocus(e: boolean) {
