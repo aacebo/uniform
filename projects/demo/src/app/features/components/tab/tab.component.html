@@ -3,27 +3,19 @@
     <ng-template uniTabBody>
       <app-code-example title="Tab"
                         [html]="example">
-        <uni-tab-group [direction]="direction">
+        <uni-tab-group [(active)]="active">
           <uni-tab label="First">
             <ng-template uniTabBody>
-              <div>Hello</div>
+              {{ active }}
             </ng-template>
           </uni-tab>
 
           <uni-tab label="Second">
             <ng-template uniTabBody>
-              <div>World</div>
+              {{ active }}
             </ng-template>
           </uni-tab>
         </uni-tab-group>
-
-        <uni-form-field>
-          <uni-select [(ngModel)]="direction">
-            <uni-option [value]="UniTabDirection.Start">Start</uni-option>
-            <uni-option [value]="UniTabDirection.End">End</uni-option>
-            <uni-option [value]="UniTabDirection.Center">Center</uni-option>
-          </uni-select>
-        </uni-form-field>
       </app-code-example>
     </ng-template>
   </uni-tab>

@@ -9,11 +9,12 @@ import {
   Output,
   EventEmitter,
   ViewEncapsulation,
+  ViewChildren,
 } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { UniTabComponent } from '../tab/tab.component';
-import { UniTabDirection } from '../../enums/tab-direction.enum';
+import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 
 @Component({
   moduleId: module.id,
@@ -21,26 +22,11 @@ import { UniTabDirection } from '../../enums/tab-direction.enum';
   exportAs: 'uniTabGroup',
   templateUrl: './tab-group.component.html',
   styleUrls: ['./tab-group.component.scss'],
-  host: {
-    class: 'uni-tab-group',
-    '[class.uni-tab-group--start]': 'direction === UniTabDirection.Start',
-    '[class.uni-tab-group--end]': 'direction === UniTabDirection.End',
-    '[class.uni-tab-group--center]': 'direction === UniTabDirection.Center',
-  },
+  host: { class: 'uni-tab-group' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class UniTabGroupComponent implements AfterContentInit {
-  @Input()
-  get direction() { return this._direction; }
-  set direction(v: UniTabDirection) {
-    if (v !== this._direction) {
-      this._direction = v;
-      this._cdr.markForCheck();
-    }
-  }
-  private _direction = UniTabDirection.Start;
-
   @Input()
   get active() { return this._active; }
   set active(v: number) {
@@ -57,7 +43,29 @@ export class UniTabGroupComponent implements AfterContentInit {
   @ContentChildren(UniTabComponent)
   readonly tabs: QueryList<UniTabComponent>;
 
-  readonly UniTabDirection = UniTabDirection;
+  @ViewChildren(UniTabLabelComponent)
+  get labels() { return this._labels; }
+  set labels(v: QueryList<UniTabLabelComponent>) {
+    setTimeout(() => {
+      this._labels = v;
+      this._cdr.markForCheck();
+    });
+  }
+  private _labels: QueryList<UniTabLabelComponent>;
+
+  get transform() {
+    let width = 0;
+
+    for (let i = 0; i < this._active; i++) {
+      width += this._labels.toArray()[i].width;
+    }
+
+    return `translateX(${ width }px)`;
+  }
+
+  get activeLabel() {
+    return this._labels.toArray()[this._active];
+  }
 
   constructor(private readonly _cdr: ChangeDetectorRef) { }
 

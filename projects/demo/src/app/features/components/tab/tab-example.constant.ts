@@ -1,14 +1,14 @@
 export const TAB_EXAMPLE = `
-<uni-tab-group [direction]="direction">
+<uni-tab-group [(active)]="active">
   <uni-tab label="First">
     <ng-template uniTabBody>
-      <p>Hello</p>
+      {{ active }}
     </ng-template>
   </uni-tab>
 
   <uni-tab label="Second">
     <ng-template uniTabBody>
-      <p>World</p>
+      {{ active }}
     </ng-template>
   </uni-tab>
 </uni-tab-group>

@@ -1,25 +1,11 @@
-@import '../../../core/styles/border-radius';
-
 .uni-tab-label {
   padding: 0.8em 0.8em;
-  opacity: 0.4;
-  font-weight: 500;
-  border: 1px solid transparent;
-  border-top-width: 1px;
-  margin-bottom: -1px;
+  color: var(--white-d20);
   cursor: pointer;
   user-select: none;
-  border-top-left-radius: $uni-border-radius-md;
-  border-top-right-radius: $uni-border-radius-md;
 
   &.active {
-    opacity: 1;
-    font-weight: 550;
-    border-top-color: var(--hairline-regular);
-    border-left-color: var(--hairline-regular);
-    border-right-color: var(--hairline-regular);
-    border-bottom-color: var(--darker);
-    background-color: var(--darker);
+    color: var(--white);
   }
 
   &.disabled {

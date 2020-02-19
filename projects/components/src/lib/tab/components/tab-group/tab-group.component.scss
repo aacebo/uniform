@@ -1,26 +1,23 @@
+@import '../../../core/styles/animations';
+
 .uni-tab-group {
   display: block;
 
-  &.uni-tab-group--start {
-    .uni-tab-header {
-      justify-content: flex-start;
-    }
-  }
-
-  &.uni-tab-group--end {
-    .uni-tab-header {
-      justify-content: flex-end;
-    }
-  }
-
-  &.uni-tab-group--center {
-    .uni-tab-header {
-      justify-content: center;
-    }
-  }
-
   .uni-tab-header {
     display: flex;
+  }
+
+  .uni-tab-track {
+    display: block;
+    position: relative;
+    height: 2px;
     border-bottom: 1px solid var(--hairline-regular);
+
+    .uni-tab-bar {
+      position: absolute;
+      height: 2px;
+      background-color: var(--primary);
+      transition: all $uni-animation-duration $uni-animation-timing-function;
+    }
   }
 }

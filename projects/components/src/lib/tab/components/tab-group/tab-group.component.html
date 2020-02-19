@@ -1,9 +1,19 @@
 <div class="uni-tab-header">
   <uni-tab-label *ngFor="let tab of tabs.toArray(); index as i"
                  [active]="active === i"
+                 [disabled]="tab.disabled"
                  (click)="select(i)">
     {{ tab.label }}
   </uni-tab-label>
+</div>
+
+<div class="uni-tab-track">
+  <div
+    *ngIf="labels"
+    class="uni-tab-bar"
+    [style.width.px]="activeLabel?.width"
+    [style.transform]="transform"
+  ></div>
 </div>
 
 <ng-content select="uni-tab"></ng-content>
