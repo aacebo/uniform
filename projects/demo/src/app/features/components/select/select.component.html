@@ -3,12 +3,16 @@
     <ng-template uniTabBody>
       <app-code-example title="Select">
         <uni-form-field>
+          <uni-label>Test Label</uni-label>
+
           <uni-select placeholder="PLACEHOLDER..."
                       [(ngModel)]="value">
             <uni-option>option 1</uni-option>
             <uni-option>option 2</uni-option>
             <uni-option>option 3</uni-option>
           </uni-select>
+
+          <uni-hint>testing my hint</uni-hint>
         </uni-form-field>
 
         value: {{ value }}

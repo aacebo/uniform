@@ -1,14 +1,15 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef, ViewEncapsulation } from '@angular/core';
 
-import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
 import { UniColor } from '../../../core/enums';
 import { UNI_HOST_COLORS } from '../../../core/constants';
+
+import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
 
 @Component({
   moduleId: module.id,
   selector: 'uni-option',
   exportAs: 'uniOption',
-  templateUrl: './option.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./option.component.scss'],
   host: {
     class: 'uni-option',
@@ -18,6 +19,7 @@ import { UNI_HOST_COLORS } from '../../../core/constants';
     '(click)': 'select()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniOptionComponent {
   @Input() value?: any;

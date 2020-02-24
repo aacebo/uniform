@@ -31,7 +31,9 @@ export class UniInputComponent extends UniFormFieldControlBase<string> implement
   ngOnInit() {
     super.ngOnInit();
 
-    this.uniFormField.clicked.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.uniFormField.clicked.pipe(takeUntil(this.destroy$)).subscribe(e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
       this._element.focus();
     });
   }

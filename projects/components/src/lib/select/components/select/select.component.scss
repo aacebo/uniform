@@ -1,9 +1,11 @@
 @import '../../../core/styles/border-radius';
+@import '../../../core/styles/animations';
 
-:host {
+.uni-select {
   display: block;
   outline: none;
   border-radius: $uni-border-radius-sm;
+  font: inherit;
 
   .uni-select-trigger {
     display: flex;
@@ -15,9 +17,9 @@
       user-select: none;
     }
 
-    // .uni-select-placeholder {
-    //   color: $uni-form-control-placeholder;
-    // }
+    .uni-select-placeholder {
+      color: var(--white-a20);
+    }
 
     .uni-select-icon {
       font-size: 12px;
@@ -32,26 +34,13 @@
         content: '';
         display: inline-block;
         height: 0.45em;
-        left: 0.15em;
+        left: 0;
         position: relative;
         top: 0.15em;
-        transform: rotate(-45deg);
+        transform: rotate(45deg);
         vertical-align: top;
         width: 0.45em;
-      }
-
-      &.right {
-        &:before {
-          left: 0;
-          transform: rotate(45deg);
-        }
-      }
-
-      &.left {
-        &:before {
-          left: 0.25em;
-          transform: rotate(-135deg);
-        }
+        transition: transform $uni-animation-duration $uni-animation-timing-function;
       }
 
       &.bottom {

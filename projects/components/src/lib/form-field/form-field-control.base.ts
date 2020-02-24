@@ -68,6 +68,7 @@ export class UniFormFieldControlBase<T> extends UniSubscriptionHelper implements
   set value(v: T) {
     if (v !== this._value) {
       this._value = v;
+      this.uniFormField.hasValue = !!v;
       this.onChange(v);
       this.cdr.markForCheck();
     }

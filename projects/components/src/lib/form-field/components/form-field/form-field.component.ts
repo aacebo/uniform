@@ -19,7 +19,7 @@ import { UniErrorComponent } from '../error/error.component';
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
     ...UNI_HOST_COLORS,
-    '(click)': 'clicked.emit()',
+    '(click)': 'clicked.emit($event)',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -81,7 +81,7 @@ export class UniFormFieldComponent {
   }
   private _hasValue?: boolean;
 
-  readonly clicked = new EventEmitter<void>();
+  readonly clicked = new EventEmitter<Event>();
 
   constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

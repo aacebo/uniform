@@ -8,10 +8,11 @@ import {
   QueryList,
   AfterContentInit,
   OnDestroy,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ConnectedPosition, CdkConnectedOverlay } from '@angular/cdk/overlay';
 import { SelectionModel } from '@angular/cdk/collections';
-import { BehaviorSubject, merge, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, merge, Observable } from 'rxjs';
 import { mergeMap, startWith, takeUntil } from 'rxjs/operators';
 
 import { UniFormFieldControlBase, uniFormFieldProvider } from '../../../form-field';
@@ -26,20 +27,46 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   providers: [uniFormFieldProvider(UniSelectComponent)],
-  host: {
-    class: 'uni-select',
-  },
+  host: { class: 'uni-select' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
   @Input() panelClass = 'uni-select-panel';
 
-  @ViewChild('trigger') trigger: ElementRef<HTMLElement>;
-  @ViewChild(UniSelectPanelComponent) panel: UniSelectPanelComponent;
-  @ViewChild(CdkConnectedOverlay) overlay: CdkConnectedOverlay;
-  @ContentChildren(UniOptionComponent, { descendants: true }) options: QueryList<UniOptionComponent>;
+  @ViewChild('trigger')
+  readonly trigger: ElementRef<HTMLElement>;
 
-  private readonly _destroy$ = new Subject<void>();
+  @ViewChild(UniSelectPanelComponent)
+  readonly panel: UniSelectPanelComponent;
+
+  @ViewChild(CdkConnectedOverlay)
+  readonly overlay: CdkConnectedOverlay;
+
+  @ContentChildren(UniOptionComponent, { descendants: true })
+  get options() { return this._options; }
+  set options(v: QueryList<UniOptionComponent>) {
+    this._options = v;
+
+    this.optionSelectionChanged = this.options.changes.pipe(
+      startWith(this.options),
+      mergeMap(() => merge<IUniOptionSelectedEvent>(...this.options.map(o => o.selectionChanged))),
+    );
+
+    this.optionSelectionChanged.pipe(takeUntil(this.destroy$))
+                               .subscribe(e => {
+      if (e.source.selected) {
+        this.select(e.source);
+      }
+
+      if (this.opened$.value) {
+        this.close();
+      }
+    });
+
+    this.initOptions();
+  }
+  private _options: QueryList<UniOptionComponent>;
 
   selectionModel: SelectionModel<UniOptionComponent>;
   optionSelectionChanged: Observable<IUniOptionSelectedEvent>;
@@ -70,28 +97,23 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
   ngAfterContentInit() {
     this.selectionModel = new SelectionModel<UniOptionComponent>(false);
 
-    this.optionSelectionChanged = this.options.changes.pipe(
-      startWith(this.options),
-      mergeMap(() => merge<IUniOptionSelectedEvent>(...this.options.map(o => o.selectionChanged))),
-    );
-
-    this.optionSelectionChanged.pipe(takeUntil(this._destroy$))
-                               .subscribe(e => {
-      if (e.source.selected) {
-        this.select(e.source);
-      }
-
-      if (this.opened$.value) {
-        this.close();
-      }
+    this.opened$.pipe(takeUntil(this.destroy$)).subscribe(open => {
+      this.uniFormField.focused = open;
     });
 
-    this.initOptions();
+    this.uniFormField.clicked.pipe(takeUntil(this.destroy$)).subscribe(e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      if (!this.opened$.value) {
+        this.toggle();
+      }
+    });
   }
 
   ngOnDestroy() {
-    this._destroy$.next();
-    this._destroy$.complete();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   writeValue(value: string) {

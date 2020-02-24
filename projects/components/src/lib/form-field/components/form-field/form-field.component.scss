@@ -25,12 +25,14 @@
   &.has-label {
     &.focused,
     &.has-value {
-      .uni-input {
+      .uni-input,
+      .uni-select-placeholder {
         opacity: 1;
       }
     }
 
-    .uni-input {
+    .uni-input,
+    .uni-select-placeholder {
       opacity: 0;
     }
   }

@@ -1,10 +1,10 @@
 @import '../../../core/styles/box-shadow';
 @import '../../../core/styles/border-radius';
 
-:host {
+.uni-select-panel {
   display: block;
   border-radius: $uni-border-radius-sm;
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--dark);
   box-shadow: $uni-shadow-16dp;
 }
