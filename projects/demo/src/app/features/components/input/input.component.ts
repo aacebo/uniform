@@ -12,4 +12,5 @@ export class InputComponent {
   readonly example = INPUT_EXAMPLE;
 
   value?: string;
+  disabled?: boolean;
 }

@@ -1,0 +1,14 @@
+<label class="uni-slide-toggle--switch" [for]="id">
+  <input
+    class="uni-slide-toggle--checkbox"
+    type="checkbox"
+    [id]="id"
+    [(ngModel)]="value"
+    [disabled]="disabled"
+  />
+  <span class="uni-slide-toggle--slider"></span>
+</label>
+
+<label class="uni-slide-toggle--label" [for]="id">
+  <ng-content></ng-content>
+</label>

@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { UniSelectModule, UniFormFieldModule, UniTabModule } from '@uniform/components';
+import { UniSelectModule, UniFormFieldModule, UniTabModule, UniSlideToggleModule } from '@uniform/components';
 
 import { DocViewerModule } from '../../doc-viewer';
 import { CodeExampleModule } from '../../code-example';
@@ -23,6 +23,7 @@ import { SelectRoutingModule } from './select-routing.module';
     UniSelectModule,
     UniFormFieldModule,
     UniTabModule,
+    UniSlideToggleModule,
   ],
 })
 export class SelectModule { }

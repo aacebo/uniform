@@ -43,8 +43,14 @@ export class UniFormFieldControlBase<T> extends UniSubscriptionHelper implements
   @Input()
   get disabled() { return this._disabled; }
   set disabled(v: boolean) {
-    this._disabled = coerceBooleanProperty(v);
-    this.cdr.markForCheck();
+    if (v !== this._disabled) {
+      this._disabled = coerceBooleanProperty(v);
+      this.cdr.markForCheck();
+
+      if (this.uniFormField) {
+        this.uniFormField.disabled = this._disabled;
+      }
+    }
   }
   private _disabled = false;
 

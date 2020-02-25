@@ -12,6 +12,7 @@
             spellcheck="false"
             required
             [(ngModel)]="value"
+            [disabled]="disabled"
           />
 
           <uni-hint>max 5 characters</uni-hint>
@@ -27,13 +28,18 @@
             spellcheck="false"
             required
             [(ngModel)]="value"
+            [disabled]="disabled"
           ></textarea>
 
           <uni-hint>max 5 characters</uni-hint>
           <uni-error *ngIf="value?.length > 5">too many characters!</uni-error>
         </uni-form-field>
 
-        {{ value }}
+        <div>{{ value }}</div>
+
+        <uni-slide-toggle [(ngModel)]="disabled">
+          {{ disabled ? 'Enable' : 'Disable' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

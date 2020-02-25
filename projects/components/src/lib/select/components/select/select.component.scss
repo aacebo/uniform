@@ -7,6 +7,12 @@
   border-radius: $uni-border-radius-sm;
   font: inherit;
 
+  &.disabled {
+    .uni-select-trigger {
+      pointer-events: none;
+    }
+  }
+
   .uni-select-trigger {
     display: flex;
     cursor: pointer;

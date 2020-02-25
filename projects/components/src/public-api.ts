@@ -18,6 +18,7 @@ export * from './lib/form-field';
 export * from './lib/select';
 export * from './lib/input';
 export * from './lib/checkbox';
+export * from './lib/slide-toggle';
 
 // layouts
 export * from './lib/card';

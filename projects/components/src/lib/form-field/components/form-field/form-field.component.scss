@@ -9,11 +9,20 @@
   border-radius: $uni-border-radius-md;
   border: 1px solid var(--white-a50);
   padding: 15px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   transition: all $uni-animation-duration $uni-animation-timing-function;
 
   &:hover {
     box-shadow: $uni-field-box-shadow var(--white);
+  }
+
+  &.disabled {
+    border-style: dotted;
+    opacity: 0.8;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   &.has-value {

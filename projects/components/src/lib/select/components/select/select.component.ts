@@ -26,8 +26,11 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   exportAs: 'uniSelect',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
+  host: {
+    class: 'uni-select',
+    '[class.disabled]': 'disabled',
+  },
   providers: [uniFormFieldProvider(UniSelectComponent)],
-  host: { class: 'uni-select' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
@@ -105,7 +108,7 @@ export class UniSelectComponent extends UniFormFieldControlBase<string> implemen
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      if (!this.opened$.value) {
+      if (!this.opened$.value && !this.disabled) {
         this.toggle();
       }
     });

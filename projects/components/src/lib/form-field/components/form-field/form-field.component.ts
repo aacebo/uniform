@@ -18,6 +18,7 @@ import { UniErrorComponent } from '../error/error.component';
     '[class.has-value]': 'hasValue',
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
+    '[class.disabled]': 'disabled',
     ...UNI_HOST_COLORS,
     '(click)': 'clicked.emit($event)',
   },
@@ -80,6 +81,15 @@ export class UniFormFieldComponent {
     }
   }
   private _hasValue?: boolean;
+
+  get disabled() { return this._disabled; }
+  set disabled(v: boolean) {
+    if (v !== this._disabled) {
+      this._disabled = v;
+      this._cdr.markForCheck();
+    }
+  }
+  private _disabled?: boolean;
 
   readonly clicked = new EventEmitter<Event>();
 

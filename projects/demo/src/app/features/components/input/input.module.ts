@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { UniFormFieldModule, UniTabModule, UniInputModule } from '@uniform/components';
+import { UniFormFieldModule, UniTabModule, UniInputModule, UniSlideToggleModule } from '@uniform/components';
 
 import { CodeExampleModule } from '../../code-example';
 import { DocViewerModule } from '../../doc-viewer';
@@ -23,6 +23,7 @@ import { InputComponent } from './input.component';
     UniFormFieldModule,
     UniInputModule,
     UniTabModule,
+    UniSlideToggleModule,
   ],
 })
 export class InputModule { }
