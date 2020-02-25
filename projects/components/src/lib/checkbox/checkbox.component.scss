@@ -2,7 +2,7 @@
 @import './checkbox';
 
 .uni-checkbox {
-  display: flex;
+  display: inline-flex;
 
   @include uni-checkbox-color(primary);
   @include uni-checkbox-color(success);
@@ -11,6 +11,11 @@
 
   &.disabled {
     opacity: 0.7;
+    cursor: not-allowed;
+
+    * {
+      cursor: not-allowed;
+    }
   }
 
   .uni-checkbox--label {
