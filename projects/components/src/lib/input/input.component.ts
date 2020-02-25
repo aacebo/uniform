@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit, AfterViewInit, Input } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { takeUntil } from 'rxjs/operators';
 
 import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
@@ -18,14 +19,32 @@ import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
     '[autocomplete]': 'autocomplete',
     '(focus)': 'onFocus(true)',
     '(focusout)': 'onFocus(false)',
-    '(change)': 'onInput()',
+    '(input)': 'onInput()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class UniInputComponent extends UniFormFieldControlBase<string> implements OnInit, AfterViewInit {
+  @Input()
+  get autoResize() { return this._autoResize; }
+  set autoResize(v: boolean) {
+    if (v !== this._autoResize) {
+      this._autoResize = coerceBooleanProperty(v);
+      this.cdr.markForCheck();
+    }
+  }
+  private _autoResize?: boolean;
+
+  private get _height() {
+    return this._isTextArea && this._autoResize ? `${ this._element.scrollHeight }px` : 'auto';
+  }
+
   private get _element() {
     return this.el.nativeElement as  HTMLInputElement | HTMLTextAreaElement;
+  }
+
+  private get _isTextArea() {
+    return this.el.nativeElement instanceof HTMLTextAreaElement;
   }
 
   ngOnInit() {
@@ -48,5 +67,10 @@ export class UniInputComponent extends UniFormFieldControlBase<string> implement
 
   onInput() {
     this.uniFormField.hasValue = !!this._element.value;
+    this._element.style.height = 'auto';
+
+    if (this._element.clientHeight < this._element.scrollHeight) {
+      this._element.style.height = this._height;
+    }
   }
 }

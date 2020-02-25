@@ -6,6 +6,10 @@ $uni-label-transform: translate(-8px, -15px) scale(0.75);
     &.focused {
       box-shadow: $uni-field-box-shadow var(--#{ $color });
 
+      &.has-error {
+        box-shadow: $uni-field-box-shadow var(--danger);
+      }
+
       .uni-label {
         transform: $uni-label-transform;
         color: var(--#{ $color });

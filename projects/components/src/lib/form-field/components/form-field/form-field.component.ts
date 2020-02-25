@@ -59,7 +59,7 @@ export class UniFormFieldComponent {
         this._label.for = this._id;
       }
 
-      this._cdr.markForCheck();
+      this.cdr.markForCheck();
     }
   }
   private _id?: string;
@@ -68,7 +68,7 @@ export class UniFormFieldComponent {
   set focused(v: boolean) {
     if (v !== this._focused) {
       this._focused = v;
-      this._cdr.markForCheck();
+      this.cdr.markForCheck();
     }
   }
   private _focused?: boolean;
@@ -77,7 +77,7 @@ export class UniFormFieldComponent {
   set hasValue(v: boolean) {
     if (v !== this._hasValue) {
       this._hasValue = v;
-      this._cdr.markForCheck();
+      this.cdr.markForCheck();
     }
   }
   private _hasValue?: boolean;
@@ -86,12 +86,12 @@ export class UniFormFieldComponent {
   set disabled(v: boolean) {
     if (v !== this._disabled) {
       this._disabled = v;
-      this._cdr.markForCheck();
+      this.cdr.markForCheck();
     }
   }
   private _disabled?: boolean;
 
   readonly clicked = new EventEmitter<Event>();
 
-  constructor(private readonly _cdr: ChangeDetectorRef) { }
+  constructor(readonly cdr: ChangeDetectorRef) { }
 }
