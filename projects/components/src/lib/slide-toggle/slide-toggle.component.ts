@@ -13,6 +13,7 @@ import { UniFormFieldControlBase, uniFormFieldProvider } from '../form-field';
   styleUrls: ['./slide-toggle.component.scss'],
   host: {
     class: 'uni-slide-toggle',
+    '[class.disabled]': 'disabled',
     ...UNI_HOST_COLORS,
   },
   providers: [uniFormFieldProvider(UniSlideToggleComponent)],

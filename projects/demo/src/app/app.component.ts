@@ -41,6 +41,7 @@ export class AppComponent {
         { text: 'Input', route: '/components/input' },
         { text: 'Select', route: '/components/select' },
         { text: 'Checkbox', route: '/components/checkbox' },
+        { text: 'Slide Toggle', route: '/components/slide-toggle' },
       ],
     },
     {

@@ -3,6 +3,15 @@
 .uni-slide-toggle {
   display: inline-flex;
 
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    * {
+      cursor: not-allowed !important;
+    }
+  }
+
   .uni-slide-toggle--label {
     margin: auto 0 auto 5px;
     text-align: center;

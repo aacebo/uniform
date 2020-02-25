@@ -74,6 +74,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./checkbox/checkbox.module').then(m => m.CheckboxModule),
   },
+  {
+    path: 'slide-toggle',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./slide-toggle/slide-toggle.module').then(m => m.SlideToggleModule),
+  },
 ];
 
 @NgModule({
