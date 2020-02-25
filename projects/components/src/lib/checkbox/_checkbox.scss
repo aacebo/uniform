@@ -1,0 +1,10 @@
+@mixin uni-checkbox-color($color) {
+  &.#{ $color } {
+    .uni-checkbox--box {
+      &.checked {
+        background-color: var(--#{ $color });
+        border-color: var(--#{ $color });
+      }
+    }
+  }
+}

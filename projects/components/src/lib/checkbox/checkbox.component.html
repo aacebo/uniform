@@ -1,0 +1,21 @@
+<label class="uni-checkbox--label" [for]="id">
+  <input
+    type="checkbox"
+    [id]="id"
+    [(ngModel)]="value"
+    [disabled]="disabled"
+  />
+
+  <div
+    class="uni-checkbox--box"
+    [class.checked]="value"
+    [style.width]="diameter"
+    [style.height]="diameter"
+    [style.min-width]="diameter"
+    [style.min-height]="diameter"
+  ></div>
+
+  <div class="uni-checkbox--content">
+    <ng-content></ng-content>
+  </div>
+</label>

@@ -1,0 +1,62 @@
+@import '../core/styles/border-radius';
+@import './checkbox';
+
+.uni-checkbox {
+  display: flex;
+
+  @include uni-checkbox-color(primary);
+  @include uni-checkbox-color(success);
+  @include uni-checkbox-color(danger);
+  @include uni-checkbox-color(warning);
+
+  &.disabled {
+    opacity: 0.7;
+  }
+
+  .uni-checkbox--label {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    input {
+      display: none;
+    }
+
+    .uni-checkbox--box {
+      border-radius: $uni-border-radius-md;
+      background-color: transparent;
+      border: 2px solid var(--hairline-strong);
+      transition: all 0.3s ease-out;
+      user-select: none;
+      margin: auto 10px auto 0;
+
+      &:after {
+        position: absolute;
+        top: calc(50% - 8px);
+        left: calc(50% - 3px);
+        width: 6px;
+        height: 12px;
+        content: '';
+        border: solid var(--white);
+        border-width: 0 2px 2px 0;
+        transform: rotate(0deg) scale(0);
+        transition: all 0.3s ease-out;
+      }
+
+      &.checked {
+        border-radius: $uni-border-radius-md;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+
+        &:after {
+          transform: rotate(45deg) scale(1);
+        }
+      }
+    }
+
+    .uni-checkbox--content {
+      margin: auto 0;
+      user-select: none;
+    }
+  }
+}

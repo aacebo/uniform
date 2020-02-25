@@ -40,6 +40,7 @@ export class AppComponent {
       routes: [
         { text: 'Input', route: '/components/input' },
         { text: 'Select', route: '/components/select' },
+        { text: 'Checkbox', route: '/components/checkbox' },
       ],
     },
     {

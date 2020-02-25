@@ -17,6 +17,7 @@ export * from './lib/dialog';
 export * from './lib/form-field';
 export * from './lib/select';
 export * from './lib/input';
+export * from './lib/checkbox';
 
 // layouts
 export * from './lib/card';

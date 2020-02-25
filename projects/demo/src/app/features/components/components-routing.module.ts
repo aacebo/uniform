@@ -69,6 +69,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./tab/tab.module').then(m => m.TabModule),
   },
+  {
+    path: 'checkbox',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./checkbox/checkbox.module').then(m => m.CheckboxModule),
+  },
 ];
 
 @NgModule({

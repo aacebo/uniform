@@ -1,0 +1,17 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Checkbox">
+        <uni-checkbox [(ngModel)]="value">My Checkbox</uni-checkbox>
+
+        value: {{ value }}
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="checkbox"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

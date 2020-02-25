@@ -68,9 +68,12 @@ export class UniFormFieldControlBase<T> extends UniSubscriptionHelper implements
   set value(v: T) {
     if (v !== this._value) {
       this._value = v;
-      this.uniFormField.hasValue = !!v;
       this.onChange(v);
       this.cdr.markForCheck();
+
+      if (this.uniFormField) {
+        this.uniFormField.hasValue = !!v;
+      }
     }
   }
   private _value?: T;
@@ -87,7 +90,9 @@ export class UniFormFieldControlBase<T> extends UniSubscriptionHelper implements
   ) { super(); }
 
   ngOnInit() {
-    this.uniFormField.id = this._id;
+    if (this.uniFormField) {
+      this.uniFormField.id = this._id;
+    }
   }
 
   writeValue(v: T) {
