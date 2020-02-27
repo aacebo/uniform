@@ -1,0 +1,6 @@
+export var UniProgressMode;
+(function (UniProgressMode) {
+    UniProgressMode["Determinate"] = "determinate";
+    UniProgressMode["Indeterminate"] = "indeterminate";
+})(UniProgressMode || (UniProgressMode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvZ3Jlc3MtbW9kZS5lbnVtLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQHVuaWZvcm0vY29tcG9uZW50cy8iLCJzb3VyY2VzIjpbImxpYi9wcm9ncmVzcy9lbnVtcy9wcm9ncmVzcy1tb2RlLmVudW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFOLElBQVksZUFHWDtBQUhELFdBQVksZUFBZTtJQUN6Qiw4Q0FBMkIsQ0FBQTtJQUMzQixrREFBK0IsQ0FBQTtBQUNqQyxDQUFDLEVBSFcsZUFBZSxLQUFmLGVBQWUsUUFHMUIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZW51bSBVbmlQcm9ncmVzc01vZGUge1xuICBEZXRlcm1pbmF0ZSA9ICdkZXRlcm1pbmF0ZScsXG4gIEluZGV0ZXJtaW5hdGUgPSAnaW5kZXRlcm1pbmF0ZScsXG59XG4iXX0=

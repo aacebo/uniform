@@ -1,0 +1,34 @@
+import { ElementRef, QueryList, AfterContentInit, OnDestroy } from '@angular/core';
+import { ConnectedPosition, CdkConnectedOverlay } from '@angular/cdk/overlay';
+import { SelectionModel } from '@angular/cdk/collections';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { UniFormFieldControlBase } from '../../../form-field';
+import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
+import { UniOptionComponent } from '../option/option.component';
+import { UniSelectPanelComponent } from '../select-panel/select-panel.component';
+import * as i0 from "@angular/core";
+export declare class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
+    panelClass: string;
+    readonly trigger: ElementRef<HTMLElement>;
+    readonly panel: UniSelectPanelComponent;
+    readonly overlay: CdkConnectedOverlay;
+    get options(): QueryList<UniOptionComponent>;
+    set options(v: QueryList<UniOptionComponent>);
+    private _options;
+    selectionModel: SelectionModel<UniOptionComponent>;
+    optionSelectionChanged: Observable<IUniOptionSelectedEvent>;
+    readonly opened$: BehaviorSubject<boolean>;
+    readonly positions: ConnectedPosition[];
+    get selected(): string;
+    get minWidth(): number;
+    ngAfterContentInit(): void;
+    ngOnDestroy(): void;
+    writeValue(value: string): void;
+    toggle(): void;
+    close(): void;
+    private select;
+    private initOptions;
+    private optionValue;
+    static ɵfac: i0.ɵɵFactoryDef<UniSelectComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<UniSelectComponent, "uni-select", ["uniSelect"], { "panelClass": "panelClass"; }, {}, ["options"]>;
+}

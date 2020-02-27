@@ -1,0 +1,6 @@
+export var UniSidenavPosition;
+(function (UniSidenavPosition) {
+    UniSidenavPosition["Start"] = "start";
+    UniSidenavPosition["End"] = "end";
+})(UniSidenavPosition || (UniSidenavPosition = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2lkZW5hdi1wb3NpdGlvbi5lbnVtLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQHVuaWZvcm0vY29tcG9uZW50cy8iLCJzb3VyY2VzIjpbImxpYi9zaWRlbmF2L2VudW1zL3NpZGVuYXYtcG9zaXRpb24uZW51bS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQU4sSUFBWSxrQkFHWDtBQUhELFdBQVksa0JBQWtCO0lBQzVCLHFDQUFlLENBQUE7SUFDZixpQ0FBVyxDQUFBO0FBQ2IsQ0FBQyxFQUhXLGtCQUFrQixLQUFsQixrQkFBa0IsUUFHN0IiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZW51bSBVbmlTaWRlbmF2UG9zaXRpb24ge1xuICBTdGFydCA9ICdzdGFydCcsXG4gIEVuZCA9ICdlbmQnLFxufVxuIl19

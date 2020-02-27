@@ -1,0 +1,50 @@
+import { ElementRef, EventEmitter, ChangeDetectorRef, AfterContentInit, ViewContainerRef, AfterViewInit } from '@angular/core';
+import { UniSidenavPosition } from '../../enums/sidenav-position.enum';
+import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
+import { UniSidenavState } from '../../enums/sidenav-state.enum';
+import { UniSidenavBodyDirective } from '../../directives/sidenav-body/sidenav-body.directive';
+import * as i0 from "@angular/core";
+export declare class UniSidenavComponent implements AfterViewInit, AfterContentInit {
+    readonly el: ElementRef<HTMLElement>;
+    readonly cdr: ChangeDetectorRef;
+    get position(): UniSidenavPosition;
+    set position(v: UniSidenavPosition);
+    private _position;
+    get mode(): UniSidenavMode;
+    set mode(v: UniSidenavMode);
+    private _mode;
+    get open(): boolean;
+    set open(v: boolean);
+    private _open?;
+    get closeOnBackdropClick(): boolean;
+    set closeOnBackdropClick(v: boolean);
+    private _closeOnBackdropClick;
+    get hasBackdrop(): boolean;
+    set hasBackdrop(v: boolean);
+    private _hasBackdrop;
+    openChange: EventEmitter<boolean>;
+    stateChange: EventEmitter<UniSidenavState>;
+    modeChange: EventEmitter<UniSidenavMode>;
+    positionChange: EventEmitter<UniSidenavPosition>;
+    readonly body: UniSidenavBodyDirective;
+    readonly view: ViewContainerRef;
+    get slide(): {
+        value: boolean;
+        params: {
+            distance: string;
+        };
+    };
+    get state(): UniSidenavState;
+    set state(v: UniSidenavState);
+    private _state?;
+    readonly UniSidenavPosition: typeof UniSidenavPosition;
+    readonly UniSidenavMode: typeof UniSidenavMode;
+    readonly UniSidenavState: typeof UniSidenavState;
+    constructor(el: ElementRef<HTMLElement>, cdr: ChangeDetectorRef);
+    ngAfterViewInit(): void;
+    ngAfterContentInit(): void;
+    onEscape(): void;
+    onSlideEnd(): void;
+    static ɵfac: i0.ɵɵFactoryDef<UniSidenavComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<UniSidenavComponent, "uni-sidenav", ["uniSidenav"], { "position": "position"; "mode": "mode"; "open": "open"; "closeOnBackdropClick": "closeOnBackdropClick"; "hasBackdrop": "hasBackdrop"; }, { "openChange": "openChange"; "stateChange": "stateChange"; "modeChange": "modeChange"; "positionChange": "positionChange"; }, ["body"]>;
+}

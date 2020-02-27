@@ -1,0 +1,34 @@
+{
+  "name": "@uniform/components",
+  "version": "0.0.1-rc.6",
+  "license": "MIT",
+  "author": {
+    "email": "aacebowork@gmail.com",
+    "name": "Alexander Acebo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aacebo/uniform"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/cdk": "^9.0.0",
+    "highlight.js": "^9.18.1",
+    "marked": "^0.8.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/uniform-components.umd.js",
+  "module": "fesm5/uniform-components.js",
+  "es2015": "fesm2015/uniform-components.js",
+  "esm5": "esm5/uniform-components.js",
+  "esm2015": "esm2015/uniform-components.js",
+  "fesm5": "fesm5/uniform-components.js",
+  "fesm2015": "fesm2015/uniform-components.js",
+  "typings": "uniform-components.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}
