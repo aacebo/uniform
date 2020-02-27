@@ -1,0 +1,12 @@
+.uni-split {
+  display: flex;
+  flex: 1 1 auto;
+
+  &.uni-vertical-split {
+    flex-direction: row;
+  }
+
+  &.uni-horizontal-split {
+    flex-direction: column;
+  }
+}

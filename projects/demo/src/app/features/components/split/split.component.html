@@ -1,0 +1,31 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Split">
+        <uni-vertical-split class="root">
+          <uni-split-area>area 1</uni-split-area>
+          <uni-split-handle></uni-split-handle>
+          <uni-split-area>
+            <uni-horizontal-split>
+              <uni-split-area>area 2</uni-split-area>
+              <uni-split-handle></uni-split-handle>
+              <uni-split-area>
+                <uni-vertical-split>
+                  <uni-split-area>area 3</uni-split-area>
+                  <uni-split-handle></uni-split-handle>
+                  <uni-split-area>area 4</uni-split-area>
+                </uni-vertical-split>
+              </uni-split-area>
+            </uni-horizontal-split>
+          </uni-split-area>
+        </uni-vertical-split>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="split"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

@@ -25,6 +25,7 @@ export * from './lib/card';
 export * from './lib/tab';
 export * from './lib/toolbar';
 export * from './lib/sidenav';
+export * from './lib/split';
 
 // indicators
 export * from './lib/icon';

@@ -79,6 +79,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./slide-toggle/slide-toggle.module').then(m => m.SlideToggleModule),
   },
+  {
+    path: 'split',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./split/split.module').then(m => m.SplitModule),
+  },
 ];
 
 @NgModule({
@@ -86,4 +91,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AppRoutingResolver],
 })
-export class ComponentsRoutingModule {}
+export class ComponentsRoutingModule { }

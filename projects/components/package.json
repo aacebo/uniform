@@ -1,6 +1,15 @@
 {
   "name": "@uniform/components",
-  "version": "0.0.1-rc.3",
+  "version": "0.0.1-rc.6",
+  "license": "MIT",
+  "author": {
+    "email": "aacebowork@gmail.com",
+    "name": "Alexander Acebo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aacebo/uniform"
+  },
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",

@@ -31,6 +31,7 @@ export class AppComponent {
         { text: 'Toolbar', route: '/components/toolbar' },
         { text: 'Sidenav', route: '/components/sidenav' },
         { text: 'Tab', route: '/components/tab' },
+        { text: 'Split', route: '/components/split' },
       ],
     },
     {
