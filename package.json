@@ -15,6 +15,8 @@
     "clean": "rimraf dist",
     "ng": "ng",
     "postinstall": "ngcc",
+    "build:gh-pages": "ng build demo --prod --base-href https://aacebo.github.io/uniform/",
+    "publish:gh-pages": "sudo ngh --dir dist/demo",
     "start:demo": "ng serve demo",
     "build:demo": "ng build demo",
     "test:demo": "ng test demo",
