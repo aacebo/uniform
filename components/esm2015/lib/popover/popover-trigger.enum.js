@@ -1,6 +1,0 @@
-export var UniPopoverTrigger;
-(function (UniPopoverTrigger) {
-    UniPopoverTrigger["Click"] = "click";
-    UniPopoverTrigger["Hover"] = "hover";
-})(UniPopoverTrigger || (UniPopoverTrigger = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9wb3Zlci10cmlnZ2VyLmVudW0uanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AdW5pZm9ybS9jb21wb25lbnRzLyIsInNvdXJjZXMiOlsibGliL3BvcG92ZXIvcG9wb3Zlci10cmlnZ2VyLmVudW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFOLElBQVksaUJBR1g7QUFIRCxXQUFZLGlCQUFpQjtJQUMzQixvQ0FBZSxDQUFBO0lBQ2Ysb0NBQWUsQ0FBQTtBQUNqQixDQUFDLEVBSFcsaUJBQWlCLEtBQWpCLGlCQUFpQixRQUc1QiIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBlbnVtIFVuaVBvcG92ZXJUcmlnZ2VyIHtcbiAgQ2xpY2sgPSAnY2xpY2snLFxuICBIb3ZlciA9ICdob3ZlcicsXG59XG4iXX0=

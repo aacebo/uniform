@@ -1,6 +1,0 @@
-export var UniSplitDirection;
-(function (UniSplitDirection) {
-    UniSplitDirection["Vertical"] = "vertical";
-    UniSplitDirection["Horizontal"] = "horizontal";
-})(UniSplitDirection || (UniSplitDirection = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3BsaXQtZGlyZWN0aW9uLmVudW0uanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AdW5pZm9ybS9jb21wb25lbnRzLyIsInNvdXJjZXMiOlsibGliL3NwbGl0L2VudW1zL3NwbGl0LWRpcmVjdGlvbi5lbnVtLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBTixJQUFZLGlCQUdYO0FBSEQsV0FBWSxpQkFBaUI7SUFDM0IsMENBQXFCLENBQUE7SUFDckIsOENBQXlCLENBQUE7QUFDM0IsQ0FBQyxFQUhXLGlCQUFpQixLQUFqQixpQkFBaUIsUUFHNUIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZW51bSBVbmlTcGxpdERpcmVjdGlvbiB7XG4gIFZlcnRpY2FsID0gJ3ZlcnRpY2FsJyxcbiAgSG9yaXpvbnRhbCA9ICdob3Jpem9udGFsJyxcbn1cbiJdfQ==

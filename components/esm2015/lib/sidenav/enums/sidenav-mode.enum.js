@@ -1,6 +1,0 @@
-export var UniSidenavMode;
-(function (UniSidenavMode) {
-    UniSidenavMode["Side"] = "side";
-    UniSidenavMode["Over"] = "over";
-})(UniSidenavMode || (UniSidenavMode = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2lkZW5hdi1tb2RlLmVudW0uanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AdW5pZm9ybS9jb21wb25lbnRzLyIsInNvdXJjZXMiOlsibGliL3NpZGVuYXYvZW51bXMvc2lkZW5hdi1tb2RlLmVudW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFOLElBQVksY0FHWDtBQUhELFdBQVksY0FBYztJQUN4QiwrQkFBYSxDQUFBO0lBQ2IsK0JBQWEsQ0FBQTtBQUNmLENBQUMsRUFIVyxjQUFjLEtBQWQsY0FBYyxRQUd6QiIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBlbnVtIFVuaVNpZGVuYXZNb2RlIHtcbiAgU2lkZSA9ICdzaWRlJyxcbiAgT3ZlciA9ICdvdmVyJyxcbn1cbiJdfQ==
