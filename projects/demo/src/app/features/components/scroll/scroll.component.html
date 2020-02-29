@@ -1,0 +1,17 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Scroll">
+        <uni-scroll>
+          {{ text }}
+        </uni-scroll>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="scroll"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

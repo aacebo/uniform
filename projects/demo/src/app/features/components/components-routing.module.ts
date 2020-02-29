@@ -84,6 +84,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./split/split.module').then(m => m.SplitModule),
   },
+  {
+    path: 'scroll',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./scroll/scroll.module').then(m => m.ScrollModule),
+  },
 ];
 
 @NgModule({

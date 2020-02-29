@@ -1,0 +1,22 @@
+.uni-scroll {
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .uni-scrollbar {
+      opacity: 1;
+    }
+  }
+
+  .uni-scroll--content {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    box-sizing: content-box;
+  }
+
+  .uni-scrollbar {
+    opacity: 0;
+  }
+}

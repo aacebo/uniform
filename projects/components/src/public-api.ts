@@ -26,6 +26,7 @@ export * from './lib/tab';
 export * from './lib/toolbar';
 export * from './lib/sidenav';
 export * from './lib/split';
+export * from './lib/scroll';
 
 // indicators
 export * from './lib/icon';

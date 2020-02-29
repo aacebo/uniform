@@ -32,6 +32,7 @@ export class AppComponent {
         { text: 'Sidenav', route: '/components/sidenav' },
         { text: 'Tab', route: '/components/tab' },
         { text: 'Split', route: '/components/split' },
+        { text: 'Scroll', route: '/components/scroll' },
       ],
     },
     {

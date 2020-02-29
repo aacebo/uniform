@@ -1,0 +1,20 @@
+<div
+  class="uni-scroll--content"
+  cdkScrollable
+  [style.padding-right.px]="gutterSize?.y"
+  [style.padding-bottom.px]="gutterSize?.x"
+>
+  <ng-content></ng-content>
+</div>
+
+<uni-scrollbar-x
+  *ngIf="hasX"
+  [thumbSize]="xPercent"
+  [start]="xStart"
+></uni-scrollbar-x>
+
+<uni-scrollbar-y
+  *ngIf="hasY"
+  [thumbSize]="yPercent"
+  [start]="yStart"
+></uni-scrollbar-y>
