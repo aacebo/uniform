@@ -39,3 +39,4 @@ export * from './lib/code';
 
 // misc
 export * from './lib/resize-observer';
+export * from './lib/draggable';

@@ -10,13 +10,13 @@ $uni-split-handle-size: 10px;
     background-color: var(--primary);
   }
 
-  &.uni-split-handle--vertical {
+  &.uni-split-handle--horizontal {
     width: $uni-split-handle-size;
     min-width: $uni-split-handle-size;
     cursor: col-resize;
   }
 
-  &.uni-split-handle--horizontal {
+  &.uni-split-handle--vertical {
     height: $uni-split-handle-size;
     min-height: $uni-split-handle-size;
     cursor: row-resize;

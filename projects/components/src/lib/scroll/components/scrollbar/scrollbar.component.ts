@@ -1,5 +1,15 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, Input, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  ElementRef,
+  Input,
+  ChangeDetectorRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { UniDraggableDirection } from '../../../draggable';
 
 @Component({
   moduleId: module.id,
@@ -7,7 +17,10 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
   selector: 'uni-scrollbar-x, uni-scrollbar-y',
   templateUrl: './scrollbar.component.html',
   styleUrls: ['./scrollbar.component.scss'],
-  host: { class: 'uni-scrollbar' },
+  host: {
+    class: 'uni-scrollbar',
+    '[class.uni-scrollbar--dragging]': 'dragging',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
@@ -32,6 +45,10 @@ export class UniScrollbarComponent {
   }
   private _start?: number;
 
+  @Output() drag = new EventEmitter<number>();
+
+  dragging = false;
+
   get thumbHeight() {
     return this._isY ? this._thumbSize : undefined;
   }
@@ -48,6 +65,10 @@ export class UniScrollbarComponent {
     return this._isY ? undefined : this._start;
   }
 
+  get dragDirection() {
+    return this._isY ? UniDraggableDirection.Vertical : UniDraggableDirection.Horizontal;
+  }
+
   private get _name() {
     return this._el.nativeElement.nodeName.toLowerCase();
   }
@@ -61,5 +82,30 @@ export class UniScrollbarComponent {
     private readonly _cdr: ChangeDetectorRef,
   ) {
     this._el.nativeElement.classList.add(this._name);
+  }
+
+  onDrag(e: number) {
+    this.drag.emit(e);
+  }
+
+  onDragStart() {
+    this.dragging = true;
+  }
+
+  onDragEnd() {
+    this.dragging = false;
+  }
+
+  onThumbClick(e: Event) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }
+
+  onTrackClick(e: MouseEvent) {
+    if (!this.dragging) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      console.log(e.clientY);
+    }
   }
 }

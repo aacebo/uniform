@@ -4,7 +4,7 @@ import { OnInit, OnDestroy } from '@angular/core';
  * This is being used to fix issue when running --aot, where
  * lifecycle hooks are only called if they are explicitly declared.
  */
-export class UniInitHelper implements OnInit, OnDestroy {
+export class UniInit implements OnInit, OnDestroy {
   ngOnInit() { }
   ngOnDestroy() { }
 }

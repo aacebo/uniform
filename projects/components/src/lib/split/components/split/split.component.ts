@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, ContentChildren, QueryList, ContentChild } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscriptionHelper } from '../../../core/helpers';
+import { UniSubscription } from '../../../core/classes';
+import { pxToPct } from '../../../core/utils';
+import { UniDraggableDirection } from '../../../draggable';
 
 import { UniSplitAreaComponent } from '../area/split-area.component';
 import { UniSplitHandleComponent } from '../handle/split-handle.component';
-import { UniSplitDirection } from '../../enums/split-direction.enum';
-import { areaPct } from '../../utils/area-pct/area-pct.util';
 
 @Component({
   moduleId: module.id,
@@ -18,7 +18,7 @@ import { areaPct } from '../../utils/area-pct/area-pct.util';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSplitComponent extends UniSubscriptionHelper {
+export class UniSplitComponent extends UniSubscription {
   @ContentChildren(UniSplitAreaComponent)
   get areas() { return this._areas; }
   set areas(v: QueryList<UniSplitAreaComponent>) {
@@ -41,9 +41,9 @@ export class UniSplitComponent extends UniSubscriptionHelper {
   set handle(v: UniSplitHandleComponent) {
     if (v) {
       this._handle = v;
-      this._handle.direction = this._vertical ? UniSplitDirection.Vertical :
-                                                UniSplitDirection.Horizontal;
-      this._handle.resize.pipe(takeUntil(this.destroy$)).subscribe(this._onResize.bind(this));
+      this._handle.direction = this._vertical ? UniDraggableDirection.Horizontal :
+                                                UniDraggableDirection.Vertical;
+      this._handle.drag.pipe(takeUntil(this.destroy$)).subscribe(this._onResize.bind(this));
     }
   }
   private _handle: UniSplitHandleComponent;
@@ -66,9 +66,9 @@ export class UniSplitComponent extends UniSubscriptionHelper {
       let pct: number;
 
       if (this._vertical) {
-        pct = areaPct(this._areas.first.clientWidth + distance, this._el.nativeElement.clientWidth);
+        pct = pxToPct(this._areas.first.clientWidth + distance, this._el.nativeElement.clientWidth);
       } else {
-        pct = areaPct(this._areas.first.clientHeight + distance, this._el.nativeElement.clientHeight);
+        pct = pxToPct(this._areas.first.clientHeight + distance, this._el.nativeElement.clientHeight);
       }
 
       this._areas.first.flex = `0 0 ${ pct <= 100 ? pct : 100 }%`;

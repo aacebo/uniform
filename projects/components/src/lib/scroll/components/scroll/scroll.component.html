@@ -7,12 +7,14 @@
 
 <uni-scrollbar-x
   *ngIf="hasX"
-  [thumbSize]="xPercent"
+  [thumbSize]="xSize"
   [start]="xStart"
+  (drag)="scrollX($event)"
 ></uni-scrollbar-x>
 
 <uni-scrollbar-y
   *ngIf="hasY"
-  [thumbSize]="yPercent"
+  [thumbSize]="ySize"
   [start]="yStart"
+  (drag)="scrollY($event)"
 ></uni-scrollbar-y>

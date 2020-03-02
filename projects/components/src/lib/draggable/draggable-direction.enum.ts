@@ -1,4 +1,4 @@
-export enum UniSplitDirection {
+export enum UniDraggableDirection {
   Vertical = 'vertical',
   Horizontal = 'horizontal',
 }

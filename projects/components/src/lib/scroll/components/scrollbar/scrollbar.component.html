@@ -1,9 +1,17 @@
-<div class="uni-scrollbar--track">
+<div
+  class="uni-scrollbar--track"
+  (click)="onTrackClick($event)"
+>
   <div
     class="uni-scrollbar--thumb"
+    [uniDraggable]="dragDirection"
     [style.height.%]="thumbHeight"
     [style.width.%]="thumbWidth"
-    [style.top.px]="thumbTop"
-    [style.left.px]="thumbLeft"
+    [style.top.%]="thumbTop"
+    [style.left.%]="thumbLeft"
+    (uniDraggableDrag)="onDrag($event)"
+    (uniDraggableDragStart)="onDragStart()"
+    (uniDraggableDragEnd)="onDragEnd()"
+    (click)="onThumbClick($event)"
   ></div>
 </div>

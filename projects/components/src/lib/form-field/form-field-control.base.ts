@@ -2,12 +2,12 @@ import { Optional, Input, ElementRef, ChangeDetectorRef, OnInit } from '@angular
 import { NgForm, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UniSubscriptionHelper } from '../core/helpers';
+import { UniSubscription } from '../core/classes';
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 
 let nextId = 0;
 
-export class UniFormFieldControlBase<T> extends UniSubscriptionHelper implements ControlValueAccessor, OnInit {
+export class UniFormFieldControlBase<T> extends UniSubscription implements ControlValueAccessor, OnInit {
   @Input()
   get id() { return this._id; }
   set id(v: string) {

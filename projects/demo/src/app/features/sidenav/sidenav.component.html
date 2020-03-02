@@ -5,7 +5,7 @@
                [open]="open"
                (openChange)="onOpenChange($event)">
     <ng-template uniSidenavBody>
-      <div class="sidenav--list">
+      <div class="sidenav--list" uniScroll>
         <ng-container *ngFor="let item of items">
           <ng-container *ngTemplateOutlet="(item.routes ? groupTpl : itemTpl); context: { $implicit: item }">
           </ng-container>

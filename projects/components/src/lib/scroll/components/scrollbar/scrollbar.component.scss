@@ -6,7 +6,10 @@
   position: absolute;
   transition: all $uni-animation-duration $uni-animation-timing-function;
 
-  &:hover {
+  &:hover,
+  &.uni-scrollbar--dragging {
+    opacity: 1 !important;
+
     .uni-scrollbar--track {
       opacity: 1;
     }
@@ -19,7 +22,8 @@
     width: $uni-scrollbar-size;
     margin-right: $uni-scrollbar-margin;
 
-    &:hover {
+    &:hover,
+    &.uni-scrollbar--dragging {
       width: $uni-scrollbar-size * 1.5;
     }
 
@@ -35,12 +39,19 @@
     height: $uni-scrollbar-size;
     margin-bottom: $uni-scrollbar-margin;
 
-    &:hover {
+    &:hover,
+    &.uni-scrollbar--dragging {
       height: $uni-scrollbar-size * 1.5;
     }
 
     .uni-scrollbar--thumb {
       height: 100%;
+    }
+  }
+
+  &.uni-scrollbar--dragging {
+    .uni-scrollbar--thumb {
+      opacity: 1;
     }
   }
 

@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscriptionHelper } from '../../../core/helpers';
+import { UniSubscription } from '../../../core/classes';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
@@ -25,7 +25,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSidenavContainerComponent extends UniSubscriptionHelper implements AfterContentInit {
+export class UniSidenavContainerComponent extends UniSubscription implements AfterContentInit {
   @Output() backdropClicked = new EventEmitter<void>();
 
   @ContentChild(UniSidenavComponent, { static: false })
