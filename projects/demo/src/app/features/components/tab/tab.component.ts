@@ -6,6 +6,7 @@ import { TAB_EXAMPLE } from './tab-example.constant';
   selector: 'app-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabComponent {

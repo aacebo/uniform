@@ -6,6 +6,7 @@ import { ICON_EXAMPLE } from './icon-example.constant';
   selector: 'app-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {

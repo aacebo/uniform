@@ -7,6 +7,7 @@ import { TOOLBAR_EXAMPLE } from './toolbar-example.constant';
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarComponent {

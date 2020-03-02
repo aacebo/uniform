@@ -8,6 +8,7 @@ import { PROGRESS_SPINNER_EXAMPLE } from './progress-spinner-example.constant';
   selector: 'app-progress',
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressComponent {

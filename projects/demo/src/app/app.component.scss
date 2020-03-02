@@ -1,6 +1,5 @@
 .content {
   height: calc(100% - 60px);
-  display: block;
-  overflow-y: auto;
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
 }

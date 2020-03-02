@@ -26,8 +26,6 @@ export class UniScrollComponent extends UniSubscriptionHelper implements AfterVi
   @ViewChild(CdkScrollable)
   readonly scrollable: CdkScrollable;
 
-  gutterSize: { x: number; y: number; };
-
   get hasY() {
     return this._el ? this._el.nativeElement.scrollHeight > this._el.nativeElement.clientHeight : false;
   }
@@ -60,11 +58,6 @@ export class UniScrollComponent extends UniSubscriptionHelper implements AfterVi
 
   ngAfterViewInit() {
     this._el = this.scrollable.getElementRef();
-
-    this.gutterSize = {
-      y: this._el.nativeElement.offsetWidth - this._el.nativeElement.clientWidth,
-      x: this._el.nativeElement.offsetHeight - this._el.nativeElement.clientHeight,
-    };
 
     this.scrollable.elementScrolled().pipe(takeUntil(this.destroy$)).subscribe(() => {
       this._cdr.detectChanges();

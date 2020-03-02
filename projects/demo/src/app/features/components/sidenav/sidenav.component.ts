@@ -7,6 +7,7 @@ import { SIDENAV_EXAMPLE } from './sidenav-example.constant';
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent {

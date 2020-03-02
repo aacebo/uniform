@@ -7,6 +7,7 @@ import { CARD_EXAMPLE } from './card-example.constant';
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {

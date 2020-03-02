@@ -7,6 +7,7 @@ import { BUTTON_EXAMPLE } from './button-example.constant';
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {

@@ -6,6 +6,7 @@ import { INPUT_EXAMPLE } from './input-example.constant';
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
