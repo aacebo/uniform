@@ -6,11 +6,11 @@ $uni-tooltip-margin: 10px;
 $uni-tooltip-bg-color: var(--black);
 $uni-tooltip-color: var(--white);
 
-:host {
+.uni-tooltip {
   max-width: 250px;
   overflow-wrap: break-word;
   padding: 10px;
-  border-radius: $uni-border-radius-sm;
+  border-radius: $uni-border-radius-md;
   font-size: 12px;
   font-weight: 500;
   background-color: $uni-tooltip-bg-color;

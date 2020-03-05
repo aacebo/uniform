@@ -1,8 +1,8 @@
 @mixin uni-arrow(
   $uni-arrow-color,
   $uni-arrow-border-color,
-  $uni-arrow-width: 7px,
-  $uni-arrow-border-width: 2px
+  $uni-arrow-width: 5px,
+  $uni-arrow-border-width: 1px
 ) {
   position: relative;
   background-color: $uni-arrow-color;

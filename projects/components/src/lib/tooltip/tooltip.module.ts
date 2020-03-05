@@ -11,4 +11,4 @@ import { UniTooltipDirective } from './tooltip.directive';
   exports: [UniTooltipDirective],
   imports: [CommonModule, OverlayModule],
 })
-export class UniTooltipModule {}
+export class UniTooltipModule { }
