@@ -15,18 +15,36 @@ import { UniSubscription } from '../../../core/classes';
 import { pxToPct, pctToPx } from '../../../core/utils';
 import { UniResizeObserverService } from '../../../resize-observer';
 
+import { UniScrollMode } from '../../enums/scroll-mode.enum';
+
 @Component({
   moduleId: module.id,
   exportAs: 'uniScroll',
   selector: '[uniScroll], uni-scroll',
   templateUrl: './scroll.component.html',
   styleUrls: ['./scroll.component.scss'],
-  host: { class: 'uni-scroll' },
+  host: {
+    class: 'uni-scroll',
+    '[class.uni-scroll--side]': 'mode === UniScrollMode.Side',
+    '[class.uni-scroll--over]': 'mode === UniScrollMode.Over',
+    '[class.uni-scroll--y]': 'hasY',
+    '[class.uni-scroll--x]': 'hasX',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class UniScrollComponent extends UniSubscription implements AfterViewInit {
   @Input() scrollStyle: ScrollBehavior = 'smooth';
+
+  @Input()
+  get mode() { return this._mode; }
+  set mode(v) {
+    if (v) {
+      this._mode = v;
+      this._cdr.markForCheck();
+    }
+  }
+  private _mode = UniScrollMode.Over;
 
   @ViewChild(CdkScrollable)
   readonly scrollable: CdkScrollable;
@@ -62,6 +80,8 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
   private get _xScrollMagnifier() {
     return this._el.nativeElement.scrollWidth / this._el.nativeElement.clientWidth;
   }
+
+  readonly UniScrollMode = UniScrollMode;
 
   private _el: ElementRef<HTMLElement>;
 

@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { UniScrollMode } from '@uniform/components';
 import * as faker from 'faker';
 
 @Component({
@@ -10,4 +11,7 @@ import * as faker from 'faker';
 })
 export class ScrollComponent {
   readonly text = faker.random.words(1000);
+  readonly UniScrollMode = UniScrollMode;
+
+  mode = UniScrollMode.Over;
 }
