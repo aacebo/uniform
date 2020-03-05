@@ -97,10 +97,21 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
     });
   }
 
-  scrollTo(e: number) {
+  scrollToY(e: number) {
+    const sizePx = pctToPx(this.ySize, this._el.nativeElement.scrollHeight);
+
     this.scrollable.scrollTo({
       behavior: 'auto',
-      top: e,
+      top: (e * this._yScrollMagnifier) - (sizePx / 2),
+    });
+  }
+
+  scrollToX(e: number) {
+    const sizePx = pctToPx(this.xSize, this._el.nativeElement.scrollWidth);
+
+    this.scrollable.scrollTo({
+      behavior: 'auto',
+      top: (e * this._xScrollMagnifier) - (sizePx / 2),
     });
   }
 

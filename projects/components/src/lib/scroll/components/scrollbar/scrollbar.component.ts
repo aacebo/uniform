@@ -108,9 +108,9 @@ export class UniScrollbarComponent {
       e.stopImmediatePropagation();
 
       if (this._isY) {
-        this.scrollTo.emit((e.currentTarget as HTMLElement).scrollTop + e.clientY);
+        this.scrollTo.emit(e.offsetY);
       } else {
-        this.scrollTo.emit((e.currentTarget as HTMLElement).scrollLeft + e.clientX);
+        this.scrollTo.emit(e.offsetX);
       }
     }
   }
