@@ -15,7 +15,7 @@ const declarations = [
 
 @NgModule({
   declarations,
-  exports: declarations,
+  exports: [UniScrollbarComponent],
   imports: [
     CommonModule,
     ScrollingModule,

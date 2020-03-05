@@ -97,6 +97,13 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
     });
   }
 
+  scrollTo(e: number) {
+    this.scrollable.scrollTo({
+      behavior: 'auto',
+      top: e,
+    });
+  }
+
   private _onResize(_: Partial<DOMRectReadOnly>) {
     this._cdr.detectChanges();
   }

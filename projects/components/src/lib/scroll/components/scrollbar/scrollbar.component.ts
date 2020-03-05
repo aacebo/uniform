@@ -46,6 +46,7 @@ export class UniScrollbarComponent {
   private _start?: number;
 
   @Output() drag = new EventEmitter<number>();
+  @Output() scrollTo = new EventEmitter<number>();
 
   dragging = false;
 
@@ -105,7 +106,12 @@ export class UniScrollbarComponent {
     if (!this.dragging) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      console.log(e.clientY);
+
+      if (this._isY) {
+        this.scrollTo.emit((e.currentTarget as HTMLElement).scrollTop + e.clientY);
+      } else {
+        this.scrollTo.emit((e.currentTarget as HTMLElement).scrollLeft + e.clientX);
+      }
     }
   }
 }
