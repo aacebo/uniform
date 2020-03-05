@@ -6,7 +6,7 @@
 </div>
 
 <uni-scrollbar-x
-  *ngIf="hasX"
+  *ngIf="hasX && !disabled"
   [thumbSize]="xSize"
   [start]="xStart"
   (drag)="scrollX($event)"
@@ -14,7 +14,7 @@
 ></uni-scrollbar-x>
 
 <uni-scrollbar-y
-  *ngIf="hasY"
+  *ngIf="hasY && !disabled"
   [thumbSize]="ySize"
   [start]="yStart"
   (drag)="scrollY($event)"

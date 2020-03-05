@@ -38,13 +38,21 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
 
   @Input()
   get mode() { return this._mode; }
-  set mode(v) {
+  set mode(v: UniScrollMode) {
     if (v) {
       this._mode = v;
       this._cdr.markForCheck();
     }
   }
   private _mode = UniScrollMode.Over;
+
+  @Input()
+  get disabled() { return this._disabled; }
+  set disabled(v: boolean) {
+    this._disabled = v;
+    this._cdr.markForCheck();
+  }
+  private _disabled?: boolean;
 
   @ViewChild(CdkScrollable)
   readonly scrollable: CdkScrollable;

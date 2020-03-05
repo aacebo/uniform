@@ -2,7 +2,7 @@
   <uni-tab label="Examples">
     <ng-template uniTabBody>
       <app-code-example title="Scroll">
-        <uni-scroll [mode]="mode" [scrollStyle]="style">
+        <uni-scroll [mode]="mode" [scrollStyle]="style" [disabled]="disabled">
           <div class="text-content">
             {{ text }}
           </div>
@@ -23,6 +23,10 @@
             <uni-option value="auto">Auto</uni-option>
           </uni-select>
         </uni-form-field>
+
+        <uni-slide-toggle [(ngModel)]="disabled">
+          {{ disabled ? 'Enable' : 'Disable' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

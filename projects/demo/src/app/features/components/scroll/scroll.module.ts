@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { UniTabModule, UniScrollModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
+import { UniTabModule, UniScrollModule, UniFormFieldModule, UniSelectModule, UniSlideToggleModule } from '@uniform/components';
 
 import { DocViewerModule } from '../../doc-viewer';
 import { CodeExampleModule } from '../../code-example';
@@ -24,6 +24,7 @@ import { ScrollRoutingModule } from './scroll-routing.module';
     UniScrollModule,
     UniFormFieldModule,
     UniSelectModule,
+    UniSlideToggleModule,
   ],
 })
 export class ScrollModule { }
