@@ -19,11 +19,11 @@
     }
 
     &.uni-scroll--y {
-      padding-right: $uni-scrollbar-size + $uni-scrollbar-margin;
+      padding-right: $uni-scrollbar-size * $uni-scrollbar-size-scalar + $uni-scrollbar-margin;
     }
 
     &.uni-scroll--x {
-      padding-bottom: $uni-scrollbar-size + $uni-scrollbar-margin;
+      padding-bottom: $uni-scrollbar-size * $uni-scrollbar-size-scalar + $uni-scrollbar-margin;
     }
   }
 

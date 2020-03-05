@@ -13,5 +13,5 @@ export class ScrollComponent {
   readonly text = faker.random.words(1000);
   readonly UniScrollMode = UniScrollMode;
 
-  mode = UniScrollMode.Over;
+  mode = UniScrollMode.Side;
 }

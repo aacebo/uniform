@@ -24,7 +24,7 @@
 
     &:hover,
     &.uni-scrollbar--dragging {
-      width: $uni-scrollbar-size * 1.5;
+      width: $uni-scrollbar-size * $uni-scrollbar-size-scalar;
     }
 
     .uni-scrollbar--thumb {
@@ -41,7 +41,7 @@
 
     &:hover,
     &.uni-scrollbar--dragging {
-      height: $uni-scrollbar-size * 1.5;
+      height: $uni-scrollbar-size * $uni-scrollbar-size-scalar;
     }
 
     .uni-scrollbar--thumb {
