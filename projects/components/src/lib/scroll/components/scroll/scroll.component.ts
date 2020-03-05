@@ -6,6 +6,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { CdkScrollable } from '@angular/cdk/overlay';
 import { takeUntil } from 'rxjs/operators';
@@ -25,6 +26,8 @@ import { UniResizeObserverService } from '../../../resize-observer';
   encapsulation: ViewEncapsulation.None,
 })
 export class UniScrollComponent extends UniSubscription implements AfterViewInit {
+  @Input() scrollStyle: ScrollBehavior = 'smooth';
+
   @ViewChild(CdkScrollable)
   readonly scrollable: CdkScrollable;
 
@@ -93,7 +96,7 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
 
     this.scrollable.scrollTo({
       behavior: 'auto',
-      top: startPx + (e * this._xScrollMagnifier),
+      left: startPx + (e * this._xScrollMagnifier),
     });
   }
 
@@ -101,7 +104,7 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
     const sizePx = pctToPx(this.ySize, this._el.nativeElement.scrollHeight);
 
     this.scrollable.scrollTo({
-      behavior: 'auto',
+      behavior: this.scrollStyle,
       top: (e * this._yScrollMagnifier) - (sizePx / 2),
     });
   }
@@ -110,8 +113,8 @@ export class UniScrollComponent extends UniSubscription implements AfterViewInit
     const sizePx = pctToPx(this.xSize, this._el.nativeElement.scrollWidth);
 
     this.scrollable.scrollTo({
-      behavior: 'auto',
-      top: (e * this._xScrollMagnifier) - (sizePx / 2),
+      behavior: this.scrollStyle,
+      left: (e * this._xScrollMagnifier) - (sizePx / 2),
     });
   }
 
