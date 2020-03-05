@@ -2,7 +2,7 @@
   <uni-tab label="Examples">
     <ng-template uniTabBody>
       <app-code-example title="Scroll">
-        <uni-scroll [mode]="mode">
+        <uni-scroll [mode]="mode" [scrollStyle]="style">
           <div class="text-content">
             {{ text }}
           </div>
@@ -13,6 +13,14 @@
           <uni-select [(ngModel)]="mode">
             <uni-option [value]="UniScrollMode.Side">Side</uni-option>
             <uni-option [value]="UniScrollMode.Over">Over</uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <uni-form-field>
+          <uni-label>Scroll Style</uni-label>
+          <uni-select [(ngModel)]="style">
+            <uni-option value="smooth">Smooth</uni-option>
+            <uni-option value="auto">Auto</uni-option>
           </uni-select>
         </uni-form-field>
       </app-code-example>

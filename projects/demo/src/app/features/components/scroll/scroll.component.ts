@@ -14,4 +14,5 @@ export class ScrollComponent {
   readonly UniScrollMode = UniScrollMode;
 
   mode = UniScrollMode.Side;
+  style = 'smooth';
 }
