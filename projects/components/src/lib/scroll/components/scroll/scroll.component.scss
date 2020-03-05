@@ -5,24 +5,18 @@
   position: relative;
   overflow: hidden;
 
-  &:hover {
-    .uni-scrollbar {
-      opacity: 1;
+  &.uni-scroll--over {
+    &:hover {
+      .uni-scrollbar {
+        opacity: 1;
+      }
     }
   }
 
-  // &.uni-scroll--over {
-  //   &:hover {
-  //     .uni-scrollbar {
-  //       opacity: 1;
-  //     }
-  //   }
-  // }
-
   &.uni-scroll--side {
-    // .uni-scrollbar {
-    //   opacity: 1;
-    // }
+    .uni-scrollbar {
+      opacity: 1;
+    }
 
     &.uni-scroll--y {
       padding-right: $uni-scrollbar-size + $uni-scrollbar-margin;
