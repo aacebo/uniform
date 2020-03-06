@@ -1,6 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniTabModule, UniCardModule, UniDialogModule, UniButtonModule } from '@uniform/components';
+import { UniTabModule, UniDialogModule, UniButtonModule } from '@uniform/components';
+
+import { CodeExampleModule } from '../../code-example';
+import { DocViewerModule } from '../../doc-viewer';
 
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DialogComponent } from './dialog.component';
@@ -12,11 +15,14 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
   entryComponents: [ExampleDialogComponent],
   imports: [
     CommonModule,
+
+    DialogRoutingModule,
+    CodeExampleModule,
+    DocViewerModule,
+
     UniTabModule,
-    UniCardModule,
     UniDialogModule,
     UniButtonModule,
-    DialogRoutingModule,
   ],
 })
 export class DialogModule { }

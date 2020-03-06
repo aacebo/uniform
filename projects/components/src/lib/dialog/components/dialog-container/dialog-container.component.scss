@@ -1,11 +1,13 @@
 @import '../../../core/styles/border-radius';
 @import '../../../core/styles/box-shadow';
+@import '../../../core/styles/animations';
 
-:host {
+.uni-dialog-container {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: var(--white);
+  background-color: var(--dark);
   border-radius: $uni-border-radius-lg;
   box-shadow: $uni-shadow-16dp;
+  animation: $uni-animation-duration $uni-animation-timing-function uniPopIn;
 }

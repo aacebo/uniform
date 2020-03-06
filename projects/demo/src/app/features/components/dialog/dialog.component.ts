@@ -7,6 +7,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {

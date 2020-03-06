@@ -8,7 +8,5 @@ import { UNI_DIALOG_DATA } from '@uniform/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleDialogComponent {
-  constructor(
-    @Inject(UNI_DIALOG_DATA) readonly data: any,
-  ) {}
+  constructor(@Inject(UNI_DIALOG_DATA) readonly data: any) {}
 }

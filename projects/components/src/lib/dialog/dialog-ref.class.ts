@@ -3,10 +3,8 @@ import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 export class UniDialogRef {
+  get closed$() { return this._closed$.asObservable(); }
   private readonly _closed$ = new Subject<void>();
-  get closed$() {
-    return this._closed$.asObservable();
-  }
 
   constructor(
     private readonly _overlayRef: OverlayRef,

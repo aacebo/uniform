@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,9 +6,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   exportAs: 'uniDialogContent',
   templateUrl: './dialog-content.component.html',
   styleUrls: ['./dialog-content.component.scss'],
-  host: {
-    class: 'uni-dialog-content',
-  },
+  host: { class: 'uni-dialog-content' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniDialogContentComponent {}
+export class UniDialogContentComponent { }

@@ -6,6 +6,7 @@ import {
   ComponentFactoryResolver,
   ViewChild,
   AfterViewInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { UNI_DIALOG_CONTENT } from '../../dialog-content.constant';
 
@@ -15,10 +16,9 @@ import { UNI_DIALOG_CONTENT } from '../../dialog-content.constant';
   exportAs: 'uniDialogContainer',
   templateUrl: './dialog-container.component.html',
   styleUrls: ['./dialog-container.component.scss'],
-  host: {
-    class: 'uni-dialog-container',
-  },
+  host: { class: 'uni-dialog-container' },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniDialogContainerComponent implements AfterViewInit {
   @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;

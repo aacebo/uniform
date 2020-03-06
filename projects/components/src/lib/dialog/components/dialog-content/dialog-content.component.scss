@@ -1,6 +1,6 @@
 @import '../../dialog';
 
-:host {
+.uni-dialog-content {
   display: block;
   padding: $uni-dialog-padding;
 }
