@@ -4,11 +4,10 @@
 @import '../core/styles/border-radius';
 
 $uni-popover-margin: 10px;
-$uni-popover-bg-color: var(--white);
-$uni-popover-color: var(--black);
-$uni-popover-title-bg-color: rgb(230, 235, 236);
+$uni-popover-bg-color: var(--dark-l20);
+$uni-popover-color: var(--white);
 
-:host {
+.uni-popover {
   font-size: 12px;
   max-width: 250px;
   padding: 15px;
@@ -20,7 +19,7 @@ $uni-popover-title-bg-color: rgb(230, 235, 236);
   transition-duration: $uni-animation-duration;
   transition-timing-function: $uni-animation-timing-function;
 
-  @include uni-arrow(var(--white), var(--white));
+  @include uni-arrow($uni-popover-bg-color, $uni-popover-bg-color);
 
   &.top, &.top-left, &.top-right {
     margin-bottom: $uni-popover-margin;

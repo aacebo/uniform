@@ -11,4 +11,4 @@ import { UniPopoverDirective } from './popover.directive';
   exports: [UniPopoverDirective],
   imports: [CommonModule, OverlayModule],
 })
-export class UniPopoverModule {}
+export class UniPopoverModule { }

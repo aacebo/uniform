@@ -1,7 +1,10 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UniTabModule, UniCardModule, UniButtonModule, UniPopoverModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniTabModule, UniButtonModule, UniPopoverModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
+
+import { CodeExampleModule } from '../../code-example';
+import { DocViewerModule } from '../../doc-viewer';
 
 import { PopoverComponent } from './popover.component';
 import { PopoverRoutingModule } from './popover-routing.module';
@@ -12,10 +15,12 @@ import { PopoverRoutingModule } from './popover-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+
     PopoverRoutingModule,
+    CodeExampleModule,
+    DocViewerModule,
+
     UniTabModule,
-    UniCardModule,
     UniButtonModule,
     UniPopoverModule,
     UniFormFieldModule,

@@ -1,6 +1,7 @@
 import { Directive, Input, OnInit, ElementRef, TemplateRef } from '@angular/core';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniPosition, getUniPosition } from '../core/position';
 import { UniTooltipComponent } from './tooltip.component';
@@ -15,12 +16,16 @@ import { UniTooltipComponent } from './tooltip.component';
 })
 export class UniTooltipDirective implements OnInit {
   @Input('uniTooltip') content: string | TemplateRef<any>;
-  @Input('uniTooltipDisabled') disabled = false;
   @Input('uniTooltipPosition') position = UniPosition.Top;
   @Input('uniTooltipPanelClass') panelClass = 'uni-tooltip-panel';
   @Input('uniTooltipOrigin') origin?: HTMLElement;
 
-  private _overlayRef: OverlayRef;
+  @Input('uniTooltipDisabled')
+  get disabled() { return this._disabled; }
+  set disabled(v: boolean) {
+    this._disabled = coerceBooleanProperty(v);
+  }
+  private _disabled = false;
 
   private get _vertical() {
     return this.position === UniPosition.Top ||
@@ -37,9 +42,11 @@ export class UniTooltipDirective implements OnInit {
                .withPositions([getUniPosition(this.position)]);
   }
 
+  private _overlayRef: OverlayRef;
+
   constructor(
     private readonly _overlay: Overlay,
-    private readonly _el: ElementRef,
+    private readonly _el: ElementRef<HTMLElement>,
   ) {}
 
   ngOnInit() {

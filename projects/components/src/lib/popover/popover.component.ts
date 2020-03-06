@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 import { UNI_POSITIONS, UniPositionBase } from '../core/position';
 
@@ -12,5 +12,6 @@ import { UNI_POSITIONS, UniPositionBase } from '../core/position';
     ...UNI_POSITIONS,
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniPopoverComponent extends UniPositionBase {}
+export class UniPopoverComponent extends UniPositionBase { }
