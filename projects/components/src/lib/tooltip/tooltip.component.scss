@@ -2,21 +2,19 @@
 @import '../core/styles/arrow';
 @import '../core/styles/border-radius';
 
-$uni-tooltip-margin: 10px;
-$uni-tooltip-bg-color: var(--black);
-$uni-tooltip-color: var(--white);
+@import './tooltip';
 
 .uni-tooltip {
   max-width: 250px;
-  overflow-wrap: break-word;
   padding: 10px;
-  border-radius: $uni-border-radius-md;
   font-size: 12px;
   font-weight: 500;
+  overflow-wrap: break-word;
+  border-radius: $uni-border-radius-md;
   background-color: $uni-tooltip-bg-color;
   color: $uni-tooltip-color;
-  transition-duration: $uni-animation-duration;
-  transition-timing-function: $uni-animation-timing-function;
+  transition: all $uni-animation-duration $uni-animation-timing-function;
+  animation: 0.05s $uni-animation-timing-function uniPopIn;
 
   @include uni-arrow(var(--black), var(--black));
 

@@ -3,9 +3,7 @@
 @import '../core/styles/box-shadow';
 @import '../core/styles/border-radius';
 
-$uni-popover-margin: 10px;
-$uni-popover-bg-color: var(--dark-l20);
-$uni-popover-color: var(--white);
+@import './popover';
 
 .uni-popover {
   font-size: 12px;
@@ -16,8 +14,8 @@ $uni-popover-color: var(--white);
   background-color: $uni-popover-bg-color;
   box-shadow: $uni-shadow-8dp;
   color: $uni-popover-color;
-  transition-duration: $uni-animation-duration;
-  transition-timing-function: $uni-animation-timing-function;
+  transition: all $uni-animation-duration $uni-animation-timing-function;
+  animation: 0.05s $uni-animation-timing-function uniPopIn;
 
   @include uni-arrow($uni-popover-bg-color, $uni-popover-bg-color);
 
