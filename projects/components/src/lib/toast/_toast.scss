@@ -1,0 +1,15 @@
+@import '../core/styles/box-shadow';
+
+@mixin uni-toast-type($color) {
+  background-color: var(--#{ $color });
+  box-shadow: $uni-shadow-4dp;
+
+  &:hover {
+    box-shadow: inset 0 0 0 3px var(--#{ $color }-l20),
+                $uni-shadow-4dp;
+  }
+
+  .uni-toast-progressbar {
+    background-color: var(--#{ $color }-l20);
+  }
+}

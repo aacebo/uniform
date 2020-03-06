@@ -1,6 +1,8 @@
 @import '../core/styles/border-radius';
 @import '../core/styles/animations';
 
+@import './toast';
+
 .uni-toast {
   visibility: hidden;
   font-size: 12pt;
@@ -30,50 +32,18 @@
   }
 
   &.info {
-    background-color: var(--primary);
-
-    &:hover {
-      box-shadow: inset 0 0 0 3px var(--primary-l20);
-    }
-
-    .uni-toast-progressbar {
-      background-color: var(--primary-l20);
-    }
+    @include uni-toast-type(primary);
   }
 
   &.success {
-    background-color: var(--success);
-
-    &:hover {
-      box-shadow: inset 0 0 0 3px var(--success-l20);
-    }
-
-    .uni-toast-progressbar {
-      background-color: var(--success-l20);
-    }
+    @include uni-toast-type(success);
   }
 
   &.warning {
-    background-color: var(--warning);
-
-    &:hover {
-      box-shadow: inset 0 0 0 3px var(--warning-l20);
-    }
-
-    .uni-toast-progressbar {
-      background-color: var(--warning-l20);
-    }
+    @include uni-toast-type(warning);
   }
 
   &.danger {
-    background-color: var(--danger);
-
-    &:hover {
-      box-shadow: inset 0 0 0 3px var(--danger-l20);
-    }
-
-    .uni-toast-progressbar {
-      background-color: var(--danger-l20);
-    }
+    @include uni-toast-type(danger);
   }
 }
