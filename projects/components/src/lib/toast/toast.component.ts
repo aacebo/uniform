@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { UNI_TOAST_OPTIONS } from './toast-options.constant';
@@ -23,6 +23,7 @@ import { UniToastRef } from './toast-ref.class';
     '(click)': 'onClick()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class UniToastComponent implements OnInit, OnDestroy {
   readonly progress$ = new BehaviorSubject(0);

@@ -1,7 +1,7 @@
 @import '../core/styles/border-radius';
-@import './toast';
+@import '../core/styles/animations';
 
-:host {
+.uni-toast {
   visibility: hidden;
   font-size: 12pt;
   color: var(--white);

@@ -5,13 +5,15 @@ import { UniToastType, UniToastPosition, UniToastService } from '@uniform/compon
   selector: 'app-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.scss'],
+  host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
-  type = UniToastType.Success;
   readonly types = Object.values(UniToastType);
-  position = UniToastPosition.TopRight;
   readonly positions = Object.values(UniToastPosition);
+
+  type = UniToastType.Success;
+  position = UniToastPosition.TopRight;
 
   constructor(private readonly _uniToastService: UniToastService) {}
 

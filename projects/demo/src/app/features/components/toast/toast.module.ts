@@ -1,7 +1,10 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UniCardModule, UniTabModule, UniButtonModule, UniToastModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniTabModule, UniButtonModule, UniToastModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
+
+import { CodeExampleModule } from '../../code-example';
+import { DocViewerModule } from '../../doc-viewer';
 
 import { ToastComponent } from './toast.component';
 import { ToastRoutingModule } from './toast-routing.module';
@@ -11,10 +14,12 @@ import { ToastRoutingModule } from './toast-routing.module';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
+
     ToastRoutingModule,
-    UniCardModule,
+    CodeExampleModule,
+    DocViewerModule,
+
     UniTabModule,
     UniButtonModule,
     UniToastModule,
