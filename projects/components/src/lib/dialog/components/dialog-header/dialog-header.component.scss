@@ -1,8 +1,13 @@
 @import '../../dialog';
 
 .uni-dialog-header {
-  display: block;
+  display: flex;
   padding-top: $uni-dialog-padding;
   padding-left: $uni-dialog-padding;
   padding-right: $uni-dialog-padding;
+
+  .uni-dialog-header-container {
+    display: flex;
+    flex: 1 1 auto;
+  }
 }

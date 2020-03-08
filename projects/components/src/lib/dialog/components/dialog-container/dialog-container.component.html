@@ -1,1 +1,8 @@
-<ng-container #vc></ng-container>
+<div
+  class="uni-dialog"
+  cdkDrag
+  cdkDragRootElement=".cdk-overlay.pane"
+  [cdkDragDisabled]="!options?.draggable"
+>
+  <ng-container #vc></ng-container>
+</div>

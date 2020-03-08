@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniTabModule, UniDialogModule, UniButtonModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniTabModule, UniDialogModule, UniButtonModule, UniSlideToggleModule } from '@uniform/components';
 
 import { CodeExampleModule } from '../../code-example';
 import { DocViewerModule } from '../../doc-viewer';
@@ -15,6 +16,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
   entryComponents: [ExampleDialogComponent],
   imports: [
     CommonModule,
+    FormsModule,
 
     DialogRoutingModule,
     CodeExampleModule,
@@ -23,6 +25,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
     UniTabModule,
     UniDialogModule,
     UniButtonModule,
+    UniSlideToggleModule,
   ],
 })
 export class DialogModule { }

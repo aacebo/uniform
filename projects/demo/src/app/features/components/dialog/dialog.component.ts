@@ -11,11 +11,14 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
-  constructor(private readonly _dialog: UniDialogService) {}
+  draggable = false;
+
+  constructor(private readonly _dialog: UniDialogService) { }
 
   onClick() {
     this._dialog.open(ExampleDialogComponent, {
       width: 500,
+      draggable: this.draggable,
       data: {
         title: 'Example Dialog',
         content: 'example dialog content...',

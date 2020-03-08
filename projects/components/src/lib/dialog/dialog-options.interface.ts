@@ -10,6 +10,7 @@ export interface IUniDialogOptions<T = any> {
   maxHeight?: string | number;
   disableClose?: boolean;
   hasBackdrop?: boolean;
+  draggable?: boolean;
   disposeOnNavigation?: boolean;
   panelClass?: string;
   backdropClass?: string;

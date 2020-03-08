@@ -4,7 +4,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
   moduleId: module.id,
   selector: 'uni-dialog-footer',
   exportAs: 'uniDialogFooter',
-  templateUrl: './dialog-footer.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./dialog-footer.component.scss'],
   host: { class: 'uni-dialog-footer' },
   changeDetection: ChangeDetectionStrategy.OnPush,

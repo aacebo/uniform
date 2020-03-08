@@ -7,6 +7,10 @@
                 (click)="onClick()">
           Open
         </button>
+
+        <uni-slide-toggle [(ngModel)]="draggable">
+          {{ draggable ? 'No Drag' : 'Drag' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

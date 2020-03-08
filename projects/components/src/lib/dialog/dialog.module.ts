@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { UniDialogContainerComponent } from './components/dialog-container/dialog-container.component';
 import { UniDialogContentComponent } from './components/dialog-content/dialog-content.component';
@@ -23,7 +24,7 @@ const declarations = [
   declarations,
   exports: declarations,
   entryComponents: [UniDialogContainerComponent],
-  imports: [CommonModule, OverlayModule],
+  imports: [CommonModule, OverlayModule, DragDropModule],
   providers: [UniDialogService],
 })
 export class UniDialogModule { }
