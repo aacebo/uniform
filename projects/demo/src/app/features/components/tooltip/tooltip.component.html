@@ -14,9 +14,14 @@
         <button uni-button
                 [uniTooltip]="position + ' tooltip'"
                 [uniTooltipPosition]="position"
+                [uniTooltipDisabled]="disabled"
                 color="primary">
           Tooltip
         </button>
+
+        <uni-slide-toggle [(ngModel)]="disabled">
+          {{ disabled ? 'Enable' : 'Disable' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

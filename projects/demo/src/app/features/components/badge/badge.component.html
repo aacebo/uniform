@@ -8,6 +8,7 @@
           [uniBadgeColor]="color"
           [uniBadgePosition]="position"
           [uniBadgeSize]="size"
+          [uniBadgeDisabled]="disabled"
           color="primary"
           (click)="count = count * 2"
         >
@@ -52,6 +53,10 @@
             >{{ cl }}</uni-option>
           </uni-select>
         </uni-form-field>
+
+        <uni-slide-toggle [(ngModel)]="disabled">
+          {{ disabled ? 'Enable' : 'Disable' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

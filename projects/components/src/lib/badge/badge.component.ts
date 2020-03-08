@@ -48,7 +48,6 @@ export class UniBadgeComponent {
   }
   private _size?: UniSize;
 
-  @Input()
   get disabled() { return this._disabled; }
   set disabled(v: boolean) {
     this._disabled = coerceBooleanProperty(v);

@@ -14,9 +14,14 @@
         <button uni-button
                 uniPopover="testing extended length popover content"
                 [uniPopoverPosition]="position"
+                [uniPopoverDisabled]="disabled"
                 color="primary">
           Popover
         </button>
+
+        <uni-slide-toggle [(ngModel)]="disabled">
+          {{ disabled ? 'Enable' : 'Disable' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

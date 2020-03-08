@@ -12,4 +12,5 @@ export class TooltipComponent {
   readonly positions = Object.values(UniPosition);
 
   position = UniPosition.Top;
+  disabled = false;
 }

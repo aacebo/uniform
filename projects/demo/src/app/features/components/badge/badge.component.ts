@@ -17,4 +17,5 @@ export class BadgeComponent {
   position = UniBadgePosition.TopRight;
   size?: UniSize;
   color = UniColor.Danger;
+  disabled = false;
 }

@@ -37,6 +37,10 @@
     }
   }
 
+  &.disabled {
+    display: none;
+  }
+
   &.small {
     font-size: .5em;
     padding: 3px 8px;
