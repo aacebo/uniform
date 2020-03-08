@@ -20,6 +20,7 @@ export class AppComponent {
         { text: 'Button', route: '/components/button' },
         { text: 'Icon', route: '/components/icon' },
         { text: 'Progress', route: '/components/progress' },
+        { text: 'Badge', route: '/components/badge' },
       ],
     },
     {

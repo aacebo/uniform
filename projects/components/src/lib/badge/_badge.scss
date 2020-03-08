@@ -1,0 +1,28 @@
+$uni-badge-size: 25px;
+$uni-badge-margin: -15px;
+
+@mixin uni-badge-positions($margin) {
+  &.top-right,
+  &.top-left {
+    top: 0;
+    margin-top: $margin;
+  }
+
+  &.bottom-right,
+  &.bottom-left {
+    bottom: 0;
+    margin-bottom: $margin;
+  }
+
+  &.top-right,
+  &.bottom-right {
+    right: 0;
+    margin-right: $margin;
+  }
+
+  &.top-left,
+  &.bottom-left {
+    left: 0;
+    margin-left: $margin;
+  }
+}

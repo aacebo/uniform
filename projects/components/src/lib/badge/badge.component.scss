@@ -1,0 +1,41 @@
+@import '../core/styles/animations';
+@import '../core/styles/box-shadow';
+@import '../core/styles/colors';
+
+@import './badge';
+
+.uni-badge {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: auto;
+  max-width: 100%;
+  box-shadow: $uni-shadow-4dp;
+  border-radius: 12px;
+  background-color: var(--grey);
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: $uni-animation-duration $uni-animation-timing-function uniPopIn;
+
+  @include uni-colors;
+  @include uni-badge-positions($uni-badge-margin);
+
+  &.small {
+    min-width: $uni-badge-size - 5px;
+    height: $uni-badge-size - 5px;
+
+    @include uni-badge-positions($uni-badge-margin + 5px);
+  }
+
+  &.large {
+    min-width: $uni-badge-size + 5px;
+    height: $uni-badge-size + 5px;
+
+    @include uni-badge-positions($uni-badge-margin - 5px);
+  }
+}

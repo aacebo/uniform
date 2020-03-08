@@ -1,0 +1,24 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Badge">
+        <button
+          uni-button
+          [uniBadge]="count"
+          uniBadgeColor="danger"
+          uniBadgePosition="top right"
+          color="primary"
+          (click)="count = count * 2"
+        >
+          Click Me!
+        </button>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="badge"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

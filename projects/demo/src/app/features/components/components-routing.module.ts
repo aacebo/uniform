@@ -89,6 +89,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./scroll/scroll.module').then(m => m.ScrollModule),
   },
+  {
+    path: 'badge',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./badge/badge.module').then(m => m.BadgeModule),
+  },
 ];
 
 @NgModule({

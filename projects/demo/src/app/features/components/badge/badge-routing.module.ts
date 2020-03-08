@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ButtonComponent } from './button.component';
+import { BadgeComponent } from './badge.component';
 
 const routes: Routes = [
-  { path: '', component: ButtonComponent },
+  { path: '', component: BadgeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ButtonRoutingModule { }
+export class BadgeRoutingModule { }
