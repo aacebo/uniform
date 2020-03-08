@@ -1,6 +1,8 @@
 $uni-badge-margin: -15px;
 
 @mixin uni-badge-positions($margin) {
+  position: absolute;
+
   &.top-right,
   &.top-left {
     top: 0;

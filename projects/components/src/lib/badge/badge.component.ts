@@ -11,7 +11,7 @@ import { UniBadgePosition } from './badge-position.enum';
   moduleId: module.id,
   exportAs: 'uniBadge',
   selector: 'uni-badge',
-  template: '{{ content }}',
+  template: '{{ content }} <ng-content></ng-content>',
   styleUrls: ['./badge.component.scss'],
   host: {
     class: 'uni-badge',
@@ -24,7 +24,7 @@ import { UniBadgePosition } from './badge-position.enum';
   encapsulation: ViewEncapsulation.None,
 })
 export class UniBadgeComponent {
-  @Input('uniBadge')
+  @Input()
   get content() { return this._content; }
   set content(v: string) {
     this._content = v;
@@ -32,7 +32,7 @@ export class UniBadgeComponent {
   }
   private _content: string;
 
-  @Input('uniBadgeColor')
+  @Input()
   get color() { return this._color; }
   set color(v: UniColor) {
     this._color = v;
@@ -40,7 +40,7 @@ export class UniBadgeComponent {
   }
   private _color?: UniColor;
 
-  @Input('uniBadgeSize')
+  @Input()
   get size() { return this._size; }
   set size(v: UniSize) {
     this._size = v;
@@ -48,21 +48,20 @@ export class UniBadgeComponent {
   }
   private _size?: UniSize;
 
-  @Input('uniBadgePosition')
-  get position() { return this._position; }
-  set position(v: UniBadgePosition) {
-    this._position = v;
-    this.cdr.markForCheck();
-  }
-  private _position = UniBadgePosition.TopRight;
-
-  @Input('uniBadgeDisabled')
+  @Input()
   get disabled() { return this._disabled; }
   set disabled(v: boolean) {
     this._disabled = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
   private _disabled?: boolean;
+
+  get position() { return this._position; }
+  set position(v: UniBadgePosition) {
+    this._position = v;
+    this.cdr.markForCheck();
+  }
+  private _position = UniBadgePosition.TopRight;
 
   constructor(
     readonly cdr: ChangeDetectorRef,

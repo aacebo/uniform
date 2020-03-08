@@ -5,12 +5,11 @@
 @import './badge';
 
 .uni-badge {
-  display: block;
+  display: inline-block;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
   width: auto;
-  max-width: 100%;
+  max-width: 50%;
   box-shadow: $uni-shadow-4dp;
   border-radius: 12px;
   background-color: var(--grey);
@@ -23,19 +22,28 @@
   animation: $uni-animation-duration $uni-animation-timing-function uniPopIn;
 
   @include uni-colors;
-  @include uni-badge-positions($uni-badge-margin);
+
+  &.anchored {
+    position: absolute;
+
+    @include uni-badge-positions($uni-badge-margin);
+
+    &.small {
+      @include uni-badge-positions($uni-badge-margin + 5px);
+    }
+
+    &.large {
+      @include uni-badge-positions($uni-badge-margin - 5px);
+    }
+  }
 
   &.small {
     font-size: .5em;
     padding: 3px 8px;
-
-    @include uni-badge-positions($uni-badge-margin + 5px);
   }
 
   &.large {
     font-size: 1em;
     padding: 5px 11px;
-
-    @include uni-badge-positions($uni-badge-margin - 5px);
   }
 }

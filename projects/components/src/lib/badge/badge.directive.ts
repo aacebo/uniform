@@ -88,6 +88,7 @@ export class UniBadgeDirective implements OnInit {
 
     const portal = new ComponentPortal(UniBadgeComponent);
     this._badgeRef = outlet.attach(portal);
+    this.badge.el.nativeElement.classList.add('anchored');
     this._update();
   }
 
