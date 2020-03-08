@@ -5,13 +5,44 @@
         <button
           uni-button
           [uniBadge]="count"
-          uniBadgeColor="danger"
-          uniBadgePosition="top right"
+          [uniBadgeColor]="color"
+          [uniBadgePosition]="position"
+          [uniBadgeSize]="size"
           color="primary"
           (click)="count = count * 2"
         >
           Click Me!
         </button>
+
+        <uni-form-field>
+          <uni-label>Position</uni-label>
+          <uni-select [(ngModel)]="position">
+            <uni-option
+              *ngFor="let pos of positions"
+              [value]="pos"
+            >{{ pos }}</uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <uni-form-field>
+          <uni-label>Size</uni-label>
+          <uni-select [(ngModel)]="size">
+            <uni-option
+              *ngFor="let sz of sizes"
+              [value]="sz"
+            >{{ sz }}</uni-option>
+          </uni-select>
+        </uni-form-field>
+
+        <uni-form-field>
+          <uni-label>Color</uni-label>
+          <uni-select [(ngModel)]="color">
+            <uni-option
+              *ngFor="let cl of colors"
+              [value]="cl"
+            >{{ cl }}</uni-option>
+          </uni-select>
+        </uni-form-field>
       </app-code-example>
     </ng-template>
   </uni-tab>

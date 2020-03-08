@@ -26,15 +26,15 @@
   @include uni-badge-positions($uni-badge-margin);
 
   &.small {
-    min-width: $uni-badge-size - 5px;
-    height: $uni-badge-size - 5px;
+    font-size: .5em;
+    padding: 3px 8px;
 
     @include uni-badge-positions($uni-badge-margin + 5px);
   }
 
   &.large {
-    min-width: $uni-badge-size + 5px;
-    height: $uni-badge-size + 5px;
+    font-size: 1em;
+    padding: 5px 11px;
 
     @include uni-badge-positions($uni-badge-margin - 5px);
   }

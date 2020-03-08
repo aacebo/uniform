@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UniButtonModule, UniIconModule, UniTabModule, UniBadgeModule } from '@uniform/components';
+import { FormsModule } from '@angular/forms';
+import { UniButtonModule, UniIconModule, UniTabModule, UniBadgeModule, UniFormFieldModule, UniSelectModule } from '@uniform/components';
 
 import { DocViewerModule } from '../../doc-viewer';
 import { CodeExampleModule } from '../../code-example';
@@ -13,6 +14,8 @@ import { BadgeRoutingModule } from './badge-routing.module';
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
+    FormsModule,
+
     BadgeRoutingModule,
     DocViewerModule,
     CodeExampleModule,
@@ -21,6 +24,8 @@ import { BadgeRoutingModule } from './badge-routing.module';
     UniIconModule,
     UniTabModule,
     UniBadgeModule,
+    UniFormFieldModule,
+    UniSelectModule,
   ],
 })
 export class BadgeModule { }
