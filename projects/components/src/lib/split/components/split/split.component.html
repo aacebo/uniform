@@ -5,6 +5,7 @@
   [class.uni-split-handle--vertical]="!vertical"
   [class.uni-split-handle--horizontal]="vertical"
   [uniDraggable]="vertical ? 'horizontal' : 'vertical'"
+  [uniDraggableDisabled]="disabled"
   (uniDraggableDrag)="onDrag($event)"
 ></div>
 

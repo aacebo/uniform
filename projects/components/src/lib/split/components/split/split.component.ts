@@ -1,9 +1,19 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, ContentChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  ElementRef,
+  ContentChildren,
+  QueryList,
+  Input,
+  ChangeDetectorRef,
+} from '@angular/core';
 
 import { UniSubscription } from '../../../core/classes';
 import { pxToPct } from '../../../core/utils';
 
 import { UniSplitAreaComponent } from '../area/split-area.component';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   moduleId: module.id,
@@ -16,6 +26,14 @@ import { UniSplitAreaComponent } from '../area/split-area.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class UniSplitComponent extends UniSubscription {
+  @Input()
+  get disabled() { return this._disabled; }
+  set disabled(v: boolean) {
+    this._disabled = coerceBooleanProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _disabled?: boolean;
+
   @ContentChildren(UniSplitAreaComponent)
   get areas() { return this._areas; }
   set areas(v: QueryList<UniSplitAreaComponent>) {
@@ -41,7 +59,10 @@ export class UniSplitComponent extends UniSubscription {
     return this.el.nativeElement.nodeName.toLowerCase();
   }
 
-  constructor(readonly el: ElementRef<HTMLElement>) {
+  constructor(
+    readonly el: ElementRef<HTMLElement>,
+    private readonly _cdr: ChangeDetectorRef,
+  ) {
     super();
     this.el.nativeElement.classList.add(this._name);
   }
