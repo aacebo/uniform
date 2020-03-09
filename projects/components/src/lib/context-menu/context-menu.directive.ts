@@ -79,8 +79,8 @@ export class UniContextMenuDirective implements OnInit {
                         .withPositions([{
                           originX: 'center',
                           originY: 'center',
-                          overlayX: 'center',
-                          overlayY: 'center',
+                          overlayX: 'start',
+                          overlayY: 'top',
                         }]);
   }
 }
