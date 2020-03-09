@@ -94,6 +94,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./badge/badge.module').then(m => m.BadgeModule),
   },
+  {
+    path: 'context-menu',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./context-menu/context-menu.module').then(m => m.ContextMenuModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Context Menu">
+        <div
+          class="context-menu-example"
+          [uniContextMenu]="ctxMenuTpl"
+        ></div>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="context-menu"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>
+
+<ng-template #ctxMenuTpl>
+  test
+</ng-template>

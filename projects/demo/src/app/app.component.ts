@@ -56,6 +56,7 @@ export class AppComponent {
         { text: 'Popover', route: '/components/popover' },
         { text: 'Toast', route: '/components/toast' },
         { text: 'Dialog', route: '/components/dialog' },
+        { text: 'Context Menu', route: '/components/context-menu' },
       ],
     },
     {
