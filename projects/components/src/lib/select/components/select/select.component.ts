@@ -16,8 +16,7 @@ import { BehaviorSubject, merge, Observable } from 'rxjs';
 import { mergeMap, startWith, takeUntil } from 'rxjs/operators';
 
 import { UniFormFieldControlBase, uniFormFieldProvider } from '../../../form-field';
-import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
-import { UniOptionComponent } from '../option/option.component';
+import { UniOptionComponent, IUniOptionSelectedEvent } from '../../../core/option';
 import { UniSelectPanelComponent } from '../select-panel/select-panel.component';
 
 @Component({

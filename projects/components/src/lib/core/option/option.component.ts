@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef, ViewEncapsulation } from '@angular/core';
 
-import { UniColor } from '../../../core/enums';
-import { UNI_HOST_COLORS } from '../../../core/constants';
+import { UniColor } from '../enums';
+import { UNI_HOST_COLORS } from '../constants';
 
-import { IUniOptionSelectedEvent } from '../../interfaces/option-selected-event.interface';
+import { IUniOptionSelectedEvent } from './option-selected-event.interface';
 
 @Component({
   moduleId: module.id,

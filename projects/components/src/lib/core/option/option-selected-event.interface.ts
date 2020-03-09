@@ -1,4 +1,4 @@
-import { UniOptionComponent } from '../components/option/option.component';
+import { UniOptionComponent } from './option.component';
 
 export interface IUniOptionSelectedEvent {
   source: UniOptionComponent;

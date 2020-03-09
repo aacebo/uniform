@@ -1,7 +1,10 @@
-import { Directive, Input, OnInit, TemplateRef } from '@angular/core';
+import { Directive, Input, OnInit, TemplateRef, Injector } from '@angular/core';
 import { OverlayRef, Overlay, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { takeUntil } from 'rxjs/operators';
+
+import { UniSubscription } from '../core/classes';
 
 import { UniContextMenuComponent } from './context-menu.component';
 
@@ -12,7 +15,7 @@ import { UniContextMenuComponent } from './context-menu.component';
     '(contextmenu)': 'onRightClick($event)',
   },
 })
-export class UniContextMenuDirective implements OnInit {
+export class UniContextMenuDirective extends UniSubscription implements OnInit {
   @Input('uniContextMenu') content: TemplateRef<any>;
   @Input('uniContextMenuPanelClass') panelClass = 'uni-context-menu-panel';
   @Input('uniContextMenuBackdropClass') backdropClass = 'cdk-overlay-transparent-backdrop';
@@ -33,7 +36,10 @@ export class UniContextMenuDirective implements OnInit {
 
   private _overlayRef: OverlayRef;
 
-  constructor(private readonly _overlay: Overlay) { }
+  constructor(
+    private readonly _overlay: Overlay,
+    private readonly _injector: Injector,
+  ) { super(); }
 
   ngOnInit() {
     this._overlayRef = this._overlay.create({
@@ -61,9 +67,12 @@ export class UniContextMenuDirective implements OnInit {
   private _show(positionStrategy: FlexibleConnectedPositionStrategy) {
     if (!this.disabled && !this._overlayRef.hasAttached()) {
       this._overlayRef.updatePositionStrategy(positionStrategy);
-      const portal = new ComponentPortal(UniContextMenuComponent);
+      const portal = new ComponentPortal(UniContextMenuComponent, undefined, this._injector);
       const ref = this._overlayRef.attach(portal);
       ref.instance.content = this.content;
+      ref.instance.clicked$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+        this._hide();
+      });
     }
   }
 
