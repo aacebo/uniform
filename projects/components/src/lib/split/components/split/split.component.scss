@@ -1,3 +1,5 @@
+@import '../../split';
+
 .uni-split {
   display: flex;
   flex: 1 1 auto;
@@ -8,5 +10,28 @@
 
   &.uni-horizontal-split {
     flex-direction: column;
+  }
+
+  .uni-split-handle {
+    order: 1;
+    transition: background-color 0.5s ease;
+    background-color: var(--dark);
+
+    &:hover,
+    &.uni-split-handle--resizing {
+      background-color: var(--primary);
+    }
+
+    &.uni-split-handle--horizontal {
+      width: $uni-split-handle-size;
+      min-width: $uni-split-handle-size;
+      cursor: col-resize;
+    }
+
+    &.uni-split-handle--vertical {
+      height: $uni-split-handle-size;
+      min-height: $uni-split-handle-size;
+      cursor: row-resize;
+    }
   }
 }

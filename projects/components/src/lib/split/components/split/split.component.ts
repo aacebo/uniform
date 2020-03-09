@@ -1,12 +1,9 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, ContentChildren, QueryList, ContentChild } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, ContentChildren, QueryList } from '@angular/core';
 
 import { UniSubscription } from '../../../core/classes';
 import { pxToPct } from '../../../core/utils';
-import { UniDraggableDirection } from '../../../draggable';
 
 import { UniSplitAreaComponent } from '../area/split-area.component';
-import { UniSplitHandleComponent } from '../handle/split-handle.component';
 
 @Component({
   moduleId: module.id,
@@ -36,39 +33,27 @@ export class UniSplitComponent extends UniSubscription {
   }
   private _areas: QueryList<UniSplitAreaComponent>;
 
-  @ContentChild(UniSplitHandleComponent)
-  get handle() { return this._handle; }
-  set handle(v: UniSplitHandleComponent) {
-    if (v) {
-      this._handle = v;
-      this._handle.direction = this._vertical ? UniDraggableDirection.Horizontal :
-                                                UniDraggableDirection.Vertical;
-      this._handle.drag.pipe(takeUntil(this.destroy$)).subscribe(this._onResize.bind(this));
-    }
-  }
-  private _handle: UniSplitHandleComponent;
-
-  private get _name() {
-    return this._el.nativeElement.nodeName.toLowerCase();
-  }
-
-  private get _vertical() {
+  get vertical() {
     return this._name === 'uni-vertical-split';
   }
 
-  constructor(private readonly _el: ElementRef<HTMLElement>) {
-    super();
-    this._el.nativeElement.classList.add(this._name);
+  private get _name() {
+    return this.el.nativeElement.nodeName.toLowerCase();
   }
 
-  private _onResize(distance: number) {
+  constructor(readonly el: ElementRef<HTMLElement>) {
+    super();
+    this.el.nativeElement.classList.add(this._name);
+  }
+
+  onDrag(e: number) {
     if (this._areas) {
       let pct: number;
 
-      if (this._vertical) {
-        pct = pxToPct(this._areas.first.clientWidth + distance, this._el.nativeElement.clientWidth);
+      if (this.vertical) {
+        pct = pxToPct(this._areas.first.clientWidth + e, this.el.nativeElement.clientWidth);
       } else {
-        pct = pxToPct(this._areas.first.clientHeight + distance, this._el.nativeElement.clientHeight);
+        pct = pxToPct(this._areas.first.clientHeight + e, this.el.nativeElement.clientHeight);
       }
 
       this._areas.first.flex = `0 0 ${ pct <= 100 ? pct : 100 }%`;

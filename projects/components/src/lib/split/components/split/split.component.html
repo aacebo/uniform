@@ -1,4 +1,12 @@
 <ng-content select="uni-split-area"></ng-content>
-<ng-content select="uni-split-handle"></ng-content>
+
+<div
+  class="uni-split-handle"
+  [class.uni-split-handle--vertical]="!vertical"
+  [class.uni-split-handle--horizontal]="vertical"
+  [uniDraggable]="vertical ? 'horizontal' : 'vertical'"
+  (uniDraggableDrag)="onDrag($event)"
+></div>
+
 <ng-content select="uni-split-area"></ng-content>
 <ng-content select="uni-split"></ng-content>
