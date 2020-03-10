@@ -1,0 +1,49 @@
+<div class="uni-json-tree--content">
+  <div class="uni-json-tree--nodes">
+    <div
+      *ngFor="let node of nodes"
+      class="uni-json-tree--node"
+      [ngClass]="'uni-json-tree--node-type-' + node.type"
+      [class.expandable]="node.expandable"
+      [class.expanded]="node.expanded"
+    >
+      <div
+        class="uni-json-tree--node-key-container"
+        (click)="toggle($event, node)"
+      >
+        <div
+          *ngIf="node.expandable"
+          class="uni-json-tree--node-toggler"
+        ></div>
+
+        <div
+          class="uni-json-tree--node-key"
+        >
+          {{ node.key }}
+        </div>
+
+        <div class="uni-json-tree--node-separator">
+          :
+        </div>
+      </div>
+
+      <div
+        *ngIf="!node.expanded || !node.expandable"
+        class="uni-json-tree--node-value"
+        (click)="propertyValueClicked.emit(node)"
+      >{{ node.description }}</div>
+
+      <div
+        *ngIf="node.expanded && node.expandable"
+        class="uni-json-tree--node-children"
+      >
+        <uni-json-tree
+          [json]="node.value"
+          [deep]="deep"
+          [expanded]="node.expanded"
+          (propertyValueClicked)="propertyValueClicked.emit($event)"
+        ></uni-json-tree>
+      </div>
+    </div>
+  </div>
+</div>

@@ -99,6 +99,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./context-menu/context-menu.module').then(m => m.ContextMenuModule),
   },
+  {
+    path: 'json-tree',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./json-tree/json-tree.module').then(m => m.JsonTreeModule),
+  },
 ];
 
 @NgModule({

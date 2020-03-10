@@ -66,6 +66,7 @@ export class AppComponent {
       routes: [
         { text: 'Marked', route: '/components/marked' },
         { text: 'Code', route: '/components/code' },
+        { text: 'Json Tree', route: '/components/json-tree' },
       ],
     },
   ];

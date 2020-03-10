@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IconComponent } from './icon.component';
+import { JsonTreeComponent } from './json-tree.component';
 
 const routes: Routes = [
-  { path: '', component: IconComponent },
+  { path: '', component: JsonTreeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class IconRoutingModule { }
+export class JsonTreeRoutingModule {}

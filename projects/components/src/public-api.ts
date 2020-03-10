@@ -36,9 +36,10 @@ export * from './lib/button';
 export * from './lib/progress';
 export * from './lib/badge';
 
-// external
+// code
 export * from './lib/marked';
 export * from './lib/code';
+export * from './lib/json-tree';
 
 // misc
 export * from './lib/resize-observer';

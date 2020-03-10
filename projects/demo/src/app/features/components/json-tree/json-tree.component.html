@@ -1,0 +1,15 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Json Tree">
+        <uni-json-tree [json]="json"></uni-json-tree>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="json-tree"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

@@ -1,4 +1,4 @@
-import { Directive, OnInit, Input, ElementRef, TemplateRef } from '@angular/core';
+import { Directive, OnInit, Input, ElementRef, TemplateRef, Injector } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -58,6 +58,7 @@ export class UniPopoverDirective implements OnInit {
   constructor(
     private readonly _overlay: Overlay,
     private readonly _el: ElementRef<HTMLElement>,
+    private readonly _injector: Injector,
   ) {}
 
   ngOnInit() {
@@ -98,7 +99,7 @@ export class UniPopoverDirective implements OnInit {
   private _show() {
     if (!this.disabled && !this._overlayRef.hasAttached()) {
       this._overlayRef.updatePositionStrategy(this._positionStrategy);
-      const portal = new ComponentPortal(UniPopoverComponent);
+      const portal = new ComponentPortal(UniPopoverComponent, undefined, this._injector);
       const ref = this._overlayRef.attach(portal);
       ref.instance.content = this.content;
       ref.instance.position = this.position;
