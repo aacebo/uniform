@@ -44,3 +44,4 @@ export * from './lib/json-tree';
 // misc
 export * from './lib/resize-observer';
 export * from './lib/draggable';
+export * from './lib/hotkey';
