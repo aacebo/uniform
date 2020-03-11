@@ -1,8 +1,7 @@
 <app-sidenav [items]="sidenavItems"
-             [open]="toggle$ | async"
-             (backdropClicked)="toggle$.next(false)">
-  <app-toolbar title="/components/button"
-               (toggle)="toggle$.next(!toggle$.value)">
+             [(open)]="open"
+             (backdropClicked)="open = false">
+  <app-toolbar (toggle)="open = !open">
   </app-toolbar>
 
   <div class="content">

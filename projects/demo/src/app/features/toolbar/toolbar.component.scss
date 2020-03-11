@@ -10,29 +10,29 @@
   .uni-toolbar-spacer {
     flex: 1 1 auto;
   }
+}
 
-  .info {
+.info {
+  display: flex;
+  flex-direction: row;
+
+  .labels {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
-    .labels {
-      display: flex;
-      flex-direction: column;
-
-      .label {
-        font-size: 14pt;
-        font-weight: 550;
-        margin-right: 5px;
-      }
+    .label {
+      font-size: 14pt;
+      font-weight: 550;
+      margin-right: 5px;
     }
+  }
 
-    .values {
-      display: flex;
-      flex-direction: column;
+  .values {
+    display: flex;
+    flex-direction: column;
 
-      .value {
-        font-size: 14pt;
-      }
+    .value {
+      font-size: 14pt;
     }
   }
 }

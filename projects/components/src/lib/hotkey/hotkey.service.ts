@@ -1,99 +1,57 @@
-import { NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import Mousetrap from 'mousetrap';
-
-import { UniInit } from '../core/classes';
 
 import { IUniHotkey } from './hotkey.interface';
 
+const mousetrap = Mousetrap;
+
+@Injectable()
 export class UniHotkeyService {
-  private static _instance: UniHotkeyService;
-  static get instance() {
-    if (!this._instance) {
-      this._instance = new UniHotkeyService();
-    }
-
-    return this._instance;
-  }
-
   get hotkeys() { return this._hotkeys; }
   private readonly _hotkeys: { [keys: string]: IUniHotkey } = { };
 
   get combinations() { return Object.keys(this._hotkeys); }
   get entities() { return Object.values(this._hotkeys); }
 
-  private readonly _mousetrap = Mousetrap(document as never as Element);
+  private readonly _mousetrap = mousetrap(document as never as Element);
 
-  private constructor() {
+  constructor(private readonly _zone: NgZone) {
     this._mousetrap.stopCallback = (..._: any) => {
       return false;
     };
   }
 
-  register(
+  add(
     comb: string,
     description: string,
-    cb: () => void,
-    zone: NgZone,
-    ctx: string,
+    cb: (hotkey: IUniHotkey) => void,
   ) {
     this._hotkeys[comb] = {
       comb,
       keys: comb.split('+'),
       description,
-      ctx,
       cb,
     };
 
-    this._mousetrap.bind(comb, () => {
+    this._mousetrap.bind(comb, e => {
       if (!this._hotkeys[comb].disabled) {
-        zone.run(() => cb());
+        e.preventDefault();
+        this._zone.run(() => cb(this._hotkeys[comb]));
       }
     });
   }
 
-  deregister(keys: string) {
-    this._hotkeys[keys] = undefined;
-    delete this._hotkeys[keys];
-    this._mousetrap.unbind(keys);
+  remove(comb: string) {
+    this._hotkeys[comb] = undefined;
+    delete this._hotkeys[comb];
+    this._mousetrap.unbind(comb);
   }
 
-  pause(target: Partial<UniInit>) {
-    const ctx = target.constructor.name;
-
-    for (const comb of this.combinations) {
-      if (ctx === this._hotkeys[comb].ctx) {
-        this._hotkeys[comb].disabled = true;
-      }
-    }
+  disable(comb: string) {
+    this._hotkeys[comb].disabled = true;
   }
 
-  unpause(target: Partial<UniInit>) {
-    const ctx = target.constructor.name;
-
-    for (const comb of this.combinations) {
-      if (ctx === this._hotkeys[comb].ctx) {
-        this._hotkeys[comb].disabled = false;
-      }
-    }
-  }
-
-  pauseOthers(target: Partial<UniInit>) {
-    const ctx = target.constructor.name;
-
-    for (const comb of this.combinations) {
-      if (ctx !== this._hotkeys[comb].ctx) {
-        this._hotkeys[comb].disabled = true;
-      }
-    }
-  }
-
-  unpauseOthers(target: Partial<UniInit>) {
-    const ctx = target.constructor.name;
-
-    for (const comb of this.combinations) {
-      if (ctx !== this._hotkeys[comb].ctx) {
-        this._hotkeys[comb].disabled = false;
-      }
-    }
+  enable(comb: string) {
+    this._hotkeys[comb].disabled = false;
   }
 }

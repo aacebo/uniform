@@ -7,6 +7,7 @@ export * from './lib/core/enums';
 export * from './lib/core/constants';
 export * from './lib/core/position';
 export * from './lib/core/option';
+export * from './lib/core/classes';
 
 // overlays
 export * from './lib/tooltip';

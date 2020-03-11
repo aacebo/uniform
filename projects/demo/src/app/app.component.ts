@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 import { ISidenavItem } from './features/sidenav';
 
@@ -10,7 +9,8 @@ import { ISidenavItem } from './features/sidenav';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  readonly toggle$ = new BehaviorSubject(true);
+  open = true;
+
   readonly sidenavItems: ISidenavItem[] = [
     {
       text: 'Buttons/Indicators',

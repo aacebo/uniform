@@ -9,7 +9,15 @@ import { ToolbarService } from './toolbar.service';
   declarations: [ToolbarComponent],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [ToolbarComponent],
-  imports: [CommonModule, UniToolbarModule, UniButtonModule, UniIconModule, UniTooltipModule, UniPopoverModule],
   providers: [ToolbarService],
+  imports: [
+    CommonModule,
+
+    UniToolbarModule,
+    UniButtonModule,
+    UniIconModule,
+    UniTooltipModule,
+    UniPopoverModule,
+  ],
 })
-export class ToolbarModule {}
+export class ToolbarModule { }
