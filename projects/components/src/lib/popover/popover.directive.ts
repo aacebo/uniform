@@ -19,10 +19,17 @@ import { UniPopoverTrigger } from './popover-trigger.enum';
 export class UniPopoverDirective implements OnInit {
   @Input('uniPopover') content: string | TemplateRef<any>;
   @Input('uniPopoverPosition') position = UniPosition.Top;
-  @Input('uniPopoverTrigger') trigger = UniPopoverTrigger.Click;
   @Input('uniPopoverPanelClass') panelClass = 'uni-popover-panel';
   @Input('uniPopoverBackdropClass') backdropClass = 'cdk-overlay-transparent-backdrop';
   @Input('uniPopoverOrigin') origin?: HTMLElement;
+
+  @Input('uniPopoverTrigger')
+  get trigger() { return this._trigger; }
+  set trigger(v: UniPopoverTrigger) {
+    this._trigger = v;
+    this._createOverlay();
+  }
+  private _trigger = UniPopoverTrigger.Click;
 
   @Input('uniPopoverDisabled')
   get disabled() { return this._disabled; }
@@ -59,19 +66,10 @@ export class UniPopoverDirective implements OnInit {
     private readonly _overlay: Overlay,
     private readonly _el: ElementRef<HTMLElement>,
     private readonly _injector: Injector,
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this._overlayRef = this._overlay.create({
-      positionStrategy: this._positionStrategy,
-      panelClass: this.panelClass,
-      hasBackdrop: this.hasBackdrop,
-      backdropClass: this.backdropClass,
-    });
-
-    this._overlayRef.backdropClick().subscribe(() => {
-      this._hide();
-    });
+    this._createOverlay();
   }
 
   onMouseEnter() {
@@ -108,5 +106,18 @@ export class UniPopoverDirective implements OnInit {
 
   private _hide() {
     this._overlayRef.detach();
+  }
+
+  private _createOverlay() {
+    this._overlayRef = this._overlay.create({
+      positionStrategy: this._positionStrategy,
+      panelClass: this.panelClass,
+      hasBackdrop: this.trigger === UniPopoverTrigger.Click ? this.hasBackdrop : false,
+      backdropClass: this.backdropClass,
+    });
+
+    this._overlayRef.backdropClick().subscribe(() => {
+      this._hide();
+    });
   }
 }

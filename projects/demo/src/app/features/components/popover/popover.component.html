@@ -11,10 +11,20 @@
           </uni-select>
         </uni-form-field>
 
+        <uni-form-field color="primary">
+          <uni-select placeholder="Trigger..."
+                      [(ngModel)]="trigger">
+            <uni-option *ngFor="let trig of triggers">
+              {{ trig }}
+            </uni-option>
+          </uni-select>
+        </uni-form-field>
+
         <button uni-button
                 uniPopover="testing extended length popover content"
                 [uniPopoverPosition]="position"
                 [uniPopoverDisabled]="disabled"
+                [uniPopoverTrigger]="trigger"
                 color="primary">
           Popover
         </button>
