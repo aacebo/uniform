@@ -30,6 +30,7 @@ export * from './lib/toolbar';
 export * from './lib/sidenav';
 export * from './lib/split';
 export * from './lib/scroll';
+export * from './lib/grid';
 
 // indicators
 export * from './lib/icon';

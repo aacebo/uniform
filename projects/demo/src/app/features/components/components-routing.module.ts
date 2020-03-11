@@ -104,6 +104,11 @@ const routes: Routes = [
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./json-tree/json-tree.module').then(m => m.JsonTreeModule),
   },
+  {
+    path: 'grid',
+    resolve: { title: AppRoutingResolver },
+    loadChildren: () => import('./grid/grid.module').then(m => m.GridModule),
+  },
 ];
 
 @NgModule({

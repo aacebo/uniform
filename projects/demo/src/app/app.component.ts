@@ -34,6 +34,7 @@ export class AppComponent {
         { text: 'Tab', route: '/components/tab' },
         { text: 'Split', route: '/components/split' },
         { text: 'Scroll', route: '/components/scroll' },
+        { text: 'Grid', route: '/components/grid' },
       ],
     },
     {

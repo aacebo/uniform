@@ -2,7 +2,8 @@
   .root {
     height: 300px;
 
-    uni-split-area {
+    uni-grid-cell {
+      margin: 5px;
       background-color: var(--darker);
     }
   }

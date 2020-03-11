@@ -12,7 +12,7 @@ import {
 import { UniSubscription } from '../../../core/classes';
 import { pxToPct } from '../../../core/utils';
 
-import { UniSplitAreaComponent } from '../area/split-area.component';
+import { UniSplitAreaComponent } from '../split-area/split-area.component';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({

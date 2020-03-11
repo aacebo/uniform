@@ -1,0 +1,24 @@
+<uni-tab-group color="primary">
+  <uni-tab label="Examples">
+    <ng-template uniTabBody>
+      <app-code-example title="Grid">
+        <uni-grid-row class="root">
+          <uni-grid-cell>1</uni-grid-cell>
+          <uni-grid-column>
+            <uni-grid-cell>2</uni-grid-cell>
+            <uni-grid-row>
+              <uni-grid-cell>3</uni-grid-cell>
+              <uni-grid-cell>4</uni-grid-cell>
+            </uni-grid-row>
+          </uni-grid-column>
+        </uni-grid-row>
+      </app-code-example>
+    </ng-template>
+  </uni-tab>
+
+  <uni-tab label="API">
+    <ng-template uniTabBody>
+      <app-doc-viewer component="grid"></app-doc-viewer>
+    </ng-template>
+  </uni-tab>
+</uni-tab-group>

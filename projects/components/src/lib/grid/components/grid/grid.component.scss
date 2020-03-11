@@ -1,0 +1,11 @@
+.uni-grid {
+  display: flex;
+
+  &.uni-grid-row {
+    flex-direction: row;
+  }
+
+  &.uni-grid-column {
+    flex-direction: column;
+  }
+}
