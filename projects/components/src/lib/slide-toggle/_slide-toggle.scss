@@ -1,0 +1,13 @@
+@mixin uni-slide-toggle-color($color) {
+  &.#{ $color } {
+    .uni-slide-toggle--checkbox {
+      &:checked + .uni-slide-toggle--slider {
+        background-color: var(--#{ $color });
+
+        &:before {
+          background-color: var(--#{ $color });
+        }
+      }
+    }
+  }
+}

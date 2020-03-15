@@ -1,8 +1,14 @@
 @import '../core/styles/box-shadow';
+@import './slide-toggle';
 
 .uni-slide-toggle {
   display: inline-flex;
   cursor: pointer;
+
+  @include uni-slide-toggle-color(primary);
+  @include uni-slide-toggle-color(success);
+  @include uni-slide-toggle-color(warning);
+  @include uni-slide-toggle-color(danger);
 
   &.disabled {
     opacity: 0.7;
@@ -30,11 +36,9 @@
       display: none;
 
       &:checked + .uni-slide-toggle--slider {
-        background-color: var(--primary);
 
         &:before {
           transform: translateX(23px);
-          background-color: var(--primary);
         }
       }
     }
