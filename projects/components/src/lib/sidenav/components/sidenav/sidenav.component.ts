@@ -13,6 +13,7 @@ import {
   ViewContainerRef,
   ViewChild,
   AfterViewInit,
+  ViewRef,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -125,9 +126,14 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
 
       if (this.view) {
         if (prev === UniSidenavState.Closed && this._state === UniSidenavState.Opening) {
-          this.view.createEmbeddedView(this.body.template);
+          if (this._viewRef) {
+            this._viewRef.reattach();
+            this.view.insert(this._viewRef);
+          } else {
+            this._viewRef = this.view.createEmbeddedView(this.body.template);
+          }
         } else if (this._state === UniSidenavState.Closed) {
-          this.view.remove();
+          this.view.detach(this.view.indexOf(this._viewRef));
         }
       }
 
@@ -141,14 +147,16 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
   readonly UniSidenavMode = UniSidenavMode;
   readonly UniSidenavState = UniSidenavState;
 
+  private _viewRef?: ViewRef;
+
   constructor(
     readonly el: ElementRef<HTMLElement>,
     readonly cdr: ChangeDetectorRef,
   ) { }
 
   ngAfterViewInit() {
-    if (this.open) {
-      this.view.createEmbeddedView(this.body.template);
+    if (this.open && !this._viewRef) {
+      this._viewRef = this.view.createEmbeddedView(this.body.template);
     }
   }
 
