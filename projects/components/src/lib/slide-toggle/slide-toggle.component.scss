@@ -28,7 +28,7 @@
 
   .uni-slide-toggle--switch {
     position: relative;
-    width: 45px;
+    width: 40px;
     height: 12px;
     margin: 2px 0 0 0;
 
@@ -38,7 +38,7 @@
       &:checked + .uni-slide-toggle--slider {
 
         &:before {
-          transform: translateX(23px);
+          transform: translateX(18px);
         }
       }
     }
