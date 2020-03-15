@@ -34,7 +34,7 @@
   }
 
   &.uni-button {
-    @include uni-colors();
+    @include uni-colors;
 
     background-color: var(--grey);
   }
@@ -94,15 +94,6 @@
     border-radius: 100%;
     padding: 0;
     background-color: transparent;
-    opacity: 0.7;
-
-    &:hover {
-      opacity: 1;
-
-      &:disabled {
-        opacity: 0.6;
-      }
-    }
 
     @include uni-icon-button(--white);
 
