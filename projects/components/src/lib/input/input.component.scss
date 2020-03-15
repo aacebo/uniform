@@ -10,4 +10,5 @@
   font: inherit;
   color: var(--white);
   transition: opacity $uni-animation-duration $uni-animation-timing-function;
+  resize: none;
 }
