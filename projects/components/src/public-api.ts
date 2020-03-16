@@ -3,11 +3,12 @@
  */
 
 // core
-export * from './lib/core/enums/color.enum';
-export * from './lib/core/enums/size.enum';
+export * from './lib/core/color/color.enum';
+export * from './lib/core/color/color.util';
+export * from './lib/core/color/colors.constant';
 
-export * from './lib/core/constants/colors.constant';
-export * from './lib/core/constants/sizes.constant';
+export * from './lib/core/size/size.enum';
+export * from './lib/core/size/sizes.constant';
 
 export * from './lib/core/position/position.enum';
 export * from './lib/core/position/position-base.class';

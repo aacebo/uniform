@@ -3,7 +3,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { getUniPosition } from '../core/position/position.util';
+import { uniPosition } from '../core/position/position.util';
 import { UniPosition } from '../core/position/position.enum';
 
 import { UniPopoverComponent } from './popover.component';
@@ -59,7 +59,7 @@ export class UniPopoverDirective implements OnInit {
                .withFlexibleDimensions(false)
                .withPush(this._vertical ? true : false)
                .withViewportMargin(8)
-               .withPositions([getUniPosition(this.position)]);
+               .withPositions([uniPosition(this.position)]);
   }
 
   private _overlayRef: OverlayRef;

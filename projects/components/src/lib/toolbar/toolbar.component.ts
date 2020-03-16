@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 
-import { UniColor } from '../core/enums/color.enum';
-import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
+import { UniColor } from '../core/color/color.enum';
+import { UNI_COLORS } from '../core/color/colors.constant';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +11,7 @@ import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
   styleUrls: ['./toolbar.component.scss'],
   host: {
     class: 'uni-toolbar',
-    ...UNI_HOST_COLORS,
+    ...UNI_COLORS,
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

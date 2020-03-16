@@ -4,7 +4,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniPosition } from '../core/position/position.enum';
-import { getUniPosition } from '../core/position/position.util';
+import { uniPosition } from '../core/position/position.util';
 
 import { UniTooltipComponent } from './tooltip.component';
 
@@ -41,7 +41,7 @@ export class UniTooltipDirective implements OnInit {
                .withFlexibleDimensions(false)
                .withPush(this._vertical ? true : false)
                .withViewportMargin(8)
-               .withPositions([getUniPosition(this.position)]);
+               .withPositions([uniPosition(this.position)]);
   }
 
   private _overlayRef: OverlayRef;

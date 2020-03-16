@@ -1,4 +1,4 @@
-import { UniColor } from '../core/enums/color.enum';
+import { UniColor } from '../core/color/color.enum';
 
 import { UniProgressMode } from './enums/progress-mode.enum';
 

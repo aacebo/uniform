@@ -1,6 +1,6 @@
-import { UniSize } from '../enums/size.enum';
+import { UniSize } from './size.enum';
 
-export const UNI_HOST_SIZES = {
+export const UNI_SIZES = {
   '[class.small]': `size === "${ UniSize.Small }"`,
   '[class.large]': `size === "${ UniSize.Large }"`,
 };

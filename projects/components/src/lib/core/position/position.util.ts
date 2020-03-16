@@ -6,7 +6,7 @@ type xType = 'center' | 'start' | 'end';
 type yType = 'center' | 'top' | 'bottom';
 const UNI_POSITION_OFFSET = 16;
 
-export function getUniPosition(position: UniPosition): ConnectedPosition {
+export function uniPosition(position: UniPosition): ConnectedPosition {
   let originX: xType = 'center';
   let originY: yType = 'top';
   let overlayX: xType = 'center';

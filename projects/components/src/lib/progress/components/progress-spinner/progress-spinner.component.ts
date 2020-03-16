@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UNI_HOST_COLORS } from '../../../core/constants/colors.constant';
-import { UniColor } from '../../../core/enums/color.enum';
+import { UNI_COLORS } from '../../../core/color/colors.constant';
+import { UniColor } from '../../../core/color/color.enum';
 
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { IUniProgress } from '../../progress.interface';
@@ -15,7 +15,7 @@ import { IUniProgress } from '../../progress.interface';
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
     class: 'uni-progress-spinner',
-    ...UNI_HOST_COLORS,
+    ...UNI_COLORS,
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,

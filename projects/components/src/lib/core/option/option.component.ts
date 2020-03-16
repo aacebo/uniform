@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef, ViewEncapsulation } from '@angular/core';
 
-import { UniColor } from '../enums/color.enum';
-import { UNI_HOST_COLORS } from '../constants/colors.constant';
+import { UniColor } from '../color/color.enum';
+import { UNI_COLORS } from '../color/colors.constant';
 
 import { IUniOptionSelectedEvent } from './option-selected-event.interface';
 
@@ -13,7 +13,7 @@ import { IUniOptionSelectedEvent } from './option-selected-event.interface';
   styleUrls: ['./option.component.scss'],
   host: {
     class: 'uni-option',
-    ...UNI_HOST_COLORS,
+    ...UNI_COLORS,
     '[class.disabled]': 'disabled',
     '[class.selected]': 'selected',
     '(click)': 'select()',

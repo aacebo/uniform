@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniColor } from '../core/enums/color.enum';
-import { UniSize } from '../core/enums/size.enum';
+import { UNI_COLORS } from '../core/color/colors.constant';
+import { UNI_SIZES } from '../core/size/sizes.constant';
 import { UNI_POSITIONS } from '../core/position/positions.constant';
-import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
-import { UNI_HOST_SIZES } from '../core/constants/sizes.constant';
+
+import { UniColor } from '../core/color/color.enum';
+import { UniSize } from '../core/size/size.enum';
 
 import { UniBadgePosition } from './badge-position.enum';
 
@@ -18,8 +19,8 @@ import { UniBadgePosition } from './badge-position.enum';
   host: {
     class: 'uni-badge',
     ...UNI_POSITIONS,
-    ...UNI_HOST_COLORS,
-    ...UNI_HOST_SIZES,
+    ...UNI_COLORS,
+    ...UNI_SIZES,
     '[class.disabled]': 'disabled',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,

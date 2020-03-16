@@ -1,10 +1,12 @@
+import { UniPosition } from './position.enum';
+
 export const UNI_POSITIONS = {
-  '[class.top]': 'position === "top"',
-  '[class.bottom]': 'position === "bottom"',
-  '[class.left]': 'position === "left"',
-  '[class.right]': 'position === "right"',
-  '[class.bottom-left]': 'position === "bottom left"',
-  '[class.bottom-right]': 'position === "bottom right"',
-  '[class.top-left]': 'position === "top left"',
-  '[class.top-right]': 'position === "top right"',
+  '[class.top]': `position === "${ UniPosition.Top }"`,
+  '[class.bottom]': `position === "${ UniPosition.Bottom }"`,
+  '[class.left]': `position === "${ UniPosition.Left }"`,
+  '[class.right]': `position === "${ UniPosition.Right }"`,
+  '[class.bottom-left]': `position === "${ UniPosition.BottomLeft }"`,
+  '[class.bottom-right]': `position === "${ UniPosition.BottomRight }"`,
+  '[class.top-left]': `position === "${ UniPosition.TopLeft }"`,
+  '[class.top-right]': `position === "${ UniPosition.TopRight }"`,
 };

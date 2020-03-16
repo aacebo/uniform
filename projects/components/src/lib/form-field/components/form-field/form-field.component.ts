@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ContentChild, EventEmitter } from '@angular/core';
 
-import { UniColor } from '../../../core/enums/color.enum';
-import { UNI_HOST_COLORS } from '../../../core/constants/colors.constant';
+import { UniColor } from '../../../core/color/color.enum';
+import { UNI_COLORS } from '../../../core/color/colors.constant';
 
 import { UniLabelComponent } from '../label/label.component';
 import { UniErrorComponent } from '../error/error.component';
@@ -19,7 +19,7 @@ import { UniErrorComponent } from '../error/error.component';
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
     '[class.disabled]': 'disabled',
-    ...UNI_HOST_COLORS,
+    ...UNI_COLORS,
     '(click)': 'clicked.emit($event)',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,

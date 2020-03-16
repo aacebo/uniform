@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 
-import { UniColor } from '../core/enums/color.enum';
-import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
+import { UniColor } from '../core/color/color.enum';
+import { UNI_COLORS } from '../core/color/colors.constant';
 
 import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
 import { uniFormFieldProvider } from '../form-field/form-field-control.provider';
@@ -15,7 +15,7 @@ import { uniFormFieldProvider } from '../form-field/form-field-control.provider'
   host: {
     class: 'uni-checkbox',
     '[class.disabled]': 'disabled',
-    ...UNI_HOST_COLORS,
+    ...UNI_COLORS,
   },
   providers: [uniFormFieldProvider(UniCheckboxComponent)],
   encapsulation: ViewEncapsulation.None,
