@@ -8,12 +8,12 @@ import {
   Input,
   ChangeDetectorRef,
 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniSubscription } from '../../../core/classes';
-import { pxToPct } from '../../../core/utils';
+import { UniSubscription } from '../../../core/classes/subscription.class';
+import { pxToPct } from '../../../core/utils/px-to-pct/px-to-pct.util';
 
 import { UniSplitAreaComponent } from '../split-area/split-area.component';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   moduleId: module.id,

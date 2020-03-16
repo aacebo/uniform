@@ -15,8 +15,12 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { BehaviorSubject, merge, Observable } from 'rxjs';
 import { mergeMap, startWith, takeUntil } from 'rxjs/operators';
 
-import { UniFormFieldControlBase, uniFormFieldProvider } from '../../../form-field';
-import { UniOptionComponent, IUniOptionSelectedEvent } from '../../../core/option';
+import { UniOptionComponent } from '../../../core/option/option.component';
+import { IUniOptionSelectedEvent } from '../../../core/option/option-selected-event.interface';
+
+import { UniFormFieldControlBase } from '../../../form-field/form-field-control.base';
+import { uniFormFieldProvider } from '../../../form-field/form-field-control.provider';
+
 import { UniSelectPanelComponent } from '../select-panel/select-panel.component';
 
 @Component({

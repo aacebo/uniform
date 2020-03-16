@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ElementRef, Input } from '@angular/core';
 
-import { UNI_HOST_COLORS } from '../core/constants';
-import { UniColor } from '../core/enums';
+import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
+import { UniColor } from '../core/enums/color.enum';
 
 const UNI_BUTTON_HOST_ATTRIBUTES = [
   'uni-button',
@@ -11,6 +11,8 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   'uni-mini-fab',
 ];
 
+const host = { ...UNI_HOST_COLORS };
+
 @Component({
   moduleId: module.id,
   selector: `button[uni-button], button[uni-icon-button],
@@ -19,7 +21,7 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   exportAs: 'uniButton',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./button.component.scss'],
-  host: { ...UNI_HOST_COLORS },
+  host,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniButtonComponent {

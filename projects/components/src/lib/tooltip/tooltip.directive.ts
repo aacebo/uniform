@@ -3,7 +3,9 @@ import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniPosition, getUniPosition } from '../core/position';
+import { UniPosition } from '../core/position/position.enum';
+import { getUniPosition } from '../core/position/position.util';
+
 import { UniTooltipComponent } from './tooltip.component';
 
 @Directive({

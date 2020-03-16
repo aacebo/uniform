@@ -3,7 +3,9 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { getUniPosition, UniPosition } from '../core/position';
+import { getUniPosition } from '../core/position/position.util';
+import { UniPosition } from '../core/position/position.enum';
+
 import { UniPopoverComponent } from './popover.component';
 import { UniPopoverTrigger } from './popover-trigger.enum';
 

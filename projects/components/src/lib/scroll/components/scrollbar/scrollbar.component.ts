@@ -9,7 +9,8 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
-import { UniDraggableDirection } from '../../../draggable';
+
+import { UniDraggableDirection } from '../../../draggable/draggable-direction.enum';
 
 @Component({
   moduleId: module.id,

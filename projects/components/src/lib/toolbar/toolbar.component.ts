@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 
-import { UniColor } from '../core/enums';
-import { UNI_HOST_COLORS } from '../core/constants';
+import { UniColor } from '../core/enums/color.enum';
+import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
 
 @Component({
   moduleId: module.id,

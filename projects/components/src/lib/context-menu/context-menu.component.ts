@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { UniPositionBase } from '../core/position';
+import { UniPositionBase } from '../core/position/position-base.class';
 
 @Component({
   moduleId: module.id,

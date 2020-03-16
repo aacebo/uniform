@@ -7,6 +7,7 @@ import { UniBadgeDirective } from './badge.directive';
 @NgModule({
   declarations: [UniBadgeDirective, UniBadgeComponent],
   exports: [UniBadgeDirective, UniBadgeComponent],
+  entryComponents: [UniBadgeComponent],
   imports: [CommonModule],
 })
 export class UniBadgeModule { }

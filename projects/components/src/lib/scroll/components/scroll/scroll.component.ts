@@ -11,10 +11,11 @@ import {
 import { CdkScrollable } from '@angular/cdk/overlay';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscription } from '../../../core/classes';
-import { pxToPct, pctToPx } from '../../../core/utils';
-import { UniResizeObserverService } from '../../../resize-observer';
+import { UniSubscription } from '../../../core/classes/subscription.class';
+import { pctToPx } from '../../../core/utils/pct-to-px/pct-to-px.util';
+import { pxToPct } from '../../../core/utils/px-to-pct/px-to-pct.util';
 
+import { UniResizeObserverService } from '../../../resize-observer/resize-observer.service';
 import { UniScrollMode } from '../../enums/scroll-mode.enum';
 
 @Component({

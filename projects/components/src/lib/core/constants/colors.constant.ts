@@ -1,4 +1,4 @@
-import { UniColor } from '../enums';
+import { UniColor } from '../enums/color.enum';
 
 export const UNI_HOST_COLORS = {
   '[class.primary]': `color === "${ UniColor.Primary }"`,

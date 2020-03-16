@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscription } from '../../../core/classes';
+import { UniSubscription } from '../../../core/classes/subscription.class';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';

@@ -12,7 +12,8 @@ import {
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { DomPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 
-import { UniColor, UniSize } from '../core/enums';
+import { UniColor } from '../core/enums/color.enum';
+import { UniSize } from '../core/enums/size.enum';
 
 import { UniBadgeComponent } from './badge.component';
 import { UniBadgePosition } from './badge-position.enum';

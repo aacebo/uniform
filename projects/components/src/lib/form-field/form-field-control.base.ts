@@ -2,7 +2,7 @@ import { Optional, Input, ElementRef, ChangeDetectorRef, OnInit } from '@angular
 import { NgForm, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UniSubscription } from '../core/classes';
+import { UniSubscription } from '../core/classes/subscription.class';
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 
 let nextId = 0;

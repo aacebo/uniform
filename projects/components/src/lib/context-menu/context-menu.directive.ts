@@ -4,8 +4,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscription } from '../core/classes';
-
+import { UniSubscription } from '../core/classes/subscription.class';
 import { UniContextMenuComponent } from './context-menu.component';
 
 @Directive({

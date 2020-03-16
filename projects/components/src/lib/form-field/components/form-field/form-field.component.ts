@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ContentChild, EventEmitter } from '@angular/core';
 
-import { UniColor } from '../../../core/enums';
-import { UNI_HOST_COLORS } from '../../../core/constants';
+import { UniColor } from '../../../core/enums/color.enum';
+import { UNI_HOST_COLORS } from '../../../core/constants/colors.constant';
 
 import { UniLabelComponent } from '../label/label.component';
 import { UniErrorComponent } from '../error/error.component';

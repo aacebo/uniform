@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { UniOptionModule } from '../core/option';
+import { UniOptionModule } from '../core/option/option.module';
 
 import { UniContextMenuComponent } from './context-menu.component';
 import { UniContextMenuDirective } from './context-menu.directive';

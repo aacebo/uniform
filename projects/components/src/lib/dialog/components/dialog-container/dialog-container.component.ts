@@ -8,6 +8,7 @@ import {
   AfterViewInit,
   ViewEncapsulation,
 } from '@angular/core';
+
 import { UNI_DIALOG_CONTENT } from '../../dialog-content.constant';
 import { UNI_DIALOG_OPTIONS } from '../../dialog-options.constant';
 import { IUniDialogOptions } from '../../dialog-options.interface';

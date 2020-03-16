@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UniColor } from '../../../core/enums';
-import { UNI_HOST_COLORS } from '../../../core/constants';
+import { UniColor } from '../../../core/enums/color.enum';
+import { UNI_HOST_COLORS } from '../../../core/constants/colors.constant';
 
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { IUniProgress } from '../../progress.interface';

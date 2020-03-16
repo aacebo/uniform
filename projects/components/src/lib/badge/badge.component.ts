@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniColor, UniSize } from '../core/enums';
-import { UNI_POSITIONS } from '../core/position';
-import { UNI_HOST_COLORS, UNI_HOST_SIZES } from '../core/constants';
+import { UniColor } from '../core/enums/color.enum';
+import { UniSize } from '../core/enums/size.enum';
+import { UNI_POSITIONS } from '../core/position/positions.constant';
+import { UNI_HOST_COLORS } from '../core/constants/colors.constant';
+import { UNI_HOST_SIZES } from '../core/constants/sizes.constant';
 
 import { UniBadgePosition } from './badge-position.enum';
 

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { UniResizeObserverModule } from '../resize-observer';
-import { UniDraggableModule } from '../draggable';
+import { UniResizeObserverModule } from '../resize-observer/resize-observer.module';
+import { UniDraggableModule } from '../draggable/draggable.module';
 
 import { UniScrollComponent } from './components/scroll/scroll.component';
 import { UniScrollbarComponent } from './components/scrollbar/scrollbar.component';
