@@ -17,6 +17,10 @@ const _UniCheckboxMixinBase = uniColorMixin(UniCheckboxBase);
   styleUrls: ['./checkbox.component.scss'],
   host: {
     class: 'uni-checkbox',
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
     '[class.disabled]': 'disabled',
   },
   providers: [uniFormFieldProvider(UniCheckboxComponent)],

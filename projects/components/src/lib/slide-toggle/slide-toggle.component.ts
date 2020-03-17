@@ -17,6 +17,10 @@ const _UniSlideToggleMixinBase = uniColorMixin(UniSlideToggleBase);
   styleUrls: ['./slide-toggle.component.scss'],
   host: {
     class: 'uni-slide-toggle',
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
     '[class.disabled]': 'disabled',
   },
   providers: [uniFormFieldProvider(UniSlideToggleComponent)],

@@ -19,6 +19,10 @@ const _UniProgressSpinnerMixinBase = uniColorMixin(UniProgressSpinnerBase);
   host: {
     class: 'uni-progress-spinner',
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

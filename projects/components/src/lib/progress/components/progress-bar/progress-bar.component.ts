@@ -19,6 +19,10 @@ const _UniProgressBarMixinBase = uniColorMixin(UniProgressBarBase);
   host: {
     class: 'uni-progress-bar',
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

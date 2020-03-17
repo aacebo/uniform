@@ -22,6 +22,12 @@ const _UniButtonMixinBase = uniColorMixin(UniButtonBase);
              button[uni-link-button]`,
   template: `<ng-content></ng-content>`,
   styleUrls: ['./button.component.scss'],
+  host: {
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UniButtonComponent extends _UniButtonMixinBase {

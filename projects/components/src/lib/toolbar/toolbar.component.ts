@@ -12,7 +12,13 @@ const _UniToolbarMixinBase = uniColorMixin(UniToolbarBase);
   exportAs: 'uniToolbar',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./toolbar.component.scss'],
-  host: { class: 'uni-toolbar' },
+  host: {
+    class: 'uni-toolbar',
+    '[class.primary]': 'color === "primary"',
+    '[class.success]': 'color === "success"',
+    '[class.warning]': 'color === "warning"',
+    '[class.danger]': 'color === "danger"',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
