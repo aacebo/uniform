@@ -1,11 +1,14 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { UNI_COLORS } from '../../../core/color/colors.constant';
+import { uniColorMixin } from '../../../core/color/color.mixin';
 import { UniColor } from '../../../core/color/color.enum';
 
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { IUniProgress } from '../../progress.interface';
+
+class UniProgressSpinnerBase { }
+const _UniProgressSpinnerMixinBase = uniColorMixin(UniProgressSpinnerBase);
 
 @Component({
   moduleId: module.id,
@@ -15,13 +18,12 @@ import { IUniProgress } from '../../progress.interface';
   styleUrls: ['./progress-spinner.component.scss'],
   host: {
     class: 'uni-progress-spinner',
-    ...UNI_COLORS,
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniProgressSpinnerComponent implements IUniProgress {
+export class UniProgressSpinnerComponent extends _UniProgressSpinnerMixinBase implements IUniProgress {
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
 
@@ -92,5 +94,5 @@ export class UniProgressSpinnerComponent implements IUniProgress {
 
   readonly UniProgressMode = UniProgressMode;
 
-  constructor(private readonly _cdr: ChangeDetectorRef) { }
+  constructor(private readonly _cdr: ChangeDetectorRef) { super(); }
 }

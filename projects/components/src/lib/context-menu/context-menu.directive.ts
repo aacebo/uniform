@@ -4,8 +4,11 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscription } from '../core/classes/subscription.class';
+import { uniSubscribableMixin } from '../core/mixins/subscribable.mixin';
 import { UniContextMenuComponent } from './context-menu.component';
+
+class UniContextMenuBase { }
+const _UniContextMenuMixinBase = uniSubscribableMixin(UniContextMenuBase);
 
 @Directive({
   selector: '[uniContextMenu]',
@@ -14,7 +17,7 @@ import { UniContextMenuComponent } from './context-menu.component';
     '(contextmenu)': 'onRightClick($event)',
   },
 })
-export class UniContextMenuDirective extends UniSubscription implements OnInit {
+export class UniContextMenuDirective extends _UniContextMenuMixinBase implements OnInit {
   @Input('uniContextMenu') content: TemplateRef<any>;
   @Input('uniContextMenuPanelClass') panelClass = 'uni-context-menu-panel';
   @Input('uniContextMenuBackdropClass') backdropClass = 'cdk-overlay-transparent-backdrop';

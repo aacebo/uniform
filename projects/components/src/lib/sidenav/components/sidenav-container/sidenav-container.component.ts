@@ -10,10 +10,13 @@ import {
 } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 
-import { UniSubscription } from '../../../core/classes/subscription.class';
+import { uniSubscribableMixin } from '../../../core/mixins/subscribable.mixin';
 
 import { UniSidenavComponent } from '../sidenav/sidenav.component';
 import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
+
+class UniSidenavContainerBase { }
+const _UniSidenavContainerMixinBase = uniSubscribableMixin(UniSidenavContainerBase);
 
 @Component({
   moduleId: module.id,
@@ -25,7 +28,7 @@ import { UniSidenavMode } from '../../enums/sidenav-mode.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSidenavContainerComponent extends UniSubscription implements AfterContentInit {
+export class UniSidenavContainerComponent extends _UniSidenavContainerMixinBase implements AfterContentInit {
   @Output() backdropClicked = new EventEmitter<void>();
 
   @ContentChild(UniSidenavComponent, { static: false })

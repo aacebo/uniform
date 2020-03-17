@@ -1,9 +1,12 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ElementRef, ViewEncapsulation } from '@angular/core';
 
 import { UniColor } from '../color/color.enum';
-import { UNI_COLORS } from '../color/colors.constant';
+import { uniColorMixin } from '../color/color.mixin';
 
 import { IUniOptionSelectedEvent } from './option-selected-event.interface';
+
+class UniOptionBase { }
+const _UniOptionMixinBase = uniColorMixin(UniOptionBase);
 
 @Component({
   moduleId: module.id,
@@ -13,7 +16,6 @@ import { IUniOptionSelectedEvent } from './option-selected-event.interface';
   styleUrls: ['./option.component.scss'],
   host: {
     class: 'uni-option',
-    ...UNI_COLORS,
     '[class.disabled]': 'disabled',
     '[class.selected]': 'selected',
     '(click)': 'select()',
@@ -21,7 +23,7 @@ import { IUniOptionSelectedEvent } from './option-selected-event.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniOptionComponent {
+export class UniOptionComponent extends _UniOptionMixinBase {
   @Input() value?: any;
   @Input() color?: UniColor;
   @Input() disabled = false;
@@ -33,7 +35,7 @@ export class UniOptionComponent {
     return this._el.nativeElement.textContent.trim();
   }
 
-  constructor(private readonly _el: ElementRef<HTMLElement>) {}
+  constructor(private readonly _el: ElementRef<HTMLElement>) { super(); }
 
   select() {
     if (!this.disabled && !this.selected) {

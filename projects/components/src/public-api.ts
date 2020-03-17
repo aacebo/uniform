@@ -5,15 +5,14 @@
 // core
 export * from './lib/core/color/color.enum';
 export * from './lib/core/color/color.util';
-export * from './lib/core/color/colors.constant';
+export * from './lib/core/color/color.mixin';
 
 export * from './lib/core/size/size.enum';
-export * from './lib/core/size/sizes.constant';
+export * from './lib/core/size/size.mixin';
 
 export * from './lib/core/position/position.enum';
-export * from './lib/core/position/position-base.class';
 export * from './lib/core/position/position.util';
-export * from './lib/core/position/positions.constant';
+export * from './lib/core/position/position.mixin';
 
 export * from './lib/core/option/option.component';
 export * from './lib/core/option/option.module';

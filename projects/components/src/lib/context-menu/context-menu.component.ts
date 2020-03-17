@@ -1,7 +1,10 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { UniPositionBase } from '../core/position/position-base.class';
+import { uniPositionMixin } from '../core/position/position.mixin';
+
+class UniContextMenuBase { }
+const _UniContextMenuMixinBase = uniPositionMixin(UniContextMenuBase);
 
 @Component({
   moduleId: module.id,
@@ -16,6 +19,6 @@ import { UniPositionBase } from '../core/position/position-base.class';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniContextMenuComponent extends UniPositionBase {
+export class UniContextMenuComponent extends _UniContextMenuMixinBase {
   readonly clicked$ = new Subject<void>();
 }

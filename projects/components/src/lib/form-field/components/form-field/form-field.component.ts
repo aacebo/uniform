@@ -1,10 +1,13 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ContentChild, EventEmitter } from '@angular/core';
 
 import { UniColor } from '../../../core/color/color.enum';
-import { UNI_COLORS } from '../../../core/color/colors.constant';
+import { uniColorMixin } from '../../../core/color/color.mixin';
 
 import { UniLabelComponent } from '../label/label.component';
 import { UniErrorComponent } from '../error/error.component';
+
+class UniFormFieldBase { }
+const _UniFormFieldMixinBase = uniColorMixin(UniFormFieldBase);
 
 @Component({
   moduleId: module.id,
@@ -19,13 +22,12 @@ import { UniErrorComponent } from '../error/error.component';
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
     '[class.disabled]': 'disabled',
-    ...UNI_COLORS,
     '(click)': 'clicked.emit($event)',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniFormFieldComponent {
+export class UniFormFieldComponent extends _UniFormFieldMixinBase {
   @Input() color = UniColor.Primary;
 
   @ContentChild(UniLabelComponent)
@@ -93,5 +95,5 @@ export class UniFormFieldComponent {
 
   readonly clicked = new EventEmitter<Event>();
 
-  constructor(readonly cdr: ChangeDetectorRef) { }
+  constructor(readonly cdr: ChangeDetectorRef) { super(); }
 }

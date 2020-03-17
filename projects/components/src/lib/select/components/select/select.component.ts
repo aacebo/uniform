@@ -17,11 +17,15 @@ import { mergeMap, startWith, takeUntil } from 'rxjs/operators';
 
 import { UniOptionComponent } from '../../../core/option/option.component';
 import { IUniOptionSelectedEvent } from '../../../core/option/option-selected-event.interface';
+import { uniSubscribableMixin } from '../../../core/mixins/subscribable.mixin';
 
 import { UniFormFieldControlBase } from '../../../form-field/form-field-control.base';
 import { uniFormFieldProvider } from '../../../form-field/form-field-control.provider';
 
 import { UniSelectPanelComponent } from '../select-panel/select-panel.component';
+
+class UniSelectBase extends UniFormFieldControlBase<string> { }
+const _UniSelectMixinBase = uniSubscribableMixin(UniSelectBase);
 
 @Component({
   moduleId: module.id,
@@ -37,7 +41,7 @@ import { UniSelectPanelComponent } from '../select-panel/select-panel.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSelectComponent extends UniFormFieldControlBase<string> implements AfterContentInit, OnDestroy {
+export class UniSelectComponent extends _UniSelectMixinBase implements AfterContentInit, OnDestroy {
   @Input() panelClass = 'uni-select-panel';
 
   @ViewChild('trigger')

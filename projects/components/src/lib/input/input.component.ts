@@ -2,7 +2,11 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit, AfterVie
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { takeUntil } from 'rxjs/operators';
 
+import { uniSubscribableMixin } from '../core/mixins/subscribable.mixin';
 import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
+
+class UniInputBase extends UniFormFieldControlBase<string> { }
+const _UniInputMixinBase = uniSubscribableMixin(UniInputBase);
 
 @Component({
   moduleId: module.id,
@@ -24,7 +28,7 @@ import { UniFormFieldControlBase } from '../form-field/form-field-control.base';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniInputComponent extends UniFormFieldControlBase<string> implements OnInit, AfterViewInit {
+export class UniInputComponent extends _UniInputMixinBase implements OnInit, AfterViewInit {
   @Input()
   get autoResize() { return this._autoResize; }
   set autoResize(v: boolean) {

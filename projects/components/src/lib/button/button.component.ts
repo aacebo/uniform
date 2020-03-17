@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ElementRef, Input } from '@angular/core';
 
-import { UNI_COLORS } from '../core/color/colors.constant';
+import { uniColorMixin } from '../core/color/color.mixin';
 import { UniColor } from '../core/color/color.enum';
 
 const UNI_BUTTON_HOST_ATTRIBUTES = [
@@ -11,18 +11,20 @@ const UNI_BUTTON_HOST_ATTRIBUTES = [
   'uni-mini-fab',
 ];
 
+class UniButtonBase { }
+const _UniButtonMixinBase = uniColorMixin(UniButtonBase);
+
 @Component({
   moduleId: module.id,
+  exportAs: 'uniButton',
   selector: `button[uni-button], button[uni-icon-button],
              button[uni-fab], button[uni-mini-fab],
              button[uni-link-button]`,
-  exportAs: 'uniButton',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./button.component.scss'],
-  host: { ...UNI_COLORS },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UniButtonComponent {
+export class UniButtonComponent extends _UniButtonMixinBase {
   @Input() color?: UniColor;
 
   private get _element() {
@@ -30,6 +32,8 @@ export class UniButtonComponent {
   }
 
   constructor(private readonly _el: ElementRef<HTMLElement>) {
+    super();
+
     for (const attr of UNI_BUTTON_HOST_ATTRIBUTES) {
       if (this._element.hasAttribute(attr)) {
         this._element.classList.add(attr);

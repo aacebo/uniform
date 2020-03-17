@@ -8,4 +8,4 @@ import { UniButtonComponent } from './button.component';
   exports: [UniButtonComponent],
   imports: [CommonModule],
 })
-export class UniButtonModule {}
+export class UniButtonModule { }

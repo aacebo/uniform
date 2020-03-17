@@ -2,10 +2,13 @@ import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDet
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { UniColor } from '../../../core/color/color.enum';
-import { UNI_COLORS } from '../../../core/color/colors.constant';
+import { uniColorMixin } from '../../../core/color/color.mixin';
 
 import { UniProgressMode } from '../../enums/progress-mode.enum';
 import { IUniProgress } from '../../progress.interface';
+
+class UniProgressBarBase { }
+const _UniProgressBarMixinBase = uniColorMixin(UniProgressBarBase);
 
 @Component({
   moduleId: module.id,
@@ -15,13 +18,12 @@ import { IUniProgress } from '../../progress.interface';
   styleUrls: ['./progress-bar.component.scss'],
   host: {
     class: 'uni-progress-bar',
-    ...UNI_COLORS,
     '[class.indeterminate]': 'mode === UniProgressMode.Indeterminate',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniProgressBarComponent implements IUniProgress {
+export class UniProgressBarComponent extends _UniProgressBarMixinBase implements IUniProgress {
   @Input() mode = UniProgressMode.Indeterminate;
   @Input() color = UniColor.Primary;
 
@@ -53,5 +55,5 @@ export class UniProgressBarComponent implements IUniProgress {
     total: 100,
   };
 
-  constructor(private readonly _cdr: ChangeDetectorRef) { }
+  constructor(private readonly _cdr: ChangeDetectorRef) { super(); }
 }

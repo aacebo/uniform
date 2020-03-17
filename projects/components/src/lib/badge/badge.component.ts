@@ -1,14 +1,17 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UNI_COLORS } from '../core/color/colors.constant';
-import { UNI_SIZES } from '../core/size/sizes.constant';
-import { UNI_POSITIONS } from '../core/position/positions.constant';
+import { uniColorMixin } from '../core/color/color.mixin';
+import { uniSizeMixin } from '../core/size/size.mixin';
+import { uniPositionMixin } from '../core/position/position.mixin';
 
 import { UniColor } from '../core/color/color.enum';
 import { UniSize } from '../core/size/size.enum';
 
 import { UniBadgePosition } from './badge-position.enum';
+
+class UniBadgeBase { }
+const _UniBadgeMixinBase: typeof UniBadgeBase = uniColorMixin(uniPositionMixin(uniSizeMixin(UniBadgeBase)));
 
 @Component({
   moduleId: module.id,
@@ -18,15 +21,12 @@ import { UniBadgePosition } from './badge-position.enum';
   styleUrls: ['./badge.component.scss'],
   host: {
     class: 'uni-badge',
-    ...UNI_POSITIONS,
-    ...UNI_COLORS,
-    ...UNI_SIZES,
     '[class.disabled]': 'disabled',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniBadgeComponent {
+export class UniBadgeComponent extends _UniBadgeMixinBase {
   @Input()
   get content() { return this._content; }
   set content(v: string) {
@@ -68,5 +68,5 @@ export class UniBadgeComponent {
   constructor(
     readonly cdr: ChangeDetectorRef,
     readonly el: ElementRef<HTMLElement>,
-  ) { }
+  ) { super(); }
 }

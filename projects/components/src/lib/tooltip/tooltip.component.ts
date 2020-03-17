@@ -1,18 +1,17 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
-import { UniPositionBase } from '../core/position/position-base.class';
-import { UNI_POSITIONS } from '../core/position/positions.constant';
+import { uniPositionMixin } from '../core/position/position.mixin';
+
+class UniTooltipBase { }
+const _UniTooltipMixinBase = uniPositionMixin(UniTooltipBase);
 
 @Component({
   moduleId: module.id,
   selector: 'uni-tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss'],
-  host: {
-    class: 'uni-tooltip',
-    ...UNI_POSITIONS,
-  },
+  host: { class: 'uni-tooltip' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniTooltipComponent extends UniPositionBase { }
+export class UniTooltipComponent extends _UniTooltipMixinBase { }

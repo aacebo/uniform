@@ -10,10 +10,13 @@ import {
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniSubscription } from '../../../core/classes/subscription.class';
+import { uniSubscribableMixin } from '../../../core/mixins/subscribable.mixin';
 import { pxToPct } from '../../../core/utils/px-to-pct/px-to-pct.util';
 
 import { UniSplitAreaComponent } from '../split-area/split-area.component';
+
+class UniSplitBase { }
+const _UniSplitMixinBase = uniSubscribableMixin(UniSplitBase);
 
 @Component({
   moduleId: module.id,
@@ -25,7 +28,7 @@ import { UniSplitAreaComponent } from '../split-area/split-area.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class UniSplitComponent extends UniSubscription {
+export class UniSplitComponent extends _UniSplitMixinBase {
   @Input()
   get disabled() { return this._disabled; }
   set disabled(v: boolean) {
