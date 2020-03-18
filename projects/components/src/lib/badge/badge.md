@@ -2,16 +2,6 @@
 
 `import { UniBadgeModule } from '@uniform/components';`
 
-## Attributes
-
-| Attribute              |
-|------------------------|
-| `uni-button`           |
-| `uni-icon-button`      |
-| `uni-fab`              |
-| `uni-mini-fab`         |
-| `uni-link-button`      |
-
 ## Properties
 
 | Property                                                | Description                        |

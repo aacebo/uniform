@@ -1,6 +1,6 @@
 # Icon
 
-`import { UniIconModule } from '@uniform/components/button';`
+`import { UniIconModule } from '@uniform/components';`
 
 ## Properties
 
