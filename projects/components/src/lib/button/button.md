@@ -1,22 +1,20 @@
 # UniButton
 
-`import { UniButtonModule } from '@uniform/components/button';`
+`import { UniButtonModule } from '@uniform/components';`
 
 ## Attributes
 
 | Attribute              |
 |------------------------|
 | `uni-button`           |
-| `uni-outline-button`   |
 | `uni-icon-button`      |
 | `uni-fab`              |
 | `uni-mini-fab`         |
-| `uni-outline-fab`      |
-| `uni-outline-mini-fab` |
+| `uni-link-button`      |
 
 ## Properties
 
-| Property                     | Description                        |
-|------------------------------|------------------------------------|
-| `@Input() color: UniColor`   | Theme color                        |
-| `@Input() disabled: boolean` | Whether the component is disabled  |
+| Property                      | Description                        |
+|-------------------------------|------------------------------------|
+| `@Input() color: UniColor`    | Theme color                        |
+| `@Input() disabled?: boolean` | Whether the component is disabled  |

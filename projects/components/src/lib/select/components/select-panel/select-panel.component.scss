@@ -1,6 +1,5 @@
 @import '../../../core/styles/box-shadow';
 @import '../../../core/styles/border-radius';
-@import '../../../core/styles/animations';
 
 .uni-select-panel {
   display: block;
@@ -8,5 +7,4 @@
   width: 100%;
   background-color: var(--dark);
   box-shadow: $uni-shadow-8dp;
-  animation: $uni-animation-duration $uni-animation-timing-function uniPopIn;
 }
