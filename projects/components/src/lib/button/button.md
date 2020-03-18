@@ -12,7 +12,7 @@
 | `uni-mini-fab`         |
 | `uni-link-button`      |
 
-## Properties
+## UniButtonComponent
 
 | Property                      | Description                        |
 |-------------------------------|------------------------------------|

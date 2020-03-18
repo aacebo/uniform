@@ -9,7 +9,7 @@
 ## UniProgressBarComponent
 
 | Property                          | Description    |
-|----------------------------------------------------|
+|-----------------------------------|----------------|
 | `@Input() mode?: UniProgressMode` | Progress mode  |
 | `@Input() color?: UniColor`       | Theme color    |
 | `@Input() total?: number`         | Progress total |
@@ -18,7 +18,7 @@
 ## UniProgressSpinnerComponent
 
 | Property                          | Description         |
-|---------------------------------------------------------|
+|-----------------------------------|---------------------|
 | `@Input() mode?: UniProgressMode` | Progress mode       |
 | `@Input() color?: UniColor`       | Theme color         |
 | `@Input() total?: number`         | Progress total      |
