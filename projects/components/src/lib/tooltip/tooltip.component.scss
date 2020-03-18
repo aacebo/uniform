@@ -14,7 +14,7 @@
   background-color: $uni-tooltip-bg-color;
   color: $uni-tooltip-color;
   transition: all $uni-animation-duration $uni-animation-timing-function;
-  animation: 0.05s $uni-animation-timing-function uniPopIn;
+  animation: 0.1s $uni-animation-timing-function uniPopIn;
 
   @include uni-arrow(var(--black), var(--black));
 

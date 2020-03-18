@@ -15,7 +15,7 @@
   box-shadow: $uni-shadow-8dp;
   color: $uni-popover-color;
   transition: all $uni-animation-duration $uni-animation-timing-function;
-  animation: 0.05s $uni-animation-timing-function uniPopIn;
+  animation: 0.1s $uni-animation-timing-function uniPopIn;
 
   @include uni-arrow($uni-popover-bg-color, $uni-popover-bg-color);
 

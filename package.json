@@ -15,15 +15,23 @@
     "clean": "rimraf dist",
     "ng": "ng",
     "postinstall": "ngcc",
+
     "build:gh-pages": "ng build demo --prod --base-href https://aacebo.github.io/uniform/",
     "publish:gh-pages": "sudo ngh --dir dist/demo",
+
     "start:demo": "ng serve demo",
     "build:demo": "ng build demo",
     "test:demo": "ng test demo",
     "lint:demo": "ng lint demo",
-    "build:components": "npm run clean && ng build components && scss-bundle",
-    "build:components:prod": "npm run clean && ng build components --prod && scss-bundle",
-    "build:components:scss": "scss-bundle",
+
+    "prebuild:components": "npm run clean",
+    "build:components": "ng build components",
+    "postbuild:components": "scss-bundle",
+
+    "prebuild:components:prod": "npm run clean",
+    "build:components:prod": "ng build components --prod",
+    "postbuild:components:prod": "scss-bundle",
+
     "test:components": "ng test components",
     "lint:components": "ng lint components",
     "publish:components": "npm run build:components:prod && npm publish dist/components --access public"
