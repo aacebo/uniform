@@ -2,7 +2,7 @@
 
 `import { UniIconModule } from '@uniform/components';`
 
-## Properties
+## UniIconComponent
 
 | Property                     | Description                        |
 |------------------------------|------------------------------------|
