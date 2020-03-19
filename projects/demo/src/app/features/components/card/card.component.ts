@@ -11,6 +11,6 @@ import { CARD_EXAMPLE } from './card-example.constant';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
-  readonly text = faker.random.words(300);
+  readonly text = faker.random.words(200);
   readonly example = CARD_EXAMPLE;
 }

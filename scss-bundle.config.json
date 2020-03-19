@@ -1,7 +1,7 @@
 {
   "bundlerOptions": {
-    "entryFile": "./projects/components/src/lib/core/styles/_theming.scss",
+    "entryFile": "./projects/components/src/lib/core/styles/_index.scss",
     "rootDir": "./",
-    "outFile": "dist/components/_theming.scss"
+    "outFile": "dist/components/_index.scss"
   }
 }
