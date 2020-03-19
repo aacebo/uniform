@@ -14,8 +14,6 @@ export class InputComponent implements OnInit {
   readonly example = INPUT_EXAMPLE;
 
   form: FormGroup;
-  value?: string;
-  disabled?: boolean;
 
   constructor(private readonly _fb: FormBuilder) { }
 
@@ -24,6 +22,7 @@ export class InputComponent implements OnInit {
       username: this._fb.control(''),
       password: this._fb.control(''),
       bio: this._fb.control(''),
+      showPassword: this._fb.control(false),
     });
   }
 }

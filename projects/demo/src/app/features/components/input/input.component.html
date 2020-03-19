@@ -8,6 +8,12 @@
       >
         <uni-form-field>
           <uni-label>Username</uni-label>
+          <button
+            uni-icon-button
+            uniPrefix
+          >
+            <uni-icon icon="mdi-account"></uni-icon>
+          </button>
 
           <input
             uniInput
@@ -27,13 +33,21 @@
 
           <input
             uniInput
-            type="password"
+            [type]="form.value?.showPassword ? 'text' : 'password'"
             placeholder="Password..."
             spellcheck="false"
             formControlName="password"
             maxlength="50"
             required
           />
+
+          <button
+            uni-icon-button
+            uniSuffix
+            (click)="form.get('showPassword').setValue(!form.value?.showPassword)"
+          >
+            <uni-icon [icon]="form.value?.showPassword ? 'mdi-eye' : 'mdi-eye-off'"></uni-icon>
+          </button>
 
           <uni-hint>max 50 characters</uni-hint>
           <uni-error *ngIf="form.get('password').dirty && !form.value?.password">password is required!</uni-error>

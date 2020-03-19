@@ -12,6 +12,11 @@
   margin-bottom: 15px;
   transition: all $uni-animation-duration $uni-animation-timing-function;
 
+  @include uni-form-label(primary);
+  @include uni-form-label(success);
+  @include uni-form-label(warning);
+  @include uni-form-label(danger);
+
   &:hover {
     box-shadow: $uni-field-box-shadow var(--white);
   }
@@ -27,6 +32,7 @@
 
   &.has-value {
     .uni-label {
+      transform-origin: left;
       transform: $uni-label-transform;
     }
   }
@@ -68,8 +74,27 @@
     }
   }
 
-  @include uni-form-label(primary);
-  @include uni-form-label(success);
-  @include uni-form-label(warning);
-  @include uni-form-label(danger);
+  &.has-prefix {
+    padding-left: 50px;
+  }
+
+  &.has-suffix {
+    padding-right: 50px;
+  }
+
+  [uniPrefix],
+  [uniSuffix] {
+    position: absolute;
+    top: 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  [uniPrefix] {
+    left: 0;
+  }
+
+  [uniSuffix] {
+    right: 0;
+  }
 }

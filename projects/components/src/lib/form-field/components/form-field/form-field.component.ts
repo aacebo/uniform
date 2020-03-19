@@ -5,6 +5,8 @@ import { uniColorMixin } from '../../../core/color/color.mixin';
 
 import { UniLabelComponent } from '../label/label.component';
 import { UniErrorComponent } from '../error/error.component';
+import { UniSuffixDirective } from '../../directives/suffix/suffix.directive';
+import { UniPrefixDirective } from '../../directives/prefix/prefix.directive';
 
 class UniFormFieldBase { }
 const _UniFormFieldMixinBase = uniColorMixin(UniFormFieldBase);
@@ -21,6 +23,8 @@ const _UniFormFieldMixinBase = uniColorMixin(UniFormFieldBase);
     '[class.has-value]': 'hasValue',
     '[class.has-label]': '!!label',
     '[class.has-error]': '!!error',
+    '[class.has-prefix]': '!!prefix',
+    '[class.has-suffix]': '!!suffix',
     '[class.disabled]': 'disabled',
     '[class.primary]': 'color === "primary"',
     '[class.success]': 'color === "success"',
@@ -55,6 +59,24 @@ export class UniFormFieldComponent extends _UniFormFieldMixinBase {
     }
   }
   private _error?: UniErrorComponent;
+
+  @ContentChild(UniPrefixDirective)
+  get prefix() { return this._prefix; }
+  set prefix(v: UniPrefixDirective) {
+    if (v !== this._prefix) {
+      this._prefix = v;
+    }
+  }
+  private _prefix?: UniPrefixDirective;
+
+  @ContentChild(UniSuffixDirective)
+  get suffix() { return this._suffix; }
+  set suffix(v: UniSuffixDirective) {
+    if (v !== this._suffix) {
+      this._suffix = v;
+    }
+  }
+  private _suffix?: UniSuffixDirective;
 
   get id() { return this._id; }
   set id(v: string) {

@@ -69,6 +69,8 @@ export * from './lib/form-field/components/error/error.component';
 export * from './lib/form-field/components/form-field/form-field.component';
 export * from './lib/form-field/components/hint/hint.component';
 export * from './lib/form-field/components/label/label.component';
+export * from './lib/form-field/directives/prefix/prefix.directive';
+export * from './lib/form-field/directives/suffix/suffix.directive';
 
 export * from './lib/select/select.module';
 export * from './lib/select/components/select/select.component';
