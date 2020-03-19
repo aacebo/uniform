@@ -4,49 +4,14 @@
 .uni-progress-bar {
   display: flex;
 
+  @include uni-bar-color(primary);
+  @include uni-bar-color(success);
+  @include uni-bar-color(warning);
+  @include uni-bar-color(danger);
+
   &.indeterminate {
     .uni-progress-bar-foreground {
       @include uni-bar-indeterminate();
-    }
-  }
-
-  &.primary {
-    .uni-progress-bar-background {
-      fill: var(--primary-a50);
-    }
-
-    .uni-progress-bar-foreground {
-      fill: var(--primary);
-    }
-  }
-
-  &.success {
-    .uni-progress-bar-background {
-      fill: var(--success-a50);
-    }
-
-    .uni-progress-bar-foreground {
-      fill: var(--success);
-    }
-  }
-
-  &.warning {
-    .uni-progress-bar-background {
-      fill: var(--warning-a50);
-    }
-
-    .uni-progress-bar-foreground {
-      fill: var(--warning);
-    }
-  }
-
-  &.danger {
-    .uni-progress-bar-background {
-      fill: var(--danger-a50);
-    }
-
-    .uni-progress-bar-foreground {
-      fill: var(--danger);
     }
   }
 

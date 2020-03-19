@@ -41,3 +41,15 @@
     }
   }
 }
+
+@mixin uni-bar-color($color) {
+  &.#{ $color } {
+    .uni-progress-bar-background {
+      fill: var(--#{ $color }-a50);
+    }
+
+    .uni-progress-bar-foreground {
+      fill: var(--#{ $color });
+    }
+  }
+}

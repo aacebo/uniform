@@ -4,16 +4,16 @@
 .uni-progress-spinner {
   display: inline-block;
 
+  @include uni-spinner-color(primary);
+  @include uni-spinner-color(success);
+  @include uni-spinner-color(warning);
+  @include uni-spinner-color(danger);
+
   &.indeterminate {
     .uni-progress-spinner--foreground {
       @include uni-spinner-indeterminate();
     }
   }
-
-  @include uni-spinner-color(primary);
-  @include uni-spinner-color(success);
-  @include uni-spinner-color(warning);
-  @include uni-spinner-color(danger);
 
   svg {
     circle {
