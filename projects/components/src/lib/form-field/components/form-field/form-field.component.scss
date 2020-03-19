@@ -82,19 +82,19 @@
     padding-right: 50px;
   }
 
-  [uniPrefix],
-  [uniSuffix] {
+  .uni-prefix,
+  .uni-suffix {
     position: absolute;
     top: 5px;
     height: 40px;
     width: 40px;
   }
 
-  [uniPrefix] {
+  .uni-prefix {
     left: 0;
   }
 
-  [uniSuffix] {
+  .uni-suffix {
     right: 0;
   }
 }
