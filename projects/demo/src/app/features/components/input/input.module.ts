@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UniFormFieldModule, UniTabModule, UniInputModule, UniSlideToggleModule } from '@uniform/components';
 
 import { CodeExampleModule } from '../../code-example';
@@ -15,6 +15,7 @@ import { InputComponent } from './input.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     InputRoutingModule,
     CodeExampleModule,

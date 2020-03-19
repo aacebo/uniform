@@ -1,46 +1,58 @@
 <uni-tab-group color="primary">
   <uni-tab label="Examples">
     <ng-template uniTabBody>
-      <app-code-example title="Input"
-                        [html]="example">
+      <app-code-example
+        title="Input"
+        [html]="example"
+        [formGroup]="form"
+      >
         <uni-form-field>
-          <uni-label>test label</uni-label>
+          <uni-label>Username</uni-label>
 
           <input
             uniInput
-            placeholder="test placeholder"
+            placeholder="Username..."
             spellcheck="false"
+            formControlName="username"
+            maxlength="20"
             required
-            [(ngModel)]="value"
-            [disabled]="disabled"
           />
 
-          <uni-hint>max 5 characters</uni-hint>
-          <uni-error *ngIf="value?.length > 5">too many characters!</uni-error>
+          <uni-hint>max 20 characters</uni-hint>
+          <uni-error *ngIf="form.get('username').dirty && !form.value?.username">username is required!</uni-error>
         </uni-form-field>
 
         <uni-form-field>
-          <uni-label>test label</uni-label>
+          <uni-label>Password</uni-label>
+
+          <input
+            uniInput
+            type="password"
+            placeholder="Password..."
+            spellcheck="false"
+            formControlName="password"
+            maxlength="50"
+            required
+          />
+
+          <uni-hint>max 50 characters</uni-hint>
+          <uni-error *ngIf="form.get('password').dirty && !form.value?.password">password is required!</uni-error>
+        </uni-form-field>
+
+        <uni-form-field>
+          <uni-label>Bio</uni-label>
 
           <textarea
             uniInput
-            placeholder="test placeholder"
+            placeholder="Bio..."
             spellcheck="false"
-            required
+            formControlName="bio"
+            maxlength="500"
             autoResize
-            [(ngModel)]="value"
-            [disabled]="disabled"
           ></textarea>
 
-          <uni-hint>max 5 characters</uni-hint>
-          <uni-error *ngIf="value?.length > 5">too many characters!</uni-error>
+          <uni-hint>{{ form.value?.bio.length }} / 500 characters</uni-hint>
         </uni-form-field>
-
-        <div>{{ value }}</div>
-
-        <uni-slide-toggle [(ngModel)]="disabled">
-          {{ disabled ? 'Enable' : 'Disable' }}
-        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>
