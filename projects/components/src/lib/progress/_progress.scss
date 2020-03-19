@@ -29,3 +29,15 @@
 @mixin uni-bar-indeterminate() {
   animation: uni-bar-slide 1s linear infinite;
 }
+
+@mixin uni-spinner-color($color) {
+  &.#{ $color } {
+    circle {
+      stroke: var(--#{ $color });
+
+      &.uni-progress-spinner--background {
+        opacity: 0.3;
+      }
+    }
+  }
+}

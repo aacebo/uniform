@@ -5,34 +5,15 @@
   display: inline-block;
 
   &.indeterminate {
-    circle {
+    .uni-progress-spinner--foreground {
       @include uni-spinner-indeterminate();
     }
   }
 
-  &.primary {
-    circle {
-      stroke: var(--primary);
-    }
-  }
-
-  &.success {
-    circle {
-      stroke: var(--success);
-    }
-  }
-
-  &.warning {
-    circle {
-      stroke: var(--warning);
-    }
-  }
-
-  &.danger {
-    circle {
-      stroke: var(--danger);
-    }
-  }
+  @include uni-spinner-color(primary);
+  @include uni-spinner-color(success);
+  @include uni-spinner-color(warning);
+  @include uni-spinner-color(danger);
 
   svg {
     circle {

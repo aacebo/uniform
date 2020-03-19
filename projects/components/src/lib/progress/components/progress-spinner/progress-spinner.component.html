@@ -3,6 +3,15 @@
   [style.height.px]="diameter"
 >
   <circle
+    class="uni-progress-spinner--background"
+    [style.stroke-width.px]="strokeWidth"
+    [style.r.px]="radius"
+    [style.cx.px]="diameter / 2"
+    [style.cy.px]="diameter / 2"
+  ></circle>
+
+  <circle
+    class="uni-progress-spinner--foreground"
     [style.stroke-width.px]="strokeWidth"
     [style.stroke-dashoffset]="strokeDashoffset"
     [style.stroke-dasharray]="strokeDasharray"

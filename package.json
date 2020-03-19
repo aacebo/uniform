@@ -16,6 +16,7 @@
     "ng": "ng",
     "postinstall": "ngcc",
 
+    "prebuild:gh-pages": "npm run build:components",
     "build:gh-pages": "ng build demo --prod --base-href https://aacebo.github.io/uniform/",
     "publish:gh-pages": "sudo ngh --dir dist/demo",
 
