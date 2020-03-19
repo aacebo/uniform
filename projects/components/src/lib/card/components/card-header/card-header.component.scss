@@ -1,5 +1,6 @@
 .uni-card-header {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 15px;
