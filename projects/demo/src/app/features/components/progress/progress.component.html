@@ -8,6 +8,7 @@
           [value]="value"
           [mode]="mode"
           [color]="color"
+          [clear]="clear"
         ></uni-progress-spinner>
 
         <uni-progress-bar
@@ -15,6 +16,7 @@
           [value]="value"
           [mode]="mode"
           [color]="color"
+          [clear]="clear"
         ></uni-progress-bar>
 
         <uni-form-field>
@@ -23,6 +25,10 @@
             <uni-option [value]="UniProgressMode.Determinate">Determinate</uni-option>
           </uni-select>
         </uni-form-field>
+
+        <uni-slide-toggle [(ngModel)]="clear">
+          {{ clear ? 'Solid' : 'Clear' }}
+        </uni-slide-toggle>
       </app-code-example>
     </ng-template>
   </uni-tab>

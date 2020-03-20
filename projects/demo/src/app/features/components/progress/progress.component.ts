@@ -19,4 +19,5 @@ export class ProgressComponent {
 
   mode = UniProgressMode.Indeterminate;
   value = 50;
+  clear = false;
 }

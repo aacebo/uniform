@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { uniColorMixin } from '../../../core/color/color.mixin';
 import { UniColor } from '../../../core/color/color.enum';
@@ -62,6 +62,14 @@ export class UniProgressSpinnerComponent extends _UniProgressSpinnerMixinBase im
     this._cdr.markForCheck();
   }
   private _diameter = 90;
+
+  @Input()
+  get clear() { return this._clear; }
+  set clear(v: boolean) {
+    this._clear = coerceBooleanProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _clear?: boolean;
 
   private readonly _indeterminate = {
     value: 25,

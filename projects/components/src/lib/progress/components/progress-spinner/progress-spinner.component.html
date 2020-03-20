@@ -3,6 +3,7 @@
   [style.height.px]="diameter"
 >
   <circle
+    *ngIf="!clear"
     class="uni-progress-spinner--background"
     [style.stroke-width.px]="strokeWidth"
     [style.r.px]="radius"
