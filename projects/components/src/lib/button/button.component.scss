@@ -117,6 +117,10 @@
 
     @include uni-icon-button(--white);
 
+    &:focus {
+      border-color: transparent;
+    }
+
     &.primary {
       @include uni-icon-button(--primary);
     }
