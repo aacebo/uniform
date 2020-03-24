@@ -1,5 +1,6 @@
 $uni-field-box-shadow: inset 0 0 0 1px;
 $uni-label-transform: translateY(-15px) scale(0.75);
+$uni-input-transform: translateY(5px);
 
 @mixin uni-form-label($color) {
   &.#{ $color } {
@@ -14,6 +15,13 @@ $uni-label-transform: translateY(-15px) scale(0.75);
         transform-origin: left;
         transform: $uni-label-transform;
         color: var(--#{ $color });
+      }
+
+      &.has-label {
+        .uni-input,
+        .uni-select {
+          transform: $uni-input-transform;
+        }
       }
     }
 

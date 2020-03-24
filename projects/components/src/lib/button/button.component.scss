@@ -33,6 +33,26 @@
     filter: brightness(80%);
   }
 
+  &:focus {
+    border-color: var(--grey-l15);
+
+    &.primary {
+      border-color: var(--primary-l15);
+    }
+
+    &.success {
+      border-color: var(--success-l15);
+    }
+
+    &.warning {
+      border-color: var(--warning-l15);
+    }
+
+    &.danger {
+      border-color: var(--danger-l15);
+    }
+  }
+
   &.uni-button {
     @include uni-colors;
 
@@ -117,6 +137,14 @@
   &.uni-link-button {
     background-color: transparent;
     box-shadow: none;
+
+    &:hover {
+      text-decoration: underline;
+
+      &:disabled {
+        text-decoration: none;
+      }
+    }
 
     &.primary {
       @include uni-link-button(--primary);

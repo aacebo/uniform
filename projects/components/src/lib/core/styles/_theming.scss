@@ -34,7 +34,7 @@ $uni-theme-colors: (
 
 @function uni-theme-lighten($theme) {
   $keys: map-keys($theme);
-  $values: (20);
+  $values: (15, 20, 25, 30, 50);
   $map: ();
 
   @each $key in $keys {
@@ -48,7 +48,7 @@ $uni-theme-colors: (
 
 @function uni-theme-darken($theme) {
   $keys: map-keys($theme);
-  $values: (20);
+  $values: (15, 20, 25, 30, 50);
   $map: ();
 
   @each $key in $keys {

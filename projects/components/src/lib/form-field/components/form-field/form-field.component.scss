@@ -35,6 +35,13 @@
       transform-origin: left;
       transform: $uni-label-transform;
     }
+
+    &.has-label {
+      .uni-input,
+      .uni-select {
+        transform: $uni-input-transform;
+      }
+    }
   }
 
   &.has-label {
