@@ -50,7 +50,7 @@
           </button>
 
           <uni-hint>max 50 characters</uni-hint>
-          <uni-error *ngIf="form.get('password').dirty && !form.value?.password">password is required!</uni-error>
+          <uni-error *ngIf="form.get('password').dirty && !form.value?.password">password is required and this is a large error!</uni-error>
           <uni-error *ngIf="form.get('password').dirty && !form.value?.password">another error</uni-error>
         </uni-form-field>
 

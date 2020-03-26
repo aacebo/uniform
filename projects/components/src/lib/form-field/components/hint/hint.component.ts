@@ -6,7 +6,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
   exportAs: 'uniHint',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./hint.component.scss'],
-  host: { class: 'uni-hint' },
+  host: { class: 'uni-hint uni-ellipsis' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

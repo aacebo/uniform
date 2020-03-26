@@ -79,4 +79,11 @@ $uni-theme-colors: (
     color: var(--white);
     background-color: var(--darker);
   }
+
+  .uni-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+  }
 }
