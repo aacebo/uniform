@@ -150,6 +150,11 @@
       }
     }
 
+    &:focus {
+      border-color: transparent;
+      text-decoration: underline;
+    }
+
     &.primary {
       @include uni-link-button(--primary);
     }
