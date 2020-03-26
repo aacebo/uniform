@@ -133,7 +133,11 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
             this._viewRef = this.view.createEmbeddedView(this.body.template);
           }
         } else if (this._state === UniSidenavState.Closed) {
-          this.view.detach(this.view.indexOf(this._viewRef));
+          const idx = this.view.indexOf(this._viewRef);
+
+          if (idx > -1) {
+            this.view.detach();
+          }
         }
       }
 

@@ -15,7 +15,7 @@ export class SidenavComponent {
   readonly UniSidenavPosition = UniSidenavPosition;
   readonly example = SIDENAV_EXAMPLE;
 
-  open = true;
+  open = false;
   mode = UniSidenavMode.Side;
   position = UniSidenavPosition.Start;
 
