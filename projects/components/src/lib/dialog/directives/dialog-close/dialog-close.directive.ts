@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 import { UniDialogRef } from '../../dialog-ref.class';
 
@@ -10,9 +10,11 @@ import { UniDialogRef } from '../../dialog-ref.class';
   },
 })
 export class UniDialogCloseDirective {
+  @Input('uniDialogClose') value?: any;
+
   constructor(private readonly _dialogRef: UniDialogRef) { }
 
   onClick() {
-    this._dialogRef.dismiss();
+    this._dialogRef.close(this.value);
   }
 }

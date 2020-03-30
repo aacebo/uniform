@@ -23,6 +23,8 @@ export class DialogComponent {
         title: 'Example Dialog',
         content: 'example dialog content...',
       },
+    }).subscribe(res => {
+      alert(res);
     });
   }
 }

@@ -2,9 +2,9 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-export class UniDialogRef {
+export class UniDialogRef<T = any> {
   get closed$() { return this._closed$.asObservable(); }
-  private readonly _closed$ = new Subject<void>();
+  private readonly _closed$ = new Subject<T | void>();
 
   constructor(
     private readonly _overlayRef: OverlayRef,
@@ -17,8 +17,15 @@ export class UniDialogRef {
     }
   }
 
+  close(result: T) {
+    this._closed$.next(result);
+    this._closed$.complete();
+    this._overlayRef.detach();
+  }
+
   dismiss() {
     this._closed$.next();
+    this._closed$.complete();
     this._overlayRef.detach();
   }
 }

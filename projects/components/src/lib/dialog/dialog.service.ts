@@ -62,8 +62,7 @@ export class UniDialogService {
     });
 
     this._dialogs.push(dialog);
-
-    return dialog;
+    return dialog.ref.closed$;
   }
 
   private _getInjector<T = any>(ref: UniDialogRef, content: T, options?: IUniDialogOptions) {
