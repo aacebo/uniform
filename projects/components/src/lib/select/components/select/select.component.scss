@@ -30,7 +30,7 @@
     .uni-select-icon {
       font-size: 12px;
       margin: auto 10px;
-      color: var(--grey);
+      color: var(--white-a20);
       user-select: none;
 
       &:before {
@@ -41,18 +41,11 @@
         height: 0.45em;
         left: 0;
         position: relative;
-        top: 0.15em;
-        transform: rotate(45deg);
+        top: 0;
+        transform: rotate(135deg);
         vertical-align: top;
         width: 0.45em;
         transition: transform $uni-animation-duration $uni-animation-timing-function;
-      }
-
-      &.bottom {
-        &:before {
-          top: 0;
-          transform: rotate(135deg);
-        }
       }
     }
   }

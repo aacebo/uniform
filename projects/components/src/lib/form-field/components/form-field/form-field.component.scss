@@ -19,6 +19,7 @@
 
   &:hover {
     box-shadow: $uni-field-box-shadow var(--white);
+    border-color: var(--white);
   }
 
   &.disabled {
@@ -27,6 +28,7 @@
 
     &:hover {
       box-shadow: none !important;
+      border-color: var(--white-a50) !important;
     }
   }
 
@@ -64,6 +66,7 @@
 
     &:hover {
       box-shadow: $uni-field-box-shadow var(--danger);
+      border-color: var(--danger);
     }
 
     .uni-input {

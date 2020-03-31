@@ -6,9 +6,11 @@ $uni-input-transform: translateY(5px);
   &.#{ $color } {
     &.focused {
       box-shadow: $uni-field-box-shadow var(--#{ $color });
+      border-color: var(--#{ $color });
 
       &.has-error {
         box-shadow: $uni-field-box-shadow var(--danger);
+        border-color: var(--danger);
       }
 
       .uni-label {

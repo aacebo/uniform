@@ -5,6 +5,11 @@ import { AppRoutingResolver } from '../../app-routing.resolver';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/components/button',
+    pathMatch: 'full',
+  },
+  {
     path: 'button',
     resolve: { title: AppRoutingResolver },
     loadChildren: () => import('./button/button.module').then(m => m.ButtonModule),

@@ -10,7 +10,7 @@ import { UniContextMenuDirective } from './context-menu.directive';
 @NgModule({
   declarations: [UniContextMenuComponent, UniContextMenuDirective],
   entryComponents: [UniContextMenuComponent],
-  exports: [UniContextMenuDirective, UniOptionModule],
+  exports: [UniContextMenuDirective, UniContextMenuComponent, UniOptionModule],
   imports: [CommonModule, OverlayModule],
 })
 export class UniContextMenuModule { }
