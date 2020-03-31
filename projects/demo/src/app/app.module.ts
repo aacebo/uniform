@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import {
   UniButtonModule,
   UniToolbarModule,
   UniIconModule,
   UniIconService,
+  UniScrollModule,
 } from '@uniform/components';
 
 import { AppComponent } from './app.component';
@@ -29,8 +30,10 @@ import { ToolbarModule } from './features/toolbar';
     UniButtonModule,
     UniToolbarModule,
     UniIconModule,
+    UniScrollModule,
   ],
   providers: [],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {
