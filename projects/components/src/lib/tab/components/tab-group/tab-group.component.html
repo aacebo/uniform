@@ -7,13 +7,4 @@
   </uni-tab-label>
 </div>
 
-<div class="uni-tab-track">
-  <div
-    *ngIf="labels"
-    class="uni-tab-bar"
-    [style.width.px]="activeLabel?.width"
-    [style.transform]="transform"
-  ></div>
-</div>
-
 <ng-content select="uni-tab"></ng-content>

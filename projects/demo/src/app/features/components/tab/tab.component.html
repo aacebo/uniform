@@ -4,18 +4,19 @@
       <app-code-example title="Tab"
                         [html]="example">
         <uni-tab-group [(active)]="active">
-          <uni-tab label="First">
+          <uni-tab
+            *ngFor="let tab of tabs"
+            [label]="tab"
+          >
             <ng-template uniTabBody>
-              {{ active }}
-            </ng-template>
-          </uni-tab>
-
-          <uni-tab label="Second">
-            <ng-template uniTabBody>
-              {{ active }}
+              {{ tab }}
             </ng-template>
           </uni-tab>
         </uni-tab-group>
+
+        <button uni-button (click)="add()">
+          Add Tab
+        </button>
       </app-code-example>
     </ng-template>
   </uni-tab>

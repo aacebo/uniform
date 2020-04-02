@@ -28,17 +28,22 @@ export class UniTabComponent {
   }
   private _disabled = false;
 
-  @ContentChild(UniTabLabelComponent, { static: true })
+  @ContentChild(UniTabLabelComponent)
   readonly uniLabel?: UniTabLabelComponent;
 
-  @ContentChild(UniTabBodyDirective, { static: false })
-  readonly uniBody?: UniTabBodyDirective;
+  @ContentChild(UniTabBodyDirective)
+  get uniBody() { return this._uniBody; }
+  set uniBody(v: UniTabBodyDirective) {
+    this._uniBody = v;
+    this._cdr.markForCheck();
+  }
+  private _uniBody?: UniTabBodyDirective;
 
   get active() { return this._active; }
   set active(v: boolean) {
     if (v !== this._active) {
       this._active = v;
-      this._cdr.markForCheck();
+      this._cdr.detectChanges();
     }
   }
   private _active = false;

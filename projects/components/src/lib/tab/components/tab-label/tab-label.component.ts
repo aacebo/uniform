@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef, ViewEncapsulation, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
@@ -32,12 +32,5 @@ export class UniTabLabelComponent {
   }
   private _disabled = false;
 
-  get width() {
-    return this._el.nativeElement.clientWidth;
-  }
-
-  constructor(
-    private readonly _cdr: ChangeDetectorRef,
-    private readonly _el: ElementRef<HTMLElement>,
-  ) { }
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 }

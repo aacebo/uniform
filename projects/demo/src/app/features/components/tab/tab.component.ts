@@ -12,5 +12,11 @@ import { TAB_EXAMPLE } from './tab-example.constant';
 export class TabComponent {
   readonly example = TAB_EXAMPLE;
 
+  tabs = [0];
   active = 0;
+
+  add() {
+    this.tabs.push(this.tabs.length);
+    this.active = this.tabs.length - 1;
+  }
 }

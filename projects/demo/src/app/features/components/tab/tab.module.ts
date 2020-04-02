@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { UniTabModule } from '@uniform/components';
+import { UniTabModule, UniButtonModule } from '@uniform/components';
 
 import { CodeExampleModule } from '../../code-example';
 import { DocViewerModule } from '../../doc-viewer';
@@ -21,6 +21,7 @@ import { TabComponent } from './tab.component';
     DocViewerModule,
 
     UniTabModule,
+    UniButtonModule,
   ],
 })
 export class TabModule { }

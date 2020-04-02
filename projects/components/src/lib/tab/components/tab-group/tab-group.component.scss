@@ -5,19 +5,6 @@
 
   .uni-tab-header {
     display: flex;
-  }
-
-  .uni-tab-track {
-    display: block;
-    position: relative;
-    height: 2px;
-    border-bottom: 1px solid var(--hairline-regular);
-
-    .uni-tab-bar {
-      position: absolute;
-      height: 2px;
-      background-color: var(--primary);
-      transition: all $uni-animation-duration $uni-animation-timing-function;
-    }
+    overflow-x: auto;
   }
 }
