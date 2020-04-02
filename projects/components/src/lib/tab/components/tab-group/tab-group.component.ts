@@ -41,7 +41,10 @@ export class UniTabGroupComponent {
   get tabs() { return this._tabs; }
   set tabs(v: QueryList<UniTabComponent>) {
     this._tabs = v;
-    this._setActive();
+
+    setTimeout(() => {
+      this._setActive();
+    });
   }
   private _tabs: QueryList<UniTabComponent>;
 

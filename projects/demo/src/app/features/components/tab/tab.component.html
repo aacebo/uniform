@@ -6,7 +6,7 @@
         <uni-tab-group [(active)]="active">
           <uni-tab
             *ngFor="let tab of tabs"
-            [label]="tab"
+            [label]="'test label ' + tab"
           >
             <ng-template uniTabBody>
               {{ tab }}

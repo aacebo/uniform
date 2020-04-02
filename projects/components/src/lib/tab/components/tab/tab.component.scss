@@ -1,4 +1,8 @@
 .uni-tab {
-  display: block;
+  display: none;
   background-color: var(--darker);
+
+  &.active {
+    display: block;
+  }
 }

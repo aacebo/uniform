@@ -1,14 +1,24 @@
 .uni-tab-label {
-  padding: 0.8em 0.8em;
+  display: block;
+  padding: 0.3em 0.5em;
   color: var(--white-d50);
   cursor: pointer;
   user-select: none;
+  border: 1px solid transparent;
+  min-width: 50px;
+  max-width: 300px;
+  text-align: center;
 
   &.active {
     color: var(--white);
+    background-color: var(--darker);
   }
 
   &.disabled {
     cursor: not-allowed;
+  }
+
+  &:not(:last-child) {
+    border-right-color: var(--darker);
   }
 }
