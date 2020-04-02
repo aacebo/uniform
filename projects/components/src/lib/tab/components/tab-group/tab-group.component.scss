@@ -3,7 +3,11 @@
 .uni-tab-group {
   display: block;
 
-  .uni-tab-header {
-    display: flex;
+  > uni-scroll {
+    height: auto;
+
+    .uni-tab-header {
+      display: flex;
+    }
   }
 }
