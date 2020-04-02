@@ -19,13 +19,7 @@
     right: 0;
     top: 0;
     height: 100%;
-    width: $uni-scrollbar-size;
     margin-right: $uni-scrollbar-margin;
-
-    &:hover,
-    &.uni-scrollbar--dragging {
-      width: $uni-scrollbar-size * $uni-scrollbar-size-scalar;
-    }
 
     .uni-scrollbar--thumb {
       width: 100%;
@@ -36,13 +30,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: $uni-scrollbar-size;
     margin-bottom: $uni-scrollbar-margin;
-
-    &:hover,
-    &.uni-scrollbar--dragging {
-      height: $uni-scrollbar-size * $uni-scrollbar-size-scalar;
-    }
 
     .uni-scrollbar--thumb {
       height: 100%;

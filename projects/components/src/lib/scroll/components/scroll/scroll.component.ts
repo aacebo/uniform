@@ -9,6 +9,7 @@ import {
   Input,
 } from '@angular/core';
 import { CdkScrollable } from '@angular/cdk/overlay';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { takeUntil } from 'rxjs/operators';
 
 import { uniSubscribableMixin } from '../../../core/mixins/subscribable.mixin';
@@ -33,12 +34,22 @@ const _UniScrollMixinBase = uniSubscribableMixin(UniScrollBase);
     '[class.uni-scroll--over]': 'mode === UniScrollMode.Over',
     '[class.uni-scroll--y]': 'hasY',
     '[class.uni-scroll--x]': 'hasX',
+    '[style.padding-right.px]': 'hasY && mode === UniScrollMode.Side ? size * 2 : undefined',
+    '[style.padding-bottom.px]': 'hasX && mode === UniScrollMode.Side ? size * 2 : undefined',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class UniScrollComponent extends _UniScrollMixinBase implements AfterViewInit {
   @Input() scrollStyle: ScrollBehavior = 'smooth';
+
+  @Input()
+  get size() { return this._size; }
+  set size(v: number) {
+    this._size = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _size = 5;
 
   @Input()
   get mode() { return this._mode; }

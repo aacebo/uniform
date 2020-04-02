@@ -21,11 +21,21 @@ import { UniDraggableDirection } from '../../../draggable/draggable-direction.en
   host: {
     class: 'uni-scrollbar',
     '[class.uni-scrollbar--dragging]': 'dragging',
+    '[style.width.px]': 'isY ? size : undefined',
+    '[style.height.px]': 'isY ? undefined : size',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class UniScrollbarComponent {
+  @Input()
+  get size() { return this._size; }
+  set size(v: number) {
+    this._size = coerceNumberProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _size = 5;
+
   @Input()
   get thumbSize() { return this._thumbSize; }
   set thumbSize(v: number) {
@@ -51,32 +61,32 @@ export class UniScrollbarComponent {
 
   dragging = false;
 
+  get isY() {
+    return this._name === 'uni-scrollbar-y';
+  }
+
   get thumbHeight() {
-    return this._isY ? this._thumbSize : undefined;
+    return this.isY ? this._thumbSize : undefined;
   }
 
   get thumbWidth() {
-    return this._isY ? undefined : this._thumbSize;
+    return this.isY ? undefined : this._thumbSize;
   }
 
   get thumbTop() {
-    return this._isY ? this._start : undefined;
+    return this.isY ? this._start : undefined;
   }
 
   get thumbLeft() {
-    return this._isY ? undefined : this._start;
+    return this.isY ? undefined : this._start;
   }
 
   get dragDirection() {
-    return this._isY ? UniDraggableDirection.Vertical : UniDraggableDirection.Horizontal;
+    return this.isY ? UniDraggableDirection.Vertical : UniDraggableDirection.Horizontal;
   }
 
   private get _name() {
     return this._el.nativeElement.nodeName.toLowerCase();
-  }
-
-  private get _isY() {
-    return this._name === 'uni-scrollbar-y';
   }
 
   constructor(
@@ -108,7 +118,7 @@ export class UniScrollbarComponent {
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      if (this._isY) {
+      if (this.isY) {
         this.scrollTo.emit(e.offsetY);
       } else {
         this.scrollTo.emit(e.offsetX);
