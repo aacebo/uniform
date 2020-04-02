@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { UniTabLabelComponent } from '../tab-label/tab-label.component';
 import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directive';
+import { UniTabLabelDirective } from '../../directives/tab-label/tab-label.directive';
 
 @Component({
   moduleId: module.id,
@@ -34,8 +34,13 @@ export class UniTabComponent {
   }
   private _disabled = false;
 
-  @ContentChild(UniTabLabelComponent)
-  readonly uniLabel?: UniTabLabelComponent;
+  @ContentChild(UniTabLabelDirective)
+  get uniLabel() { return this._uniLabel; }
+  set uniLabel(v: UniTabLabelDirective) {
+    this._uniLabel = v;
+    this._cdr.markForCheck();
+  }
+  private _uniLabel?: UniTabLabelDirective;
 
   @ContentChild(UniTabBodyDirective)
   get uniBody() { return this._uniBody; }

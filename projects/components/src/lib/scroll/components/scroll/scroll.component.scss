@@ -8,14 +8,14 @@
 
   &.uni-scroll--over {
     &:hover {
-      .uni-scrollbar {
+      > .uni-scrollbar {
         opacity: 1;
       }
     }
   }
 
   &.uni-scroll--side {
-    .uni-scrollbar {
+    > .uni-scrollbar {
       opacity: 1;
     }
 
@@ -28,7 +28,7 @@
     }
   }
 
-  .uni-scroll--content {
+  > .uni-scroll--content {
     height: 100%;
     width: 100%;
     overflow: scroll;
@@ -41,7 +41,7 @@
     }
   }
 
-  .uni-scrollbar {
+  > .uni-scrollbar {
     opacity: 0;
   }
 }

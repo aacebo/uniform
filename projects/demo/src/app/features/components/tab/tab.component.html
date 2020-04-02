@@ -4,12 +4,18 @@
       <app-code-example title="Tab"
                         [html]="example">
         <uni-tab-group [(active)]="active">
-          <uni-tab
-            *ngFor="let tab of tabs"
-            [label]="'test label ' + tab"
-          >
+          <uni-tab *ngFor="let tab of tabs">
+            <ng-template uniTabLabel>
+              <span>test label {{ tab }}</span>
+            </ng-template>
+
             <ng-template uniTabBody>
               {{ tab }}
+            </ng-template>
+          </uni-tab>
+          <uni-tab label="a normal label">
+            <ng-template uniTabBody>
+              some normal content
             </ng-template>
           </uni-tab>
         </uni-tab-group>

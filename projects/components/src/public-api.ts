@@ -100,6 +100,7 @@ export * from './lib/tab/components/tab/tab.component';
 export * from './lib/tab/components/tab-group/tab-group.component';
 export * from './lib/tab/components/tab-label/tab-label.component';
 export * from './lib/tab/directives/tab-body/tab-body.directive';
+export * from './lib/tab/directives/tab-label/tab-label.directive';
 
 export * from './lib/toolbar/toolbar.module';
 export * from './lib/toolbar/toolbar.component';
