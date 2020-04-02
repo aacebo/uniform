@@ -52,9 +52,11 @@ export class UniTabGroupComponent {
   }
 
   private _setActive() {
-    this.tabs.forEach((tab, i) => {
-      tab.active = i === this._active;
-    });
+    if (this.tabs) {
+      this.tabs.forEach((tab, i) => {
+        tab.active = i === this._active;
+      });
+    }
 
     this._cdr.markForCheck();
   }
