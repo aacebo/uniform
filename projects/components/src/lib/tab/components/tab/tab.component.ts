@@ -18,7 +18,13 @@ import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directiv
   encapsulation: ViewEncapsulation.None,
 })
 export class UniTabComponent {
-  @Input() label?: string;
+  @Input()
+  get label() { return this._label; }
+  set label(v: string) {
+    this._label = v;
+    this._cdr.markForCheck();
+  }
+  private _label?: string;
 
   @Input()
   get disabled() { return this._disabled; }
