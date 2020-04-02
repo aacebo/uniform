@@ -1,10 +1,12 @@
-<div class="uni-tab-header">
-  <uni-tab-label *ngFor="let tab of tabs.toArray(); index as i"
-                 [active]="active === i"
-                 [disabled]="tab.disabled"
-                 (click)="select(i)">
-    {{ tab.label }}
-  </uni-tab-label>
-</div>
+<uni-scroll>
+  <div class="uni-tab-header">
+    <uni-tab-label *ngFor="let tab of tabs.toArray(); index as i"
+                   [active]="active === i"
+                   [disabled]="tab.disabled"
+                   (click)="select(i)">
+      {{ tab.label }}
+    </uni-tab-label>
+  </div>
+</uni-scroll>
 
 <ng-content select="uni-tab"></ng-content>

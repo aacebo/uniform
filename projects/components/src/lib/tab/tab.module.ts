@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { UniScrollModule } from '../scroll/scroll.module';
+
 import { UniTabComponent } from './components/tab/tab.component';
 import { UniTabGroupComponent } from './components/tab-group/tab-group.component';
 import { UniTabLabelComponent } from './components/tab-label/tab-label.component';
@@ -16,6 +18,6 @@ const declarations = [
 @NgModule({
   declarations,
   exports: declarations,
-  imports: [CommonModule],
+  imports: [CommonModule, UniScrollModule],
 })
 export class UniTabModule { }
