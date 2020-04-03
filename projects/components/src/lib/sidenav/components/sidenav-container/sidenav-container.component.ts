@@ -31,7 +31,7 @@ const _UniSidenavContainerMixinBase = uniSubscribableMixin(UniSidenavContainerBa
 export class UniSidenavContainerComponent extends _UniSidenavContainerMixinBase implements AfterContentInit {
   @Output() backdropClicked = new EventEmitter<void>();
 
-  @ContentChild(UniSidenavComponent, { static: false })
+  @ContentChild(UniSidenavComponent)
   readonly sidenav: UniSidenavComponent;
 
   get showBackdrop() {

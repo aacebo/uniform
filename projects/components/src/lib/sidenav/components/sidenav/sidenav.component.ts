@@ -8,12 +8,13 @@ import {
   EventEmitter,
   ChangeDetectorRef,
   ViewEncapsulation,
-  ContentChild,
+  ContentChildren,
   AfterContentInit,
   ViewContainerRef,
   ViewChild,
   AfterViewInit,
   ViewRef,
+  QueryList,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -103,8 +104,8 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
   @Output() modeChange = new EventEmitter<UniSidenavMode>();
   @Output() positionChange = new EventEmitter<UniSidenavPosition>();
 
-  @ContentChild(UniSidenavBodyDirective)
-  readonly body: UniSidenavBodyDirective;
+  @ContentChildren(UniSidenavBodyDirective, { descendants: false })
+  readonly body: QueryList<UniSidenavBodyDirective>;
 
   @ViewChild('view', { read: ViewContainerRef })
   readonly view: ViewContainerRef;
@@ -130,7 +131,7 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
             this._viewRef.reattach();
             this.view.insert(this._viewRef);
           } else {
-            this._viewRef = this.view.createEmbeddedView(this.body.template);
+            this._viewRef = this.view.createEmbeddedView(this.body.first.template);
           }
         } else if (this._state === UniSidenavState.Closed) {
           const idx = this.view.indexOf(this._viewRef);
@@ -160,7 +161,7 @@ export class UniSidenavComponent implements AfterViewInit, AfterContentInit {
 
   ngAfterViewInit() {
     if (this.open && !this._viewRef) {
-      this._viewRef = this.view.createEmbeddedView(this.body.template);
+      this._viewRef = this.view.createEmbeddedView(this.body.first.template);
     }
   }
 
