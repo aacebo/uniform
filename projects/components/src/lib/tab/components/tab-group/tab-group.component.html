@@ -4,7 +4,7 @@
                    [active]="active === i"
                    [disabled]="tab.disabled"
                    (click)="select(i)">
-      <ng-container *ngTemplateOutlet="tab?.uniLabel ? tab.uniLabel.template : labelTpl; context: { $implicit: tab }"></ng-container>
+      <ng-container *ngTemplateOutlet="tab?.uniLabel?.first ? tab.uniLabel.first.template : labelTpl; context: { $implicit: tab }"></ng-container>
     </uni-tab-label>
   </div>
 </uni-scroll>

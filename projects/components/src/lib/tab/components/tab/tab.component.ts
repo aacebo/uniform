@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ContentChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef, ViewEncapsulation, ContentChildren, QueryList } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { UniTabBodyDirective } from '../../directives/tab-body/tab-body.directive';
@@ -34,21 +34,21 @@ export class UniTabComponent {
   }
   private _disabled = false;
 
-  @ContentChild(UniTabLabelDirective)
+  @ContentChildren(UniTabLabelDirective, { descendants: false })
   get uniLabel() { return this._uniLabel; }
-  set uniLabel(v: UniTabLabelDirective) {
+  set uniLabel(v) {
     this._uniLabel = v;
     this._cdr.markForCheck();
   }
-  private _uniLabel?: UniTabLabelDirective;
+  private _uniLabel?: QueryList<UniTabLabelDirective>;
 
-  @ContentChild(UniTabBodyDirective)
+  @ContentChildren(UniTabBodyDirective, { descendants: false })
   get uniBody() { return this._uniBody; }
-  set uniBody(v: UniTabBodyDirective) {
+  set uniBody(v) {
     this._uniBody = v;
     this._cdr.markForCheck();
   }
-  private _uniBody?: UniTabBodyDirective;
+  private _uniBody?: QueryList<UniTabBodyDirective>;
 
   get active() { return this._active; }
   set active(v: boolean) {
