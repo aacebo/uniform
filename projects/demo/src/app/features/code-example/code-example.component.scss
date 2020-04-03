@@ -1,8 +1,9 @@
 :host {
-  display: block;
+  display: flex;
 
   uni-card {
     background-color: var(--dark-a50);
+    width: 100%;
 
     uni-card-title {
       display: flex;

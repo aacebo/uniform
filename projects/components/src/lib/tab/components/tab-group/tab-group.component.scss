@@ -1,7 +1,8 @@
 @import '../../../core/styles/animations';
 
 .uni-tab-group {
-  display: block;
+  display: flex;
+  flex-direction: column;
 
   > uni-scroll {
     height: auto;

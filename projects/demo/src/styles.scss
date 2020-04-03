@@ -9,12 +9,6 @@ body, html {
   margin: 0;
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  // * {
-  //   &:focus {
-  //     outline: 1px solid orange !important;
-  //   }
-  // }
 }
 
 uni-card {
@@ -29,4 +23,8 @@ uni-form-field {
 .page {
   display: block;
   height: 100%;
+
+  > uni-tab-group {
+    height: 100%;
+  }
 }

@@ -12,7 +12,7 @@
 
   &.active {
     color: var(--white);
-    background-color: var(--darker);
+    background-color: var(--darkest);
   }
 
   &.disabled {
@@ -20,6 +20,6 @@
   }
 
   &:not(:last-child) {
-    border-right-color: var(--darker);
+    border-right-color: var(--darkest);
   }
 }
