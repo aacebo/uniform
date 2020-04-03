@@ -21,7 +21,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._tabIndex = coerceNumberProperty(v);
     this.el.nativeElement.tabIndex = this._tabIndex;
   }
-  private _tabIndex = 0;
+  protected _tabIndex = 0;
 
   @Input()
   get placeholder() { return this._placeholder; }
@@ -29,7 +29,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._placeholder = v;
     this.cdr.markForCheck();
   }
-  private _placeholder?: string;
+  protected _placeholder?: string;
 
   @Input()
   get required() { return this._required; }
@@ -37,7 +37,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._required = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _required = false;
+  protected _required = false;
 
   @Input()
   get disabled() { return this._disabled; }
@@ -51,7 +51,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
       }
     }
   }
-  private _disabled = false;
+  protected _disabled = false;
 
   @Input()
   get autofocus() { return this._autofocus; }
@@ -59,7 +59,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._autofocus = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _autofocus = false;
+  protected _autofocus = false;
 
   @Input()
   get autocomplete() { return this._autocomplete; }
@@ -67,7 +67,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
     this._autocomplete = coerceBooleanProperty(v);
     this.cdr.markForCheck();
   }
-  private _autocomplete = false;
+  protected _autocomplete = false;
 
   get value() { return this._value; }
   set value(v: T) {
@@ -81,7 +81,7 @@ export class UniFormFieldControlBase<T> implements ControlValueAccessor, OnInit 
       }
     }
   }
-  private _value?: T;
+  protected _value?: T;
 
   onChange: (v: any) => void = () => {};
   onTouch = () => {};
