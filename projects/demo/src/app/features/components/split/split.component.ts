@@ -7,4 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   host: { class: 'page' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SplitComponent { }
+export class SplitComponent {
+  toggle = false;
+}

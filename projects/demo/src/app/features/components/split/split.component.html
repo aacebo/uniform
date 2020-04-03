@@ -10,12 +10,14 @@
               <uni-split-area>
                 <uni-vertical-split>
                   <uni-split-area>area 3</uni-split-area>
-                  <uni-split-area>area 4</uni-split-area>
+                  <uni-split-area *ngIf="toggle">area 4</uni-split-area>
                 </uni-vertical-split>
               </uni-split-area>
             </uni-horizontal-split>
           </uni-split-area>
         </uni-vertical-split>
+
+        <button uni-button (click)="toggle = !toggle">Toggle</button>
       </app-code-example>
     </ng-template>
   </uni-tab>

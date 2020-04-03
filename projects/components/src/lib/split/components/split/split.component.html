@@ -2,6 +2,7 @@
 
 <div
   class="uni-split-handle"
+  *ngIf="areas?.length === 2"
   [class.uni-split-handle--vertical]="!vertical"
   [class.uni-split-handle--horizontal]="vertical"
   [uniDraggable]="vertical ? 'horizontal' : 'vertical'"

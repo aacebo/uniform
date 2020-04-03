@@ -37,20 +37,26 @@ export class UniSplitComponent extends _UniSplitMixinBase {
   }
   private _disabled?: boolean;
 
-  @ContentChildren(UniSplitAreaComponent)
+  @ContentChildren(UniSplitAreaComponent, { descendants: false })
   get areas() { return this._areas; }
   set areas(v: QueryList<UniSplitAreaComponent>) {
-    if (v && v.length === 2) {
+    if (v && v.length <= 2) {
       this._areas = v;
 
-      if (this._areas.first.index === undefined) {
+      if (this._areas.length === 1) {
+        this._areas.first.flex = '1 1 auto';
+      }
+
+      if (this._areas.first && this._areas.first.index === undefined) {
         this._areas.first.index = 0;
       }
 
-      if (this._areas.last.index === undefined) {
+      if (this._areas.last && this._areas.last.index === undefined) {
         this._areas.last.index = 2;
       }
     }
+
+    this._cdr.markForCheck();
   }
   private _areas: QueryList<UniSplitAreaComponent>;
 
