@@ -1,6 +1,7 @@
 .uni-tab {
   flex: 1;
   display: none;
+  min-height: 0;
   background-color: var(--darkest);
 
   &.active {
