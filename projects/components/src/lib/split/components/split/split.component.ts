@@ -45,6 +45,9 @@ export class UniSplitComponent extends _UniSplitMixinBase {
 
       if (this._areas.length === 1) {
         this._areas.first.flex = '1 1 auto';
+      } else {
+        this._areas.first.flex = '50%';
+        this._areas.last.flex = '50%';
       }
 
       if (this._areas.first && this._areas.first.index === undefined) {

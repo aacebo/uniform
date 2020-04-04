@@ -34,7 +34,7 @@ export class UniSplitAreaComponent {
       this.flexChange.emit(this._flex);
     }
   }
-  private _flex = '1 1 auto';
+  private _flex = '50%';
 
   @Input()
   get index() { return this._index; }
