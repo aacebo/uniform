@@ -9,7 +9,7 @@ import * as faker from 'faker';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JsonTreeComponent {
-  readonly json = {
+  object = {
     test: faker.random.word(),
     array: [
       faker.random.number(),
@@ -20,4 +20,16 @@ export class JsonTreeComponent {
       anotherTest: faker.random.boolean(),
     },
   };
+
+  get json() { return this._json; }
+  set json(v) {
+    this._json = v;
+
+    try {
+      this.object = JSON.parse(v);
+    } catch (_) {
+      this.object = undefined;
+    }
+  }
+  private _json = JSON.stringify(this.object);
 }

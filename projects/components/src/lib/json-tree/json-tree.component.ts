@@ -19,7 +19,12 @@ export class UniJsonTreeComponent implements OnInit {
   get json() { return this._json; }
   set json(v: any) {
     this._json = v;
-    this.render();
+
+    if (v !== undefined) {
+      this.render();
+    } else {
+      this.nodes = [];
+    }
   }
   private _json: any;
 

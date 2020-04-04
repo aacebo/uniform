@@ -2,7 +2,12 @@
   <uni-tab label="Examples">
     <ng-template uniTabBody>
       <app-code-example title="Json Tree">
-        <uni-json-tree [json]="json"></uni-json-tree>
+        <uni-json-tree [json]="object"></uni-json-tree>
+
+        <uni-form-field>
+          <uni-label>JSON</uni-label>
+          <textarea uniInput autoResize [(ngModel)]="json"></textarea>
+        </uni-form-field>
       </app-code-example>
     </ng-template>
   </uni-tab>
