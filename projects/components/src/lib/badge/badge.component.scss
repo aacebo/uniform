@@ -19,6 +19,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  z-index: 4;
   animation: $uni-animation-duration $uni-animation-timing-function uniPopIn;
 
   @include uni-colors;
