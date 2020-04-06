@@ -54,7 +54,7 @@ export class UniSplitAreaComponent {
     this._grow = v;
     this._cdr.markForCheck();
   }
-  private _grow?: number;
+  private _grow = 1;
 
   get dirty() { return this._dirty; }
   private _dirty = false;

@@ -28,6 +28,7 @@
       <div
         *ngIf="!node.expanded || !node.expandable"
         class="uni-json-tree--node-value uni-ellipsis"
+        [title]="node.description"
         (click)="propertyValueClicked.emit(node)"
       >{{ node.description }}</div>
 

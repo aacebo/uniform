@@ -51,7 +51,7 @@ export class UniSplitComponent extends _UniSplitMixinBase {
         }
 
         if (!this._one.flex) {
-          this._one.flex = '50%';
+          this._one.flex = '1 1 50%';
         }
 
         if (this._one.index === undefined) {
@@ -61,7 +61,7 @@ export class UniSplitComponent extends _UniSplitMixinBase {
 
       if (this._two) {
         if (!this._two.flex) {
-          this._two.flex = '50%';
+          this._two.flex = '1 1 50%';
         }
 
         if (this._two.index === undefined) {
@@ -108,7 +108,7 @@ export class UniSplitComponent extends _UniSplitMixinBase {
         pct = pxToPct(this._areas.first.clientHeight + e, this.el.nativeElement.clientHeight);
       }
 
-      this._areas.first.setFlex(`0 0 ${ pct <= 100 ? pct : 100 }%`);
+      this._one.setFlex(`0 0 ${ pct <= 100 ? pct : 100 }%`);
     }
   }
 }
