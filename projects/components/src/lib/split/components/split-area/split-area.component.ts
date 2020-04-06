@@ -20,6 +20,7 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
     class: 'uni-split-area',
     '[style.order]': 'index',
     '[style.flex]': 'flex',
+    '[style.flex-grow]': 'grow',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -34,7 +35,7 @@ export class UniSplitAreaComponent {
       this.flexChange.emit(this._flex);
     }
   }
-  private _flex = '50%';
+  private _flex?: string;
 
   @Input()
   get index() { return this._index; }
@@ -48,6 +49,16 @@ export class UniSplitAreaComponent {
 
   @Output() flexChange = new EventEmitter<string>();
 
+  get grow() { return this._grow; }
+  set grow(v) {
+    this._grow = v;
+    this._cdr.markForCheck();
+  }
+  private _grow?: number;
+
+  get dirty() { return this._dirty; }
+  private _dirty = false;
+
   get clientWidth() {
     return this._el.nativeElement.clientWidth;
   }
@@ -60,4 +71,11 @@ export class UniSplitAreaComponent {
     private readonly _cdr: ChangeDetectorRef,
     private readonly _el: ElementRef<HTMLElement>,
   ) { }
+
+  setFlex(flex: string) {
+    this._flex = flex;
+    this._dirty = true;
+    this._cdr.markForCheck();
+    this.flexChange.emit(flex);
+  }
 }
