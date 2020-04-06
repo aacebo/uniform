@@ -78,8 +78,8 @@
         }
 
         .uni-json-tree--node-value {
-          flex: 1;
           overflow-x: hidden;
+          cursor: default;
           color: #999;
 
           &:hover {
