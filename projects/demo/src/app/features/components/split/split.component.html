@@ -5,10 +5,10 @@
         <uni-vertical-split class="root">
           <uni-split-area>area 1</uni-split-area>
           <uni-split-area>
-            <uni-horizontal-split>
-              <uni-split-area flex="25%">area 2</uni-split-area>
+            <uni-horizontal-split flex="0 0 75%">
+              <uni-split-area>area 2</uni-split-area>
               <uni-split-area>
-                <uni-vertical-split>
+                <uni-vertical-split flex="0 0 25%">
                   <uni-split-area>area 3</uni-split-area>
                   <uni-split-area *ngIf="toggle">area 4</uni-split-area>
                 </uni-vertical-split>

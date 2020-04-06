@@ -7,6 +7,8 @@ import {
   QueryList,
   Input,
   ChangeDetectorRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -30,12 +32,30 @@ const _UniSplitMixinBase = uniSubscribableMixin(UniSplitBase);
 })
 export class UniSplitComponent extends _UniSplitMixinBase {
   @Input()
+  get flex() { return this._flex; }
+  set flex(v: string) {
+    if (v !== this._flex) {
+      this._flex = v;
+
+      if (this._areas) {
+        this._one.flex = this._flex;
+      }
+
+      this._cdr.markForCheck();
+      this.flexChange.emit(this._flex);
+    }
+  }
+  private _flex?: string;
+
+  @Input()
   get disabled() { return this._disabled; }
   set disabled(v: boolean) {
     this._disabled = coerceBooleanProperty(v);
     this._cdr.markForCheck();
   }
   private _disabled?: boolean;
+
+  @Output() flexChange = new EventEmitter<string>();
 
   @ContentChildren(UniSplitAreaComponent, { descendants: false })
   get areas() { return this._areas; }
@@ -44,29 +64,18 @@ export class UniSplitComponent extends _UniSplitMixinBase {
       this._areas = v;
 
       if (this._one) {
+        this._one.index = 0;
+
         if (this._areas.length === 1) {
-          this._one.grow = 1;
+          this._one.flex = '1 1 auto';
         } else {
-          this._one.grow = undefined;
-        }
-
-        if (!this._one.flex) {
-          this._one.flex = '1 1 50%';
-        }
-
-        if (this._one.index === undefined) {
-          this._one.index = 0;
+          this._one.flex = this.flex ? this.flex : '1 1 50%';
         }
       }
 
       if (this._two) {
-        if (!this._two.flex) {
-          this._two.flex = '1 1 50%';
-        }
-
-        if (this._two.index === undefined) {
-          this._two.index = 2;
-        }
+        this._two.index = 2;
+        this._two.flex = '1 1 50%';
       }
     }
 
@@ -108,7 +117,7 @@ export class UniSplitComponent extends _UniSplitMixinBase {
         pct = pxToPct(this._areas.first.clientHeight + e, this.el.nativeElement.clientHeight);
       }
 
-      this._one.setFlex(`0 0 ${ pct <= 100 ? pct : 100 }%`);
+      this.flex = `0 0 ${ pct <= 100 ? pct : 100 }%`;
     }
   }
 }
