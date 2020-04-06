@@ -10,7 +10,7 @@ import * as faker from 'faker';
 })
 export class JsonTreeComponent {
   object = {
-    test: faker.random.word(),
+    test: faker.random.words(50),
     array: [
       faker.random.number(),
       faker.random.number(),

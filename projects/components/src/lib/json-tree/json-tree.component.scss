@@ -15,6 +15,7 @@
     position: relative;
 
     .uni-json-tree--nodes {
+      max-width: 100%;
       width: fit-content;
 
       .uni-json-tree--node {

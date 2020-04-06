@@ -16,9 +16,7 @@
           class="uni-json-tree--node-toggler"
         ></div>
 
-        <div
-          class="uni-json-tree--node-key"
-        >
+        <div class="uni-json-tree--node-key">
           {{ node.key }}
         </div>
 
@@ -29,7 +27,7 @@
 
       <div
         *ngIf="!node.expanded || !node.expandable"
-        class="uni-json-tree--node-value"
+        class="uni-json-tree--node-value uni-ellipsis"
         (click)="propertyValueClicked.emit(node)"
       >{{ node.description }}</div>
 
