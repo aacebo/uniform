@@ -22,7 +22,12 @@ export class UniCodeComponent {
   get code() { return this._code; }
   set code(v: string) {
     this._code = v;
-    this.html = this._language ? hljs.highlight(this._language, v).value : hljs.highlightAuto(v).value;
+
+    if (v) {
+      this.html = this._language ? hljs.highlight(this._language, v).value : hljs.highlightAuto(v).value;
+    } else {
+      this.html = undefined;
+    }
   }
   private _code: string;
 
