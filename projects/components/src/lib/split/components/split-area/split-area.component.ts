@@ -40,9 +40,6 @@ export class UniSplitAreaComponent {
   }
   private _index?: number;
 
-  get dirty() { return this._dirty; }
-  private _dirty = false;
-
   get clientWidth() {
     return this._el.nativeElement.clientWidth;
   }

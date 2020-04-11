@@ -61,7 +61,7 @@ export class UniMarkedComponent {
   }
   private _html?: string;
 
-  private _options: marked.MarkedOptions = {
+  private readonly _options: marked.MarkedOptions = {
     silent: true,
     smartLists: true,
     gfm: true,

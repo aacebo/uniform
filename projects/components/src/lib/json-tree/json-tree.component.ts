@@ -26,7 +26,7 @@ export class UniJsonTreeComponent implements OnInit {
       this.nodes = [];
     }
   }
-  private _json: any;
+  private _json?: any;
 
   @Input()
   get expanded() { return this._expanded; }
@@ -38,7 +38,7 @@ export class UniJsonTreeComponent implements OnInit {
   @Output() propertyValueClick = new EventEmitter<IUniJsonTreeNode>();
 
   nodes: IUniJsonTreeNode[] = [];
-  state: { [key: string]: boolean | undefined } = { };
+  readonly state: { [key: string]: boolean | undefined } = { };
 
   ngOnInit() {
     if (this._json !== undefined && !this.nodes.length) {
