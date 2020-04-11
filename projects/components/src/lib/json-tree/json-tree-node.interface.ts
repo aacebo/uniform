@@ -5,6 +5,5 @@ export interface IUniJsonTreeNode {
   readonly value?: any;
   type?: UniJsonTreeNodeType;
   description: string;
-  expanded?: boolean;
   expandable?: boolean;
 }

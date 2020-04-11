@@ -18,6 +18,11 @@ export class JsonTreeComponent {
     ],
     object: {
       anotherTest: faker.random.boolean(),
+      test: {
+        anotherTest: {
+          test: faker.random.number(),
+        },
+      },
     },
   };
 
