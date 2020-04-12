@@ -1,5 +1,13 @@
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+  ChangeDetectorRef,
+} from '@angular/core';
 
 import { IUniJsonTreeNode } from './json-tree-node.interface';
 import { uniParseJsonTreeNodes } from './parse-json-tree-nodes.util';
@@ -19,26 +27,22 @@ export class UniJsonTreeComponent implements OnInit {
   get json() { return this._json; }
   set json(v: any) {
     this._json = v;
-
-    if (v !== undefined) {
-      this.nodes = uniParseJsonTreeNodes(v);
-    } else {
-      this.nodes = [];
-    }
+    this.nodes = v !== undefined ? uniParseJsonTreeNodes(v) : [];
+    this._cdr.markForCheck();
   }
   private _json?: any;
 
-  @Input()
-  get expanded() { return this._expanded; }
-  set expanded(v: boolean) {
-    this._expanded = coerceBooleanProperty(v);
-  }
-  private _expanded?: boolean;
-
   @Output() propertyValueClick = new EventEmitter<IUniJsonTreeNode>();
 
-  nodes: IUniJsonTreeNode[] = [];
   readonly state: { [key: string]: boolean | undefined } = { };
+
+  get nodes() { return this._nodes; }
+  set nodes(v: IUniJsonTreeNode[]) {
+    this._nodes = v;
+  }
+  private _nodes: IUniJsonTreeNode[] = [];
+
+  constructor(private readonly _cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     if (this._json !== undefined && !this.nodes.length) {
