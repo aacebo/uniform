@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import * as faker from 'faker';
 
+import { IUniJsonTreeNode } from '@uniform/components';
+
 @Component({
   selector: 'app-json-tree',
   templateUrl: './json-tree.component.html',
@@ -37,4 +39,8 @@ export class JsonTreeComponent {
     }
   }
   private _json = JSON.stringify(this.object);
+
+  onPropertyClick(node: IUniJsonTreeNode) {
+    alert(node.description);
+  }
 }
