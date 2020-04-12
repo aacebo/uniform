@@ -8,6 +8,7 @@ import {
   ViewEncapsulation,
   ChangeDetectorRef,
 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { IUniJsonTreeNode } from './json-tree-node.interface';
 import { uniParseJsonTreeNodes } from './parse-json-tree-nodes.util';
@@ -28,16 +29,23 @@ export class UniJsonTreeComponent implements OnInit {
   get json() { return this._json; }
   set json(v: any) {
     this._json = v;
-    this.nodes = v !== undefined ? uniParseJsonTreeNodes(v) : [];
+    this._nodes = v !== undefined ? uniParseJsonTreeNodes(v) : [];
     this._cdr.markForCheck();
   }
   private _json?: any;
 
   @Input()
+  get expanded() { return this._expanded; }
+  set expanded(v: boolean) {
+    this._expanded = coerceBooleanProperty(v);
+    this._cdr.markForCheck();
+  }
+  private _expanded?: boolean;
+
+  @Input()
   get state() { return this._state; }
   set state(v) {
     this._state = v;
-    this.nodes = this._nodes;
     this._cdr.markForCheck();
   }
   private _state: { [key: string]: IJsonTreeNodeExpanded } = { };
@@ -45,26 +53,16 @@ export class UniJsonTreeComponent implements OnInit {
   @Output() propertyValueClick = new EventEmitter<IUniJsonTreeNode>();
 
   get nodes() { return this._nodes; }
-  set nodes(v: IUniJsonTreeNode[]) {
-    for (const node of v) {
-      if (!this.state[node.key]) {
-        this.state[node.key] = {
-          expanded: false,
-          childState: { },
-        };
-      }
-    }
-
-    this._nodes = v;
-  }
   private _nodes: IUniJsonTreeNode[] = [];
 
   constructor(private readonly _cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     if (this._json !== undefined && !this.nodes.length) {
-      this.nodes = uniParseJsonTreeNodes(this._json);
+      this._nodes = uniParseJsonTreeNodes(this._json);
     }
+
+    this._generateState();
   }
 
   toggle(e: Event, node: IUniJsonTreeNode) {
@@ -72,6 +70,17 @@ export class UniJsonTreeComponent implements OnInit {
       e.stopImmediatePropagation();
       e.preventDefault();
       this.state[node.key].expanded = !this.state[node.key].expanded;
+    }
+  }
+
+  private _generateState() {
+    for (const node of this._nodes) {
+      if (!this.state[node.key]) {
+        this.state[node.key] = {
+          expanded: this._expanded,
+          state: { },
+        };
+      }
     }
   }
 }
