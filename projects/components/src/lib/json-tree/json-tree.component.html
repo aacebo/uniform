@@ -5,7 +5,7 @@
       class="uni-json-tree--node"
       [ngClass]="'uni-json-tree--node-type-' + node.type"
       [class.expandable]="node.expandable"
-      [class.expanded]="state[node.key]"
+      [class.expanded]="state[node.key]?.expanded"
     >
       <div
         class="uni-json-tree--node-key-container"
@@ -26,7 +26,7 @@
       </div>
 
       <div
-        *ngIf="!state[node.key] || !node.expandable"
+        *ngIf="!state[node.key]?.expanded || !node.expandable"
         class="uni-json-tree--node-value uni-ellipsis"
         [title]="node.description"
         (click)="propertyValueClick.emit(node)"
@@ -35,11 +35,12 @@
       </div>
 
       <div
-        *ngIf="state[node.key] && node.expandable"
+        *ngIf="state[node.key]?.expanded && node.expandable"
         class="uni-json-tree--node-children"
       >
         <uni-json-tree
           [json]="node.value"
+          [state]="state[node.key].childState"
           (propertyValueClicked)="propertyValueClick.emit($event)"
         ></uni-json-tree>
       </div>

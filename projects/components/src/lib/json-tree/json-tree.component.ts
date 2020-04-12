@@ -11,6 +11,7 @@ import {
 
 import { IUniJsonTreeNode } from './json-tree-node.interface';
 import { uniParseJsonTreeNodes } from './parse-json-tree-nodes.util';
+import { IJsonTreeNodeExpanded } from './json-tree-node-expanded.interface';
 
 @Component({
   moduleId: module.id,
@@ -32,12 +33,28 @@ export class UniJsonTreeComponent implements OnInit {
   }
   private _json?: any;
 
-  @Output() propertyValueClick = new EventEmitter<IUniJsonTreeNode>();
+  @Input()
+  get state() { return this._state; }
+  set state(v) {
+    this._state = v;
+    this.nodes = this._nodes;
+    this._cdr.markForCheck();
+  }
+  private _state: { [key: string]: IJsonTreeNodeExpanded } = { };
 
-  readonly state: { [key: string]: boolean | undefined } = { };
+  @Output() propertyValueClick = new EventEmitter<IUniJsonTreeNode>();
 
   get nodes() { return this._nodes; }
   set nodes(v: IUniJsonTreeNode[]) {
+    for (const node of v) {
+      if (!this.state[node.key]) {
+        this.state[node.key] = {
+          expanded: false,
+          childState: { },
+        };
+      }
+    }
+
     this._nodes = v;
   }
   private _nodes: IUniJsonTreeNode[] = [];
@@ -54,7 +71,7 @@ export class UniJsonTreeComponent implements OnInit {
     if (node.expandable) {
       e.stopImmediatePropagation();
       e.preventDefault();
-      this.state[node.key] = !this.state[node.key];
+      this.state[node.key].expanded = !this.state[node.key].expanded;
     }
   }
 }
