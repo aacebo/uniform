@@ -42,7 +42,7 @@
           [json]="node.value"
           [state]="state[node.key].state"
           [expanded]="expanded"
-          (propertyValueClicked)="propertyValueClick.emit($event)"
+          (propertyValueClick)="propertyValueClick.emit($event)"
         ></uni-json-tree>
       </div>
     </div>
