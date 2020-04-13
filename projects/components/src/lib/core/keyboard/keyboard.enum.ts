@@ -1,4 +1,4 @@
-export enum Keyboard {
+export enum UniKeyboard {
   Command = '\u2318',
   Shift = '\u21E7',
   Left = '\u2190',
