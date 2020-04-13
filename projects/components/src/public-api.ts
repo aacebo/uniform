@@ -7,6 +7,8 @@ export * from './lib/core/color/color.enum';
 export * from './lib/core/color/color.util';
 export * from './lib/core/color/color.mixin';
 
+export * from './lib/core/keyboard/keyboard.enum';
+
 export * from './lib/core/size/size.enum';
 export * from './lib/core/size/size.mixin';
 
