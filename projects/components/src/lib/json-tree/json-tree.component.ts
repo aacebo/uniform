@@ -30,6 +30,7 @@ export class UniJsonTreeComponent implements OnInit {
   set json(v: any) {
     this._json = v;
     this._nodes = v !== undefined ? uniParseJsonTreeNodes(v) : [];
+    this._generateState();
     this._cdr.markForCheck();
   }
   private _json?: any;
