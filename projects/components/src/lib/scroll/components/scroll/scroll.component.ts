@@ -34,8 +34,8 @@ const _UniScrollMixinBase = uniSubscribableMixin(UniScrollBase);
     '[class.uni-scroll--over]': 'mode === UniScrollMode.Over',
     '[class.uni-scroll--y]': 'hasY',
     '[class.uni-scroll--x]': 'hasX',
-    '[style.padding-right.px]': 'hasY && mode === UniScrollMode.Side ? size * 2 : undefined',
-    '[style.padding-bottom.px]': 'hasX && mode === UniScrollMode.Side ? size * 2 : undefined',
+    '[style.padding-right.px]': 'hasY && mode === UniScrollMode.Side ? size : undefined',
+    '[style.padding-bottom.px]': 'hasX && mode === UniScrollMode.Side ? size : undefined',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -49,7 +49,7 @@ export class UniScrollComponent extends _UniScrollMixinBase implements AfterView
     this._size = coerceNumberProperty(v);
     this._cdr.markForCheck();
   }
-  private _size = 5;
+  private _size = 14;
 
   @Input()
   get mode() { return this._mode; }

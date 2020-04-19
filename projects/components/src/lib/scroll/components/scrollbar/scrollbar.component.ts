@@ -34,7 +34,7 @@ export class UniScrollbarComponent {
     this._size = coerceNumberProperty(v);
     this._cdr.markForCheck();
   }
-  private _size = 5;
+  private _size = 14;
 
   @Input()
   get thumbSize() { return this._thumbSize; }

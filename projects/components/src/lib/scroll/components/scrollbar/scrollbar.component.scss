@@ -4,7 +4,7 @@
 .uni-scrollbar {
   display: block;
   position: absolute;
-  transition: all $uni-animation-duration $uni-animation-timing-function;
+  transition: all $uni-scrollbar-transition-speed $uni-scrollbar-transition-function;
 
   &:hover,
   &.uni-scrollbar--dragging {
@@ -47,13 +47,13 @@
     position: relative;
     height: 100%;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.7;
     border-radius: $uni-scrollbar-border-radius;
-    transition: all $uni-animation-duration $uni-animation-timing-function;
+    transition: all $uni-scrollbar-transition-speed $uni-scrollbar-transition-function;
 
     .uni-scrollbar--thumb {
       position: absolute;
-      background-color: var(--white-d20);
+      background-color: $uni-scrollbar-background-color;
       border-radius: $uni-scrollbar-border-radius;
     }
   }
