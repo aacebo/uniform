@@ -59,7 +59,12 @@ export class UniScrollbarComponent {
   @Output() drag = new EventEmitter<number>();
   @Output() scrollTo = new EventEmitter<number>();
 
-  dragging = false;
+  get dragging() { return this._dragging; }
+  set dragging(v: boolean) {
+    this._dragging = v;
+    this._cdr.markForCheck();
+  }
+  private _dragging = false;
 
   get isY() {
     return this._name === 'uni-scrollbar-y';
