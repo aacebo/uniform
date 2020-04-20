@@ -13,7 +13,7 @@ import { ToolbarService } from './toolbar.service';
 export class ToolbarComponent {
   @Output() toggle = new EventEmitter<void>();
 
-  @ViewChild('uniIcon', { read: ElementRef, static: false })
+  @ViewChild('uniIcon', { read: ElementRef })
   readonly icon: ElementRef<UniIconComponent>;
 
   constructor(
