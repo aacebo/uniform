@@ -44,7 +44,7 @@
     "@angular/router": "~9.1.2",
     "@mdi/font": "^4.9.95",
     "core-js": "^2.5.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "highlight.js": "^9.18.1",
     "marked": "^0.8.0",
